@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .form-container { max-width: 500px; margin: 50px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-top: 5px solid var(--navy); }
+    .form-title { color: var(--navy); margin-bottom: 25px; text-align: center; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--navy); }
+    input[type="text"], input[type="number"], select { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+    .btn-save { background-color: var(--navy); color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1rem; }
+    .btn-save:hover { opacity: 0.9; transform: translateY(-2px); }
+    .back-link { display: block; text-align: center; margin-top: 20px; color: #7f8c8d; text-decoration: none; }
+</style>
+
+<div class="form-container">
+    <h2 class="form-title">✏️ Upravit hráče: {{ hrac.jmeno }}</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+            <label>{{ field.label }}</label>
+            {{ field }}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn-save">Uložit změny</button>
+    </form>
+    
+    <a href="{% url 'dvoukolova_tabulka' %}" class="back-link">← Zpět</a>
+</div>
+{% endblock %}

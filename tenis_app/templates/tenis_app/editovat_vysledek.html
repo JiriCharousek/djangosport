@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .form-container { max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-top: 5px solid var(--clay); }
+    .form-title { color: var(--navy); text-align: center; margin-bottom: 25px; }
+    .grid-form { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: var(--navy); }
+    input, select { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; }
+    .btn-submit { background: var(--clay); color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 20px; }
+    .btn-danger { background: #e74c3c; color: white; text-decoration: none; display: block; text-align: center; padding: 10px; border-radius: 8px; margin-top: 10px; font-size: 0.9rem; }
+</style>
+
+<div class="form-container">
+    <h2 class="form-title">✏️ Oprava výsledku</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="grid-form">
+            {% for field in form %}
+                <div class="form-group {% if field.name == 'odehrano' %}full-width{% endif %}">
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn-submit">Uložit opravu</button>
+    </form>
+    <a href="{% url 'vsechny_zapasy' %}" class="btn btn-secondary">Zrušit</a> class="back-link" style="display:block; text-align:center; margin-top:15px; color:#7f8c8d; text-decoration:none;">Zpět bez změn</a>
+</div>
+{% endblock %}

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SportAdmin{% endblock %}</title>
+    <style>
+        :root {
+            --navy: #2c3e50;
+            --clay: #e67e22;
+            --clay-dark: #d35400;
+            --border: #dcdde1;
+            --win: #27ae60;
+            --bg: #f5f6fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: #333;
+        }
+
+        /* OPRAVENÁ NAVIGAČNÍ LIŠTA */
+        .top-navbar {
+            background-color: var(--navy);
+            color: white;
+            padding: 0 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+			max-width: 1200px;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between; /* Roztáhne prvky: vlevo, střed, vpravo */
+			align-items: center;
+			height: 65px;
+		}
+
+        .nav-brand {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+			display: flex;
+			gap: 10px;
+			align-items: center;
+			margin-left: auto; /* Tlačí celé menu i s logem doprava */
+		}
+        
+		.nav-brand-right {
+			margin-left: 20px; /* Mezera mezi posledním tlačítkem a logem */
+		}
+		
+		
+        .nav-item {
+            color: #bdc3c7;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-item:hover {
+            color: white;
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Zvýraznění aktivní ligy */
+        .nav-item.active {
+            color: white;
+            background: rgba(255,255,255,0.2);
+            border-bottom: 2px solid var(--clay);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .highlight {
+            color: var(--clay) !important;
+            font-weight: bold;
+        }
+
+        .btn-add-player {
+            background-color: var(--clay);
+            color: white !important;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-add-player:hover {
+            background-color: var(--clay-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Obsah pod lištou */
+        .main-content {
+            padding: 20px;
+        }
+
+        /* Styl pro tabulky (ponechán tvůj původní) */
+        .table-card {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 1200px;
+        }
+        /* ... zbytek tvého CSS pro tenis-table ponechán beze změny ... */
+		/* KONTEJNER PRO MATICI */
+		.matrix-container {
+			width: 100%;
+			overflow-x: auto; /* Důležité pro mobily */
+			margin: 20px 0;
+		}
+
+		.tenis-table {
+			width: 100%;
+			border-collapse: collapse;
+			table-layout: fixed; /* Zamkne šířku sloupců - KLÍČOVÉ */
+			background: white;
+		}
+
+		/* PRVNÍ SLOUPEC SE JMÉNY */
+		.tenis-table th:first-child, 
+		.tenis-table td:first-child {
+			width: 140px; /* Šířka prvního sloupce */
+			text-align: left;
+			padding-left: 15px;
+			background: #f8f9fa;
+			position: sticky; /* Jméno zůstane vidět při skrolování do stran */
+			left: 0;
+			z-index: 2;
+		}
+
+		/* OSTATNÍ BUŇKY (SKÓRE) */
+		.tenis-table th, .tenis-table td {
+			border: 1px solid var(--border);
+			padding: 8px 4px;
+			text-align: center;
+			vertical-align: middle;
+		}
+
+		/* HLAVIČKA TABULKY - JMÉNA NAHOŘE */
+		.header-name {
+			font-size: 0.75rem;
+			line-height: 1.2;
+			text-transform: uppercase;
+			color: var(--navy);
+		}
+
+		/* BUŇKA SAMOTNÉHO VÝSLEDKU */
+		.cell-score-box {
+			display: flex;
+			flex-direction: column;
+			gap: 3px;
+			min-height: 50px;
+			justify-content: center;
+		}
+
+		.score-link {
+			display: block;
+			text-decoration: none;
+			color: var(--navy);
+			background: #f1f2f6;
+			border-radius: 4px;
+			padding: 2px 0;
+			font-size: 0.85rem;
+			font-weight: bold;
+			transition: 0.2s;
+		}
+
+		.score-link:hover {
+			background: var(--clay);
+			color: white;
+		}
+
+		.add-score {
+			color: #ccc;
+			text-decoration: none;
+			font-size: 1.1rem;
+		}
+
+		.add-score:hover {
+			color: var(--clay);
+		}
+
+		/* DIAGONÁLA (Hráč sám se sebou) */
+		.diag-empty {
+			background-color: #f1f2f6;
+			background-image: linear-gradient(45deg, #e0e0e0 25%, transparent 25%, transparent 50%, #e0e0e0 50%, #e0e0e0 75%, transparent 75%, transparent);
+			background-size: 4px 4px;
+		}
+		/* Zarovnání všech statistických sloupců na střed */
+		.stat-col {
+			width: 60px; /* Trochu jsme přidali, aby to bylo vzdušnější */
+			text-align: center !important; /* Vynutí střed */
+			vertical-align: middle;
+			font-weight: bold;
+			background: #f8f9fa;
+		}
+
+		/* Specifický styl pro body (zelená) */
+		.stat-points {
+			color: var(--win); /* Použije tvojí definovanou zelenou #27ae60 */
+			font-size: 1.1rem;
+		}
+
+		/* Sety - aby byly šedší a menší na střed */
+		.stat-sets {
+			font-size: 0.85rem;
+			color: #666;
+			text-align: center !important;
+		}
+		
+		/* Styl pro výsledky v tabulce inspirovaný historií */
+		.res-link { 
+			background: var(--navy); /* Tmavě modrá jako v historii */
+			color: white !important; 
+			font-weight: bold; 
+			border-radius: 20px; /* Stejné zaoblení jako score-badge */
+			border: none;
+			font-family: monospace; /* Stejný font jako v historii */
+			padding: 2px 8px;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+		}
+
+		.res-link:hover { 
+			background: var(--clay); /* Oranžová při najetí */
+			color: white; 
+			transform: scale(1.1); /* Jemné zvětšení pro efekt */
+		}
+
+		/* Úprava prázdných tenisáků, aby nebyly tak výrazné vedle nových badges */
+		.empty-link { 
+			background: #fdfdfd; 
+			color: #eee; 
+			border: 1px dashed #ddd; 
+			border-radius: 20px;
+		}
+    </style>
+</head>
+<body>
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    </head>
+<body>
+
+<header class="top-navbar">
+    <div class="nav-container">
+        
+        <a href="/" style="text-decoration: none; color: white; font-weight: bold; font-size: 1.2rem;">
+            🎾 Liga Kamínka
+        </a>
+
+        <div class="nav-links">
+			<a href="{% url 'liga_a' %}" class="nav-item">Liga A</a>
+			<a href="{% url 'liga_b' %}" class="nav-item">Liga B</a>
+			<a href="{% url 'liga_c' %}" class="nav-item">Liga C</a>
+			<a href="{% url 'liga_d' %}" class="nav-item">Liga D</a>
+			<a href="{% url 'vsechny_zapasy' %}" class="nav-item highlight">📊 Zápasy</a>
+
+			{% if liga_nazev %}
+				<a href="{% url 'pridat_hrace' %}?liga={{ liga_nazev }}" class="nav-item highlight" style="border: 1px solid var(--clay);">
+					➕ Přidat hráče
+				</a>
+			{% else %}
+				<a href="{% url 'pridat_hrace' %}" class="nav-item highlight" style="border: 1px solid var(--clay);">
+					➕ Nový hráč
+				</a>
+			{% endif %}
+		</div>
+
+<a href="/" class="nav-brand-right">
+    <img src="{% static 'images/logo.png' %}" alt="SportAdmin" style="width: 120px; height: auto;">
+</a>
+</header>
+
+<main class="main-content">
+    {% block content %}
+    {% endblock %}
+</main>
+
+</body>
+</html>
+

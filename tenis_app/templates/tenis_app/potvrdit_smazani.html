@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="max-width: 400px; margin: 100px auto; background: white; padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 5px solid #e74c3c;">
+    <h2 style="color: #c0392b;">⚠️ Opravdu smazat?</h2>
+    <p style="margin: 20px 0; font-size: 1.1rem;">Chystáte se trvale odstranit <strong>{{ objekt }}</strong>.</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" style="background: #e74c3c; color: white; border: none; padding: 12px 25px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; margin-bottom: 10px;">Ano, smazat</button>
+        <a href="{% url zpet_url %}" style="display: block; color: #7f8c8d; text-decoration: none; padding: 10px;">Zrušit a zpět</a>
+    </form>
+</div>
+{% endblock %}

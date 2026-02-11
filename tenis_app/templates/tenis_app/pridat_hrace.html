@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .form-container {
+        max-width: 500px;
+        margin: 50px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        border-top: 5px solid var(--clay);
+    }
+    .form-title { color: var(--navy); margin-bottom: 25px; text-align: center; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--navy); }
+    /* Stylování Django widgetů */
+    input[type="text"], input[type="number"], select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-size: 1rem;
+    }
+    input:focus { outline: none; border-color: var(--clay); box-shadow: 0 0 5px rgba(211, 84, 0, 0.2); }
+    .btn-save {
+        background-color: var(--clay);
+        color: white;
+        border: none;
+        padding: 15px;
+        width: 100%;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 1rem;
+    }
+    .btn-save:hover { background-color: var(--clay-dark); transform: translateY(-2px); }
+    .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: #7f8c8d;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .back-link:hover { color: var(--navy); }
+</style>
+
+
+
+
+
+
+<div class="form-container">
+    <h2 class="form-title">👤 Nový hráč</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        {% for field in form %}
+        <div class="form-group">
+            <label>{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+                <small style="color: #e74c3c; font-weight: bold;">{{ field.errors }}</small>
+            {% endif %}
+        </div>
+        {% endfor %}
+        
+        <button type="submit" class="btn-save">Uložit hráče</button>
+    </form>
+    
+    <a href="{% url 'liga_'|add:liga|lower %}" class="back-link">← Zpět na tabulku</a>
+</div>
+{% endblock %}
