@@ -2,30 +2,56 @@
 
 {% block content %}
 <style>
-    .form-container { max-width: 500px; margin: 50px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-top: 5px solid var(--navy); }
-    .form-title { color: var(--navy); margin-bottom: 25px; text-align: center; }
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--navy); }
-    input[type="text"], input[type="number"], select { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
-    .btn-save { background-color: var(--navy); color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1rem; }
-    .btn-save:hover { opacity: 0.9; transform: translateY(-2px); }
-    .back-link { display: block; text-align: center; margin-top: 20px; color: #7f8c8d; text-decoration: none; }
+    .form-container { max-width: 650px; margin: 40px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #34495e; }
+    .form-header { text-align: center; margin-bottom: 30px; }
+    .current-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; border: 4px solid #eee; }
+    
+    .form-title { color: #34495e; margin-bottom: 10px; text-align: center; font-size: 1.8rem; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; margin-bottom: 6px; font-weight: 600; color: #34495e; }
+    
+    input[type="text"], input[type="email"], input[type="url"], input[type="date"], textarea, select, input[type="file"] { 
+        width: 100%; padding: 12px; border: 1px solid #dcdde1; border-radius: 8px; box-sizing: border-box; font-size: 1rem;
+    }
+    
+    .btn-update { background-color: #34495e; color: white; border: none; padding: 16px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1.1rem; margin-top: 20px; }
+    .btn-update:hover { background-color: #2c3e50; transform: translateY(-2px); }
+    
+    .back-link { display: block; text-align: center; margin-top: 20px; color: #e74c3c; text-decoration: none; font-weight: 500; }
+    .back-link:hover { text-decoration: underline; }
 </style>
 
 <div class="form-container">
-    <h2 class="form-title">✏️ Upravit hráče: {{ hrac.jmeno }}</h2>
-    
-    <form method="post">
+    <div class="form-header">
+        {% if hrac.foto %}
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="{{ hrac.foto.url }}" alt="{{ hrac.jmeno }}" class="current-photo">
+                <p style="font-size: 0.8rem; color: #7f8c8d;">Aktuální profilová fotka</p>
+            </div>
+        {% endif %}
+        <h2 class="form-title">✏️ Upravit hráče</h2>
+        <p style="color: #7f8c8d; margin-top: 0;">{{ hrac.jmeno }}</p>
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
+        
         {% for field in form %}
-        <div class="form-group">
-            <label>{{ field.label }}</label>
-            {{ field }}
-        </div>
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}<small style="color: #95a5a6;">{{ field.help_text }}</small>{% endif %}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <p style="color: #e74c3c; font-size: 0.85rem; margin: 4px 0 0 0;">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
         {% endfor %}
-        <button type="submit" class="btn-save">Uložit změny</button>
+
+        <button type="submit" class="btn-update">Uložit provedené změny</button>
     </form>
     
-    <a href="{% url 'dvoukolova_tabulka' %}" class="back-link">← Zpět</a>
+    <a href="{% url 'tenis_index' %}" class="back-link">Zrušit změny</a>
 </div>
 {% endblock %}

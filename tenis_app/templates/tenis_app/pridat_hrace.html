@@ -2,76 +2,71 @@
 
 {% block content %}
 <style>
-    .form-container {
-        max-width: 500px;
-        margin: 50px auto;
-        background: white;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        border-top: 5px solid var(--clay);
+    .form-container { max-width: 650px; margin: 40px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #27ae60; }
+    .form-title { color: #2c3e50; margin-bottom: 30px; text-align: center; font-size: 1.8rem; }
+    .section-title { font-size: 1.1rem; color: #7f8c8d; border-bottom: 1px solid #eee; padding-bottom: 5px; margin: 25px 0 15px 0; text-transform: uppercase; letter-spacing: 1px; }
+    
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; margin-bottom: 6px; font-weight: 600; color: #34495e; }
+    
+    input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="date"], textarea, select { 
+        width: 100%; padding: 12px; border: 1px solid #dcdde1; border-radius: 8px; box-sizing: border-box; font-size: 1rem; transition: border 0.3s;
     }
-    .form-title { color: var(--navy); margin-bottom: 25px; text-align: center; }
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--navy); }
-    /* Stylování Django widgetů */
-    input[type="text"], input[type="number"], select {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        box-sizing: border-box;
-        font-size: 1rem;
-    }
-    input:focus { outline: none; border-color: var(--clay); box-shadow: 0 0 5px rgba(211, 84, 0, 0.2); }
-    .btn-save {
-        background-color: var(--clay);
-        color: white;
-        border: none;
-        padding: 15px;
-        width: 100%;
-        border-radius: 8px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: 0.3s;
-        font-size: 1rem;
-    }
-    .btn-save:hover { background-color: var(--clay-dark); transform: translateY(-2px); }
-    .back-link {
-        display: block;
-        text-align: center;
-        margin-top: 20px;
-        color: #7f8c8d;
-        text-decoration: none;
-        font-weight: 500;
-    }
-    .back-link:hover { color: var(--navy); }
+    input:focus, textarea:focus { border-color: #27ae60; outline: none; background-color: #f9fffb; }
+    textarea { height: 100px; resize: vertical; }
+
+    .btn-save { background-color: #27ae60; color: white; border: none; padding: 16px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1.1rem; margin-top: 20px; }
+    .btn-save:hover { background-color: #219150; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3); }
+    .back-link { display: block; text-align: center; margin-top: 20px; color: #95a5a6; text-decoration: none; }
 </style>
 
-
-
-
-
-
 <div class="form-container">
-    <h2 class="form-title">👤 Nový hráč</h2>
+    <h2 class="form-title">👤 Registrace nového hráče</h2>
     
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         
-        {% for field in form %}
+        <!-- <div class="section-title">Základní informace</div> -->
         <div class="form-group">
-            <label>{{ field.label }}</label>
-            {{ field }}
-            {% if field.errors %}
-                <small style="color: #e74c3c; font-weight: bold;">{{ field.errors }}</small>
-            {% endif %}
+            <label>{{ form.jmeno.label }}</label>
+            {{ form.jmeno }}
         </div>
-        {% endfor %}
-        
-        <button type="submit" class="btn-save">Uložit hráče</button>
+        <div class="form-group">
+            <label>{{ form.klub.label }}</label>
+            {{ form.klub }}
+        </div>
+        <div class="form-group">
+            <label>{{ form.datum_narozeni.label }}</label>
+            {{ form.datum_narozeni }}
+        </div>
+        <div class="form-group">
+            <label>{{ form.foto.label }}</label>
+            {{ form.foto }}
+        </div>
+
+        <!-- <div class="section-title">Kontaktní údaje</div> -->
+        <div class="form-group">
+            <label>{{ form.email.label }}</label>
+            {{ form.email }}
+        </div>
+        <div class="form-group">
+            <label>{{ form.telefon.label }}</label>
+            {{ form.telefon }}
+        </div>
+        <div class="form-group">
+            <label>{{ form.web.label }}</label>
+            {{ form.web }}
+        </div>
+
+        <!-- <div class="section-title">Ostatní</div> -->
+        <div class="form-group">
+            <label>{{ form.info.label }}</label>
+            {{ form.info }}
+        </div>
+
+        <button type="submit" class="btn-save">Uložit hráče do databáze</button>
     </form>
     
-    <a href="{% url 'liga_'|add:liga|lower %}" class="back-link">← Zpět na tabulku</a>
+    <a href="{% url 'tenis_index' %}" class="back-link">← Zrušit a vrátit se</a>
 </div>
 {% endblock %}

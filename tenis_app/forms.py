@@ -1,15 +1,26 @@
 from django import forms
 from .models import Zapas, Hrac
 
+        
+
 class HracForm(forms.ModelForm):
     class Meta:
         model = Hrac
-        fields = ['jmeno', 'klub'] # Pole 'body' necháme schované, počítá se automaticky
-        widgets = {
-            'jmeno': forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Celé jméno hráče'}),
-            'klub': forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'A B C D'}),
-        }
+        # Tímto řeknete Djangu, aby do formuláře zahrnulo všechna pole z modelu
+        fields = '__all__' 
         
+        # Přidání kalendáře pro datum a lepší stylování
+        widgets = {
+            'datum_narozeni': forms.DateInput(attrs={'type': 'date'}),
+            'info': forms.Textarea(attrs={'rows': 4}),
+        }
+
+
+
+
+
+
+
 
 class ZapasForm(forms.ModelForm):
     class Meta:

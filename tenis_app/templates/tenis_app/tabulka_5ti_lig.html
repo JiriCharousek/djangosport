@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+
+{% block title %}Liga {{ pismeno }} | Tabulka{% endblock %}
+
+{% block content %}
+<style>
+    :root { 
+        --e-green: #27ae60; 
+        --e-dark: #1e8449; 
+        --navy: #2c3e50; 
+        --clay: #e67e22; 
+    }
+
+    .table-card { 
+        background: white; 
+        padding: 25px; 
+        border-radius: 12px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+        border-top: 6px solid var(--navy); 
+        margin-bottom: 30px;
+    }
+
+    .tennis-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed; 
+        background: white;
+        min-width: 600px;
+    }
+
+    .tennis-table th { 
+        background: var(--navy); 
+        color: white; 
+        padding: 12px 8px; 
+        border: 1px solid #444; 
+        text-align: center; 
+        font-size: 0.8rem;
+    }
+
+    .player-col {
+        width: 150px; 
+        text-align: left !important;
+        padding-left: 15px !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background: #f9f9f9 !important;
+        font-weight: bold;
+        border: 1px solid #eee !important;
+    }
+
+    .tennis-table td { 
+        border: 1px solid #eee; 
+        text-align: center; 
+        vertical-align: middle; 
+        padding: 0; 
+        height: 50px; 
+    }
+
+    .tennis-table td:not(.player-col):not(.stat-col) {
+        width: 65px; 
+    }
+
+    .cell-result { 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        height: 100%; 
+        text-decoration: none; 
+    }
+
+    .z-box {
+        width: 45px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        font-weight: 800;
+        font-size: 0.85rem;
+        transition: all 0.2s;
+        background: var(--navy);
+        color: white;
+        text-decoration: none;
+    }
+
+    .z-box:hover { 
+        background: var(--clay) !important; 
+        transform: scale(1.1); 
+    }
+
+    .stat-col { 
+        width: 65px; 
+        background: #f8f9fa; 
+        font-weight: 800; 
+        color: var(--navy); 
+        text-align: center !important; 
+        vertical-align: middle !important;
+    }
+
+    .points-val { 
+        color: #27ae60 !important; 
+        font-size: 1.1rem; 
+        font-weight: 900;
+        display: block;
+        text-align: center;
+    }
+
+    .sets-val {
+        color: #666;
+        font-size: 0.85rem;
+        display: block;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .cell-self { background: #f2f2f2; height: 100%; }
+    .add-link { color: #ddd; font-size: 1.2rem; text-decoration: none; transition: 0.2s; }
+    .add-link:hover { color: var(--clay); transform: scale(1.2); }
+
+    .history-container { max-width: 850px; margin: 0 auto; }
+    .history-card { 
+        background: white; 
+        border-radius: 8px; 
+        padding: 12px 20px; 
+        margin-bottom: 10px; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        border-left: 5px solid var(--clay); 
+        transition: 0.2s;
+    }
+    .history-card:hover { transform: translateX(5px); }
+    .score-badge { 
+        background: #1a202c !important; 
+        color: white !important; 
+        padding: 3px 15px; 
+        border-radius: 6px; 
+        font-weight: 800; 
+        font-family: monospace; 
+        font-size: 1.1rem;
+    }
+</style>
+
+<div class="table-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+	<h2 style="margin: 0; color: var(--navy);">🏆 Tenisová liga Kamínka {{ soutez.nazev }}</h2>
+        <!-- <h2 style="margin: 0; color: var(--navy);">🎾 {{ pismeno }} </h2> -->
+        <!-- <a href="{% url 'pridat_hrace' %}?liga={{ pismeno }}" class="btn-action" 
+           style="background: var(--e-green); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+           + Přidat hráče
+        </a> -->
+    </div>
+    
+    <div style="overflow-x: auto;">
+        <table class="tennis-table">
+            <thead>
+                <tr>
+                    <th class="player-col" style="background: var(--navy); color: white; border: 1px solid #444;">Hráč</th>
+                    {% for h in hraci %}
+                        <th style="background: var(--navy); color: white; vertical-align: middle; padding: 10px 4px; border: 1px solid #444; position: relative; min-width: 85px;">
+                            <a href="?filtr_hrac={{ h.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == h.id %}var(--clay){% else %}white{% endif %}; display: block;">
+                                <div style="font-size: 0.75rem; line-height: 1.1; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    {{ h.jmeno_split }}
+                                </div>
+                                {% if vybrany_hrac.id == h.id %}
+                                    <div style="font-size: 0.55rem; color: var(--clay); font-weight: bold; margin-top: 2px;">[FILTR]</div>
+                                {% endif %}
+                            </a>
+                        </th>
+                    {% endfor %}
+                    <th class="stat-col" style="background: var(--navy); color: white; border: 1px solid #444;">Body</th>
+                    <th class="stat-col" style="background: var(--navy); color: white; border: 1px solid #444;">Sety</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for radek in matice %}
+                <tr>
+                    <td class="player-col">
+                        <a href="?filtr_hrac={{ radek.hrac.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == radek.hrac.id %}var(--clay){% else %}inherit{% endif %}; display: block;">
+                            {{ forloop.counter }}. {{ radek.hrac.jmeno }}
+                        </a>
+                    </td>
+                    {% for bunka in radek.bunky %}
+                        <td>
+                            {% if bunka.typ == 'self' %}
+                                <div class="cell-self"></div>
+                            {% elif bunka.typ == 'zapas' %}
+                                <div class="cell-result">
+                                    {% if bunka.z %}
+                                        <a href="{% url 'editovat_vysledek' bunka.z.id %}" class="z-box">
+                                            {% if bunka.z.hrac_domaci == radek.hrac %}
+                                                {{ bunka.z.sety_domaci }}:{{ bunka.z.sety_hoste }}
+                                            {% else %}
+                                                {{ bunka.z.sety_hoste }}:{{ bunka.z.sety_domaci }}
+                                            {% endif %}
+                                        </a>
+                                    {% else %}
+                                        <a href="{{ bunka.url }}" class="add-link">🎾</a>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        </td>
+                    {% endfor %}
+                    <td class="stat-col"><span class="points-val">{{ radek.hrac.pocet_bodu }}</span></td>
+                    <td class="stat-col"><span class="sets-val">{{ radek.hrac.s_v }}:{{ radek.hrac.s_p }}</span></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="history-container">
+    <h3 style="display: flex; align-items: center; gap: 15px; border-bottom: 2px solid var(--navy); padding-bottom: 10px; margin-bottom: 20px; color: var(--navy);">
+        <span>📜 Historie výsledků</span>
+        {% if vybrany_hrac %}
+            <span style="font-size: 1rem; color: #64748b; font-weight: normal;">
+                hráče: <strong style="color: var(--clay);">{{ vybrany_hrac.jmeno }}</strong>
+				<span style="margin-left: 15px; font-size: 0.9rem;">
+                    <a href="{% url 'editovat_hrace' vybrany_hrac.id %}" title="Upravit hráče" style="text-decoration: none;">✏️</a>
+                    <!-- <a href="{% url 'smazat_hrace' vybrany_hrac.id %}" title="Smazat hráče" style="text-decoration: none; margin-left: 5px;">🗑️</a> -->
+                </span>
+            </span>
+            <a href="?" style="font-size: 0.8rem; color: #e74c3c; text-decoration: none; font-weight: bold; margin-left: auto;">
+               ✕ Zrušit filtr
+            </a>
+        {% endif %}
+    </h3>
+
+    {% for zapas in historie %}
+        <div class="history-card">
+            <div style="font-weight: 800; color: var(--navy); width: 30px;">{{ forloop.revcounter }}.</div>
+            
+            <div style="flex: 1; text-align: right; padding-right: 20px; font-weight: 600;">
+                {{ zapas.hrac_domaci.jmeno }}
+            </div>
+
+            <div style="text-align: center;">
+                <div class="score-badge">{{ zapas.sety_domaci }} : {{ zapas.sety_hoste }}</div>
+                <div style="font-size: 0.75rem; color: #888; margin-top: 3px; font-weight: bold;">
+                    ({{ zapas.set1 }} | {{ zapas.set2 }}{% if zapas.set3 and zapas.set3 != '0:0' %} | {{ zapas.set3 }}{% endif %})
+                </div>
+            </div>
+
+            <div style="flex: 1; text-align: left; padding-left: 20px; font-weight: 600;">
+                {{ zapas.hrac_hoste.jmeno }}
+            </div>
+
+            <div style="margin-left: 20px; display: flex; gap: 10px;">
+			<span style="font-size: 0.85rem; color: #95a5a6; white-space: nowrap;">
+						{{ zapas.datum|date:"d. m. Y" }}
+			</span>
+                <a href="{% url 'editovat_vysledek' zapas.id %}" style="text-decoration: none;">✏️</a>
+                <a href="{% url 'smazat_vysledek' zapas.id %}" onclick="return confirm('Smazat?')" style="text-decoration: none;">🗑️</a>
+            </div>
+        </div>
+    {% empty %}
+        <p style="color: #999; font-style: italic; text-align: center;">Zatím nebyly odehrány žádné zápasy.</p>
+    {% endfor %}
+</div>
+{% endblock %}

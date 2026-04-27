@@ -4,54 +4,82 @@
 <div class="container mt-4" style="max-width: 900px; margin: 20px auto;">
     
     <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 30px;">
-        <h2 style="color: #2d3748; border-bottom: 2px solid #38a169; padding-bottom: 10px; margin-bottom: 0;">
-            🏆 {{ titulek|default:"Všechny odehrané zápasy" }}
+        <h2 style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; color: #2d3748; border-bottom: 2px solid #38a169; padding-bottom: 10px; margin-bottom: 0;">
+            <span>🏆 {{ titulek|default:"Všechny odehrané zápasy" }}</span>
+            
+            {% if vybrany_hrac %}
+                <span style="font-size: 1.1rem; color: #64748b; font-weight: normal;">
+                    hráče: <strong style="color: #e67e22;">{{ vybrany_hrac.jmeno }}</strong>
+                </span>
+                <a href="?" style="font-size: 0.8rem; color: #e74c3c; text-decoration: none; font-weight: bold; margin-left: auto;">
+                   ✕ Zrušit filtr
+                </a>
+            {% endif %}
         </h2>
     </div>
 
     <div class="list-group">
-		{% for zapas in historie %}
-			<div class="list-group-item mb-2 shadow-sm" style="border-left: 5px solid #27ae60; background: white; border-radius: 8px; padding: 10px 15px; display: flex; align-items: center; justify-content:建设-between; gap: 15px;">
-				
-				<div style="display: flex; align-items: center; min-width: 130px; gap: 10px;">
-					<div style="font-size: 1.1rem; font-weight: 800; color: var(--navy); min-width: 30px; text-align: right;">
-						{{ forloop.revcounter }}.
-					</div>
-					
-					<div style="display: flex; flex-direction: column;">
-						<small class="text-muted" style="font-weight: bold; font-size: 0.75rem;">{{ zapas.datum|date:"d.m.Y" }}</small>
-						<span style="font-size: 0.7rem; color: #2c3e50; font-weight: bold; text-transform: uppercase;">
-							Liga {{ zapas.soutez.nazev }}
-						</span>
-					</div>
-				</div>
+        {% for zapas in historie %}
+            <div class="list-group-item mb-2 shadow-sm" style="border-left: 5px solid #27ae60; background: white; border-radius: 8px; padding: 10px 15px; display: flex; align-items: center; justify-content: space-between; gap: 15px; position: relative;">
+                
+                <div style="display: flex; align-items: center; min-width: 140px; gap: 10px;">
+                    <div style="font-size: 1.1rem; font-weight: 800; color: #2c3e50; min-width: 35px; text-align: right;">
+                        {{ forloop.revcounter }}.
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column;">
+                        <small class="text-muted" style="font-weight: bold; font-size: 0.75rem;">{{ zapas.datum|date:"d.m.Y" }}</small>
+                        <span style="font-size: 0.7rem; color: #27ae60; font-weight: bold; text-transform: uppercase;">
+                             {{ zapas.soutez.nazev }}
+                        </span>
+                    </div>
+                </div>
 
-				<div style="flex: 2; text-align: right; font-weight: 600; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-					{{ zapas.hrac_domaci.jmeno }}
-				</div>
+                <div style="flex: 2; text-align: right; font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    <a href="?filtr_hrac={{ zapas.hrac_domaci.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == zapas.hrac_domaci.id %}#e67e22{% else %}inherit{% endif %};">
+                        {{ zapas.hrac_domaci.jmeno }}
+                    </a>
+                </div>
 
-				<div style="flex: 0 0 auto; text-align: center; min-width: 110px;">
-					<div class="score-badge" style="display: inline-block; background: var(--navy); color: white; padding: 3px 12px; border-radius: 20px; font-weight: bold; font-family: monospace; font-size: 0.9rem;">
-						{{ zapas.sety_domaci }}:{{ zapas.sety_hoste }}
-					</div>
-					<div style="font-size: 0.75rem; color: #666; margin-top: 2px;">
-						{{ zapas.set1 }} | {{ zapas.set2 }}{% if zapas.set3 and zapas.set3 != '0:0' %} | {{ zapas.set3 }}{% endif %}
-					</div>
-				</div>
+                <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; min-width: 160px; gap: 4px;">
+                    <span style="
+                        background-color: #1a202c !important; 
+                        color: white !important; 
+                        font-weight: 800; 
+                        font-size: 1.1rem; 
+                        padding: 2px 15px; 
+                        border-radius: 6px; 
+                        display: inline-block; 
+                        white-space: nowrap;
+                    ">
+                        {{ zapas.sety_domaci }} : {{ zapas.sety_hoste }}
+                    </span>
 
-				<div style="flex: 2; text-align: left; font-weight: 600; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-					{{ zapas.hrac_hoste.jmeno }}
-				</div>
+                    <span style="
+                        color: #718096 !important; 
+                        font-size: 0.8rem; 
+                        font-weight: 600; 
+                        white-space: nowrap;
+                    ">
+                        ({{ zapas.set1 }} | {{ zapas.set2 }}{% if zapas.set3 and zapas.set3 != '0:0' %} | {{ zapas.set3 }}{% endif %})
+                    </span>
+                </div>
 
-				<div style="display: flex; gap: 8px; min-width: 50px; justify-content: flex-end;">
-					<a href="{% url 'editovat_vysledek' zapas.id %}" style="text-decoration: none;">✏️</a>
-					<a href="{% url 'smazat_vysledek' zapas.id %}" style="text-decoration: none;">🗑️</a>
-				</div>
+                <div style="flex: 2; text-align: left; font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    <a href="?filtr_hrac={{ zapas.hrac_hoste.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == zapas.hrac_hoste.id %}#e67e22{% else %}inherit{% endif %};">
+                        {{ zapas.hrac_hoste.jmeno }}
+                    </a>
+                </div>
 
-			</div>
-		{% empty %}
-			<p style="text-align: center; color: #666; padding: 20px;">Žádné zápasy k zobrazení.</p>
-		{% endfor %}
-	</div>
+                <div style="display: flex; gap: 12px; min-width: 60px; justify-content: flex-end;">
+                    <a href="{% url 'editovat_vysledek' zapas.id %}" title="Upravit">✏️</a>
+                    <a href="{% url 'smazat_vysledek' zapas.id %}" onclick="return confirm('Smazat zápas?')" title="Smazat">🗑️</a>
+                </div>
+
+            </div>
+        {% empty %}
+            <p style="text-align: center; color: #666; padding: 20px;">Žádné zápasy k zobrazení.</p>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

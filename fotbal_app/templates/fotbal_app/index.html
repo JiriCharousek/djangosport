@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotbalový Klub | SportAdmin</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* Rychlý styling pro dashboard, pokud ho nemáš v hlavním CSS */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .stat-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #28a745; /* Fotbalová zelená */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn-action {
+            display: inline-block;
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <strong>SportAdmin: Fotbal</strong> | 
+            <a href="{% url 'football:index' %}">Nástěnka</a> | 
+            <a href="/admin/football_app/clen/">Správa členů (Admin)</a> |
+            <a href="{% url 'tenis:index' %}">Přepnout na Tenis</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Agenda fotbalového klubu</h1>
+        
+        <div class="dashboard-grid">
+            <div class="stat-card">
+                <h3>Členové</h3>
+                <p>Aktuálně v evidenci: <strong>{{ pocet_clenu }}</strong></p>
+                <a href="/admin/football_app/clen/add/" class="btn-action">+ Přidat člena</a>
+            </div>
+
+            <div class="stat-card" style="border-left-color: #ffc107;">
+                <h3>Příspěvky</h3>
+                <p>Neuhrazené platby: <strong>{{ neuhrazene_platby }}</strong></p>
+                <a href="/admin/football_app/platbaprispevku/" class="btn-action">Kontrola plateb</a>
+            </div>
+        </div>
+
+        <section style="margin-top: 40px;">
+            <h2>Rychlé akce</h2>
+            <ul>
+                <li><a href="/admin/football_app/platbaprispevku/add/">Vygenerovat nové předpisy plateb</a></li>
+                <li><a href="#">Exportovat seznam pro FAČR (CSV)</a></li>
+            </ul>
+        </section>
+    </main>
+
+</body>
+</html>

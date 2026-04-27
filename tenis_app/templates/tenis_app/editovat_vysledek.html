@@ -24,6 +24,6 @@
         </div>
         <button type="submit" class="btn-submit">Uložit opravu</button>
     </form>
-    <a href="{% url 'vsechny_zapasy' %}" class="btn btn-secondary">Zrušit</a> class="back-link" style="display:block; text-align:center; margin-top:15px; color:#7f8c8d; text-decoration:none;">Zpět bez změn</a>
+    <a href="{% url 'detail_souteze' zapas.soutez.slug %}" class="btn">Zrušit</a>
 </div>
 {% endblock %}
