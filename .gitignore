@@ -1,0 +1,37 @@
+__pycache__/
+*.py[cod]
+*$py.class
+db.sqlite3
+**/__pycache__/
+*.pyc
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Databases (lokální SQLite database - na serveru budeš mít Postgres)
+*.sqlite3
+db.sqlite3
+
+# Secret keys & Env files (tohle nikdy nepushuj!)
+.env
+local_settings.py
+
+# Static & Media
+static/
+staticfiles/
+media/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
