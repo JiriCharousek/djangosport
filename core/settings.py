@@ -33,17 +33,18 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'tenis_app',
-    'fotbal_app',
-    'django.contrib.auth',
+    'django.contrib.auth',         # <--- Přesuň tyto standardní appky nahoru
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tenis_app',                   # <--- Tvoje appky nechej pod nimi
+    'fotbal_app',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # <--- TENTO ŘÁDEK PŘIDEJ (hned pod security)
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
