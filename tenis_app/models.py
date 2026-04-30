@@ -46,16 +46,6 @@ class Hrac(models.Model):
         verbose_name_plural = "Hráči"
 
 
-
-
-
-
-
-
-
-
-
-
 class Soutez(models.Model):
     slug = models.SlugField(unique=True, max_length=50)
     nazev = models.CharField(max_length=100)
@@ -112,3 +102,5 @@ class Zapas(models.Model):
 
     def __str__(self):
         return f"{self.hrac_domaci} vs {self.hrac_hoste} ({self.sety_domaci}:{self.sety_hoste})"
+        
+    mice_bere_domaci = models.BooleanField(default=True, verbose_name="Míče bere domácí")
