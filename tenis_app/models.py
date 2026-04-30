@@ -104,3 +104,6 @@ class Zapas(models.Model):
         return f"{self.hrac_domaci} vs {self.hrac_hoste} ({self.sety_domaci}:{self.sety_hoste})"
         
     mice_bere_domaci = models.BooleanField(default=True, verbose_name="Míče bere domácí")
+    
+    
+    
