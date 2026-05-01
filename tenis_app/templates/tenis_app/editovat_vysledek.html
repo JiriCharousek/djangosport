@@ -1,29 +1,91 @@
 {% extends "base.html" %}
 {% block content %}
 <style>
-    .form-container { max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-top: 5px solid var(--clay); }
-    .form-title { color: var(--navy); text-align: center; margin-bottom: 25px; }
-    .grid-form { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: var(--navy); }
-    input, select { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; }
-    .btn-submit { background: var(--clay); color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 20px; }
-    .btn-danger { background: #e74c3c; color: white; text-decoration: none; display: block; text-align: center; padding: 10px; border-radius: 8px; margin-top: 10px; font-size: 0.9rem; }
+    .form-container { max-width: 600px; margin: 20px auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid var(--clay); }
+    .form-title { color: var(--navy); text-align: center; margin-bottom: 20px; font-size: 1.5rem; }
+    .match-header { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+    .sets-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: var(--navy); font-size: 0.85rem; text-transform: uppercase; }
+    input, select { width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; }
+    /* Styl pro zamčená pole hráčů */
+    .readonly-player { background: #eee; cursor: not-allowed; font-weight: bold; }
+    .meta-row { display: flex; flex-direction: column; gap: 10px; padding: 10px; border-top: 1px solid #eee; }
+    .check-item { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; }
+    .check-item input { width: auto; }
+    .btn-submit { background: var(--clay); color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 15px; }
+    .error-msg { color: #e74c3c; font-size: 0.8rem; margin-top: 5px; display: block; }
 </style>
 
 <div class="form-container">
-    <h2 class="form-title">✏️ Oprava výsledku</h2>
+    <h2 class="form-title">✏️ Výsledek zápasu</h2>
+    
     <form method="post">
         {% csrf_token %}
-        <div class="grid-form">
-            {% for field in form %}
-                <div class="form-group {% if field.name == 'odehrano' %}full-width{% endif %}">
-                    <label>{{ field.label }}</label>
-                    {{ field }}
-                </div>
-            {% endfor %}
+        
+        {% if form.errors %}
+            <div style="background: #fdeaea; color: #e74c3c; padding: 10px; border-radius: 8px; margin-bottom: 15px; font-size: 0.9rem;">
+                ⚠️ Prosím opravte chyby ve formuláři.
+            </div>
+        {% endif %}
+
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label>📅 Datum</label>
+            {{ form.datum }}
+            {{ form.datum.errors }}
         </div>
-        <button type="submit" class="btn-submit">Uložit opravu</button>
+
+        <div class="match-header">
+            <div class="form-group">
+                <label>🏠 Domácí</label>
+                {{ form.hrac_domaci }}
+            </div>
+            <div class="form-group">
+                <label>🎾 Hosté</label>
+                {{ form.hrac_hoste }}
+            </div>
+        </div>
+
+        <label style="display: block; text-align: center; font-weight: bold; margin-bottom: 5px;">Výsledky setů</label>
+        <div class="sets-row">
+            <div class="form-group">
+                <label style="text-align: center;">1. Set</label>
+                {{ form.set1 }}
+            </div>
+            <div class="form-group">
+                <label style="text-align: center;">2. Set</label>
+                {{ form.set2 }}
+            </div>
+            <div class="form-group">
+                <label style="text-align: center;">3. Set</label>
+                {{ form.set3 }}
+            </div>
+        </div>
+
+        <div class="form-group full-width">
+			<label>📦 Kdo přinese míče?</label>
+			<div class="check-item" style="background: #f0f7ff; padding: 12px; border-radius: 8px; border: 1px solid #d0e3ff;">
+				{{ form.mice_bere_domaci }}
+				<span style="font-weight: bold; margin-left: 5px;">
+					{% if zapas.mice_bere_domaci %}
+						🎾 Míče přinese    : {{ zapas.hrac_domaci.jmeno }}
+					{% else %}
+						🎾 Míče přinese    : {{ zapas.hrac_hoste.jmeno }}
+					{% endif %}
+				</span>
+			</div>
+<!-- 			<small style="color: #666; display: block; margin-top: 5px;">
+				(Tip: Pokud se jméno po kliknutí na políčko hned nezmění, nebojte se, po uložení se v tabulce zobrazí správný hráč.)
+			</small> -->
+		</div>
+<!--         <div class="check-item">
+                {{ form.odehrano }}
+                <label>Zápas je odehrán a potvrzen</label>
+            </div>
+        </div> -->
+
+        <button type="submit" class="btn-submit">Uložit výsledek</button>
     </form>
-    <a href="{% url 'detail_souteze' zapas.soutez.slug %}" class="btn">Zrušit</a>
+    
+    <a href="{% url 'detail_souteze' zapas.soutez.slug %}" style="display: block; text-align: center; padding: 10px; color: #95a5a6; text-decoration: none; font-size: 0.85rem;">Zrušit</a>
 </div>
 {% endblock %}

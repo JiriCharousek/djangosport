@@ -12,6 +12,7 @@ class Command(BaseCommand):
             {'slug': '26_kaminka_leto_C', 'klub': 'Léto 2026 - C'},
             {'slug': '26_kaminka_leto_D', 'klub': 'Léto 2026 - D'},
             {'slug': '26_kaminka_leto_E', 'klub': 'Léto 2026 - E'},
+            {'slug': '26_kaminka_leto_z', 'klub': 'Léto 2026 - Ženy'},
         ]
 
         for liga in ligy_k_uprave:

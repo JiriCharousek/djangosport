@@ -65,34 +65,69 @@ class Zapas(models.Model):
     soutez = models.ForeignKey(Soutez, on_delete=models.CASCADE, related_name='zapasy', null=True)
     hrac_domaci = models.ForeignKey(Hrac, on_delete=models.CASCADE, related_name='domaci')
     hrac_hoste = models.ForeignKey(Hrac, on_delete=models.CASCADE, related_name='hoste')
+    
     set1 = models.CharField(max_length=5, choices=VYSLEDKY_SETU, default='0:0')
     set2 = models.CharField(max_length=5, choices=VYSLEDKY_SETU, default='0:0')
     set3 = models.CharField(max_length=10, default='0:0', blank=True)
+    
+    sety_domaci = models.IntegerField(default=0)
+    sety_hoste = models.IntegerField(default=0)
+    gamy_domaci = models.IntegerField(default=0)
+    gamy_hoste = models.IntegerField(default=0)
+    
+    mice_bere_domaci = models.BooleanField(default=True, verbose_name="Míče bere domácí")
     odehrano = models.BooleanField(default=False)
-    datum = models.DateField(default=timezone.now)
+    
+    # ÚPRAVA: datum je nyní volitelné (null=True), aby plánované zápasy mohly být prázdné
+    datum = models.DateField(null=True, blank=True, verbose_name="Datum zápasu")
+
+    class Meta:
+        unique_together = ('soutez', 'hrac_domaci', 'hrac_hoste')
+        ordering = ['-datum', 'hrac_domaci']
+
 
     def dej_body_ze_setu(self, set_vysledek):
         if not set_vysledek or set_vysledek == '0:0': return 0, 0
         try:
+            # Ošetření případných mezer a rozdělení
             d, h = map(int, set_vysledek.replace(' ', '').split(':'))
             return d, h
         except: return 0, 0
 
-    @property
-    def sety_domaci(self):
-        body = 0
-        for s in [self.set1, self.set2, self.set3]:
-            d, h = self.dej_body_ze_setu(s)
-            if d > h: body += 1
-        return body
+    def save(self, *args, **kwargs):
+        # 1. AUTOMATICKÉ PŘIŘAZENÍ MÍČŮ (Vaše stávající logika)
+        if self.mice_bere_domaci is None:
+            soucet = (self.hrac_domaci.id or 0) + (self.hrac_hoste.id or 0)
+            self.mice_bere_domaci = (soucet % 2 == 0)
 
-    @property
-    def sety_hoste(self):
-        body = 0
+        # 2. VÝPOČET SKÓRE (Vaše stávající logika)
+        sd, sh = 0, 0
+        gd, gh = 0, 0
         for s in [self.set1, self.set2, self.set3]:
             d, h = self.dej_body_ze_setu(s)
-            if h > d: body += 1
-        return body
+            gd += d
+            gh += h
+            if d > h: sd += 1
+            elif h > d: sh += 1
+        
+        self.sety_domaci = sd
+        self.sety_hoste = sh
+        self.gamy_domaci = gd
+        self.gamy_hoste = gh
+
+        # --- NOVÁ ČÁST: 2.5 AUTOMATICKÉ PŘEPNUTÍ ODEHRÁNO ---
+        # Pokud součet setů dává smysluplný výsledek (např. někdo vyhrál aspoň jeden set),
+        # automaticky zápas označíme za odehraný.
+        if sd > 0 or sh > 0:
+            self.odehrano = True
+            
+        else:
+            self.odehrano = False # Toto zajistí, že při smazání setů zápas "vypadne" z tabulky
+        # ----------------------------------------------------
+        
+        # 3. ULOŽENÍ DO DATABÁZE
+        super().save(*args, **kwargs)
+
 
     def ziskej_body(self):
         if not self.odehrano: return 0, 0
@@ -102,8 +137,4 @@ class Zapas(models.Model):
 
     def __str__(self):
         return f"{self.hrac_domaci} vs {self.hrac_hoste} ({self.sety_domaci}:{self.sety_hoste})"
-        
-    mice_bere_domaci = models.BooleanField(default=True, verbose_name="Míče bere domácí")
-    
-    
     

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}SportAdmin{% endblock %}</title>
+    
     <style>
         :root {
             --navy: #1e293b;
@@ -59,11 +60,39 @@
         .nav-link:hover { background: #334155; color: white; }
 
         .section-green .nav-title { color: #4ade80; }
-        .showroom-link { 
-            background: linear-gradient(45deg, #1e293b, #064e3b);
-            border: 1px solid #27ae60;
+
+        /* ADMIN TLAČÍTKA */
+        .admin-btn {
+            width: 100%;
+            background: transparent;
+            border: 1px solid;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
             font-weight: bold;
+            transition: 0.2s;
+            text-align: left;
+            margin-bottom: 8px;
         }
+        .btn-warn { color: #fbbf24; border-color: #fbbf24; }
+        .btn-warn:hover { background: #fbbf24; color: #0f172a; }
+        
+        .btn-danger { color: #f87171; border-color: #f87171; }
+        .btn-danger:hover { background: #f87171; color: white; }
+        
+        .btn-info { color: #38bdf8; border-color: #38bdf8; }
+        .btn-info:hover { background: #38bdf8; color: #0f172a; }
+
+        /* ZPRÁVY (ALERTY) */
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        .alert-success { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+        .alert-error, .alert-danger { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
 
         /* MAIN CONTENT */
         .main-wrapper {
@@ -84,7 +113,6 @@
 
         .main-content { padding: 30px; }
 
-        /* ... tvoje stávající tabulkové styly ... */
         .tenis-table { width: 100%; border-collapse: collapse; background: white; }
         .tenis-table td, .tenis-table th { border: 1px solid var(--border); padding: 10px; text-align: center; }
     </style>
@@ -95,76 +123,149 @@
         <div style="padding: 0 25px 20px; text-align: center;">
             <a href="/" style="text-decoration: none; color: white; font-weight: bold; font-size: 1.2rem;">🎾 Liga Kamínka</a>
         </div>
+        
+        <!-- Soutěže 2026 -->
+        <div class="nav-section">
+            <h3 class="nav-title">🏆 Léto 2026</h3>
+            <ul class="nav-list">
+                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_A' %}" class="nav-link">Liga A</a></li>
+                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_B' %}" class="nav-link">Liga B</a></li>
+                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_C' %}" class="nav-link">Liga C</a></li>
+                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_D' %}" class="nav-link">Liga D</a></li>
+                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_E' %}" class="nav-link">Liga E</a></li>
+                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_z' %}" class="nav-link">Ženy</a></li>
+            </ul>
+        </div>
+
+        <!-- <div class="nav-section section-green">
+            <h3 class="nav-title">🎾 Zima 2025-6</h3>
+            <ul class="nav-list">
+                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_zima_A' %}" class="nav-link">Liga A</a></li>
+                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_zima_B' %}" class="nav-link">Liga B</a></li>
+                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_zima_C' %}" class="nav-link">Liga C</a></li>
+                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_zima_D' %}" class="nav-link">Liga D</a></li>
+                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_zima_mixy' %}" class="nav-link">Mixy</a></li>
+            </ul>
+        </div>
+
+        <!-- Starší soutěže -->
+ <!--        <div class="nav-section">
+            <h3 class="nav-title" id="toggle-leto25" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                🏆 Léto 2025 <span id="arrow-leto25">▶</span>
+            </h3>
+            <ul class="nav-list" id="list-leto25" style="display: none;">
+                <li><a href="{% url 'detail_souteze' soutez_slug='25_kaminka_leto_A' %}" class="nav-link">Liga A</a></li>
+                <li><a href="{% url 'detail_souteze' soutez_slug='25_kaminka_leto_B' %}" class="nav-link">Liga B</a></li>
+                <li><a href="{% url 'detail_souteze' soutez_slug='25_kaminka_leto_C' %}" class="nav-link">Liga C</a></li>
+                <li><a href="{% url 'detail_souteze' soutez_slug='25_kaminka_leto_D' %}" class="nav-link">Liga D</a></li>
+                <li><a href="{% url 'detail_souteze' soutez_slug='25_kaminka_leto_E' %}" class="nav-link">Liga E</a></li>
+            </ul>
+        </div> -->
 
         <div class="nav-section">
-			<h3 class="nav-title">🏆 Léto 2026</h3>
-			<ul class="nav-list">
-				<li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_A' %}" class="nav-link">Liga A</a></li>
-				<li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_B' %}" class="nav-link">Liga B</a></li>
-				<li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_C' %}" class="nav-link">Liga C</a></li>
-				<li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_D' %}" class="nav-link">Liga D</a></li>
-				<li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_E' %}" class="nav-link">Liga E</a></li>
-				<li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_z' %}" class="nav-link">Ženy</a></li>
-			</ul>
-		</div>
+            <a href="{% url 'prehled_vsech_zapasu' %}" style="color: #888; text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 10px;">
+                historie všech zápasů
+            </a>
+        </div>
 
-		<div class="nav-section section-green">
-			<h3 class="nav-title">🎾 Zima 2025-6</h3>
+        <!-- ADMIN SERVISNÍ SEKCE -->
+		{% if user.is_superuser %}
+		<div class="nav-section" style="border-top: 1px solid #334155; padding-top: 20px; margin-top: 20px;">
+			<h3 class="nav-title" style="color: #fbbf24;">🔧 DB SERVIS</h3>
 			<ul class="nav-list">
-				<li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_zima_A' %}" class="nav-link">Liga A</a></li>
-				<li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_zima_B' %}" class="nav-link">Liga B</a></li>
-				<li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_zima_C' %}" class="nav-link">Liga C</a></li>
-				<li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_zima_D' %}" class="nav-link">Liga D</a></li>
-				<li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_zima_mixy' %}" class="nav-link">Mixy</a></li>
-			</ul>
-		</div>
-        <div class="nav-section">
-			<h3 class="nav-title" id="toggle-leto25" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-				🏆 Léto 2025 <span id="arrow-leto25">▶</span>
-			</h3>
-			<ul class="nav-list" id="list-leto25" style="display: none;">
-				<li><a href="{% url 'detail_souteze' soutez_slug='25_kaminka_leto_A' %}" class="nav-link">Liga A</a></li>
-				<li><a href="{% url 'detail_souteze' soutez_slug='25_kaminka_leto_B' %}" class="nav-link">Liga B</a></li>
-				<li><a href="{% url 'detail_souteze' soutez_slug='25_kaminka_leto_C' %}" class="nav-link">Liga C</a></li>
-				<li><a href="{% url 'detail_souteze' soutez_slug='25_kaminka_leto_D' %}" class="nav-link">Liga D</a></li>
-				<li><a href="{% url 'detail_souteze' soutez_slug='25_kaminka_leto_E' %}" class="nav-link">Liga E</a></li>
-			</ul>
-		</div>
-			<a href="{% url 'prehled_vsech_zapasu' %}" style="color: #888; text-decoration: none; font-size: 0.9rem;">
-    			historie všech zápasů
-			</a>
-		</div>
+				<!-- NOVÉ TLAČÍTKO: RESTART LIG -->
+				<li>
+					<form action="{% url 'admin_tools' %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="akce" value="generovat_ligy">
+						<button type="submit" class="admin-btn" style="color: #e67e22; border-color: #e67e22;" 
+								onclick="return confirm('POZOR: Tato akce smaže všechny zápasy v ligách 2026 a vygeneruje nové se spravedlivým rozdělením míčů. Pokračovat?')">
+							♻️ Restartovat ligy 2026
+						</button>
+					</form>
+				</li>
 
+				<li>
+					<form action="{% url 'admin_tools' %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="akce" value="opravit_vazby">
+						<button type="submit" class="admin-btn btn-warn">🔗 Opravit vazby</button>
+					</form>
+				</li>
+				<li>
+					<form action="{% url 'admin_tools' %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="akce" value="vynutit_migrace">
+						<button type="submit" class="admin-btn btn-danger">⚡ Vynutit migrace</button>
+					</form>
+				</li>
+				<li>
+					<form action="{% url 'admin_tools' %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="akce" value="fix_mice">
+						<button type="submit" class="admin-btn btn-info">🎾 Opravit sloupec Míče</button>
+					</form>
+				</li>
+				<li>
+				<form method="post" action="{% url 'admin_tools_launcher' %}">
+					{% csrf_token %}
+					<button type="submit" name="akce" value="vytvor_hrace" class="btn-submit">
+						🔐 Vygenerovat účty a hesla
+					</button>
+				</form>
+				</li>
+				<li>
+					<form action="{% url 'admin_tools' %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="akce" value="vynulovat_vsechna_data">
+						<button type="submit" class="admin-btn btn-warn" onclick="return confirm('Opravdu smazat datum u všech neodehraných zápasů?')">
+							🧹 Vymazat chybná data (26.04.)
+						</button>
+					</form>
+				</li>
+			</ul>
+		</div>
+		{% endif %}
+
+   
     </nav>
 
     <div class="main-wrapper">
         <header class="top-navbar">
             <div style="color: #64748b; font-weight: 500;">Administrace Tenisu</div>
             <div>
-
+                {% if user.is_authenticated %}
+                    <span style="font-size: 0.9rem; color: #64748b; margin-right: 15px;">Přihlášen: {{ user.username }}</span>
+                {% endif %}
             </div>
         </header>
 
         <main class="main-content">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
             {% block content %}
             {% endblock %}
         </main>
     </div>
 
+    <script>
+        document.getElementById('toggle-leto25').addEventListener('click', function() {
+            var list = document.getElementById('list-leto25');
+            var arrow = document.getElementById('arrow-leto25');
+            if (list.style.display === 'none') {
+                list.style.display = 'block';
+                arrow.innerHTML = '▼';
+            } else {
+                list.style.display = 'none';
+                arrow.innerHTML = '▶';
+            }
+        });
+    </script>
 </body>
 </html>
-
-<script>
-    document.getElementById('toggle-leto25').addEventListener('click', function() {
-        var list = document.getElementById('list-leto25');
-        var arrow = document.getElementById('arrow-leto25');
-        
-        if (list.style.display === 'none') {
-            list.style.display = 'block';
-            arrow.innerHTML = '▼'; // Šipka dolů při rozbalení
-        } else {
-            list.style.display = 'none';
-            arrow.innerHTML = '▶'; // Šipka doprava při sbalení
-        }
-    });
-</script>

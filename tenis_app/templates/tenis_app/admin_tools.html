@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Nástroje pro správu</h2>
+
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+    <!-- Tlačítko 1 -->
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="akce" value="opravit_vazby">
+        <button type="submit" class="btn btn-warning">Přiřadit osiřelé zápasy k Létu D</button>
+    </form>
+
+    <!-- Tlačítko 2 -->
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="akce" value="vynutit_migrace">
+        <button type="submit" class="btn btn-danger">Spustit nouzové migrace</button>
+    </form>
+</div>
+
+{% if messages %}
+    <ul style="margin-top: 20px;">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}
