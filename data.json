@@ -1,0 +1,8619 @@
+[
+{
+  "model": "tenis_app.hrac",
+  "pk": 1,
+  "fields": {
+    "jmeno": "Petr VODVÁØKA",
+    "klub": "Léto 2026 - C",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: petr-vodvarka | Heslo: 2zpag",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 2,
+  "fields": {
+    "jmeno": "Daniel KRÁL",
+    "klub": "Léto 2026 - D",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: daniel-kral | Heslo: onfzk",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 4,
+  "fields": {
+    "jmeno": "Vojtìch MAHELKA",
+    "klub": "Léto 2026 - C",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: vojtech-mahelka | Heslo: 95aqt",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 5,
+  "fields": {
+    "jmeno": "Jiøí KRAUS",
+    "klub": "Léto 2026 - D",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: jiri-kraus | Heslo: mrpob",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 6,
+  "fields": {
+    "jmeno": "Jiøí CHAROUSEK",
+    "klub": "Léto 2026 - D",
+    "foto": "hraci/ja_8x9tIBh.jpg",
+    "datum_narozeni": null,
+    "info": "Login: jiri-charousek | Heslo: zt9vk",
+    "telefon": "777884557",
+    "email": "j.charousek@gmail.com",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 7,
+  "fields": {
+    "jmeno": "Martin BALCÁREK",
+    "klub": "Léto 2026 - C",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: martin-balcarek | Heslo: doiwa",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 28,
+  "fields": {
+    "jmeno": "Anna MAHELKOVÁ",
+    "klub": "Léto 2026 - E",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: anna-mahelkova | Heslo: ehcm0",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 29,
+  "fields": {
+    "jmeno": "Klára WANTULOK",
+    "klub": "Léto 2026 - E",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: klara-wantulok | Heslo: 36o38",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 30,
+  "fields": {
+    "jmeno": "Dominik ZMEŠKAL",
+    "klub": "Léto 2026 - E",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: dominik-zmeskal | Heslo: gjwkg",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 31,
+  "fields": {
+    "jmeno": "Ondøej BRANT",
+    "klub": "Léto 2026 - D",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: ondrej-brant | Heslo: 38v5f",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 32,
+  "fields": {
+    "jmeno": "Martin BUKÁÈEK",
+    "klub": "Léto 2026 - E",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: martin-bukacek | Heslo: omzsa",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 33,
+  "fields": {
+    "jmeno": "Michal GÁBRLE",
+    "klub": "Léto 2026 - E",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: michal-gabrle | Heslo: gm6kj",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 34,
+  "fields": {
+    "jmeno": "Miroslav SIEDEM",
+    "klub": "Léto 2026 - E",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: miroslav-siedem | Heslo: y0zaz",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 35,
+  "fields": {
+    "jmeno": "Radek LÁSKA",
+    "klub": "Léto 2026 - D",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: radek-laska | Heslo: j018r",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 36,
+  "fields": {
+    "jmeno": "Michal PODZIMEK",
+    "klub": "Léto 2026 - E",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: michal-podzimek | Heslo: 4m839",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 57,
+  "fields": {
+    "jmeno": "Tomáš HORÈIÈKA",
+    "klub": "Léto 2026 - A",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: tomas-horcicka | Heslo: y34f6",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 58,
+  "fields": {
+    "jmeno": "Boris NESTRAŠIL",
+    "klub": "Léto 2026 - A",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: boris-nestrasil | Heslo: c7eos",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 59,
+  "fields": {
+    "jmeno": "Ivan GAÈ",
+    "klub": "Léto 2026 - A",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: ivan-gac | Heslo: k3t7f",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 60,
+  "fields": {
+    "jmeno": "Jaroslav MÁCHA",
+    "klub": "Léto 2026 - A",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: jaroslav-macha | Heslo: ivj13",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 61,
+  "fields": {
+    "jmeno": "Tomáš DOLEŽAL",
+    "klub": "Léto 2026 - A",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: tomas-dolezal | Heslo: 34gu3",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 62,
+  "fields": {
+    "jmeno": "Petr JANDOVSKÝ",
+    "klub": "Léto 2026 - A",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: petr-jandovsky | Heslo: nmzo0",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 63,
+  "fields": {
+    "jmeno": "Miroslav ŠTEMBERK",
+    "klub": "Léto 2026 - A",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: miroslav-stemberk | Heslo: yb9g1",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 64,
+  "fields": {
+    "jmeno": "Šimon HRUBÝ",
+    "klub": "Léto 2026 - A",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: simon-hruby | Heslo: vroun",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 65,
+  "fields": {
+    "jmeno": "Josef AUGUSTA",
+    "klub": "Léto 2026 - A",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: josef-augusta | Heslo: wn6cm",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 66,
+  "fields": {
+    "jmeno": "Oto KLÍMA",
+    "klub": "Léto 2026 - A",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: oto-klima | Heslo: eqt7m",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 67,
+  "fields": {
+    "jmeno": "Karel VLÈEK",
+    "klub": "Léto 2026 - A",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: karel-vlcek | Heslo: wmk4l",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 68,
+  "fields": {
+    "jmeno": "Michal ZMEŠKAL",
+    "klub": "Léto 2026 - B",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: michal-zmeskal | Heslo: ibqm2",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 70,
+  "fields": {
+    "jmeno": "Svatopluk SÝKORA",
+    "klub": "Léto 2026 - B",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: svatopluk-sykora | Heslo: 8usiy",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 71,
+  "fields": {
+    "jmeno": "Robert HRUBÝ",
+    "klub": "Léto 2026 - B",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: robert-hruby | Heslo: k6k4b",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 72,
+  "fields": {
+    "jmeno": "Ondøej HLOUPÝ",
+    "klub": "Léto 2026 - B",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: ondrej-hloupy | Heslo: elax3",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 73,
+  "fields": {
+    "jmeno": "Jan ŽIDLICKÝ",
+    "klub": "Léto 2026 - B",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: jan-zidlicky | Heslo: psxjp",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 74,
+  "fields": {
+    "jmeno": "David KREMLÍK",
+    "klub": "Léto 2026 - B",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: david-kremlik | Heslo: ttcxd",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 75,
+  "fields": {
+    "jmeno": "Karel MAHELKA",
+    "klub": "Léto 2026 - B",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: karel-mahelka | Heslo: 4lv1i",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 76,
+  "fields": {
+    "jmeno": "Daniel PADEVÌT",
+    "klub": "Léto 2026 - B",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: daniel-padevet | Heslo: xi85v",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 77,
+  "fields": {
+    "jmeno": "Jakub ŽIDLICKÝ",
+    "klub": "Léto 2026 - B",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: jakub-zidlicky | Heslo: z7ldn",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 78,
+  "fields": {
+    "jmeno": "Dušan ZENÁHLÍK",
+    "klub": "Léto 2026 - B",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: dusan-zenahlik | Heslo: m5igt",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 79,
+  "fields": {
+    "jmeno": "Jiøí CHLOUBA",
+    "klub": "Léto 2026 - C",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: jiri-chlouba | Heslo: rle89",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 80,
+  "fields": {
+    "jmeno": "Petr HOVORKA",
+    "klub": "Léto 2026 - B",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: petr-hovorka | Heslo: p8kfo",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 81,
+  "fields": {
+    "jmeno": "Petr ŠIMONÍÈEK",
+    "klub": "Léto 2026 - C",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: petr-simonicek | Heslo: pj132",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 82,
+  "fields": {
+    "jmeno": "Adam GAÈ",
+    "klub": "Léto 2026 - C",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: adam-gac | Heslo: v2tzt",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 83,
+  "fields": {
+    "jmeno": "František KARDOŠ",
+    "klub": "Léto 2026 - C",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: frantisek-kardos | Heslo: vkdcy",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 84,
+  "fields": {
+    "jmeno": "Lukáš TICHÝ",
+    "klub": "Léto 2026 - C",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: lukas-tichy | Heslo: 8l0ow",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 85,
+  "fields": {
+    "jmeno": "Milan KOUDELKA",
+    "klub": "Léto 2026 - C",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: milan-koudelka | Heslo: i7zq2",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 86,
+  "fields": {
+    "jmeno": "Jana BECHOVÁ",
+    "klub": "Léto 2026 - C",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: jana-bechova | Heslo: 1d0i4",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 87,
+  "fields": {
+    "jmeno": "Petr KUNZMANN",
+    "klub": "Léto 2026 - D",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: petr-kunzmann | Heslo: fo1ur",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 88,
+  "fields": {
+    "jmeno": "Jaroslav HERODES",
+    "klub": "Léto 2026 - D",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: jaroslav-herodes | Heslo: w9r1x",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 89,
+  "fields": {
+    "jmeno": "Jan ŠEVÈÍK",
+    "klub": null,
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: jan-sevcik | Heslo: 34o4i",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 90,
+  "fields": {
+    "jmeno": "Stanislav ØEZNÍK",
+    "klub": "Léto 2026 - D",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: stanislav-reznik | Heslo: d6so1",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 91,
+  "fields": {
+    "jmeno": "Michala KARPÍŠKOVÁ",
+    "klub": "Léto 2026 - D",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: michala-karpiskova | Heslo: 7c99i",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 92,
+  "fields": {
+    "jmeno": "Jiøí ŠPAÈEK",
+    "klub": "Léto 2026 - D",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: jiri-spacek | Heslo: n475o",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 93,
+  "fields": {
+    "jmeno": "Petr KOPRNICKÝ",
+    "klub": "Léto 2026 - D",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: petr-koprnicky | Heslo: 73iuv",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 94,
+  "fields": {
+    "jmeno": "Zdenìk MÁLEK",
+    "klub": "Léto 2026 - E",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: zdenek-malek | Heslo: ns1mc",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 95,
+  "fields": {
+    "jmeno": "Dušan HOFMAN",
+    "klub": "Léto 2026 - E",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: dusan-hofman | Heslo: q0eqv",
+    "telefon": "",
+    "email": "",
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 96,
+  "fields": {
+    "jmeno": "Ivan POLEDNÍK",
+    "klub": "Léto 2026 - E",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: ivan-polednik | Heslo: r6r35",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 97,
+  "fields": {
+    "jmeno": "Jana MASOPUSTOVÁ",
+    "klub": "Léto 2026 - Ž",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: jana-masopustova | Heslo: wwsuj",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 98,
+  "fields": {
+    "jmeno": "Helena LIŠKOVÁ",
+    "klub": "Léto 2026 - Ž",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: helena-liskova | Heslo: ak359",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 99,
+  "fields": {
+    "jmeno": "Klára WANTULOK-",
+    "klub": "Léto 2026 - Ž",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: klara-wantulok | Heslo: 2nvia",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 100,
+  "fields": {
+    "jmeno": "Alice Hanušová",
+    "klub": "Léto 2026 - Ž",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: alice-hanusova | Heslo: 89u42",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 101,
+  "fields": {
+    "jmeno": "Ivana MÁCHOVÁ",
+    "klub": "Léto 2026 - Ž",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: ivana-machova | Heslo: 9ewn4",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 102,
+  "fields": {
+    "jmeno": "Petra HANZLÍÈKOVÁ",
+    "klub": "Léto 2026 - Ž",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: petra-hanzlickova | Heslo: j7rxo",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 103,
+  "fields": {
+    "jmeno": "Anna LYTVYNOVÁ",
+    "klub": "Léto 2026 - Ž",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: anna-lytvynova | Heslo: y90h4",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 104,
+  "fields": {
+    "jmeno": "Marina HRUBÁ",
+    "klub": "Léto 2026 - Ž",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: marina-hruba | Heslo: rhrqe",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 105,
+  "fields": {
+    "jmeno": "Romana BENEŠOVÁ",
+    "klub": "Léto 2026 - Ž",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: romana-benesova | Heslo: lg616",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 106,
+  "fields": {
+    "jmeno": "Klára KOSÍKOVÁ",
+    "klub": "Léto 2026 - Ž",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: klara-kosikova | Heslo: 3f4mf",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 107,
+  "fields": {
+    "jmeno": "Alena STANICHOVÁ",
+    "klub": "Léto 2026 - Ž",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: alena-stanichova | Heslo: n9mbl",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 108,
+  "fields": {
+    "jmeno": "Sofie PØEROVSKÁ",
+    "klub": "Léto 2026 - Ž",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: sofie-prerovska | Heslo: cf9ek",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 109,
+  "fields": {
+    "jmeno": "Adéla Augustová",
+    "klub": "Léto 2026 - Ž",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: adela-augustova | Heslo: 1cguj",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.hrac",
+  "pk": 111,
+  "fields": {
+    "jmeno": "Daniel Padevìt",
+    "klub": "Léto 2026 - C",
+    "foto": "",
+    "datum_narozeni": null,
+    "info": "Login: daniel-padevet | Heslo: wt7xj",
+    "telefon": null,
+    "email": null,
+    "web": null
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 1,
+  "fields": {
+    "slug": "26_kaminka_zima_A",
+    "nazev": "Zima 25/26 - A",
+    "typ": "2K",
+    "aktivni": true
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 2,
+  "fields": {
+    "slug": "26_kaminka_zima_B",
+    "nazev": "Zima 25/26 - B",
+    "typ": "2K",
+    "aktivni": true
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 3,
+  "fields": {
+    "slug": "26_kaminka_zima_C",
+    "nazev": "Zima 25/26 - C",
+    "typ": "2K",
+    "aktivni": true
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 4,
+  "fields": {
+    "slug": "26_kaminka_zima_D",
+    "nazev": "Zima 25/26 - D",
+    "typ": "2K",
+    "aktivni": true
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 6,
+  "fields": {
+    "slug": "26_kaminka_leto_A",
+    "nazev": "Léto 2026 - A",
+    "typ": "1K",
+    "aktivni": true
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 7,
+  "fields": {
+    "slug": "26_kaminka_leto_B",
+    "nazev": "Léto 2026 - B",
+    "typ": "1K",
+    "aktivni": true
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 8,
+  "fields": {
+    "slug": "26_kaminka_leto_C",
+    "nazev": "Léto 2026 - C",
+    "typ": "1K",
+    "aktivni": true
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 9,
+  "fields": {
+    "slug": "26_kaminka_leto_D",
+    "nazev": "Léto 2026 - D",
+    "typ": "1K",
+    "aktivni": true
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 10,
+  "fields": {
+    "slug": "26_kaminka_leto_E",
+    "nazev": "Léto 2026 - E",
+    "typ": "1K",
+    "aktivni": true
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 11,
+  "fields": {
+    "slug": "25_kaminka_leto_A",
+    "nazev": "Léto 2025 - A",
+    "typ": "1K",
+    "aktivni": true
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 12,
+  "fields": {
+    "slug": "25_kaminka_leto_B",
+    "nazev": "Léto 2025 - B",
+    "typ": "1K",
+    "aktivni": false
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 13,
+  "fields": {
+    "slug": "25_kaminka_leto_C",
+    "nazev": "Léto 2025 - C",
+    "typ": "1K",
+    "aktivni": false
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 14,
+  "fields": {
+    "slug": "25_kaminka_leto_D",
+    "nazev": "Léto 2025 - D",
+    "typ": "1K",
+    "aktivni": false
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 15,
+  "fields": {
+    "slug": "25_kaminka_leto_E",
+    "nazev": "Léto 2025 - E",
+    "typ": "1K",
+    "aktivni": false
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 16,
+  "fields": {
+    "slug": "26_kaminka_zima_mixy",
+    "nazev": "Zima 25/26 - mixy",
+    "typ": "1K",
+    "aktivni": true
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 17,
+  "fields": {
+    "slug": "26_kaminka_leto_mixy",
+    "nazev": "Léto 2026 -mixy",
+    "typ": "1K",
+    "aktivni": true
+  }
+},
+{
+  "model": "tenis_app.soutez",
+  "pk": 18,
+  "fields": {
+    "slug": "26_kaminka_leto_z",
+    "nazev": "Léto 2026 - Ženy",
+    "typ": "1K",
+    "aktivni": true
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 506,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 97,
+    "hrac_hoste": 98,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 507,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 97,
+    "hrac_hoste": 99,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 508,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 97,
+    "hrac_hoste": 100,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 509,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 97,
+    "hrac_hoste": 101,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 510,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 97,
+    "hrac_hoste": 102,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 511,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 97,
+    "hrac_hoste": 103,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 512,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 97,
+    "hrac_hoste": 104,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 513,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 97,
+    "hrac_hoste": 105,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 514,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 97,
+    "hrac_hoste": 106,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 515,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 97,
+    "hrac_hoste": 107,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 516,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 97,
+    "hrac_hoste": 108,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 517,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 98,
+    "hrac_hoste": 99,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 518,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 98,
+    "hrac_hoste": 100,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 519,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 98,
+    "hrac_hoste": 101,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 520,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 98,
+    "hrac_hoste": 102,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 521,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 98,
+    "hrac_hoste": 103,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 522,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 98,
+    "hrac_hoste": 104,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 523,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 98,
+    "hrac_hoste": 105,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 524,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 98,
+    "hrac_hoste": 106,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 525,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 98,
+    "hrac_hoste": 107,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 526,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 98,
+    "hrac_hoste": 108,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 527,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 99,
+    "hrac_hoste": 100,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 528,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 99,
+    "hrac_hoste": 101,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 530,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 99,
+    "hrac_hoste": 103,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 531,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 99,
+    "hrac_hoste": 104,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 532,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 99,
+    "hrac_hoste": 105,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 533,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 99,
+    "hrac_hoste": 106,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 534,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 99,
+    "hrac_hoste": 107,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 535,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 99,
+    "hrac_hoste": 108,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 536,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 100,
+    "hrac_hoste": 101,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 537,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 100,
+    "hrac_hoste": 102,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 538,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 100,
+    "hrac_hoste": 103,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 539,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 100,
+    "hrac_hoste": 104,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 540,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 100,
+    "hrac_hoste": 105,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 541,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 100,
+    "hrac_hoste": 106,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 542,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 100,
+    "hrac_hoste": 107,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 543,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 100,
+    "hrac_hoste": 108,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 544,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 101,
+    "hrac_hoste": 102,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 545,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 101,
+    "hrac_hoste": 103,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 546,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 101,
+    "hrac_hoste": 104,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 547,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 101,
+    "hrac_hoste": 105,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 548,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 101,
+    "hrac_hoste": 106,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 549,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 101,
+    "hrac_hoste": 107,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 550,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 101,
+    "hrac_hoste": 108,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 551,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 102,
+    "hrac_hoste": 103,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 552,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 102,
+    "hrac_hoste": 104,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 553,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 102,
+    "hrac_hoste": 105,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 554,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 102,
+    "hrac_hoste": 106,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 555,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 102,
+    "hrac_hoste": 107,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 556,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 102,
+    "hrac_hoste": 108,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 557,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 103,
+    "hrac_hoste": 104,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 558,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 103,
+    "hrac_hoste": 105,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 559,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 103,
+    "hrac_hoste": 106,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 560,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 103,
+    "hrac_hoste": 107,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 561,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 103,
+    "hrac_hoste": 108,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 562,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 104,
+    "hrac_hoste": 105,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 563,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 104,
+    "hrac_hoste": 106,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 564,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 104,
+    "hrac_hoste": 107,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 565,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 104,
+    "hrac_hoste": 108,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 566,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 105,
+    "hrac_hoste": 106,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 567,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 105,
+    "hrac_hoste": 107,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 568,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 105,
+    "hrac_hoste": 108,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 569,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 106,
+    "hrac_hoste": 107,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 570,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 106,
+    "hrac_hoste": 108,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 571,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 107,
+    "hrac_hoste": 108,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 576,
+  "fields": {
+    "soutez": 18,
+    "hrac_domaci": 102,
+    "hrac_hoste": 99,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2413,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 59,
+    "hrac_hoste": 64,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2414,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 57,
+    "hrac_hoste": 63,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2415,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 57,
+    "hrac_hoste": 62,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2416,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 57,
+    "hrac_hoste": 59,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2417,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 59,
+    "hrac_hoste": 60,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2418,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 61,
+    "hrac_hoste": 62,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2419,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 59,
+    "hrac_hoste": 61,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2420,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 57,
+    "hrac_hoste": 65,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2421,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 64,
+    "hrac_hoste": 67,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2422,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 61,
+    "hrac_hoste": 65,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2423,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 62,
+    "hrac_hoste": 66,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2424,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 66,
+    "hrac_hoste": 67,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2425,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 60,
+    "hrac_hoste": 62,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2426,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 58,
+    "hrac_hoste": 66,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2427,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 63,
+    "hrac_hoste": 66,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2428,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 60,
+    "hrac_hoste": 67,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2429,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 62,
+    "hrac_hoste": 65,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2430,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 59,
+    "hrac_hoste": 66,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2431,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 59,
+    "hrac_hoste": 63,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2432,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 59,
+    "hrac_hoste": 62,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2433,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 61,
+    "hrac_hoste": 66,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2434,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 62,
+    "hrac_hoste": 63,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2435,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 60,
+    "hrac_hoste": 66,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2436,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 57,
+    "hrac_hoste": 64,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2437,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 60,
+    "hrac_hoste": 63,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2438,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 58,
+    "hrac_hoste": 59,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2439,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 57,
+    "hrac_hoste": 58,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2440,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 65,
+    "hrac_hoste": 66,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2441,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 58,
+    "hrac_hoste": 60,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2442,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 63,
+    "hrac_hoste": 65,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2443,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 61,
+    "hrac_hoste": 63,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2444,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 64,
+    "hrac_hoste": 65,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2445,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 57,
+    "hrac_hoste": 60,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2446,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 64,
+    "hrac_hoste": 66,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2447,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 58,
+    "hrac_hoste": 65,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2448,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 57,
+    "hrac_hoste": 67,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2449,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 61,
+    "hrac_hoste": 67,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2450,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 62,
+    "hrac_hoste": 64,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2451,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 61,
+    "hrac_hoste": 64,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2452,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 59,
+    "hrac_hoste": 65,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2453,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 58,
+    "hrac_hoste": 67,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2454,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 58,
+    "hrac_hoste": 62,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2455,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 57,
+    "hrac_hoste": 66,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2456,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 59,
+    "hrac_hoste": 67,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2457,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 60,
+    "hrac_hoste": 61,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2458,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 58,
+    "hrac_hoste": 63,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2459,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 60,
+    "hrac_hoste": 65,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2460,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 57,
+    "hrac_hoste": 61,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2461,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 63,
+    "hrac_hoste": 67,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2462,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 58,
+    "hrac_hoste": 61,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2463,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 60,
+    "hrac_hoste": 64,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2464,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 58,
+    "hrac_hoste": 64,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2465,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 65,
+    "hrac_hoste": 67,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2466,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 63,
+    "hrac_hoste": 64,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2467,
+  "fields": {
+    "soutez": 6,
+    "hrac_domaci": 62,
+    "hrac_hoste": 67,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2468,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 68,
+    "hrac_hoste": 78,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2469,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 73,
+    "hrac_hoste": 74,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2470,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 71,
+    "hrac_hoste": 80,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2471,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 74,
+    "hrac_hoste": 76,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2473,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 73,
+    "hrac_hoste": 77,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2475,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 70,
+    "hrac_hoste": 80,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2477,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 76,
+    "hrac_hoste": 80,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2479,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 77,
+    "hrac_hoste": 80,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2480,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 71,
+    "hrac_hoste": 73,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2481,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 72,
+    "hrac_hoste": 78,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2484,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 76,
+    "hrac_hoste": 78,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2485,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 75,
+    "hrac_hoste": 76,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2486,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 74,
+    "hrac_hoste": 75,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2487,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 72,
+    "hrac_hoste": 74,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2488,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 74,
+    "hrac_hoste": 80,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2489,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 73,
+    "hrac_hoste": 76,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2490,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 71,
+    "hrac_hoste": 78,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2492,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 72,
+    "hrac_hoste": 76,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2493,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 68,
+    "hrac_hoste": 70,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2494,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 70,
+    "hrac_hoste": 74,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2496,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 76,
+    "hrac_hoste": 77,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2497,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 70,
+    "hrac_hoste": 77,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2498,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 71,
+    "hrac_hoste": 74,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2499,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 71,
+    "hrac_hoste": 75,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2500,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 73,
+    "hrac_hoste": 78,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2501,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 72,
+    "hrac_hoste": 77,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2502,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 71,
+    "hrac_hoste": 77,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2503,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 68,
+    "hrac_hoste": 74,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2505,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 71,
+    "hrac_hoste": 76,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2506,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 78,
+    "hrac_hoste": 80,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2507,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 77,
+    "hrac_hoste": 78,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2508,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 68,
+    "hrac_hoste": 76,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2509,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 68,
+    "hrac_hoste": 72,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2510,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 68,
+    "hrac_hoste": 71,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2511,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 70,
+    "hrac_hoste": 72,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2512,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 70,
+    "hrac_hoste": 78,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2513,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 68,
+    "hrac_hoste": 77,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2514,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 73,
+    "hrac_hoste": 75,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2515,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 74,
+    "hrac_hoste": 78,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2516,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 75,
+    "hrac_hoste": 78,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2518,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 72,
+    "hrac_hoste": 75,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2519,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 72,
+    "hrac_hoste": 73,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2520,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 70,
+    "hrac_hoste": 73,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2521,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 72,
+    "hrac_hoste": 80,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2522,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 75,
+    "hrac_hoste": 77,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2523,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 70,
+    "hrac_hoste": 76,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2524,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 73,
+    "hrac_hoste": 80,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2525,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 74,
+    "hrac_hoste": 77,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2526,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 75,
+    "hrac_hoste": 80,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2527,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 68,
+    "hrac_hoste": 73,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2528,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 70,
+    "hrac_hoste": 71,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2529,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 68,
+    "hrac_hoste": 80,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2530,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 71,
+    "hrac_hoste": 72,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2531,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 68,
+    "hrac_hoste": 75,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2533,
+  "fields": {
+    "soutez": 7,
+    "hrac_domaci": 70,
+    "hrac_hoste": 75,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2534,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 82,
+    "hrac_hoste": 84,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2535,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 1,
+    "hrac_hoste": 79,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2536,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 1,
+    "hrac_hoste": 84,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2537,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 4,
+    "hrac_hoste": 81,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2538,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 1,
+    "hrac_hoste": 7,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2539,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 7,
+    "hrac_hoste": 85,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2540,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 1,
+    "hrac_hoste": 4,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2541,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 81,
+    "hrac_hoste": 111,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2542,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 7,
+    "hrac_hoste": 84,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2543,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 81,
+    "hrac_hoste": 86,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2544,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 85,
+    "hrac_hoste": 111,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2545,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 7,
+    "hrac_hoste": 111,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2546,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 81,
+    "hrac_hoste": 82,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2547,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 4,
+    "hrac_hoste": 83,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2548,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 81,
+    "hrac_hoste": 83,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2549,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 1,
+    "hrac_hoste": 82,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2550,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 79,
+    "hrac_hoste": 85,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2551,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 4,
+    "hrac_hoste": 86,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2552,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 79,
+    "hrac_hoste": 84,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2553,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 82,
+    "hrac_hoste": 85,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2554,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 1,
+    "hrac_hoste": 85,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2555,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 79,
+    "hrac_hoste": 81,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2556,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 7,
+    "hrac_hoste": 86,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2557,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 79,
+    "hrac_hoste": 111,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2558,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 86,
+    "hrac_hoste": 111,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2559,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 84,
+    "hrac_hoste": 85,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2560,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 7,
+    "hrac_hoste": 79,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2561,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 7,
+    "hrac_hoste": 81,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2562,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 83,
+    "hrac_hoste": 111,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2563,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 4,
+    "hrac_hoste": 85,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2564,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 82,
+    "hrac_hoste": 86,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2565,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 83,
+    "hrac_hoste": 85,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2566,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 4,
+    "hrac_hoste": 111,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2567,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 81,
+    "hrac_hoste": 85,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2568,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 84,
+    "hrac_hoste": 86,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2569,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 81,
+    "hrac_hoste": 84,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2570,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 83,
+    "hrac_hoste": 84,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2571,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 79,
+    "hrac_hoste": 83,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2572,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 4,
+    "hrac_hoste": 79,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2573,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 82,
+    "hrac_hoste": 83,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2574,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 1,
+    "hrac_hoste": 111,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2575,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 1,
+    "hrac_hoste": 86,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2576,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 79,
+    "hrac_hoste": 86,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2577,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 7,
+    "hrac_hoste": 82,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2578,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 7,
+    "hrac_hoste": 83,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2579,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 4,
+    "hrac_hoste": 82,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2580,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 85,
+    "hrac_hoste": 86,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2581,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 83,
+    "hrac_hoste": 86,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2582,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 84,
+    "hrac_hoste": 111,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2583,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 4,
+    "hrac_hoste": 84,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2584,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 82,
+    "hrac_hoste": 111,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2585,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 1,
+    "hrac_hoste": 83,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2586,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 1,
+    "hrac_hoste": 81,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2587,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 79,
+    "hrac_hoste": 82,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2588,
+  "fields": {
+    "soutez": 8,
+    "hrac_domaci": 4,
+    "hrac_hoste": 7,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2589,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 35,
+    "hrac_hoste": 91,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2590,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 35,
+    "hrac_hoste": 93,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2591,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 2,
+    "hrac_hoste": 35,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "00:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2592,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 88,
+    "hrac_hoste": 91,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2593,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 90,
+    "hrac_hoste": 92,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2594,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 6,
+    "hrac_hoste": 90,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2595,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 31,
+    "hrac_hoste": 93,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2596,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 88,
+    "hrac_hoste": 90,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2597,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 5,
+    "hrac_hoste": 93,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2598,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 6,
+    "hrac_hoste": 31,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2599,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 91,
+    "hrac_hoste": 93,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2600,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 2,
+    "hrac_hoste": 91,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2601,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 87,
+    "hrac_hoste": 93,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2602,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 5,
+    "hrac_hoste": 35,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2603,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 2,
+    "hrac_hoste": 5,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2604,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 91,
+    "hrac_hoste": 92,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2605,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 90,
+    "hrac_hoste": 91,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2606,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 31,
+    "hrac_hoste": 88,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2607,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 35,
+    "hrac_hoste": 87,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2608,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 31,
+    "hrac_hoste": 35,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2609,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 5,
+    "hrac_hoste": 91,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2610,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 87,
+    "hrac_hoste": 90,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2611,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 2,
+    "hrac_hoste": 6,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2612,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 2,
+    "hrac_hoste": 88,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2613,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 6,
+    "hrac_hoste": 92,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2614,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 31,
+    "hrac_hoste": 90,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2615,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 92,
+    "hrac_hoste": 93,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2616,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 2,
+    "hrac_hoste": 90,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2617,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 87,
+    "hrac_hoste": 92,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2618,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 6,
+    "hrac_hoste": 87,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2619,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 5,
+    "hrac_hoste": 90,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2620,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 6,
+    "hrac_hoste": 93,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2621,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 2,
+    "hrac_hoste": 31,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2622,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 5,
+    "hrac_hoste": 31,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2623,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 35,
+    "hrac_hoste": 90,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2624,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 5,
+    "hrac_hoste": 88,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2625,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 5,
+    "hrac_hoste": 92,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2626,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 35,
+    "hrac_hoste": 92,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2627,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 6,
+    "hrac_hoste": 91,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2628,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 88,
+    "hrac_hoste": 93,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2629,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 2,
+    "hrac_hoste": 92,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2630,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 5,
+    "hrac_hoste": 6,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2631,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 31,
+    "hrac_hoste": 92,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2632,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 31,
+    "hrac_hoste": 91,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2633,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 2,
+    "hrac_hoste": 93,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2634,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 2,
+    "hrac_hoste": 87,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2635,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 6,
+    "hrac_hoste": 35,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2636,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 87,
+    "hrac_hoste": 88,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2637,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 6,
+    "hrac_hoste": 88,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2638,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 88,
+    "hrac_hoste": 92,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2639,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 90,
+    "hrac_hoste": 93,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2640,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 31,
+    "hrac_hoste": 87,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2641,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 5,
+    "hrac_hoste": 87,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2642,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 87,
+    "hrac_hoste": 91,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2643,
+  "fields": {
+    "soutez": 9,
+    "hrac_domaci": 35,
+    "hrac_hoste": 88,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2644,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 28,
+    "hrac_hoste": 95,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2645,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 29,
+    "hrac_hoste": 34,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2646,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 29,
+    "hrac_hoste": 33,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2647,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 32,
+    "hrac_hoste": 96,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2648,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 30,
+    "hrac_hoste": 96,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2649,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 28,
+    "hrac_hoste": 94,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2650,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 32,
+    "hrac_hoste": 34,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2651,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 34,
+    "hrac_hoste": 36,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2652,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 34,
+    "hrac_hoste": 94,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2653,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 28,
+    "hrac_hoste": 34,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2654,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 94,
+    "hrac_hoste": 95,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2655,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 29,
+    "hrac_hoste": 36,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2656,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 36,
+    "hrac_hoste": 95,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2657,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 30,
+    "hrac_hoste": 94,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2658,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 30,
+    "hrac_hoste": 95,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2659,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 29,
+    "hrac_hoste": 94,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2660,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 36,
+    "hrac_hoste": 94,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2661,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 29,
+    "hrac_hoste": 96,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2662,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 32,
+    "hrac_hoste": 33,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2663,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 29,
+    "hrac_hoste": 95,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2664,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 34,
+    "hrac_hoste": 96,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2665,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 28,
+    "hrac_hoste": 30,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2666,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 28,
+    "hrac_hoste": 33,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2667,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 29,
+    "hrac_hoste": 32,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2668,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 28,
+    "hrac_hoste": 32,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2669,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 32,
+    "hrac_hoste": 95,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2670,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 32,
+    "hrac_hoste": 36,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2671,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 28,
+    "hrac_hoste": 36,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2672,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 28,
+    "hrac_hoste": 29,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2673,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 34,
+    "hrac_hoste": 95,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2674,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 94,
+    "hrac_hoste": 96,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2675,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 33,
+    "hrac_hoste": 36,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2676,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 29,
+    "hrac_hoste": 30,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2677,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 30,
+    "hrac_hoste": 36,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2678,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 33,
+    "hrac_hoste": 96,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2679,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 32,
+    "hrac_hoste": 94,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2680,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 36,
+    "hrac_hoste": 96,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2681,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 95,
+    "hrac_hoste": 96,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2682,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 33,
+    "hrac_hoste": 94,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2683,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 33,
+    "hrac_hoste": 34,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2684,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 30,
+    "hrac_hoste": 34,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2685,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 28,
+    "hrac_hoste": 96,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": true,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2686,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 30,
+    "hrac_hoste": 33,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2687,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 33,
+    "hrac_hoste": 95,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "tenis_app.zapas",
+  "pk": 2688,
+  "fields": {
+    "soutez": 10,
+    "hrac_domaci": 30,
+    "hrac_hoste": 32,
+    "set1": "0:0",
+    "set2": "0:0",
+    "set3": "0:0",
+    "sety_domaci": 0,
+    "sety_hoste": 0,
+    "gamy_domaci": 0,
+    "gamy_hoste": 0,
+    "mice_bere_domaci": false,
+    "odehrano": false,
+    "datum": null
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$SjKw2PfDLQfjEG6wFpd1ev$H1U01TWpS2UcNkOGFmisMEhS0SGsHylIXH4eZuD92fg=",
+    "last_login": "2026-04-30T21:18:03.224Z",
+    "is_superuser": true,
+    "username": "jchar",
+    "first_name": "",
+    "last_name": "",
+    "email": "j.charousek@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-01-25T20:53:09.546Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 153,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$RYmgc2ygAL6NQINT7O7iOI$PuMaY5zJxm/ksbuZrHwtCuKHdUBM1BjNZR6PEV7hSHo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "petr-vodvarka",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:06.838Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 154,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$YQUtdaMFvKXVlJlm7CCBEt$CmIjOVtah2lJXwAlJHCAXRBkvPtvs/RNQHWe0lGG42o=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "daniel-kral",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:07.468Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 155,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$LfzsBIhafMjnqqH1WPrPZs$F/dGon988C99/Dd7O1b+QeC5IVSWD/JvwK7IGLdor/w=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "vojtech-mahelka",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:08.080Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 156,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$FdIH0BBzemGpm1CyE3vtBZ$1nPIYbkcuQmZehoTSMKtmfhkgeCIIivBgu2Nijid9rY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jiri-kraus",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:08.673Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 157,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$9TkwYn3Wl4hHGxTLyO0uSG$MgZ2xeMxUVzzY8MA7HapjejCGo0OO9i/8BzthIP3rvI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jiri-charousek",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:09.289Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 158,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$YUsyx6fivj5BlkMyya0Ltn$mg8RecJQ+TRdDiO5K1N57P0talXvZyFwihTr+YyiV4I=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "martin-balcarek",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:09.881Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 159,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$k6lJFH9M3h0cgipjIIP4I3$4n7r4E9Wmpwfke2hf6ChkDVboIDPFFcfgt/pepCCWf0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "anna-mahelkova",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:10.493Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 160,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$MQYpyCyq6D7Ka72SXYszpj$i2o0PNeEY1Nu4dDPonJQpznB3jqPGyx3EBJqDUS2w9Q=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "klara-wantulok",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:11.146Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 161,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$j2t2mK3CzOxJUDOtFRla1q$6PxC2U4A+vfYMWWcndoXv7XY/3JZFcAbILivXwfdAvw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "dominik-zmeskal",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:11.748Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 162,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$uScqKhqzlu2DA340DYxga8$4z526yzRhXYj9l4cM0g5mwNwDUTbMtGssRsaJBmAAlQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ondrej-brant",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:12.347Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 163,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$oZg5lJPliwGOqhiTLXUvJi$8T4TLYbpqathOBclMc5V+ZtwA17CENI3oUODGtHMhIA=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "martin-bukacek",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:12.950Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 164,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$G4b72GXHWt6IAEdt03TQF3$qpqcbDThC0lCsx0UXf8jRbW5qKNSZHmBHvWAzZiO5dQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "michal-gabrle",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:13.558Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 165,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$B0U9WoIGnkii7hwTGPenFs$W6SdPDiTZL+oJBWfqLXA2BdlxN2uXEf9ojQUe6Lvu0I=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "miroslav-siedem",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:14.157Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 166,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Vb8KL1XJhLzPQQgV79avjv$6OgBYmoGKSQoWdhdwQlkgPkwvoXavcHvouUKJgfQAg4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "radek-laska",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:14.778Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 167,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$X0aXCCUfKcXtLtmiEnGUKK$MvMGNSaVqT9c5njfmmoaIqV1oKPoO8JA0BY3iVLaFGU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "michal-podzimek",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:15.383Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 168,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$M41EqueEltiSTO6IvpxQf8$ybGehH86JsSzMSo7A/3TV1CTPeWe3V8rsQg9QPjaRRw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "tomas-horcicka",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:16.004Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 169,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$unbrL8mCPQVDR8KBsAPHCF$HC/lW5KUyUTii81EQRSBdLhojIg5zIlvFOKvg1wQjsE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "boris-nestrasil",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:16.618Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 170,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$3mOKsm4mH1Xe8tr78osKn1$wo2I8GTBMea7mbZJ0teOYjBavLkG8cvwsdqfkUsSm9Q=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ivan-gac",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:17.247Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 171,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$6bKv4snXYO8zbyxfzAYfAe$O6oY4veyvxDoSWfb4pfMR95B0EeTLFV2EWjfFlarIPM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jaroslav-macha",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:17.851Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 172,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$JYM3oQAyW9W89NlPNMA6PB$CrgGfoHKZoVpIOEceLeVWiWfC1gqxDnWKBex72JuBfM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "tomas-dolezal",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:18.449Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 173,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$GVe0UNCIsp7tp5989HFBWl$opGoT8HWyYD+ueisj32emZe891FGRZWCh4n8iYfm2r0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "petr-jandovsky",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:19.062Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 174,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$wvcuxyT8NcNOHHessSrDHV$7jrnFBw8jhmRRtTtIlc1F2QjqhAbfW9eUQsJ/Rv3VjY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "miroslav-stemberk",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:19.682Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 175,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$CSO8RT5c6xHztY9aWzot8x$r8TkckInddxb/+uvJdgH5yqI33k+6qkOEwPx3eWJLh0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "simon-hruby",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:20.276Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 176,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$nu7nYhjyjuqXTlhggg70pz$Hnkr/q4S+OW/bQ3gt1V3RQzw7IOdIBwjFdpHuJIokGk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "josef-augusta",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:20.879Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 177,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$fM8hIePpqpSevkrhupOFNO$VDYcpdzDJNA3DY0PbrwTiULU/evQ5DUiM5Qg8da8utM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "oto-klima",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:21.487Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 178,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$bMbXhRINJ5VWlw8YHeGxG9$FHSe46q8pRC5UCFZf8ZSeAd+foREPI6sFh8Kz4HE+/A=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "karel-vlcek",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:22.123Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 179,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$25zFrMaww1k38WwVIloL1U$54eP1qBAXKxXKSfE+scC+bPTK8CYECO9/iUS/NFfkmQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "michal-zmeskal",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:22.744Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 180,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$GCThljdjaLLEGgYNu11BlG$D3dSyACFfOauhpfFtKJOg0/spO1w0KJG2lVJKNs8JW0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "svatopluk-sykora",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:23.392Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 181,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$LaM3MJ21txwesvbx4zEZe1$vBw8ZjIJeIq48CgXKlcRAuayCNs+4LCs/6fDTQv40tI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "robert-hruby",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:24.016Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 182,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$lwrHeqPvOafpTeZrVTId18$5PhB/zmxB1UDYykSOU9j4xjfktBppObfaVcVP9WS3rQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ondrej-hloupy",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:24.636Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 183,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$n1luL0SJCKVxRmii5MGm7J$xGFbH1aJ+kbcdl8DMLeytBLgajIE3szdm0mu4nCWMG0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jan-zidlicky",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:25.262Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 184,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$kGqiJCW2qFkmnyXTYhvtS1$aNZyVgaQmmzBLa/98yxoLr94q5BMWQwFp4kIIrt5agw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "david-kremlik",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:25.873Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 185,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$GfscUjEh480lMwEWUwVwxk$yK4yP0gv/3Q4RNK82Ckqko82Bx7KsFnQl3gs7Khz+Ig=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "karel-mahelka",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:26.472Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 187,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$dI6RIcs7jIuBfUTJvheikq$X4cd/jmZUgANjHD2qu2ziGCJDqjQTogxU4b9VRA8SD8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jakub-zidlicky",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:27.673Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 188,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$ZTaEGMXSURiTXygogG3eSz$Ykgwzyu3lVTMn+52gk33C/+Qd8Osn8c/7r+FmlwOkYw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "dusan-zenahlik",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:28.256Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 189,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$9Ctvhxj0XOuxxvt8nhEEHY$sXVG4nb+t5ekxc8eaEfP2RdEyNeYETVZ6GachY1LIqg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jiri-chlouba",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:28.884Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 190,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$WCp0x0Iz3gEvlhsp5XNqbV$/+hDQkoSPf/8cb7syiyDlFYoS4GSwsp8Dg+lrz13CqE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "petr-hovorka",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:29.520Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 191,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$SycB8umxlZpN05PA6Df2AV$0j1OaoA03UVwxuOnpVEeoCp4kI/vcoK49WZhtYxo32M=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "petr-simonicek",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:30.131Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 192,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$ZG9J7JZPhYQV6wbAMMLRO6$iDimTEzZxnRkwVohyQ877rnErobhrndB2czBV7VbNWk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "adam-gac",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:30.734Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 193,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$kF5TjXyEqhov4lBMdfVWyQ$8VquNHGc0wT177Kpj9t+x9dBQ1JoXTbENjUqTALK9MI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "frantisek-kardos",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:31.335Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 194,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$5yFtMrG9lM3Q2VxIumE3iO$1Jms+Jk6CmXVlXMq4CaqB3WgHq70F4IlEFLbrlWdGf4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "lukas-tichy",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:31.936Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 195,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Z2P8jxQfpDS0Nm0pq1fC8j$Ridt0MW4m0srwkaYb8gZGugwosCZpufkTfXgx+Pv5Uo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "milan-koudelka",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:32.543Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 196,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$6prcCo6BTW6ilmCOWru3jj$kJ5QGDJvZi/CDlzzoLvC+G2HGeRSxzOw938JHq/Lhm8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jana-bechova",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:33.145Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 197,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$bj5rzXe2TtlVDRS64zZ1GQ$+Pc4b0ZYQGDBL8B4yvu/mWdkhuheIGs7cfSkArd/AKs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "petr-kunzmann",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:33.741Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 198,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$LTNKJ2xXdf4s8DlcuTBJXS$nkrIUR03mAEWA3pyFlzhcZJi5HWOIM0aW2d+RddfF8A=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jaroslav-herodes",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:34.342Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 199,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$v1yaSqcZSTfV2UH4n1v2V3$aD8QTbZ59exiqMFhIScJXjONFxL2xwujk1CPvkA74gU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jan-sevcik",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:34.977Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 200,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$o3ONYPBFFvqSndS8SSA5GL$4Q+YMivC/yhHZ/DpfQ/1t+tHLC/992MIA4tYO2PwuVA=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "stanislav-reznik",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:35.571Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 201,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$TssidFwbKiPRrIslttcIOu$f4pem7bnXZaA5NlpJvSbXA9nkK3rr3YdliaDaOVBqS0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "michala-karpiskova",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:36.185Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 202,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$0DGIt4QVVaBVCmcy8ItUhZ$OJHCJCyiRVduxhrvkAMScDCWz8CcBx8fXAd7/4dmtNs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jiri-spacek",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:36.761Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 203,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$apJg8ltCUgjb3ucQjVgqj0$n7B0nJVZBhKv0BcQePGp86quawXFGVbye+Z7AsYZwIo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "petr-koprnicky",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:37.355Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 204,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$4KXoUkUuDfnXB7D7koRefg$mZPFSkTQWeZFWdl+EMkpq1UKt/AhMSJO04ayougsALk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "zdenek-malek",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:37.959Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 205,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$4oDzLS3g0TXLmZayItfYT3$/rvzJ9zhsRoWKi3A68uMZU+TyR8TCCHUTFyNlVEkn6s=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "dusan-hofman",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:38.561Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 206,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$6DeQCB1saDU7xXCz3YJPQt$+d+8kQRHWGXMrt96dueU29va2CsP/OQbIzoyNYImzuY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ivan-polednik",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:39.162Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 207,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$WJgLToHbX3y2iXYcDUCKmm$v02JrEysHa7gOcGMC8Y1yMxkCm62UGWWOzClxDLWF30=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jana-masopustova",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:39.767Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 208,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$pIyH0BsSxEmtY1gdRTj4gE$LEo/j3X9o/4dxrtFotbvFPyaXeVZExrnD4kwfqRBuzU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "helena-liskova",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:40.364Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 209,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$XtCI1gs7ZAY38u7pQnoQd4$0FrXtwBoMaro5URa3KADRC4KmbpkREkaYsh7pmCOShw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "alice-hanusova",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:40.953Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 210,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$PpFVZhBTYDqpM387vEAB2l$xDNaZskzEuYbe40kxfOlsUFtbHQwzY1BmTH054ptmpc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ivana-machova",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:41.544Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 211,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$PuWHGgNwmFNqVaIZqC4qeQ$E+H4R5xRXSimeFgNQTXOyuRBupicPAj6pkC9JPWqN2o=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "petra-hanzlickova",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:42.150Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 212,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$TSn1CqVok38gv0mIdIg2rA$NZN0xle7nSFqi6geYBe15lNIoRbPePrx20y/Q0F2zyc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "anna-lytvynova",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:42.738Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 213,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$tdhJNiiGbIelR0t9SU0SWC$mHNBkR6S3fVHZd5qyDVMZDmPTH0/DlQhC5Y2L18L/EU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "marina-hruba",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:43.344Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 214,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$gzzsoUXwPTwCZmfk6NEKOA$eu8hMTZ5+oK77kFR8lB1lKYcdsLxXoc0uk6xl2bB+cw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "romana-benesova",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:43.970Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 215,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$3EHwSayzBhnJoLwo2JsMLr$wnfAenKJJFbsuL63LSN1b1czSNiPodPxMBezI/Bz950=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "klara-kosikova",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:44.563Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 216,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$4b6DoPmCIWqxrEY3WQ4XeQ$d64ht8VgGZfKRzy9X2dKepvBKppe21zUpYb1nLNzR1s=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "alena-stanichova",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:45.176Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 217,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$IavM2G1tk7ObGZC705GK8m$9eBBwwjfAm+d5ngw4RXsrRMh0BRehvpefMjum540Soc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "sofie-prerovska",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:45.780Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 218,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$NFdtziRzNH9wmhVgQDu8EO$d4nOk9vcCUziZMsL8PNxDjigxA6HeMNpR/kMAAPJRQ8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "adela-augustova",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:22:46.381Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 219,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$RYGRTWjjso7GOtcoHzRZ6i$2I1fPXJ7LHiLyZzF6oNSbS8jmEdRMANv13ox5pxoSFw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "daniel-padevet",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-01T20:31:37.787Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
