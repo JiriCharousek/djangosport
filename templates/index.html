@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Tenis App</title>
+</head>
+<body>
+    <h1>Vítejte v Tenis App!</h1>
+    
+    {% if user.is_authenticated %}
+        <p>Přihlášen jako: {{ user.username }}</p>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Odhlásit se</button>
+        </form>
+    {% else %}
+        <p>Nejste přihlášeni.</p>
+        <a href="{% url 'login' %}">Přihlásit se</a> | 
+        <a href="{% url 'password_reset' %}">Zapomněl jsem heslo</a>
+    {% endif %}
+
+    <hr>
+    <nav>
+        <a href="/tenis/">Tenisové kurty</a><!--  | 
+        <a href="/fotbal/">Fotbalová hřiště</a> -->
+    </nav>
+</body>
+</html>
