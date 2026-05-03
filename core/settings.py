@@ -151,9 +151,9 @@ import os
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.seznam.cz'
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
+EMAIL_PORT = 587             # Změna z 465 na 587
+EMAIL_USE_TLS = True          # Přidat TLS
+EMAIL_USE_SSL = False         # SSL vypnout (587 používá TLS)
 EMAIL_HOST_USER = 'tenis-app-info@seznam.cz'
-# Heslo načteme z Coolify Environment Variables
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'Tenis App <tenis-app-info@seznam.cz>'
