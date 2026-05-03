@@ -1,6 +1,15 @@
 <h2>Přihlášení</h2>
+
 <form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Přihlásit se</button>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Přihlásit se</button>
 </form>
+
+<hr>
+<p>
+    <a href="{% url 'password_reset' %}">Zapomněli jste heslo?</a>
+</p>
+<p>
+    Nemáte účet? Obraťte se na administrátora.
+</p>

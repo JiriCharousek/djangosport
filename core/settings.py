@@ -157,3 +157,9 @@ EMAIL_USE_SSL = False         # SSL vypnout (587 používá TLS)
 EMAIL_HOST_USER = 'tenis-app-info@seznam.cz'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'Tenis App <tenis-app-info@seznam.cz>'
+
+# Po přihlášení skoč na hlavní stránku (index.html)
+LOGIN_REDIRECT_URL = 'home'
+
+# Po odhlášení skoč také na hlavní stránku
+LOGOUT_REDIRECT_URL = 'home'
