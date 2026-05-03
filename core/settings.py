@@ -146,3 +146,14 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/tenis/'
 LOGOUT_REDIRECT_URL = 'login'
 
+import os
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.seznam.cz'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'tenis-app-info@seznam.cz'
+# Heslo načteme z Coolify Environment Variables
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = 'Tenis App <tenis-app-info@seznam.cz>'
