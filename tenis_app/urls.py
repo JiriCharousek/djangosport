@@ -23,7 +23,6 @@ urlpatterns = [
     path('admin-tools/', views.admin_tools_view, name='admin_tools'),
     path('run-admin-tool/', views.admin_tools_launcher, name='admin_tools'),
     path('admin-tools/', views.admin_tools_launcher, name='admin_tools_launcher'),
-    # Tento řádek přidá login, logout, ale HLAVNĚ password_reset cesty:
-    path('accounts/', include('django.contrib.auth.urls')),
+
 ] 
  
