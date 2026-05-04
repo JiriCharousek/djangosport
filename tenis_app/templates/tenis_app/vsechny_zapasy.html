@@ -38,6 +38,7 @@
                 <div style="flex: 2; text-align: right; font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                     <a href="?filtr_hrac={{ zapas.hrac_domaci.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == zapas.hrac_domaci.id %}#e67e22{% else %}inherit{% endif %};">
                         {{ zapas.hrac_domaci.jmeno }}
+						{% if zapas.mice_bere_domaci %} 🎾 {% endif %}
                     </a>
                 </div>
 
@@ -67,7 +68,8 @@
 
                 <div style="flex: 2; text-align: left; font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                     <a href="?filtr_hrac={{ zapas.hrac_hoste.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == zapas.hrac_hoste.id %}#e67e22{% else %}inherit{% endif %};">
-                        {{ zapas.hrac_hoste.jmeno }}
+                        {% if not zapas.mice_bere_domaci %} 🎾 {% endif %}
+						{{ zapas.hrac_hoste.jmeno }}
                     </a>
                 </div>
 
