@@ -65,3 +65,8 @@ WARNING 2026-05-06 21:05:11,936 log Not Found: /tenis/liga/26_kaminka_leto_Z/
 WARNING 2026-05-06 21:06:07,418 log Not Found: /tenis/liga/26_kaminka_leto_Z/
 INFO 2026-05-06 21:11:00,361 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
 INFO 2026-05-06 21:11:06,911 autoreload Watching for file changes with StatReloader
+INFO 2026-05-06 21:34:45,027 autoreload Watching for file changes with StatReloader
+INFO 2026-05-06 21:34:49,156 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-05-06 21:34:52,147 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
+INFO 2026-05-06 21:35:01,363 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
+INFO 2026-05-06 21:38:10,660 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E

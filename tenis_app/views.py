@@ -150,6 +150,7 @@ def vypocitej_tabulku_dat(soutez, request=None):
 @login_required
 def detail_souteze(request, soutez_slug):
     soutez = get_object_or_404(Soutez, slug=soutez_slug)
+    logger.info(f"Uživatel {request.user.username} si prohlíží soutěž: {soutez.nazev}")
     context = vypocitej_tabulku_dat(soutez=soutez, request=request)
     
     # Přidáme 'tenis_app/' před název souboru
@@ -172,6 +173,7 @@ def zadat_vysledek(request):
             zapas.odehrano = True
             if not zapas.datum: zapas.datum = timezone.now().date()
             zapas.save()
+            logger.info(f"VÝSLEDEK ZAPSÁN: Uživatel {request.user.username} uložil skóre zápasu {zapas.id} ({zapas.hrac_domaci} vs {zapas.hrac_hoste}: {zapas.set1_domaci}:{zapas.set1_hoste}...)")
             return redirect('detail_souteze', soutez_slug=soutez_obj.slug)
     else:
         form = ZapasForm(initial={
