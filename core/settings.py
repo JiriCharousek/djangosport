@@ -143,8 +143,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = '/tenis/'
-LOGOUT_REDIRECT_URL = 'login'
 
 import os
 
@@ -163,3 +161,37 @@ LOGIN_REDIRECT_URL = 'home'
 
 # Po odhlášení skoč také na hlavní stránku
 LOGOUT_REDIRECT_URL = 'home'
+
+import os
+from pathlib import Path
+
+# Na začátku settings.py už pravděpodobně máš definované BASE_DIR
+# Pokud ne, přidej: BASE_DIR = Path(__file__).resolve().parent.parent
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            # TATO ZMĚNA JE KLÍČOVÁ: vytvoří soubor v hlavním adresáři projektu
+            'filename': os.path.join(BASE_DIR, 'debug.log'), 
+            'formatter': 'verbose',
+        },
+    },
+    'root': {
+        'handlers': ['console', 'file'],
+        'level': 'INFO',
+    },
+}

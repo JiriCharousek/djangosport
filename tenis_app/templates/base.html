@@ -112,6 +112,7 @@
         }
 
         .main-content { padding: 30px; }
+		.active-link { background: #334155; }
 
         .tenis-table { width: 100%; border-collapse: collapse; background: white; }
         .tenis-table td, .tenis-table th { border: 1px solid var(--border); padding: 10px; text-align: center; }
@@ -128,12 +129,32 @@
         <div class="nav-section">
             <h3 class="nav-title">🏆 Léto 2026</h3>
             <ul class="nav-list">
-                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_A' %}" class="nav-link">Liga A</a></li>
-                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_B' %}" class="nav-link">Liga B</a></li>
-                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_C' %}" class="nav-link">Liga C</a></li>
-                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_D' %}" class="nav-link">Liga D</a></li>
-                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_E' %}" class="nav-link">Liga E</a></li>
-                <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_z' %}" class="nav-link">Ženy</a></li>
+                <!-- <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_A' %}" class="nav-link">Liga A</a></li> -->
+				<a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_A' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_A' %}active-link{% endif %}">
+				   Liga A
+				</a>
+				<a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_B' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_B' %}active-link{% endif %}">
+				   Liga B
+				</a>
+				<a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_C' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_C' %}active-link{% endif %}">
+				   Liga C
+				</a>
+				<a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_D' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_D' %}active-link{% endif %}">
+				   Liga D
+				</a>
+				<a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_E' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_E' %}active-link{% endif %}">
+				   Liga E
+				</a>
+				<a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_z' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_z' %}active-link{% endif %}">
+				   Ženy
+				</a>
+
             </ul>
         </div>
 

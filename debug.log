@@ -1,0 +1,67 @@
+INFO 2026-05-05 22:26:24,188 autoreload Watching for file changes with StatReloader
+INFO 2026-05-06 16:53:51,296 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
+INFO 2026-05-06 16:53:52,887 autoreload Watching for file changes with StatReloader
+WARNING 2026-05-06 21:00:10,657 log Not Found: /tenis/liga/26_kaminka_leto_Z/
+WARNING 2026-05-06 21:00:36,638 log Not Found: /tenis/liga/26_kaminka_leto_Z/
+WARNING 2026-05-06 21:00:41,987 log Not Found: /tenis/liga/26_kaminka_leto_Z/
+WARNING 2026-05-06 21:01:13,477 log Not Found: /tenis/liga/26_kaminka_leto_Z/
+WARNING 2026-05-06 21:02:15,058 log Not Found: /tenis/liga/26_kaminka_leto_Z/
+ERROR 2026-05-06 21:02:20,784 log Internal Server Error: /tenis/liga/26_kaminka_leto_A/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 155, in detail_souteze
+    return render(request, 'tenis_app/tabulka_5ti_lig.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'detail_souteze' with keyword arguments '{'soutez_slug': '26_kaminka_leto_Ž'}' not found. 1 pattern(s) tried: ['tenis/liga/(?P<soutez_slug>[-a-zA-Z0-9_]+)/\\Z']
+WARNING 2026-05-06 21:03:01,992 log Not Found: /tenis/liga/26_kaminka_leto_Z/
+WARNING 2026-05-06 21:03:31,719 log Not Found: /tenis/liga/26_kaminka_leto_Z/
+WARNING 2026-05-06 21:04:00,385 log Not Found: /tenis/liga/26_kaminka_leto_Z/
+WARNING 2026-05-06 21:04:02,152 log Not Found: /tenis/liga/26_kaminka_leto_Z/
+WARNING 2026-05-06 21:04:02,698 log Not Found: /tenis/liga/26_kaminka_leto_Z/
+WARNING 2026-05-06 21:05:07,444 log Not Found: /tenis/liga/26_kaminka_leto_Z/
+WARNING 2026-05-06 21:05:11,936 log Not Found: /tenis/liga/26_kaminka_leto_Z/
+WARNING 2026-05-06 21:06:07,418 log Not Found: /tenis/liga/26_kaminka_leto_Z/
+INFO 2026-05-06 21:11:00,361 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-06 21:11:06,911 autoreload Watching for file changes with StatReloader

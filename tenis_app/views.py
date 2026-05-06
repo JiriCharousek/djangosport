@@ -5,6 +5,10 @@ from django.urls import reverse
 from .models import Hrac, Zapas, Soutez
 from .forms import HracForm, ZapasForm
 from django.contrib.auth.decorators import login_required
+
+import logging
+
+logger = logging.getLogger(__name__)
 # =================================================================
 # 1. UNIVERZÁLNÍ VÝPOČETNÍ JÁDRO (Modulární systém)
 # =================================================================
@@ -436,3 +440,12 @@ def admin_tools_launcher(request):
             messages.error(request, f"❌ Chyba: {str(e)}")
 
     return redirect(request.META.get('HTTP_REFERER', '/'))
+
+
+import logging
+logger = logging.getLogger(__name__)
+
+def moje_view(request):
+    if request.method == "POST":
+        # Logování akce
+        logger.info(f"Uživatel {request.user} odeslal formulář na adrese {request.path}")
