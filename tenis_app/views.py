@@ -162,8 +162,22 @@ def detail_souteze(request, soutez_slug):
     
 @login_required
 def zadat_vysledek(request):
-    soutez_slug = request.GET.get('slug')
-    soutez_obj = get_object_or_404(Soutez, slug=soutez_slug)
+    # 1. Načtení parametrů z URL
+    hrac_domaci_id = request.GET.get('hrac_domaci')
+    hrac_hoste_id = request.GET.get('hrac_hoste')
+    soutez_slug = request.GET.get('soutez') or request.GET.get('slug')
+
+    # 2. Načtení soutěže
+    soutez_obj = None
+    if soutez_slug:
+        soutez_obj = Soutez.objects.filter(slug=soutez_slug).first()
+    
+    if not soutez_obj:
+        soutez_obj = Soutez.objects.first()
+
+    if not soutez_obj:
+        from django.http import HttpResponse
+        return HttpResponse("V databázi neexistuje žádná soutěž.")
 
     if request.method == 'POST':
         form = ZapasForm(request.POST)
@@ -171,18 +185,40 @@ def zadat_vysledek(request):
             zapas = form.save(commit=False)
             zapas.soutez = soutez_obj
             zapas.odehrano = True
-            if not zapas.datum: zapas.datum = timezone.now().date()
+            
+            # Nastavení data, pokud chybí
+            from django.utils import timezone
+            if not zapas.datum: 
+                zapas.datum = timezone.now().date()
+            
+            # --- VÝPOČET SETŮ A GAMŮ (aby se žebříček měl podle čeho rozhodnout) ---
+            zapas.sety_domaci = 0
+            zapas.sety_hoste = 0
+            for s in [zapas.set1, zapas.set2, zapas.set3]:
+                if s and ':' in s and s != '0:0':
+                    d, h = map(int, s.split(':'))
+                    if d > h: zapas.sety_domaci += 1
+                    elif h > d: zapas.sety_hoste += 1
+            # ---------------------------------------------------------------------
+
             zapas.save()
-            logger.info(f"VÝSLEDEK ZAPSÁN: Uživatel {request.user.username} uložil skóre zápasu {zapas.id} ({zapas.hrac_domaci} vs {zapas.hrac_hoste}: {zapas.set1_domaci}:{zapas.set1_hoste}...)")
+
+            # LOGOVÁNÍ (opravené, aby nepadalo)
+            logger.info(f"VÝSLEDEK ZAPSÁN: {zapas.hrac_domaci} vs {zapas.hrac_hoste} - {zapas.set1}")
+
+            # --- ŽEBŘÍČEK: PROHOZENÍ POZIC ---
+            from zebricek_app.views import aktualizuj_pozice_zebricku
+            aktualizuj_pozice_zebricku(zapas)
+            # ---------------------------------
+
             return redirect('detail_souteze', soutez_slug=soutez_obj.slug)
     else:
         form = ZapasForm(initial={
-            'hrac_domaci': request.GET.get('hrac_domaci'), 
-            'hrac_hoste': request.GET.get('hrac_hoste')
+            'hrac_domaci': hrac_domaci_id, 
+            'hrac_hoste': hrac_hoste_id
         })
     
     return render(request, 'tenis_app/zadat_vysledek.html', {'form': form, 'soutez': soutez_obj})
-
 # =================================================================
 # 3. SPRÁVA (Editace, Mazání)
 # =================================================================
@@ -413,7 +449,74 @@ def admin_tools_launcher(request):
                         # Pokud se něco pokazí, uvidíte přesně co (např. chyba v importu)
                         messages.error(request, f"❌ Chyba při spouštění skriptu: {str(e)}")
             
+            elif akce == "inicializovat_zebricek":
+                try:
+                    # 1. Vyčištění starých dat (pro jistotu)
+                    ZebricekPozice.objects.all().delete()
+                    
+                    # 2. Načtení všech existujících hráčů
+                    vsechny_hraci = list(Hrac.objects.all())
+                    
+                    if not vsechny_hraci:
+                        messages.warning(request, "V databázi nejsou žádní hráči k přidání.")
+                    else:
+                        # 3. Náhodné promíchání pro startovní pozice
+                        random.shuffle(vsechny_hraci)
+                        
+                        # 4. Hromadné vytvoření záznamů
+                        novy_zebricek = []
+                        for index, hrac in enumerate(vsechny_hraci, start=1):
+                            novy_zebricek.append(
+                                ZebricekPozice(hrac=hrac, pozice=index)
+                            )
+                        
+                        ZebricekPozice.objects.bulk_create(novy_zebricek)
+                        
+                        logger.info(f"Žebříček inicializován pro {len(novy_zebricek)} hráčů.")
+                        messages.success(request, f"✅ Žebříček byl vytvořen ({len(novy_zebricek)} hráčů).")
+                
+                except Exception as e:
+                    logger.error(f"Chyba při inicializaci žebříčku: {e}")
+                    messages.error(request, f"❌ Chyba: {e}")
             
+            
+            
+            
+            
+            elif akce == "parovat_hrace_uzivatele":
+                    from django.contrib.auth.models import User
+                    from tenis_app.models import Hrac
+                    import unicodedata
+                    import logging
+
+                    logger = logging.getLogger(__name__)
+                    hraci = Hrac.objects.all()  # Zkusíme úplně všechny pro kontrolu
+                    pocet_opraveno = 0
+
+                    logger.info("--- START DIAGNOSTIKY PÁROVÁNÍ ---")
+
+                    for hrac in hraci:
+                        # Odstranění diakritiky a převod na formát jmeno-prijmeni
+                        normalized = unicodedata.normalize('NFD', hrac.jmeno.lower().strip())
+                        slug_jmeno = "".join(c for c in normalized if unicodedata.category(c) != 'Mn')
+                        slug_jmeno = slug_jmeno.replace(" ", "-")
+                        
+                        # Najdeme uživatele
+                        user = User.objects.filter(username=slug_jmeno).first()
+                        
+                        if user:
+                            if not hrac.user:
+                                hrac.user = user
+                                hrac.save()
+                                pocet_opraveno += 1
+                                logger.info(f"NALEZENO: Hráč '{hrac.jmeno}' -> User '{slug_jmeno}'")
+                            else:
+                                logger.info(f"SKIP: Hráč '{hrac.jmeno}' už uživatele má.")
+                        else:
+                            # TADY UVÍDÍŠ V LOGU, CO JE ŠPATNĚ
+                            logger.warning(f"NENALEZENO: Pro hráče '{hrac.jmeno}' systém hledal username '{slug_jmeno}'")
+
+                    messages.success(request, f"🚀 Hotovo. Nově spárováno: {pocet_opraveno}. Koukni do debug.log!")
             
             elif akce == "opravit_vazby":
                 s = Soutez.objects.filter(slug='26_kaminka_leto_D').first()

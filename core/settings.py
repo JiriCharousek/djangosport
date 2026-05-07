@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tenis_app',                   # <--- Tvoje appky nechej pod nimi
     'fotbal_app',
+    'zebricek_app',
 ]
 
 MIDDLEWARE = [

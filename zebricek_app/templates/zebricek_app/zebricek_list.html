@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
+    <h2 style="color: #0f172a; margin-bottom: 25px;">🏆 Žebříček Kamínka 2026</h2>
+
+    <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+        
+        <div style="flex: 1; min-width: 350px;" class="zebricek-container">
+            <table class="tenis-table">
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">#</th>
+                        <th>Hráč</th>
+                        <th style="text-align: right;">Akce</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in zebricek %}
+                        {% if forloop.counter <= 35 %}
+                        <tr class="row-{{ p.pozice }} {% if p == moje_data %}row-me{% endif %}">
+                            <td><span class="rank-badge">{{ p.pozice }}</span></td>
+                            <td>
+                                <span style="font-weight: 600;">{{ p.hrac.jmeno }}</span>
+                                {% if p == moje_data %}<span class="me-label">TY</span>{% endif %}
+                            </td>
+                            <td style="text-align: right;">
+                                {% if p.hrac.id in mozni_souperi_ids %}
+                                    <a href="{% url 'zadat_vysledek' %}?hrac_domaci={{ p.hrac.id }}&hrac_hoste={{ moje_data.hrac.id }}&soutez=2026_zebricek" class="btn-challenge">⚔️</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div style="flex: 1; min-width: 350px;" class="zebricek-container">
+            <table class="tenis-table">
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">#</th>
+                        <th>Hráč</th>
+                        <th style="text-align: right;">Akce</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in zebricek %}
+                        {% if forloop.counter > 35 %}
+                        <tr class="row-{{ p.pozice }} {% if p == moje_data %}row-me{% endif %}">
+                            <td><span class="rank-badge">{{ p.pozice }}</span></td>
+                            <td>
+                                <span style="font-weight: 600;">{{ p.hrac.jmeno }}</span>
+                                {% if p == moje_data %}<span class="me-label">TY</span>{% endif %}
+                            </td>
+                            <td style="text-align: right;">
+                                {% if p.hrac.id in mozni_souperi_ids %}
+                                    <a href="{% url 'zadat_vysledek' %}?hrac_domaci={{ p.hrac.id }}&hrac_hoste={{ moje_data.hrac.id }}&soutez=2026_zebricek" class="btn-challenge">⚔️</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    {# Admin panel zůstává dole přes celou šířku #}
+    {% if user.is_staff %}
+        <div style="margin-top: 40px; padding: 25px; background: #f1f5f9; border-radius: 12px; border: 1px dashed #cbd5e1;">
+            <h4 style="margin-bottom: 15px;">🛠️ Administrace</h4>
+            <form action="{% url 'manualni_posun' %}" method="post" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                {% csrf_token %}
+                <select name="hrac_id" style="padding: 10px; border-radius: 8px;">
+                    {% for p in zebricek %}
+                        <option value="{{ p.hrac.id }}">{{ p.pozice }}. {{ p.hrac.jmeno }}</option>
+                    {% endfor %}
+                </select>
+                <input type="number" name="nova_pozice" min="1" value="1" style="width: 70px; padding: 10px; border-radius: 8px;">
+                <button type="submit" style="background: #0f172a; color: white; padding: 10px 20px; border-radius: 8px; cursor: pointer;">Přesunout</button>
+            </form>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

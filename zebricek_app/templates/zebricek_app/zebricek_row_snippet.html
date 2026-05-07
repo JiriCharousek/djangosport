@@ -1,0 +1,15 @@
+<tr class="row-{{ p.pozice }} {% if p == moje_data %}row-me{% endif %}">
+    <td><span class="rank-badge">{{ p.pozice }}</span></td>
+    <td>
+        <span style="font-weight: 600; color: #1e293b;">{{ p.hrac.jmeno }}</span>
+        {% if p == moje_data %}<span class="me-label">TY</span>{% endif %}
+    </td>
+    <td style="text-align: right;">
+        {% if p.hrac.id in mozni_souperi_ids %}
+            <a href="{% url 'zadat_vysledek' %}?hrac_domaci={{ p.hrac.id }}&hrac_hoste={{ moje_data.hrac.id }}&soutez=2026_zebricek" 
+               class="btn-challenge">⚔️</a>
+        {% elif p == moje_data %}
+            <small style="color: #94a3b8;">Pozice</small>
+        {% endif %}
+    </td>
+</tr>

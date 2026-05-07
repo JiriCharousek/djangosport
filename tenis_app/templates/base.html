@@ -116,7 +116,102 @@
 
         .tenis-table { width: 100%; border-collapse: collapse; background: white; }
         .tenis-table td, .tenis-table th { border: 1px solid var(--border); padding: 10px; text-align: center; }
-    </style>
+        <style>
+    /* Kontejner žebříčku */
+    .zebricek-container {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        overflow: hidden;
+        margin-top: 20px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .tenis-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .tenis-table thead tr {
+        background: #0f172a;
+        color: white;
+        text-align: left;
+    }
+
+    .tenis-table th {
+        padding: 15px 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+    }
+
+    .tenis-table td {
+        padding: 5px 10px;
+        border-bottom: 1px solid #f1f5f9;
+        vertical-align: middle;
+    }
+
+    /* Barevné odlišení pozic (Medailové pozice) */
+    .row-1 { background-color: rgba(255, 215, 0, 0.1); } /* Zlatá */
+    .row-2 { background-color: rgba(192, 192, 192, 0.1); } /* Stříbrná */
+    .row-3 { background-color: rgba(205, 127, 50, 0.1); } /* Bronzová */
+
+    /* Zvýraznění přihlášeného uživatele */
+    .row-me {
+        background-color: #f0f9ff !important; /* Světle modrá */
+        border-left: 4px solid #0ea5e9;
+    }
+
+    .rank-badge {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 50%;
+        background: #f1f5f9;
+        font-weight: bold;
+        color: #475569;
+    }
+
+    .row-1 .rank-badge { background: #ffd700; color: #92400e; }
+    .row-2 .rank-badge { background: #cbd5e1; color: #334155; }
+    .row-3 .rank-badge { background: #f97316; color: white; }
+
+    /* Tlačítko vyzvat */
+    .btn-challenge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #2563eb;
+        color: white;
+        padding: 6px 14px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .btn-challenge:hover {
+        background: #1d4ed8;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .me-label {
+        font-size: 0.75rem;
+        background: #0ea5e9;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 10px;
+        margin-left: 8px;
+        vertical-align: middle;
+    }
+</style>
+	</style>
 </head>
 <body>
 
@@ -157,6 +252,8 @@
 
             </ul>
         </div>
+		
+		
 
         <!-- <div class="nav-section section-green">
             <h3 class="nav-title">🎾 Zima 2025-6</h3>
@@ -189,6 +286,20 @@
             </a>
         </div>
 
+		<div class="nav-section">
+					
+					<ul class="nav-list">
+						<li>
+							<a href="{% url 'zebricek_index' %}" class="nav-link" style="color: #4ade80; font-weight: bold;">
+								🥇 ŽEBŘÍČEK 2026
+							</a>
+						</li>
+						<hr style="border: 0; border-top: 1px solid #334155; margin: 10px 0;">
+						
+						
+		</div>
+
+
         <!-- ADMIN SERVISNÍ SEKCE -->
 		{% if user.is_superuser %}
 		<div class="nav-section" style="border-top: 1px solid #334155; padding-top: 20px; margin-top: 20px;">
@@ -205,7 +316,29 @@
 						</button>
 					</form>
 				</li>
-
+                
+				<li>
+					<form action="{% url 'admin_tools_launcher' %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="akce" value="parovat_hrace_uzivatele">
+						<button type="submit" class="admin-btn btn-info">
+							🔗 Spárovat Hráče -> Účty
+						</button>
+					</form>
+				</li>
+				
+				
+				<li>
+					<form action="{% url 'admin_tools_launcher' %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="akce" value="inicializovat_zebricek">
+						<button type="submit" class="admin-btn btn-info" 
+								onclick="return confirm('Pozor: Toto vymaže aktuální pořadí žebříčku a náhodně ho znovu rozdělí. Pokračovat?')">
+							📊 Inicializovat žebříček
+						</button>
+					</form>
+				</li>
+				
 				<li>
 					<form action="{% url 'admin_tools' %}" method="post">
 						{% csrf_token %}

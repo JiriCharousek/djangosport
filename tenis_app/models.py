@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.safestring import mark_safe
-
+from django.conf import settings
 
 
 
@@ -18,7 +18,15 @@ class Hrac(models.Model):
     telefon = models.CharField(max_length=20, blank=True, null=True, verbose_name="Telefon")
     email = models.EmailField(blank=True, null=True, verbose_name="Email")
     web = models.URLField(blank=True, null=True, verbose_name="Webové stránky")
-
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, 
+        on_delete=models.SET_NULL, 
+        null=True, 
+        blank=True
+    )
+    
+    
+    
     @property
     def jmeno_split(self):
             if not self.jmeno:

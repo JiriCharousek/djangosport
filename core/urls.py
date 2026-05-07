@@ -14,4 +14,8 @@ urlpatterns = [
     
     # Autentizace (přihlašování, reset hesla)
     path('accounts/', include('django.contrib.auth.urls')),
+    
+    path('zebricek/', include('zebricek_app.urls')),
+    
+    
 ] # <--- Tady smí být jen jedna tahle závorka!
