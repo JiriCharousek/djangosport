@@ -15,13 +15,25 @@ from django.db import transaction
 
 
 
+import math
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from .models import ZebricekPozice
+
 @login_required
 def zebricek_detail(request):
     vsechny_pozice = ZebricekPozice.objects.all().select_related('hrac').order_by('pozice')
-    
-    # TEĎ UŽ TO NEBUDE PADAT:
     moje_data = vsechny_pozice.filter(hrac__user=request.user).first()
     
+    # Automatický výpočet poloviny
+    pocet_hracu = vsechny_pozice.count()
+    polovina = math.ceil(pocet_hracu / 2)
+
+    # Rozdělení na dva seznamy (sloupce)
+    sloupec_1 = vsechny_pozice[:polovina]
+    sloupec_2 = vsechny_pozice[polovina:]
+    
+    # Zde si ponechte logiku pro mozni_souperi_ids, kterou už v kódu máte
     mozni_souperi_ids = []
     if moje_data:
         mozni_souperi = vsechny_pozice.filter(
@@ -31,7 +43,9 @@ def zebricek_detail(request):
         mozni_souperi_ids = [p.hrac.id for p in mozni_souperi]
 
     return render(request, 'zebricek_app/zebricek_list.html', {
-        'zebricek': vsechny_pozice,
+        'sloupec_1': sloupec_1,
+        'sloupec_2': sloupec_2,
+        'zebricek': vsechny_pozice, # Ponecháno pro admin panel a celkový přehled
         'moje_data': moje_data,
         'mozni_souperi_ids': mozni_souperi_ids,
     })

@@ -16,10 +16,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for p in zebricek %}
-                        {% if forloop.counter <= 35 %}
-                        <tr class="row-{{ p.pozice }} {% if p == moje_data %}row-me{% endif %}">
-                            <td><span class="rank-badge">{{ p.pozice }}</span></td>
+                    {% for p in sloupec_1 %}
+                        <tr class="{% if p == moje_data %}row-me{% endif %}">
+                            <td><span class="rank-badge">{{ forloop.counter }}</span></td>
                             <td>
                                 <span style="font-weight: 600;">{{ p.hrac.jmeno }}</span>
                                 {% if p == moje_data %}<span class="me-label">TY</span>{% endif %}
@@ -30,7 +29,6 @@
                                 {% endif %}
                             </td>
                         </tr>
-                        {% endif %}
                     {% endfor %}
                 </tbody>
             </table>
@@ -46,10 +44,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for p in zebricek %}
-                        {% if forloop.counter > 35 %}
-                        <tr class="row-{{ p.pozice }} {% if p == moje_data %}row-me{% endif %}">
-                            <td><span class="rank-badge">{{ p.pozice }}</span></td>
+                    {% for p in sloupec_2 %}
+                        <tr class="{% if p == moje_data %}row-me{% endif %}">
+                            <td><span class="rank-badge">{{ forloop.counter|add:sloupec_1.count }}</span></td>
                             <td>
                                 <span style="font-weight: 600;">{{ p.hrac.jmeno }}</span>
                                 {% if p == moje_data %}<span class="me-label">TY</span>{% endif %}
@@ -60,7 +57,6 @@
                                 {% endif %}
                             </td>
                         </tr>
-                        {% endif %}
                     {% endfor %}
                 </tbody>
             </table>
@@ -68,19 +64,18 @@
 
     </div>
 
-    {# Admin panel zůstává dole přes celou šířku #}
+    {# Admin panel #}
     {% if user.is_staff %}
-        <div style="margin-top: 40px; padding: 25px; background: #f1f5f9; border-radius: 12px; border: 1px dashed #cbd5e1;">
-            <h4 style="margin-bottom: 15px;">🛠️ Administrace</h4>
-            <form action="{% url 'manualni_posun' %}" method="post" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+        <div style="margin-top: 40px; padding: 25px; background: #f1f5f9; border-radius: 12px;">
+            <form action="{% url 'manualni_posun' %}" method="post">
                 {% csrf_token %}
-                <select name="hrac_id" style="padding: 10px; border-radius: 8px;">
+                <select name="hrac_id">
                     {% for p in zebricek %}
                         <option value="{{ p.hrac.id }}">{{ p.pozice }}. {{ p.hrac.jmeno }}</option>
                     {% endfor %}
                 </select>
-                <input type="number" name="nova_pozice" min="1" value="1" style="width: 70px; padding: 10px; border-radius: 8px;">
-                <button type="submit" style="background: #0f172a; color: white; padding: 10px 20px; border-radius: 8px; cursor: pointer;">Přesunout</button>
+                <input type="number" name="nova_pozice" min="1" value="1">
+                <button type="submit">Přesunout</button>
             </form>
         </div>
     {% endif %}
