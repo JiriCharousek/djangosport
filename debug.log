@@ -1204,3 +1204,8 @@ INFO 2026-05-07 23:14:33,055 autoreload Watching for file changes with StatReloa
 INFO 2026-05-07 23:17:55,269 autoreload Watching for file changes with StatReloader
 INFO 2026-05-07 23:18:20,977 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - A
 INFO 2026-05-07 23:19:03,719 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - A
+INFO 2026-05-07 23:39:28,223 autoreload Watching for file changes with StatReloader
+INFO 2026-05-08 07:21:58,348 autoreload C:\Users\jchar\djangoSport\tenis_app\urls.py changed, reloading.
+INFO 2026-05-08 07:21:59,749 autoreload Watching for file changes with StatReloader
+INFO 2026-05-08 07:22:52,179 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-05-08 07:22:53,764 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
