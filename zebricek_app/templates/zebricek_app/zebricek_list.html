@@ -16,21 +16,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for p in sloupec_1 %}
-                        <tr class="{% if p == moje_data %}row-me{% endif %}">
-                            <td><span class="rank-badge">{{ forloop.counter }}</span></td>
-                            <td>
-                                <span style="font-weight: 600;">{{ p.hrac.jmeno }}</span>
-                                {% if p == moje_data %}<span class="me-label">TY</span>{% endif %}
-                            </td>
-                            <td style="text-align: right;">
-                                {% if p.hrac.id in mozni_souperi_ids %}
-                                    <a href="{% url 'zadat_vysledek' %}?hrac_domaci={{ p.hrac.id }}&hrac_hoste={{ moje_data.hrac.id }}&soutez=2026_zebricek" class="btn-challenge">⚔️</a>
-                                {% endif %}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
+					{% for p in sloupec_1 %}
+						<tr class="{% if forloop.counter == 1 %}row-1{% elif forloop.counter == 2 %}row-2{% elif forloop.counter == 3 %}row-3{% endif %} {% if forloop.counter|divisibleby:10 %}row-ten{% endif %} {% if p == moje_data %}row-me{% endif %}">
+							<td><span class="rank-badge">{{ forloop.counter }}</span></td>
+							<td>
+								<span style="font-weight: 600;">{{ p.hrac.jmeno }}</span>
+								{% if p == moje_data %}<span class="me-label">TY</span>{% endif %}
+							</td>
+							<td style="text-align: right;">
+								{% if p.hrac.id in mozni_souperi_ids %}
+									<a href="{% url 'zadat_vysledek' %}?hrac_domaci={{ p.hrac.id }}&hrac_hoste={{ moje_data.hrac.id }}&soutez=2026_zebricek" class="btn-challenge">⚔️</a>
+								{% endif %}
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
             </table>
         </div>
 
@@ -44,21 +44,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for p in sloupec_2 %}
-                        <tr class="{% if p == moje_data %}row-me{% endif %}">
-                            <td><span class="rank-badge">{{ forloop.counter|add:sloupec_1.count }}</span></td>
-                            <td>
-                                <span style="font-weight: 600;">{{ p.hrac.jmeno }}</span>
-                                {% if p == moje_data %}<span class="me-label">TY</span>{% endif %}
-                            </td>
-                            <td style="text-align: right;">
-                                {% if p.hrac.id in mozni_souperi_ids %}
-                                    <a href="{% url 'zadat_vysledek' %}?hrac_domaci={{ p.hrac.id }}&hrac_hoste={{ moje_data.hrac.id }}&soutez=2026_zebricek" class="btn-challenge">⚔️</a>
-                                {% endif %}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
+					{% for p in sloupec_2 %}
+						{% with aktualni_pozice=forloop.counter|add:sloupec_1.count %}
+						<tr class="{% if aktualni_pozice|divisibleby:10 %}row-ten{% endif %} {% if p == moje_data %}row-me{% endif %}">
+							<td><span class="rank-badge">{{ aktualni_pozice }}</span></td>
+							<td>
+								<span style="font-weight: 600;">{{ p.hrac.jmeno }}</span>
+								{% if p == moje_data %}<span class="me-label">TY</span>{% endif %}
+							</td>
+							<td style="text-align: right;">
+								{% if p.hrac.id in mozni_souperi_ids %}
+									<a href="{% url 'zadat_vysledek' %}?hrac_domaci={{ p.hrac.id }}&hrac_hoste={{ moje_data.hrac.id }}&soutez=2026_zebricek" class="btn-challenge">⚔️</a>
+								{% endif %}
+							</td>
+						</tr>
+						{% endwith %}
+					{% endfor %}
+				</tbody>
             </table>
         </div>
 
