@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-nz!d#!e7-jmo+723$sp93m7fv#o$pvjtq006r&_r+68wm4v6kh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['sportadmin.cz', 'www.sportadmin.cz', '89.167.35.225']
 
 
 # Application definition
