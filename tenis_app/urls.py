@@ -2,6 +2,8 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
 
+app_name = 'tenis_app'  # <--- TOTO TADY MUSÍ BÝT
+
 urlpatterns = [
     # Hlavní rozcestník
     path('', views.tenis_index, name='tenis_index'),
