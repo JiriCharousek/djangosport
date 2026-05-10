@@ -235,27 +235,27 @@
             <h3 class="nav-title">🏆 Léto 2026</h3>
             <ul class="nav-list">
                 <!-- <li><a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_A' %}" class="nav-link">Liga A</a></li> -->
-				<a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_A' %}" 
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_A' %}" 
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_A' %}active-link{% endif %}">
 				   Liga A
 				</a>
-				<a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_B' %}" 
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_B' %}" 
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_B' %}active-link{% endif %}">
 				   Liga B
 				</a>
-				<a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_C' %}" 
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_C' %}" 
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_C' %}active-link{% endif %}">
 				   Liga C
 				</a>
-				<a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_D' %}" 
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_D' %}" 
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_D' %}active-link{% endif %}">
 				   Liga D
 				</a>
-				<a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_E' %}" 
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_E' %}" 
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_E' %}active-link{% endif %}">
 				   Liga E
 				</a>
-				<a href="{% url 'detail_souteze' soutez_slug='26_kaminka_leto_z' %}" 
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_z' %}" 
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_z' %}active-link{% endif %}">
 				   Ženy
 				</a>
@@ -291,7 +291,7 @@
         </div> -->
 
         <div class="nav-section">
-            <a href="{% url 'prehled_vsech_zapasu' %}" style="color: #888; text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 10px;">
+            <a href="{% url 'tenis_app:prehled_vsech_zapasu' %}" style="color: #888; text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 10px;">
                 historie všech zápasů
             </a>
         </div>
@@ -317,7 +317,7 @@
 			<ul class="nav-list">
 				<!-- NOVÉ TLAČÍTKO: RESTART LIG -->
 				<li>
-					<form action="{% url 'admin_tools' %}" method="post">
+					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
 						{% csrf_token %}
 						<input type="hidden" name="akce" value="generovat_ligy">
 						<button type="submit" class="admin-btn" style="color: #e67e22; border-color: #e67e22;" 
@@ -328,7 +328,7 @@
 				</li>
                 
 				<li>
-					<form action="{% url 'admin_tools_launcher' %}" method="post">
+					<form action="{% url 'tenis_app:admin_tools_launcher' %}" method="post">
 						{% csrf_token %}
 						<input type="hidden" name="akce" value="parovat_hrace_uzivatele">
 						<button type="submit" class="admin-btn btn-info">
@@ -350,21 +350,21 @@
 				</li>
 				
 				<li>
-					<form action="{% url 'admin_tools' %}" method="post">
+					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
 						{% csrf_token %}
 						<input type="hidden" name="akce" value="opravit_vazby">
 						<button type="submit" class="admin-btn btn-warn">🔗 Opravit vazby</button>
 					</form>
 				</li>
 				<li>
-					<form action="{% url 'admin_tools' %}" method="post">
+					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
 						{% csrf_token %}
 						<input type="hidden" name="akce" value="vynutit_migrace">
 						<button type="submit" class="admin-btn btn-danger">⚡ Vynutit migrace</button>
 					</form>
 				</li>
 				<li>
-					<form action="{% url 'admin_tools' %}" method="post">
+					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
 						{% csrf_token %}
 						<input type="hidden" name="akce" value="fix_mice">
 						<button type="submit" class="admin-btn btn-info">🎾 Opravit sloupec Míče</button>
@@ -379,7 +379,7 @@
 				</form>
 				</li>
 				<li>
-					<form action="{% url 'admin_tools' %}" method="post">
+					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
 						{% csrf_token %}
 						<input type="hidden" name="akce" value="vynulovat_vsechna_data">
 						<button type="submit" class="admin-btn btn-warn" onclick="return confirm('Opravdu smazat datum u všech neodehraných zápasů?')">

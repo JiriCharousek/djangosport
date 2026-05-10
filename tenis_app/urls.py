@@ -6,7 +6,7 @@ app_name = 'tenis_app'  # <--- TOTO TADY MUSÍ BÝT
 
 urlpatterns = [
     # Hlavní rozcestník
-    path('', views.tenis_index, name='tenis_index'),
+    path('', views.tenis_app:tenis_index, name='tenis_app:tenis_index'),
     
     # --- AUTENTIZACE A RESET HESLA ---
     # Přihlášení a odhlášení
@@ -41,7 +41,7 @@ urlpatterns = [
     
     # Formuláře a akce
     path('pridat-hrace/', views.pridat_hrace, name='pridat_hrace'),
-    path('zadat-vysledek/', views.zadat_vysledek, name='zadat_vysledek'),
+    path('zadat-vysledek/', views.tenis_app:zadat_vysledek, name='tenis_app:zadat_vysledek'),
     path('editovat-vysledek/<int:pk>/', views.editovat_vysledek, name='editovat_vysledek'),
     path('smazat-vysledek/<int:pk>/', views.smazat_vysledek, name='smazat_vysledek'),
     

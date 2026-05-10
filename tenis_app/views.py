@@ -121,7 +121,7 @@ def vypocitej_tabulku_dat(soutez, request=None):
                 if z_obj:
                     u = reverse('editovat_vysledek', args=[z_obj.id])
                 else:
-                    u = f"{reverse('zadat_vysledek')}?hrac_domaci={h_radek.id}&hrac_hoste={h_sloupec.id}&slug={soutez.slug}"
+                    u = f"{reverse('tenis_app:zadat_vysledek')}?hrac_domaci={h_radek.id}&hrac_hoste={h_sloupec.id}&slug={soutez.slug}"
                 
                 # TADY JE TO KLÍČOVÉ:
                 radek_bunky.append({
@@ -161,7 +161,7 @@ def detail_souteze(request, soutez_slug):
     
     
 @login_required
-def zadat_vysledek(request):
+def tenis_app:zadat_vysledek(request):
     # 1. Načtení parametrů z URL
     hrac_domaci_id = request.GET.get('hrac_domaci')
     hrac_hoste_id = request.GET.get('hrac_hoste')
@@ -218,7 +218,7 @@ def zadat_vysledek(request):
             'hrac_hoste': hrac_hoste_id
         })
     
-    return render(request, 'tenis_app/zadat_vysledek.html', {'form': form, 'soutez': soutez_obj})
+    return render(request, 'tenis_app/tenis_app:zadat_vysledek.html', {'form': form, 'soutez': soutez_obj})
 # =================================================================
 # 3. SPRÁVA (Editace, Mazání)
 # =================================================================
@@ -257,7 +257,7 @@ def pridat_hrace(request):
         form = HracForm(request.POST, request.FILES) # Přidejte request.FILES kvůli fotkám
         if form.is_valid():
             form.save()
-            return redirect('tenis_index')
+            return redirect('tenis_app:tenis_index')
     else:
         form = HracForm() # Žádné initial={'klub': ...}
     return render(request, 'tenis_app/pridat_hrace.html', {'form': form})
@@ -269,7 +269,7 @@ def editovat_hrace(request, pk):
         form = HracForm(request.POST, request.FILES, instance=hrac)
         if form.is_valid():
             form.save()
-            return redirect('tenis_index')
+            return redirect('tenis_app:tenis_index')
     else:
         form = HracForm(instance=hrac)
     
@@ -283,7 +283,7 @@ def editovat_hrace(request, pk):
 def smazat_hrace(request, pk):
     hrac = get_object_or_404(Hrac, pk=pk)
     hrac.delete()
-    return redirect('tenis_index')
+    return redirect('tenis_app:tenis_index')
 
 @login_required
 def prehled_vsech_zapasu(request):
@@ -334,7 +334,7 @@ def vsechny_zapasy(request):
     return render(request, 'tenis_app/vsechny_zapasy.html', context)
     
 @login_required    
-def tenis_index(request):
+def tenis_app:tenis_index(request):
     souteze = Soutez.objects.filter(aktivni=True)
     return render(request, 'tenis_app/index.html', {'souteze': souteze})
     

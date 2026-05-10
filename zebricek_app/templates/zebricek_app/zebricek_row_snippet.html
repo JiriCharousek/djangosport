@@ -6,7 +6,7 @@
     </td>
     <td style="text-align: right;">
         {% if p.hrac.id in mozni_souperi_ids %}
-            <a href="{% url 'zadat_vysledek' %}?hrac_domaci={{ p.hrac.id }}&hrac_hoste={{ moje_data.hrac.id }}&soutez=2026_zebricek" 
+            <a href="{% url 'tenis_app:zadat_vysledek' %}?hrac_domaci={{ p.hrac.id }}&hrac_hoste={{ moje_data.hrac.id }}&soutez=2026_zebricek" 
                class="btn-challenge">⚔️</a>
         {% elif p == moje_data %}
             <small style="color: #94a3b8;">Pozice</small>
