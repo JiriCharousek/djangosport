@@ -9,7 +9,7 @@ urlpatterns = [
 
     # Zkusme to zapsat takto napřímo:
     path('kaminka/', TemplateView.as_view(template_name='index.html'), name='index'),
-    path('kaminka/tenis/', include('tenis_app.urls')),
+    path('kaminka/tenis/', include(('tenis_app.urls', 'tenis_app'))),
     path('kaminka/accounts/', include('django.contrib.auth.urls')),
     path('kaminka/zebricek/', include('zebricek_app.urls')),
 ]
