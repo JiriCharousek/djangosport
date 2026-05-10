@@ -328,7 +328,7 @@
 				</li>
                 
 				<li>
-					<form action="{% url 'tenis_app:tenis_app:admin_tools_launcher' %}" method="post">
+					<form action="{% url 'tenis_app:admin_tools_launcher' %}" method="post">
 						{% csrf_token %}
 						<input type="hidden" name="akce" value="parovat_hrace_uzivatele">
 						<button type="submit" class="admin-btn btn-info">
