@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.decorators import login_required
 from .models import ZebricekPozice
 import logging
 logger = logging.getLogger(__name__)
@@ -8,20 +7,14 @@ from django.contrib.auth.decorators import login_required
 from .models import ZebricekPozice
 from tenis_app.models import Hrac # Ujisti se, že importuješ model Hrac
 from django.shortcuts import render, get_object_or_404, redirect  # Přidáno 'redirect'
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .models import ZebricekPozice
 from django.db import transaction
-
-
-
 import math
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 from .models import ZebricekPozice
 
 @login_required
-def zebricek_detail(request):
+def zebricek_index(request):
     vsechny_pozice = ZebricekPozice.objects.all().select_related('hrac').order_by('pozice')
     moje_data = vsechny_pozice.filter(hrac__user=request.user).first()
     
