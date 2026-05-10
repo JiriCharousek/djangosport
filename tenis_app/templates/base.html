@@ -1,1 +1,409 @@
-<h1>Test bez base.html</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SportAdmin{% endblock %}</title>
+    
+    <style>
+        :root {
+            --navy: #1e293b;
+            --clay: #e67e22;
+            --clay-dark: #d35400;
+            --border: #dcdde1;
+            --win: #27ae60;
+            --bg: #f5f6fa;
+            --sidebar-bg: #0f172a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: #333;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 260px;
+            background: var(--sidebar-bg);
+            color: white;
+            padding: 20px 0;
+            flex-shrink: 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .nav-section { margin-bottom: 25px; padding: 0 15px; }
+        .nav-title { 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            color: #94a3b8; 
+            margin-bottom: 10px; 
+            letter-spacing: 0.05em;
+        }
+        .nav-list { list-style: none; padding: 0; margin: 0; }
+        .nav-link { 
+            display: block; 
+            padding: 10px 12px; 
+            color: #e2e8f0; 
+            text-decoration: none; 
+            border-radius: 6px;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+        .nav-link:hover { background: #334155; color: white; }
+
+        .section-green .nav-title { color: #4ade80; }
+
+        /* ADMIN TLAČÍTKA */
+        .admin-btn {
+            width: 100%;
+            background: transparent;
+            border: 1px solid;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transition: 0.2s;
+            text-align: left;
+            margin-bottom: 8px;
+        }
+        .btn-warn { color: #fbbf24; border-color: #fbbf24; }
+        .btn-warn:hover { background: #fbbf24; color: #0f172a; }
+        
+        .btn-danger { color: #f87171; border-color: #f87171; }
+        .btn-danger:hover { background: #f87171; color: white; }
+        
+        .btn-info { color: #38bdf8; border-color: #38bdf8; }
+        .btn-info:hover { background: #38bdf8; color: #0f172a; }
+
+        /* ZPRÁVY (ALERTY) */
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        .alert-success { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+        .alert-error, .alert-danger { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+        /* MAIN CONTENT */
+        .main-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-navbar {
+            background: white;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .main-content { padding: 30px; }
+		.active-link { background: #334155; }
+
+        .tenis-table { width: 100%; border-collapse: collapse; background: white; }
+        .tenis-table td, .tenis-table th { border: 1px solid var(--border); padding: 10px; text-align: center; }
+        <style>
+    /* Kontejner žebříčku */
+    .zebricek-container {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        overflow: hidden;
+        margin-top: 20px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .tenis-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .tenis-table thead tr {
+        background: #0f172a;
+        color: white;
+        text-align: left;
+    }
+
+    .tenis-table th {
+        padding: 15px 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+    }
+
+    .tenis-table td {
+        padding: 5px 10px;
+        border-bottom: 1px solid #f1f5f9;
+        vertical-align: middle;
+    }
+
+    /* Barevné odlišení pozic (Medailové pozice) */
+    .row-1 { background-color: rgba(255, 215, 0, 0.1); } /* Zlatá */
+    .row-2 { background-color: rgba(192, 192, 192, 0.1); } /* Stříbrná */
+    .row-3 { background-color: rgba(205, 127, 50, 0.1); } /* Bronzová */
+	/* Zvýraznění každého 10. řádku */
+	.row-ten {
+		border-bottom: 2px solid #cbd5e1 !important; /* Silnější linka pod řádkem */
+		background-color: #f8fafc; /* Velmi jemné šedé pozadí */
+	}
+
+.row-ten .rank-badge {
+    background: #64748b; /* Tmavší kolečko pro číslo */
+    color: white;
+}
+
+    /* Zvýraznění přihlášeného uživatele */
+    .row-me {
+        background-color: #f0f9ff !important; /* Světle modrá */
+        border-left: 4px solid #0ea5e9;
+    }
+
+    .rank-badge {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 50%;
+        background: #f1f5f9;
+        font-weight: bold;
+        color: #475569;
+    }
+
+    .row-1 .rank-badge { background: #ffd700; color: #92400e; }
+    .row-2 .rank-badge { background: #cbd5e1; color: #334155; }
+    .row-3 .rank-badge { background: #f97316; color: white; }
+
+    /* Tlačítko vyzvat */
+    .btn-challenge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #2563eb;
+        color: white;
+        padding: 6px 14px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .btn-challenge:hover {
+        background: #1d4ed8;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .me-label {
+        font-size: 0.75rem;
+        background: #0ea5e9;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 10px;
+        margin-left: 8px;
+        vertical-align: middle;
+    }
+</style>
+
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div style="padding: 0 25px 20px; text-align: center;">
+            <a href="/" style="text-decoration: none; color: white; font-weight: bold; font-size: 1.2rem;">🎾 Liga Kamínka</a>
+        </div>
+        
+        <!-- Soutěže 2026 -->
+        <div class="nav-section">
+            <h3 class="nav-title">🏆 Léto 2026</h3>
+            <ul class="nav-list">
+                <!-- <li><a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_A' %}" class="nav-link">Liga A</a></li> -->
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_A' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_A' %}active-link{% endif %}">
+				   Liga A
+				</a>
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_B' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_B' %}active-link{% endif %}">
+				   Liga B
+				</a>
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_C' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_C' %}active-link{% endif %}">
+				   Liga C
+				</a>
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_D' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_D' %}active-link{% endif %}">
+				   Liga D
+				</a>
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_E' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_E' %}active-link{% endif %}">
+				   Liga E
+				</a>
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_z' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_z' %}active-link{% endif %}">
+				   Ženy
+				</a>
+
+            </ul>
+        </div>
+		
+	
+        <div class="nav-section">
+            <a href="{% url 'tenis_app:prehled_vsech_zapasu' %}" style="color: #888; text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 10px;">
+                historie všech zápasů
+            </a>
+        </div>
+
+		<div class="nav-section">
+					
+					<ul class="nav-list">
+						<li>
+							<a href="{% url 'zebricek_app:zebricek_index' %}" class="nav-link" style="color: #4ade80; font-weight: bold;">
+								🥇 ŽEBŘÍČEK 2026
+							</a>
+						</li>
+						<hr style="border: 0; border-top: 1px solid #334155; margin: 10px 0;">
+						
+						
+		</div>
+
+
+        <!-- ADMIN SERVISNÍ SEKCE -->
+		{% if user.is_superuser %}
+		<div class="nav-section" style="border-top: 1px solid #334155; padding-top: 20px; margin-top: 20px;">
+			<h3 class="nav-title" style="color: #fbbf24;">🔧 DB SERVIS</h3>
+			<ul class="nav-list">
+				<!-- NOVÉ TLAČÍTKO: RESTART LIG -->
+				<li>
+					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="akce" value="generovat_ligy">
+						<button type="submit" class="admin-btn" style="color: #e67e22; border-color: #e67e22;" 
+								onclick="return confirm('POZOR: Tato akce smaže všechny zápasy v ligách 2026 a vygeneruje nové se spravedlivým rozdělením míčů. Pokračovat?')">
+							♻️ Restartovat ligy 2026
+						</button>
+					</form>
+				</li>
+                
+				<li>
+					<form action="{% url 'tenis_app:admin_tools_launcher' %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="akce" value="parovat_hrace_uzivatele">
+						<button type="submit" class="admin-btn btn-info">
+							🔗 Spárovat Hráče -> Účty
+						</button>
+					</form>
+				</li>
+				
+				
+				<li>
+					<form action="{% url 'tenis_app:admin_tools_launcher' %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="akce" value="inicializovat_zebricek">
+						<button type="submit" class="admin-btn btn-info" 
+								onclick="return confirm('Pozor: Toto vymaže aktuální pořadí žebříčku a náhodně ho znovu rozdělí. Pokračovat?')">
+							📊 Inicializovat žebříček
+						</button>
+					</form>
+				</li>
+				
+				<li>
+					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="akce" value="opravit_vazby">
+						<button type="submit" class="admin-btn btn-warn">🔗 Opravit vazby</button>
+					</form>
+				</li>
+				<li>
+					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="akce" value="vynutit_migrace">
+						<button type="submit" class="admin-btn btn-danger">⚡ Vynutit migrace</button>
+					</form>
+				</li>
+				<li>
+					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="akce" value="fix_mice">
+						<button type="submit" class="admin-btn btn-info">🎾 Opravit sloupec Míče</button>
+					</form>
+				</li>
+				<li>
+				<form method="post" action="{% url 'tenis_app:admin_tools_launcher' %}">
+					{% csrf_token %}
+					<button type="submit" name="akce" value="vytvor_hrace" class="btn-submit">
+						🔐 Vygenerovat účty a hesla
+					</button>
+				</form>
+				</li>
+				<li>
+					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="akce" value="vynulovat_vsechna_data">
+						<button type="submit" class="admin-btn btn-warn" onclick="return confirm('Opravdu smazat datum u všech neodehraných zápasů?')">
+							🧹 Vymazat chybná data (26.04.)
+						</button>
+					</form>
+				</li>
+			</ul>
+		</div>
+		{% endif %}
+
+   
+    </nav>
+
+    <div class="main-wrapper">
+        <header class="top-navbar">
+            <div style="color: #64748b; font-weight: 500;">Administrace Tenisu</div>
+            <div>
+                {% if user.is_authenticated %}
+                    <span style="font-size: 0.9rem; color: #64748b; margin-right: 15px;">Přihlášen: {{ user.username }}</span>
+                {% endif %}
+            </div>
+        </header>
+
+        <main class="main-content">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('toggle-leto25').addEventListener('click', function() {
+            var list = document.getElementById('list-leto25');
+            var arrow = document.getElementById('arrow-leto25');
+            if (list.style.display === 'none') {
+                list.style.display = 'block';
+                arrow.innerHTML = '▼';
+            } else {
+                list.style.display = 'none';
+                arrow.innerHTML = '▶';
+            }
+        });
+    </script>
+</body>
+</html>
