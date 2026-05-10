@@ -202,7 +202,7 @@
             </a>
             
             <!-- Tlačítko pro přidání hráče -->
-            <a href="{% url 'pridat_hrace' %}?liga={{ pismeno }}" class="btn-action" 
+            <a href="{% url 'tenis_app:pridat_hrace' %}?liga={{ pismeno }}" class="btn-action" 
                style="background: var(--e-green); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold;">
                + Přidat hráče
             </a>
@@ -291,7 +291,7 @@
 				<span style="font-size: 1rem; color: #64748b; font-weight: normal;">
                     pro: <strong style="color: var(--clay);">{{ vybrany_hrac.jmeno }}</strong>
                 </span>
-				<a href="{% url 'editovat_hrace' vybrany_hrac.id %}" title="Upravit hráče">✏️</a>
+				<a href="{% url 'tenis_app:editovat_hrace' vybrany_hrac.id %}" title="Upravit hráče">✏️</a>
             {% endif %}
         </h3>
 

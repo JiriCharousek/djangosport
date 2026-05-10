@@ -127,7 +127,7 @@
 <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 15px; max-width: 1100px;">
     <h2 style="margin: 0; color: var(--navy);">🏆 Tenisová liga Kamínka {{ soutez.nazev }}</h2>
 
-    <a href="{% url 'pridat_hrace' %}?liga={{ soutez.nazev }}" 
+    <a href="{% url 'tenis_app:pridat_hrace' %}?liga={{ soutez.nazev }}" 
        style="background-color: #27ae60; color: white; padding: 8px 16px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: background 0.3s;">
        ➕ Přidat hráče
     </a>
@@ -211,7 +211,7 @@
             </span>
 
             <span style="display: flex; gap: 10px; margin-left: auto;">
-				<a href="{% url 'editovat_hrace' vybrany_hrac.id %}" 
+				<a href="{% url 'tenis_app:editovat_hrace' vybrany_hrac.id %}" 
                    style="font-size: 0.8rem; background: #3498db; color: white; padding: 5px 10px; border-radius: 4px; text-decoration: none; font-weight: bold;">
                    ✏️ Upravit hráče
                 </a>
