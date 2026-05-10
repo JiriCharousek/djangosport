@@ -211,7 +211,7 @@ def tenis_app:zadat_vysledek(request):
             aktualizuj_pozice_zebricku(zapas)
             # ---------------------------------
 
-            return redirect('detail_souteze', soutez_slug=soutez_obj.slug)
+            return redirect('tenis_app:detail_souteze', soutez_slug=soutez_obj.slug)
     else:
         form = ZapasForm(initial={
             'hrac_domaci': hrac_domaci_id, 
@@ -236,7 +236,7 @@ def editovat_vysledek(request, pk):
         if form.is_valid():
             # ... vaše logika uložení ...
             zapas.save()
-            return redirect('detail_souteze', soutez_slug=zapas.soutez.slug)
+            return redirect('tenis_app:detail_souteze', soutez_slug=zapas.soutez.slug)
     else:
         # Předáme uživatele do prázdného formuláře
         form = ZapasForm(instance=zapas, user=request.user)
@@ -249,7 +249,7 @@ def smazat_vysledek(request, pk):
     zapas = get_object_or_404(Zapas, pk=pk)
     slug = zapas.soutez.slug
     zapas.delete()
-    return redirect('detail_souteze', soutez_slug=slug)
+    return redirect('tenis_app:detail_souteze', soutez_slug=slug)
 
 @login_required
 def pridat_hrace(request):
@@ -346,7 +346,7 @@ from .models import Zapas, Soutez
 # nebo ji sem prostě zkopíruj.
 
 @user_passes_test(lambda u: u.is_superuser)  # Přístup jen pro admina
-def admin_tools_view(request):
+def tenis_app:admin_tools_view(request):
     if request.method == "POST":
         akce = request.POST.get("akce")
         
@@ -368,9 +368,9 @@ def admin_tools_view(request):
             except Exception as e:
                 messages.error(request, f"Chyba: {e}")
 
-        return redirect('admin_tools')
+        return redirect('tenis_app:admin_tools')
 
-    return render(request, 'tenis_app/admin_tools.html')
+    return render(request, 'tenis_app/tenis_app:admin_tools.html')
     
     
     
@@ -380,7 +380,7 @@ from django.core.management import call_command
 from django.contrib.auth.decorators import user_passes_test
 
 @user_passes_test(lambda u: u.is_superuser)
-def admin_tools_launcher(request):
+def tenis_app:admin_tools_launcher(request):
     if request.method == "POST":
         akce = request.POST.get("akce")
         

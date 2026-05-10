@@ -6,7 +6,7 @@ app_name = 'tenis_app'  # <--- TOTO TADY MUSÍ BÝT
 
 urlpatterns = [
     # Hlavní rozcestník
-    path('', views.tenis_app:tenis_index, name='tenis_app:tenis_index'),
+    path('', views.tenis_index, name='tenis_index'),
     
     # --- AUTENTIZACE A RESET HESLA ---
     # Přihlášení a odhlášení
@@ -37,7 +37,7 @@ urlpatterns = [
     # ---------------------------------
 
     # Detail konkrétní ligy
-    path('liga/<slug:soutez_slug>/', views.detail_souteze, name='detail_souteze'),
+    path('liga/<slug:soutez_slug>/', views.detail_souteze, name='tenis_app:detail_souteze'),
     
     # Formuláře a akce
     path('pridat-hrace/', views.pridat_hrace, name='pridat_hrace'),
@@ -45,11 +45,11 @@ urlpatterns = [
     path('editovat-vysledek/<int:pk>/', views.editovat_vysledek, name='editovat_vysledek'),
     path('smazat-vysledek/<int:pk>/', views.smazat_vysledek, name='smazat_vysledek'),
     
-    path('historie/', views.prehled_vsech_zapasu, name='prehled_vsech_zapasu'),
+    path('historie/', views.prehled_vsech_zapasu, name='tenis_app:prehled_vsech_zapasu'),
     
     path('editovat-hrace/<int:pk>/', views.editovat_hrace, name='editovat_hrace'),
     path('smazat-hrace/<int:pk>/', views.smazat_hrace, name='smazat_hrace'),
     
-    path('admin-tools/', views.admin_tools_view, name='admin_tools'),
-    path('run-admin-tool/', views.admin_tools_launcher, name='admin_tools_launcher'),
+    path('admin-tools/', views.tenis_app:admin_tools_view, name='tenis_app:admin_tools'),
+    path('run-admin-tool/', views.tenis_app:admin_tools_launcher, name='tenis_app:admin_tools_launcher'),
 ]

@@ -54,7 +54,7 @@
 
     <div class="league-grid">
         {% for s in souteze %}
-            <a href="{% url 'detail_souteze' soutez_slug=s.slug %}" class="league-button">
+            <a href="{% url 'tenis_app:detail_souteze' soutez_slug=s.slug %}" class="league-button">
                 <span class="badge-type">{{ s.get_typ_display }}</span>
                 <span style="font-size: 1.2rem;">{{ s.nazev }}</span>
             </a>
@@ -65,7 +65,7 @@
     </div>
 
     <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
-        <a href="{% url 'prehled_vsech_zapasu' %}" style="color: #888; text-decoration: none; font-size: 0.9rem;">
+        <a href="{% url 'tenis_app:prehled_vsech_zapasu' %}" style="color: #888; text-decoration: none; font-size: 0.9rem;">
             🔍 Zobrazit historii všech zápasů napříč ligami
         </a>
     </div>
