@@ -2,7 +2,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
 
-#app_name = 'tenis_app'
+app_name = 'tenis_app'
 
 urlpatterns = [
     # Hlavní rozcestník
