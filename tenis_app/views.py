@@ -161,7 +161,7 @@ def detail_souteze(request, soutez_slug):
     
     
 @login_required
-def tenis_app:zadat_vysledek(request):
+def zadat_vysledek(request):
     # 1. Načtení parametrů z URL
     hrac_domaci_id = request.GET.get('hrac_domaci')
     hrac_hoste_id = request.GET.get('hrac_hoste')
@@ -334,7 +334,7 @@ def vsechny_zapasy(request):
     return render(request, 'tenis_app/vsechny_zapasy.html', context)
     
 @login_required    
-def tenis_app:tenis_index(request):
+def tenis_index(request):
     souteze = Soutez.objects.filter(aktivni=True)
     return render(request, 'tenis_app/index.html', {'souteze': souteze})
     
@@ -346,7 +346,7 @@ from .models import Zapas, Soutez
 # nebo ji sem prostě zkopíruj.
 
 @user_passes_test(lambda u: u.is_superuser)  # Přístup jen pro admina
-def tenis_app:admin_tools_view(request):
+def admin_tools_view(request):
     if request.method == "POST":
         akce = request.POST.get("akce")
         
@@ -380,7 +380,7 @@ from django.core.management import call_command
 from django.contrib.auth.decorators import user_passes_test
 
 @user_passes_test(lambda u: u.is_superuser)
-def tenis_app:admin_tools_launcher(request):
+def admin_tools_launcher(request):
     if request.method == "POST":
         akce = request.POST.get("akce")
         
