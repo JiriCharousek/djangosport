@@ -26,8 +26,9 @@ SECRET_KEY = 'django-insecure-nz!d#!e7-jmo+723$sp93m7fv#o$pvjtq006r&_r+68wm4v6kh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
-#ALLOWED_HOSTS = ['sportadmin.cz', 'www.sportadmin.cz', '89.167.35.225']
+#ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['sportadmin.cz', 'www.sportadmin.cz', '89.167.35.225']
+
 
 # Application definition
 
@@ -196,3 +197,19 @@ LOGGING = {
         'level': 'INFO',
     },
 }
+
+
+# Vynutí přesměrování z HTTP na HTTPS
+SECURE_SSL_REDIRECT = False
+
+# Zabezpečení cookies - posílají se pouze přes HTTPS
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# HTTP Strict Transport Security (HSTS) - prohlížeč si zapamatuje, že má používat HTTPS
+SECURE_HSTS_SECONDS = 31536000  # 1 rok
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+# Důležité, pokud běžíš za proxy (např. Nginx v Dockeru)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
