@@ -69,7 +69,7 @@
     {# Admin panel #}
     {% if user.is_staff %}
         <div style="margin-top: 40px; padding: 25px; background: #f1f5f9; border-radius: 12px;">
-            <form action="{% url 'manualni_posun' %}" method="post">
+            <form action="{% url 'zebricek_app:manualni_posun' %}" method="post">
                 {% csrf_token %}
                 <select name="hrac_id">
                     {% for p in zebricek %}

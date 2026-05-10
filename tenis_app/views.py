@@ -119,7 +119,7 @@ def vypocitej_tabulku_dat(soutez, request=None):
                 
                 # Sestavení URL pro proklik
                 if z_obj:
-                    u = reverse('editovat_vysledek', args=[z_obj.id])
+                    u = reverse('tenis_app:editovat_vysledek', args=[z_obj.id])
                 else:
                     u = f"{reverse('tenis_app:zadat_vysledek')}?hrac_domaci={h_radek.id}&hrac_hoste={h_sloupec.id}&slug={soutez.slug}"
                 

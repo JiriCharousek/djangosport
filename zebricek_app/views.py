@@ -130,7 +130,7 @@ def manualni_posun_hrace(request):
             stara_pozice = target_data.pozice
             
             if stara_pozice == nova_pozice:
-                return redirect('zebricek_index')
+                return redirect('zebricek_app:zebricek_index')
 
             # 2. Uvolníme místo (odsuneme ostatní)
             if nova_pozice < stara_pozice:
@@ -161,7 +161,7 @@ def manualni_posun_hrace(request):
             target_data.pozice = nova_pozice
             target_data.save()
 
-    return redirect('zebricek_index')
+    return redirect('zebricek_app:zebricek_index')
 
 
 
