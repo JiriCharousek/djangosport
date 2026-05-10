@@ -253,12 +253,12 @@
 													<td class="cell-match {% if bunka.z %}vysledek-ano{% else %}vysledek-ne{% endif %}">
 														{% if bunka.z %} 
 															{# Zápas už má výsledek - editujeme existující odehraný zápas #}
-															<a href="{% url 'editovat_vysledek' bunka.z.id %}" class="score-link" title="Upravit výsledek">
+															<a href="{% url 'tenis_app:editovat_vysledek' bunka.z.id %}" class="score-link" title="Upravit výsledek">
 																{{ bunka.vysledek }}
 															</a>
 														{% elif bunka.z_obj %}
 															{# Zápas je naplánovaný (existuje z_obj) - místo vytvoření nového jdeme na editaci #}
-															<a href="{% url 'editovat_vysledek' bunka.z_obj.id %}" 
+															<a href="{% url 'tenis_app:editovat_vysledek' bunka.z_obj.id %}" 
 															   class="add-link" 
 															   {% if bunka.z_obj.mice_bere == radek.hrac %}title="Bereš míče!"{% endif %}>
 																🎾
@@ -320,7 +320,7 @@
                 </div>
                     
                 <div style="margin-left: 20px;">
-                    <a href="{% url 'editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
+                    <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
                 </div>
             </div>
         {% empty %}
@@ -368,7 +368,7 @@
 
                 <!-- EDITACE -->
                 <div style="margin-left: 20px;">
-                    <a href="{% url 'editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
+                    <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
                 </div>
             </div>
         {% empty %}

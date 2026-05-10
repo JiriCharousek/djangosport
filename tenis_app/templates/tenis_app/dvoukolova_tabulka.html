@@ -165,7 +165,7 @@
                             {% if bunka.typ == 'zapas' %}
                                 <div class="cell-double">
                                     {% if bunka.z1 %}
-                                        <a href="{% url 'editovat_vysledek' bunka.z1.id %}" class="z-box res-link">
+                                        <a href="{% url 'tenis_app:editovat_vysledek' bunka.z1.id %}" class="z-box res-link">
                                             {% if bunka.z1.hrac_domaci == radek.hrac %}{{ bunka.z1.sety_domaci }}:{{ bunka.z1.sety_hoste }}{% else %}{{ bunka.z1.sety_hoste }}:{{ bunka.z1.sety_domaci }}{% endif %}
                                         </a>
                                     {% else %}
@@ -175,7 +175,7 @@
                                     <div class="v-divider"></div>
 
                                     {% if bunka.z2 %}
-                                        <a href="{% url 'editovat_vysledek' bunka.z2.id %}" class="z-box res-link">
+                                        <a href="{% url 'tenis_app:editovat_vysledek' bunka.z2.id %}" class="z-box res-link">
                                             {% if bunka.z2.hrac_domaci == radek.hrac %}{{ bunka.z2.sety_domaci }}:{{ bunka.z2.sety_hoste }}{% else %}{{ bunka.z2.sety_hoste }}:{{ bunka.z2.sety_domaci }}{% endif %}
                                         </a>
                                     {% else %}
@@ -255,10 +255,10 @@
 					<span style="font-size: 0.85rem; color: #95a5a6; white-space: nowrap;">
 						{{ zapas.datum|date:"d. m. Y" }}
 					</span>
-					<a href="{% url 'editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1rem;" title="Upravit">
+					<a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1rem;" title="Upravit">
 						✏️
 					</a>
-					<a href="{% url 'smazat_vysledek' zapas.id %}" onclick="return confirm('Smazat?')" style="text-decoration: none;">🗑️</a>
+					<a href="{% url 'tenis_app:smazat_vysledek' zapas.id %}" onclick="return confirm('Smazat?')" style="text-decoration: none;">🗑️</a>
 				</div>
 
 
