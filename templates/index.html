@@ -17,13 +17,15 @@
         </form>
     {% else %}
         <p>Nejste přihlášeni.</p>
-        <a href="{% url 'login' %}">Přihlásit se</a> | 
+        <!-- <a href="{% url 'login' %}">Přihlásit se</a> |  -->
+		<a href="{% url 'tenis_app:login' %}">Přihlásit se</a>
         <a href="{% url 'password_reset' %}">Zapomněl jsem heslo</a>
     {% endif %}
 
     <hr>
 	<nav>
-			<a href="{% url 'tenis_app:index' %}">Tenisové ligy</a>
+			<!-- Změň 'index' na 'tenis_index' -->
+			<a href="{% url 'tenis_app:tenis_index' %}">Tenisové ligy</a>
 	</nav>
 </body>
 </html>
