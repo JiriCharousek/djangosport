@@ -158,11 +158,11 @@ EMAIL_HOST_USER = 'tenis-app-info@seznam.cz'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'Tenis App <tenis-app-info@seznam.cz>'
 
-# Po přihlášení skoč na hlavní stránku (index.html)
-LOGIN_REDIRECT_URL = 'home'
+# Po přihlášení skoč na stránku s názvem 'index' (/kaminka/)
+LOGIN_REDIRECT_URL = 'index'
 
-# Po odhlášení skoč také na hlavní stránku
-LOGOUT_REDIRECT_URL = 'home'
+# Po odhlášení také
+LOGOUT_REDIRECT_URL = 'index'
 
 import os
 from pathlib import Path
