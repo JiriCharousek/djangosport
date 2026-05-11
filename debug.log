@@ -1733,3 +1733,141 @@ INFO 2026-05-11 22:39:52,434 views Uživatel jiri-charousek si prohlíží soutìž: 2
 INFO 2026-05-11 22:41:42,627 views VÝSLEDEK ZAPSÁN: Ivan POLEDNÍK vs Jiøí CHAROUSEK - 2:6
 INFO 2026-05-11 22:47:02,935 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
 INFO 2026-05-11 22:47:03,790 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 22:55:21,318 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 22:55:35,643 views VÝSLEDEK ZAPSÁN: Miroslav SIEDEM vs Jiøí CHAROUSEK - 5:7
+INFO 2026-05-11 22:56:07,822 views Uživatel jiri-charousek si prohlíží soutìž: 2026 zebricek
+INFO 2026-05-11 22:59:29,732 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - A
+INFO 2026-05-11 23:00:11,836 views VÝSLEDEK ZAPSÁN: Michal ZMEŠKAL vs Jiøí CHAROUSEK - 2:6
+INFO 2026-05-11 23:05:16,112 autoreload C:\Users\jchar\djangoSport\zebricek_app\views.py changed, reloading.
+INFO 2026-05-11 23:05:16,747 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 23:05:50,564 views VÝSLEDEK ZAPSÁN: Romana BENEŠOVÁ vs Jiøí CHAROUSEK - 2:6
+ERROR 2026-05-11 23:05:50,573 log Internal Server Error: /kaminka/tenis/zadat-vysledek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 211, in zadat_vysledek
+    aktualizuj_pozice_zebricku(zapas)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\jchar\djangoSport\zebricek_app\views.py", line 116, in aktualizuj_pozice_zebricku
+    ).update(pozice=F('pozice') + 1)
+                    ^
+NameError: name 'F' is not defined
+INFO 2026-05-11 23:06:41,450 autoreload C:\Users\jchar\djangoSport\zebricek_app\views.py changed, reloading.
+INFO 2026-05-11 23:06:42,017 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 23:06:48,738 views VÝSLEDEK ZAPSÁN: Romana BENEŠOVÁ vs Jiøí CHAROUSEK - 2:6
+ERROR 2026-05-11 23:06:48,745 log Internal Server Error: /kaminka/tenis/zadat-vysledek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: zebricek_app_zebricekpozice.pozice
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 211, in zadat_vysledek
+    aktualizuj_pozice_zebricku(zapas)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\jchar\djangoSport\zebricek_app\views.py", line 117, in aktualizuj_pozice_zebricku
+    ).update(pozice=F('pozice') + 1)
+      ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\query.py", line 1263, in update
+    rows = query.get_compiler(self.db).execute_sql(ROW_COUNT)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 2060, in execute_sql
+    row_count = super().execute_sql(result_type)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: zebricek_app_zebricekpozice.pozice
+INFO 2026-05-11 23:07:50,988 autoreload C:\Users\jchar\djangoSport\zebricek_app\views.py changed, reloading.
+INFO 2026-05-11 23:07:51,521 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 23:07:57,787 views VÝSLEDEK ZAPSÁN: Romana BENEŠOVÁ vs Jiøí CHAROUSEK - 2:6
+ERROR 2026-05-11 23:07:57,794 log Internal Server Error: /kaminka/tenis/zadat-vysledek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: zebricek_app_zebricekpozice.pozice
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 211, in zadat_vysledek
+    aktualizuj_pozice_zebricku(zapas)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\jchar\djangoSport\zebricek_app\views.py", line 125, in aktualizuj_pozice_zebricku
+    ).update(pozice=F('pozice') + 1)
+      ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\query.py", line 1263, in update
+    rows = query.get_compiler(self.db).execute_sql(ROW_COUNT)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 2060, in execute_sql
+    row_count = super().execute_sql(result_type)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: zebricek_app_zebricekpozice.pozice
+INFO 2026-05-11 23:08:47,306 autoreload C:\Users\jchar\djangoSport\zebricek_app\views.py changed, reloading.
+INFO 2026-05-11 23:08:47,889 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 23:08:55,041 views VÝSLEDEK ZAPSÁN: Romana BENEŠOVÁ vs Jiøí CHAROUSEK - 2:6

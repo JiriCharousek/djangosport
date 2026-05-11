@@ -13,6 +13,15 @@ from django.db import transaction
 import math
 from .models import ZebricekPozice
 from tenis_app.models import Zapas, Hrac
+from django.db.models import F
+import math
+from django.shortcuts import render, redirect # Přidali jsme redirect dříve
+from django.contrib.auth.decorators import login_required
+from django.db.models import F  # <--- TENTO ŘÁDEK CHYBĚL
+
+from .models import ZebricekPozice
+from tenis_app.models import Zapas, Hrac
+
 
 @login_required
 def zebricek_index(request):
@@ -97,29 +106,29 @@ def aktualizuj_pozice_zebricku(zapas):
         print("DEBUG: Remíza nebo nezadané sety, neprohazuji.")
         return
 
-    # 5. Pokud vyhrál vyzyvatel, prohodíme je
+    # 5. Pokud vyhrál vyzyvatel
     if vitez == vyzyvatel_data.hrac:
-        print(f"🔥 VÝMĚNA: {vitez.jmeno} porazil obhájce!")
-        
-        stara_pozice_obhajce = obhajce_data.pozice
-        stara_pozice_vyzyvatele = vyzyvatel_data.pozice
-        
-        # TRIK: Dočasně odsuneme vyzyvatele na "neexistující" pozici (třeba 0 nebo hodně vysoké číslo)
-        # Tím uvolníme jeho pozici (např. 10), aby na ni mohl skočit obhájce
-        vyzyvatel_data.pozice = 99999 
+        nova_pozice = obhajce_data.pozice
+        stara_pozice = vyzyvatel_data.pozice
+
+        # KROK 1: Vyzyvatele dáme úplně mimo (to už máte)
+        vyzyvatel_data.pozice = 99999
         vyzyvatel_data.save()
-        
-        # Teď můžeme obhájci dát pozici 10, protože 99999 nikoho nepálí
-        obhajce_data.pozice = stara_pozice_vyzyvatele
-        obhajce_data.save()
-        
-        # A nakonec vyzyvateli dáme tu lepší pozici (např. 8)
-        vyzyvatel_data.pozice = stara_pozice_obhajce
+
+        # KROK 2: Posuneme všechny mezi nimi do DOČASNÝCH záporných hodnot
+        # Tím obejdeme UNIQUE constraint, protože v záporných číslech nikdo není
+        hraci_k_posunu = ZebricekPozice.objects.filter(
+            pozice__gte=nova_pozice,
+            pozice__lt=stara_pozice
+        ).order_by('-pozice') # Seřadíme od nejvyššího čísla
+
+        for p in hraci_k_posunu:
+            p.pozice = p.pozice + 1
+            p.save()
+
+        # KROK 3: Dosadíme vítěze na jeho nové místo
+        vyzyvatel_data.pozice = nova_pozice
         vyzyvatel_data.save()
-        
-        print(f"✅ POZICE PROHOZENY: {vitez.jmeno} je nyní na pozici {stara_pozice_obhajce}")
-    else:
-        print(f"DEBUG: Vyhrál obhájce {vitez.jmeno}, pozice zůstávají.")
         
 
 from django.db import transaction
