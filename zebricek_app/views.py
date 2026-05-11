@@ -12,6 +12,7 @@ from .models import ZebricekPozice
 from django.db import transaction
 import math
 from .models import ZebricekPozice
+from tenis_app.models import Zapas, Hrac
 
 @login_required
 def zebricek_index(request):
@@ -34,13 +35,28 @@ def zebricek_index(request):
             pozice__gt=0
         )
         mozni_souperi_ids = [p.hrac.id for p in mozni_souperi]
+    
+    # --- NOVÁ ČÁST: Načtení historie a hráčů ---
+    # Načteme zápasy patřící k žebříčku 2026 seřazené od nejnovějšího
+    historie_zapasu = Zapas.objects.filter(
+        soutez__slug='2026_zebricek'
+    ).select_related('hrac_domaci', 'hrac_hoste').order_by('-datum', '-id')
 
+    # Načteme všechny hráče (kvůli statistice míčků)
+    vsechny_hraci = Hrac.objects.all().order_by('jmeno')
+    
+    # --------------------------------------------
+    
+    
+    
     return render(request, 'zebricek_app/zebricek_list.html', {
         'sloupec_1': sloupec_1,
         'sloupec_2': sloupec_2,
         'zebricek': vsechny_pozice, # Ponecháno pro admin panel a celkový přehled
         'moje_data': moje_data,
         'mozni_souperi_ids': mozni_souperi_ids,
+        'historie': historie_zapasu,  # Tuto proměnnou šablona hledá
+        'hraci': vsechny_hraci,        # Tuto proměnnou šablona hledá pro statistiku
     })
 
 def aktualizuj_pozice_zebricku(zapas):

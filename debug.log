@@ -1344,3 +1344,392 @@ INFO 2026-05-10 21:54:42,933 views Uživatel jchar si prohlíží soutìž: Léto 2026 
 INFO 2026-05-10 21:54:48,893 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
 INFO 2026-05-10 21:56:14,354 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
 INFO 2026-05-10 21:58:11,770 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-05-11 17:53:01,612 autoreload Watching for file changes with StatReloader
+WARNING 2026-05-11 17:53:08,513 log Not Found: /tenis/
+INFO 2026-05-11 17:53:56,826 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+WARNING 2026-05-11 17:57:59,318 log Not Found: /kaminka/admin
+INFO 2026-05-11 17:58:16,927 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+WARNING 2026-05-11 17:58:24,072 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 17:58:24,079 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 17:58:24,088 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 17:58:24,101 log Not Found: /static/admin/img/search.svg
+WARNING 2026-05-11 17:58:24,179 log Not Found: /static/admin/img/sorting-icons.svg
+WARNING 2026-05-11 17:58:26,682 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 17:58:26,684 log Not Found: /static/admin/js/calendar.js
+WARNING 2026-05-11 17:58:26,685 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 17:58:26,695 log Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2026-05-11 17:58:26,703 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 17:58:26,705 log Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-05-11 17:58:26,761 log Not Found: /static/admin/js/change_form.js
+WARNING 2026-05-11 17:59:07,112 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 17:59:07,118 log Not Found: /static/admin/js/calendar.js
+WARNING 2026-05-11 17:59:07,119 log Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2026-05-11 17:59:07,117 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 17:59:07,120 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 17:59:07,137 log Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-05-11 17:59:07,194 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 17:59:07,238 log Not Found: /static/admin/js/change_form.js
+WARNING 2026-05-11 17:59:20,323 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 17:59:20,327 log Not Found: /static/admin/js/calendar.js
+WARNING 2026-05-11 17:59:20,327 log Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2026-05-11 17:59:20,328 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 17:59:20,329 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 17:59:20,341 log Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-05-11 17:59:20,402 log Not Found: /static/admin/js/change_form.js
+WARNING 2026-05-11 17:59:29,438 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 17:59:29,442 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 17:59:29,443 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 17:59:29,445 log Not Found: /static/admin/img/search.svg
+WARNING 2026-05-11 17:59:29,533 log Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-05-11 17:59:29,534 log Not Found: /static/admin/img/sorting-icons.svg
+WARNING 2026-05-11 18:00:17,119 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 18:00:17,121 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 18:00:17,123 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 18:00:17,147 log Not Found: /static/admin/img/search.svg
+WARNING 2026-05-11 18:00:17,233 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 18:00:17,313 log Not Found: /static/admin/img/sorting-icons.svg
+WARNING 2026-05-11 18:00:23,116 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 18:00:23,119 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 18:00:23,130 log Not Found: /static/admin/img/search.svg
+WARNING 2026-05-11 18:00:23,132 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 18:00:28,038 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 18:00:28,042 log Not Found: /static/admin/js/calendar.js
+WARNING 2026-05-11 18:00:28,043 log Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2026-05-11 18:00:28,044 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 18:00:28,045 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 18:00:28,066 log Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-05-11 18:00:28,116 log Not Found: /static/admin/js/change_form.js
+WARNING 2026-05-11 18:00:40,093 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 18:00:40,095 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 18:00:40,096 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 18:00:40,099 log Not Found: /static/admin/img/search.svg
+WARNING 2026-05-11 18:00:40,269 log Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-05-11 18:07:37,837 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 18:07:37,840 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 18:07:37,856 log Not Found: /static/admin/img/search.svg
+WARNING 2026-05-11 18:07:46,959 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 18:07:46,963 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 18:07:46,969 log Not Found: /static/admin/js/calendar.js
+WARNING 2026-05-11 18:07:46,974 log Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2026-05-11 18:07:46,976 log Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-05-11 18:07:46,981 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 18:07:47,139 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 18:07:47,167 log Not Found: /static/admin/js/change_form.js
+WARNING 2026-05-11 18:08:16,205 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 18:08:16,207 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 18:08:16,215 log Not Found: /static/admin/img/search.svg
+WARNING 2026-05-11 18:08:24,968 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 18:08:24,970 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 18:08:24,975 log Not Found: /static/admin/img/icon-no.svg
+WARNING 2026-05-11 18:08:24,978 log Not Found: /static/admin/img/search.svg
+WARNING 2026-05-11 18:08:25,068 log Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-05-11 18:08:25,148 log Not Found: /static/admin/img/icon-no.svg
+WARNING 2026-05-11 18:08:25,151 log Not Found: /static/admin/img/sorting-icons.svg
+WARNING 2026-05-11 18:08:25,149 log Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-05-11 18:08:31,622 log Not Found: /static/admin/js/SelectBox.js
+WARNING 2026-05-11 18:08:31,624 log Not Found: /static/admin/js/SelectFilter2.js
+WARNING 2026-05-11 18:08:31,628 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 18:08:31,629 log Not Found: /static/admin/js/calendar.js
+WARNING 2026-05-11 18:08:31,630 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 18:08:31,640 log Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2026-05-11 18:08:31,647 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 18:08:31,654 log Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-05-11 18:08:31,740 log Not Found: /static/admin/js/change_form.js
+WARNING 2026-05-11 18:08:31,772 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 18:08:35,879 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 18:08:35,880 log Not Found: /static/admin/css/unusable_password_field.css
+WARNING 2026-05-11 18:08:36,007 log Not Found: /static/admin/js/unusable_password_field.js
+WARNING 2026-05-11 18:08:36,092 log Not Found: /static/admin/img/icon-alert.svg
+WARNING 2026-05-11 18:08:59,478 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 18:08:59,480 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-11 18:08:59,484 log Not Found: /static/admin/js/calendar.js
+WARNING 2026-05-11 18:08:59,485 log Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2026-05-11 18:08:59,486 log Not Found: /static/admin/js/SelectBox.js
+WARNING 2026-05-11 18:08:59,498 log Not Found: /static/admin/js/SelectFilter2.js
+WARNING 2026-05-11 18:08:59,500 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-11 18:08:59,512 log Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-05-11 18:08:59,642 log Not Found: /static/admin/css/forms.css
+WARNING 2026-05-11 18:08:59,674 log Not Found: /static/admin/js/change_form.js
+WARNING 2026-05-11 18:08:59,708 log Not Found: /static/admin/img/icon-yes.svg
+INFO 2026-05-11 18:09:28,994 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - A
+ERROR 2026-05-11 18:09:35,524 log Internal Server Error: /kaminka/tenis/zadat-vysledek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 221, in zadat_vysledek
+    return render(request, 'tenis_app/tenis_app:zadat_vysledek.html', {'form': form, 'soutez': soutez_obj})
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: tenis_app/tenis_app:zadat_vysledek.html
+ERROR 2026-05-11 18:11:42,283 log Internal Server Error: /kaminka/tenis/zadat-vysledek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 221, in zadat_vysledek
+    return render(request, 'tenis_app/tenis_app:zadat_vysledek.html', {'form': form, 'soutez': soutez_obj})
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: tenis_app/tenis_app:zadat_vysledek.html
+ERROR 2026-05-11 18:18:07,634 log Internal Server Error: /kaminka/tenis/zadat-vysledek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 221, in zadat_vysledek
+    return render(request, 'tenis_app/tenis_app:zadat_vysledek.html', {'form': form, 'soutez': soutez_obj})
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: tenis_app/tenis_app:zadat_vysledek.html
+INFO 2026-05-11 18:20:51,968 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-11 18:20:53,291 autoreload Watching for file changes with StatReloader
+ERROR 2026-05-11 18:21:00,101 log Internal Server Error: /kaminka/tenis/zadat-vysledek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 221, in zadat_vysledek
+    return render(request, 'tenis_app:zadat_vysledek.html', {'form': form, 'soutez': soutez_obj})
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: tenis_app:zadat_vysledek.html
+INFO 2026-05-11 18:24:01,813 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-11 18:24:02,880 autoreload Watching for file changes with StatReloader
+ERROR 2026-05-11 18:24:15,648 log Internal Server Error: /kaminka/tenis/zadat-vysledek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 221, in zadat_vysledek
+    return render(request, 'tenis_app:zadat_vysledek.html', {'form': form, 'soutez': soutez_obj})
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: tenis_app:zadat_vysledek.html
+INFO 2026-05-11 21:28:51,535 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
+INFO 2026-05-11 21:28:52,300 autoreload Watching for file changes with StatReloader
+ERROR 2026-05-11 21:29:06,346 log Internal Server Error: /kaminka/tenis/zadat-vysledek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 221, in zadat_vysledek
+    return render(request, 'tenis_app:zadat_vysledek.html', {'form': form, 'soutez': soutez_obj})
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: tenis_app:zadat_vysledek.html
+INFO 2026-05-11 21:37:11,455 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-11 21:37:12,070 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 21:37:48,132 views VÝSLEDEK ZAPSÁN: Jiøí CHLOUBA vs Jiøí CHAROUSEK - 3:6
+INFO 2026-05-11 21:37:48,159 views Uživatel jiri-charousek si prohlíží soutìž: 2026 zebricek
+INFO 2026-05-11 21:50:14,152 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-11 21:50:14,763 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 21:50:34,066 views VÝSLEDEK ZAPSÁN: Jan ŠEVÈÍK vs Jiøí CHAROUSEK - 1:6
+ERROR 2026-05-11 21:50:34,132 log Internal Server Error: /kaminka/tenis/zadat-vysledek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 214, in zadat_vysledek
+    return redirect('tenis_app:zebricek_list', soutez_slug=soutez_obj.slug)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'zebricek_list' not found. 'zebricek_list' is not a valid view function or pattern name.
+INFO 2026-05-11 21:50:54,047 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-11 21:50:54,598 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 21:50:58,280 views VÝSLEDEK ZAPSÁN: Jan ŠEVÈÍK vs Jiøí CHAROUSEK - 1:6
+WARNING 2026-05-11 21:50:58,297 log Not Found: /kaminka/tenis/zadat-vysledek/tenis_app/zebricek_list
+INFO 2026-05-11 21:51:19,445 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-11 21:51:19,959 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 21:51:23,374 views VÝSLEDEK ZAPSÁN: Jan ŠEVÈÍK vs Jiøí CHAROUSEK - 1:6
+ERROR 2026-05-11 21:51:23,408 log Internal Server Error: /kaminka/tenis/zadat-vysledek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 214, in zadat_vysledek
+    return redirect('tenis_app:zebricek_list', soutez_slug=soutez_obj.slug)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'zebricek_list' not found. 'zebricek_list' is not a valid view function or pattern name.
+INFO 2026-05-11 21:53:38,080 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-11 21:53:38,641 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 21:53:41,839 views VÝSLEDEK ZAPSÁN: Jan ŠEVÈÍK vs Jiøí CHAROUSEK - 1:6
+WARNING 2026-05-11 21:53:41,850 log Not Found: /kaminka/tenis/zebricek/2026_zebricek/
+INFO 2026-05-11 21:54:06,697 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-11 21:54:07,270 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 21:54:07,739 views VÝSLEDEK ZAPSÁN: Jan ŠEVÈÍK vs Jiøí CHAROUSEK - 1:6
+ERROR 2026-05-11 21:54:07,769 log Internal Server Error: /kaminka/tenis/zadat-vysledek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 214, in zadat_vysledek
+    return redirect('tenis_app:zebricek_list', soutez_slug=soutez_obj.slug)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'zebricek_list' not found. 'zebricek_list' is not a valid view function or pattern name.
+INFO 2026-05-11 21:54:20,808 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-11 21:54:21,343 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 21:54:27,958 views VÝSLEDEK ZAPSÁN: Jan ŠEVÈÍK vs Jiøí CHAROUSEK - 1:6
+WARNING 2026-05-11 21:54:27,971 log Not Found: /kaminka/tenis/zadat-vysledek/tenis_app/zebricek_list
+INFO 2026-05-11 21:55:27,608 views VÝSLEDEK ZAPSÁN: Jan ŠEVÈÍK vs Jiøí CHAROUSEK - 1:6
+WARNING 2026-05-11 21:55:27,620 log Not Found: /kaminka/tenis/zadat-vysledek/tenis_app/zebricek_list
+INFO 2026-05-11 21:55:44,551 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-11 21:55:45,107 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 21:56:10,896 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-11 21:56:11,424 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 21:56:12,026 views VÝSLEDEK ZAPSÁN: Jan ŠEVÈÍK vs Jiøí CHAROUSEK - 1:6
+ERROR 2026-05-11 21:56:12,057 log Internal Server Error: /kaminka/tenis/zadat-vysledek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 214, in zadat_vysledek
+    return redirect('tenis_app:zebricek_list', soutez_slug=soutez_obj.slug)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'zebricek_list' not found. 'zebricek_list' is not a valid view function or pattern name.
+INFO 2026-05-11 21:56:25,986 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-11 21:56:26,508 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 21:56:28,483 views VÝSLEDEK ZAPSÁN: Jan ŠEVÈÍK vs Jiøí CHAROUSEK - 1:6
+INFO 2026-05-11 21:56:28,491 views Uživatel jiri-charousek si prohlíží soutìž: 2026 zebricek
+INFO 2026-05-11 21:59:53,181 views VÝSLEDEK ZAPSÁN: Petra HANZLÍÈKOVÁ vs Jiøí CHAROUSEK - 1:6
+INFO 2026-05-11 21:59:53,201 views Uživatel jiri-charousek si prohlíží soutìž: 2026 zebricek
+INFO 2026-05-11 22:06:44,792 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-11 22:06:45,366 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 22:07:12,567 views VÝSLEDEK ZAPSÁN: Miroslav ŠTEMBERK vs Jiøí CHAROUSEK - 1:6
+ERROR 2026-05-11 22:07:12,618 log Internal Server Error: /kaminka/tenis/zadat-vysledek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 215, in zadat_vysledek
+    return redirect('zebricek_detail')
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'zebricek_detail' not found. 'zebricek_detail' is not a valid view function or pattern name.
+INFO 2026-05-11 22:09:32,201 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-11 22:09:32,833 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 22:09:38,992 views VÝSLEDEK ZAPSÁN: Miroslav ŠTEMBERK vs Jiøí CHAROUSEK - 1:6
+INFO 2026-05-11 22:09:58,474 views VÝSLEDEK ZAPSÁN: Josef AUGUSTA vs Jiøí CHAROUSEK - 1:6
+INFO 2026-05-11 22:10:27,145 views VÝSLEDEK ZAPSÁN: Petr KOPRNICKÝ vs Jiøí CHAROUSEK - 0:6
+INFO 2026-05-11 22:17:47,522 autoreload C:\Users\jchar\djangoSport\zebricek_app\views.py changed, reloading.
+INFO 2026-05-11 22:17:48,034 autoreload Watching for file changes with StatReloader
+ERROR 2026-05-11 22:18:08,924 log Internal Server Error: /kaminka/zebricek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\zebricek_app\views.py", line 40, in zebricek_index
+    historie_zapasu = Zapas.objects.filter(
+                      ^^^^^
+NameError: name 'Zapas' is not defined
+INFO 2026-05-11 22:19:01,267 autoreload C:\Users\jchar\djangoSport\zebricek_app\views.py changed, reloading.
+INFO 2026-05-11 22:19:01,851 autoreload Watching for file changes with StatReloader
+INFO 2026-05-11 22:19:07,134 views VÝSLEDEK ZAPSÁN: Petr KOPRNICKÝ vs Jiøí CHAROUSEK - 0:6
+INFO 2026-05-11 22:32:47,232 views VÝSLEDEK ZAPSÁN: Daniel Padevìt vs Jiøí CHAROUSEK - 1:6
+INFO 2026-05-11 22:33:16,227 views Uživatel jiri-charousek si prohlíží soutìž: 2026 zebricek
+INFO 2026-05-11 22:36:31,150 views VÝSLEDEK ZAPSÁN: Zdenìk MÁLEK vs Jiøí CHAROUSEK - 6:3
+INFO 2026-05-11 22:37:26,988 views VÝSLEDEK ZAPSÁN: Michal GÁBRLE vs Jiøí CHAROUSEK - 6:3
+INFO 2026-05-11 22:38:40,470 views VÝSLEDEK ZAPSÁN: Boris NESTRAŠIL vs Jiøí CHAROUSEK - 3:6
+INFO 2026-05-11 22:39:25,319 views VÝSLEDEK ZAPSÁN: David KREMLÍK vs Jiøí CHAROUSEK - 6:1
+INFO 2026-05-11 22:39:52,434 views Uživatel jiri-charousek si prohlíží soutìž: 2026 zebricek
+INFO 2026-05-11 22:41:42,627 views VÝSLEDEK ZAPSÁN: Ivan POLEDNÍK vs Jiøí CHAROUSEK - 2:6
+INFO 2026-05-11 22:47:02,935 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
+INFO 2026-05-11 22:47:03,790 autoreload Watching for file changes with StatReloader

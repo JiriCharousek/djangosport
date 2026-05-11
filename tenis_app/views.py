@@ -211,14 +211,15 @@ def zadat_vysledek(request):
             aktualizuj_pozice_zebricku(zapas)
             # ---------------------------------
 
-            return redirect('tenis_app:detail_souteze', soutez_slug=soutez_obj.slug)
+            #return redirect('tenis_app:detail_souteze', soutez_slug=soutez_obj.slug)
+            return redirect('zebricek_app:zebricek_index')
     else:
         form = ZapasForm(initial={
             'hrac_domaci': hrac_domaci_id, 
             'hrac_hoste': hrac_hoste_id
         })
     
-    return render(request, 'tenis_app/tenis_app:zadat_vysledek.html', {'form': form, 'soutez': soutez_obj})
+    return render(request, 'tenis_app/zadat_vysledek.html', {'form': form, 'soutez': soutez_obj})
 # =================================================================
 # 3. SPRÁVA (Editace, Mazání)
 # =================================================================
@@ -370,7 +371,7 @@ def admin_tools_view(request):
 
         return redirect('tenis_app:admin_tools')
 
-    return render(request, 'tenis_app/tenis_app:admin_tools.html')
+    return render(request, 'tenis_app:admin_tools.html')
     
     
     

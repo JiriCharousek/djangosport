@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
+<div style="max-width: 1000px; margin: 40px auto; padding: 0 20px;">
+    
     <h2 style="color: #0f172a; margin-bottom: 25px;">🏆 Žebříček Kamínka 2026</h2>
 
-    <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+    <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 50px;">
         
         <div style="flex: 1; min-width: 350px;" class="zebricek-container">
             <table class="tenis-table">
@@ -16,21 +17,21 @@
                     </tr>
                 </thead>
                 <tbody>
-					{% for p in sloupec_1 %}
-						<tr class="{% if forloop.counter == 1 %}row-1{% elif forloop.counter == 2 %}row-2{% elif forloop.counter == 3 %}row-3{% endif %} {% if forloop.counter|divisibleby:10 %}row-ten{% endif %} {% if p == moje_data %}row-me{% endif %}">
-							<td><span class="rank-badge">{{ forloop.counter }}</span></td>
-							<td>
-								<span style="font-weight: 600;">{{ p.hrac.jmeno }}</span>
-								{% if p == moje_data %}<span class="me-label">TY</span>{% endif %}
-							</td>
-							<td style="text-align: right;">
-								{% if p.hrac.id in mozni_souperi_ids %}
-									<a href="{% url 'tenis_app:zadat_vysledek' %}?hrac_domaci={{ p.hrac.id }}&hrac_hoste={{ moje_data.hrac.id }}&soutez=2026_zebricek" class="btn-challenge">⚔️</a>
-								{% endif %}
-							</td>
-						</tr>
-					{% endfor %}
-				</tbody>
+                    {% for p in sloupec_1 %}
+                        <tr class="{% if forloop.counter == 1 %}row-1{% elif forloop.counter == 2 %}row-2{% elif forloop.counter == 3 %}row-3{% endif %} {% if forloop.counter|divisibleby:10 %}row-ten{% endif %} {% if p == moje_data %}row-me{% endif %}">
+                            <td><span class="rank-badge">{{ forloop.counter }}</span></td>
+                            <td>
+                                <span style="font-weight: 600;">{{ p.hrac.jmeno }}</span>
+                                {% if p == moje_data %}<span class="me-label">TY</span>{% endif %}
+                            </td>
+                            <td style="text-align: right;">
+                                {% if p.hrac.id in mozni_souperi_ids %}
+                                    <a href="{% url 'tenis_app:zadat_vysledek' %}?hrac_domaci={{ p.hrac.id }}&hrac_hoste={{ moje_data.hrac.id }}&soutez=2026_zebricek" class="btn-challenge">⚔️</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
             </table>
         </div>
 
@@ -44,42 +45,97 @@
                     </tr>
                 </thead>
                 <tbody>
-					{% for p in sloupec_2 %}
-						{% with aktualni_pozice=forloop.counter|add:sloupec_1.count %}
-						<tr class="{% if aktualni_pozice|divisibleby:10 %}row-ten{% endif %} {% if p == moje_data %}row-me{% endif %}">
-							<td><span class="rank-badge">{{ aktualni_pozice }}</span></td>
-							<td>
-								<span style="font-weight: 600;">{{ p.hrac.jmeno }}</span>
-								{% if p == moje_data %}<span class="me-label">TY</span>{% endif %}
-							</td>
-							<td style="text-align: right;">
-								{% if p.hrac.id in mozni_souperi_ids %}
-									<a href="{% url 'tenis_app:zadat_vysledek' %}?hrac_domaci={{ p.hrac.id }}&hrac_hoste={{ moje_data.hrac.id }}&soutez=2026_zebricek" class="btn-challenge">⚔️</a>
-								{% endif %}
-							</td>
-						</tr>
-						{% endwith %}
-					{% endfor %}
-				</tbody>
+                    {% for p in sloupec_2 %}
+                        {% with aktualni_pozice=forloop.counter|add:sloupec_1.count %}
+                        <tr class="{% if aktualni_pozice|divisibleby:10 %}row-ten{% endif %} {% if p == moje_data %}row-me{% endif %}">
+                            <td><span class="rank-badge">{{ aktualni_pozice }}</span></td>
+                            <td>
+                                <span style="font-weight: 600;">{{ p.hrac.jmeno }}</span>
+                                {% if p == moje_data %}<span class="me-label">TY</span>{% endif %}
+                            </td>
+                            <td style="text-align: right;">
+                                {% if p.hrac.id in mozni_souperi_ids %}
+                                    <a href="{% url 'tenis_app:zadat_vysledek' %}?hrac_domaci={{ p.hrac.id }}&hrac_hoste={{ moje_data.hrac.id }}&soutez=2026_zebricek" class="btn-challenge">⚔️</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endwith %}
+                    {% endfor %}
+                </tbody>
             </table>
         </div>
-
     </div>
 
-    {# Admin panel #}
+    <div style="max-width: 800px;">
+        <h3 style="display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #0f172a; padding-bottom: 8px; margin-bottom: 20px; color: #0f172a; font-size: 1.1rem;">
+            <span>📜 POSLEDNÍ VÝSLEDKY</span>
+        </h3>
+
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+            {% for zapas in historie %}
+                <div class="history-card" style="display: flex; align-items: center; padding: 8px 15px; background: white; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                    
+					
+                    <div style="display: flex; flex-direction: column; width: 45px; flex-shrink: 0;">
+                        <span style="font-size: 0.7rem; font-weight: 800; color: #94a3b8;">{{ forloop.revcounter }}.</span>
+                        {% if zapas.datum %}
+                            <span style="font-size: 0.6rem; color: #cbd5e1;">{{ zapas.datum|date:"d.m." }}</span>
+                        {% endif %}
+                    </div>
+                    
+                    <div style="flex: 1; text-align: right; font-size: 0.9rem; font-weight: 600; color: #334155; padding-right: 15px;">
+                        {{ zapas.hrac_domaci.jmeno }}
+                        {% if zapas.sety_domaci > zapas.sety_hoste %}
+                            <span style="color: #22c55e; margin-left: 5px; font-size: 0.8rem;">▲</span>
+                        {% endif %}
+                    </div>
+
+                    <div style="text-align: center; min-width: 90px;">
+                        <div style="background: #1e293b; color: white; font-weight: 800; font-size: 0.8rem; padding: 3px 10px; border-radius: 5px; display: inline-block;">
+                            {{ zapas.sety_domaci }}:{{ zapas.sety_hoste }}
+                        </div>
+                        <div style="font-size: 0.65rem; color: #94a3b8; margin-top: 2px;">
+                            ({{ zapas.set1 }}{% if zapas.set2 %}|{{ zapas.set2 }}{% endif %}{% if zapas.set3 and zapas.set3 != '0:0' %}|{{ zapas.set3 }}{% endif %})
+                        </div>
+                    </div>
+
+                    <div style="flex: 1; text-align: left; font-size: 0.9rem; font-weight: 600; color: #334155; padding-left: 15px;">
+                        {% if zapas.sety_hoste > zapas.sety_domaci %}
+                            <span style="color: #22c55e; margin-right: 5px; font-size: 0.8rem;">▲</span>
+                        {% endif %}
+                        {{ zapas.hrac_hoste.jmeno }}
+                    </div>
+
+                    <div style="margin-left: 15px; padding-left: 15px; border-left: 1px solid #f1f5f9;">
+                        <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; filter: grayscale(1); opacity: 0.3;">✏️</a>
+                    </div>
+                </div>
+            {% empty %}
+                <div style="text-align: center; padding: 25px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; color: #94a3b8;">
+                    Zatím nebyly odehrány žádné zápasy.
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
     {% if user.is_staff %}
-        <div style="margin-top: 40px; padding: 25px; background: #f1f5f9; border-radius: 12px;">
-            <form action="{% url 'zebricek_app:manualni_posun' %}" method="post">
+        <div style="margin-top: 50px; padding: 25px; background: #f1f5f9; border-radius: 15px; border: 1px solid #e2e8f0;">
+            <h4 style="margin-top: 0; font-size: 1rem; color: #1e293b; margin-bottom: 15px;">🛠️ Administrace žebříčku</h4>
+            <form action="{% url 'zebricek_app:manualni_posun' %}" method="post" style="display: flex; gap: 15px; flex-wrap: wrap;">
                 {% csrf_token %}
-                <select name="hrac_id">
+                <select name="hrac_id" style="padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; flex-grow: 1; min-width: 200px;">
                     {% for p in zebricek %}
                         <option value="{{ p.hrac.id }}">{{ p.pozice }}. {{ p.hrac.jmeno }}</option>
                     {% endfor %}
                 </select>
-                <input type="number" name="nova_pozice" min="1" value="1">
-                <button type="submit">Přesunout</button>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <label style="font-size: 0.9rem; color: #64748b;">Nová pozice:</label>
+                    <input type="number" name="nova_pozice" min="1" value="1" style="width: 70px; padding: 8px; border-radius: 8px; border: 1px solid #cbd5e1;">
+                </div>
+                <button type="submit" style="background: #1e293b; color: white; border: none; padding: 8px 25px; border-radius: 8px; cursor: pointer; font-weight: 600;">Provést přesun</button>
             </form>
         </div>
     {% endif %}
+
 </div>
 {% endblock %}
