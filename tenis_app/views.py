@@ -250,7 +250,7 @@ def smazat_vysledek(request, pk):
     zapas = get_object_or_404(Zapas, pk=pk)
     slug = zapas.soutez.slug
     zapas.delete()
-    return redirect('tenis_app:detail_souteze', soutez_slug=slug)
+    return redirect('zebricek_app:zebricek_index')
 
 @login_required
 def pridat_hrace(request):
