@@ -319,9 +319,12 @@
                     {{ zapas.hrac_hoste.jmeno }}
                 </div>
                     
-                <div style="margin-left: 20px;">
-                    <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
-                </div>
+                <!-- EDITACE -->
+				{% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff %}
+					<div style="margin-left: 20px;">
+						<a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
+					</div>
+				{% endif %}
             </div>
         {% empty %}
             <p style="color: #999; font-style: italic; text-align: center; padding: 20px;">Žádné další zápasy v plánu.</p>
@@ -367,9 +370,11 @@
                 </div>
 
                 <!-- EDITACE -->
-                <div style="margin-left: 20px;">
-                    <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
-                </div>
+				{% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff %}
+					<div style="margin-left: 20px;">
+						<a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
+					</div>
+				{% endif %}
             </div>
         {% empty %}
             <p style="color: #999; font-style: italic; text-align: center; padding: 20px;">Zatím nebyly odehrány žádné zápasy.</p>

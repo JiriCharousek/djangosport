@@ -5,7 +5,9 @@ from django.urls import reverse
 from .models import Hrac, Zapas, Soutez
 from .forms import HracForm, ZapasForm
 from django.contrib.auth.decorators import login_required
-
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib import messages
+from django.http import HttpResponseForbidden
 import logging
 
 logger = logging.getLogger(__name__)
@@ -225,12 +227,18 @@ def zadat_vysledek(request):
 # =================================================================
 
 @login_required
-# views.py
-
-@login_required
-def editovat_vysledek(request, pk):
-    zapas = get_object_or_404(Zapas, pk=pk)
+def editovat_vysledek(request, pk):  # Změněno ze zapas_id na pk
+    zapas = get_object_or_404(Zapas, id=pk) # Použijte pk zde
     
+    # KONTROLA PRÁV: Je uživatel domácí, host nebo admin?
+    je_ucastnik = (request.user == zapas.hrac_domaci.user or 
+                  request.user == zapas.hrac_hoste.user)
+    
+    if not je_ucastnik and not request.user.is_staff:
+        # Pokud není účastník ani admin, vyhodíme chybu nebo přesměrujeme
+        messages.error(request, "Nemůžeš editovat zápas, kterého jsi se neúčastnil.")
+        return redirect('zebricek_app:zebricek_index')
+   
     if request.method == 'POST':
         # Předáme uživatele i do POSTu, aby formulář věděl, že má pole ignorovat
         form = ZapasForm(request.POST, instance=zapas, user=request.user)
@@ -245,12 +253,39 @@ def editovat_vysledek(request, pk):
     return render(request, 'tenis_app/editovat_vysledek.html', {'form': form, 'zapas': zapas})
     
     
+from django.core.exceptions import ObjectDoesNotExist
+
 @login_required
 def smazat_vysledek(request, pk):
-    zapas = get_object_or_404(Zapas, pk=pk)
-    slug = zapas.soutez.slug
-    zapas.delete()
-    return redirect('zebricek_app:zebricek_index')
+    try:
+        zapas = Zapas.objects.get(id=pk)
+    except Zapas.DoesNotExist:
+        messages.error(request, "zápas smazán")
+        return redirect('zebricek_app:zebricek_index')    
+
+    zapas = get_object_or_404(Zapas, id=pk)
+    
+    # KONTROLA PRÁV
+    je_ucastnik = (request.user == zapas.hrac_domaci.user or 
+                  request.user == zapas.hrac_hoste.user)
+    
+    if not je_ucastnik and not request.user.is_staff:
+        messages.error(request, "Nemáš oprávnění smazat tento výsledek.")
+        return redirect('zebricek_app:zebricek_index')
+
+    if request.method == 'POST':
+        zapas.delete()
+        messages.success(request, "Výsledek byl úspěšně smazán.")
+        return redirect('zebricek_app:zebricek_index')
+
+    # TADY JE OPRAVA: Předáme přesná data, která šablona očekává v tagu {% url %}
+    context = {
+        'zapas': zapas,
+        'objekt': f"{zapas.hrac_domaci} vs {zapas.hrac_hoste}",
+        'zpet_url_name': 'zebricek_app:zebricek_index', # Tohle opraví chybu NoReverseMatch
+    }
+    
+    return render(request, 'tenis_app/potvrdit_smazani.html', context)
 
 @login_required
 def pridat_hrace(request):

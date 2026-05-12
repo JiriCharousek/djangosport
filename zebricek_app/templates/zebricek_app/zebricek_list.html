@@ -107,14 +107,19 @@
                     </div>
 
                     <div style="margin-left: 15px; padding-left: 15px; border-left: 1px solid #f1f5f9; display: flex; gap: 10px;">
-							<a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" 
-							   style="text-decoration: none;" 
-							   title="Editovat">✏️</a>
-							
-							<a href="{% url 'tenis_app:smazat_vysledek' zapas.id %}" 
-							   style="text-decoration: none;" 
-							   onclick="return confirm('Opravdu chcete smazat tento výsledek?')"
-							   title="Smazat">❌</a>
+							{# Zobrazit pouze pokud je uživatel jedním z hráčů NEBO admin #}
+							{% if zapas.hrac_domaci.user == request.user or zapas.hrac_hoste.user == request.user or user.is_staff %}
+								
+								<a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" 
+								   style="text-decoration: none;" 
+								   title="Editovat">✏️</a>
+								
+								<a href="{% url 'tenis_app:smazat_vysledek' zapas.id %}" 
+								   style="text-decoration: none;" 
+								   onclick="return confirm('Opravdu chcete smazat tento výsledek?')"
+								   title="Smazat">❌</a>
+								   
+							{% endif %}
 					</div>
                 </div>
             {% empty %}

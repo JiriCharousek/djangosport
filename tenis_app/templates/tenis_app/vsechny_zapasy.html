@@ -73,10 +73,12 @@
                     </a>
                 </div>
 
-                <div style="display: flex; gap: 12px; min-width: 60px; justify-content: flex-end;">
-                    <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" title="Upravit">✏️</a>
-                    <!-- <a href="{% url 'tenis_app:smazat_vysledek' zapas.id %}" onclick="return confirm('Smazat zápas?')" title="Smazat">🗑️</a> -->
-                </div>
+                <!-- EDITACE -->
+				{% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff %}
+					<div style="margin-left: 20px;">
+						<a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
+					</div>
+				{% endif %}
 
             </div>
         {% empty %}

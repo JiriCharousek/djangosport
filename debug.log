@@ -1997,3 +1997,198 @@ WARNING 2026-05-12 19:15:13,937 log Not Found: /.well-known/appspecific/com.chro
 INFO 2026-05-12 19:15:33,809 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
 INFO 2026-05-12 19:15:34,354 autoreload Watching for file changes with StatReloader
 WARNING 2026-05-12 19:15:39,973 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-05-12 20:19:41,110 autoreload Watching for file changes with StatReloader
+WARNING 2026-05-12 20:24:24,418 log Not Found: /favicon.ico
+INFO 2026-05-12 20:24:29,838 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - E
+WARNING 2026-05-12 20:24:53,162 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-12 20:24:53,169 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-12 20:25:06,043 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-12 20:25:06,044 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-12 20:25:06,046 log Not Found: /static/admin/js/calendar.js
+WARNING 2026-05-12 20:25:06,048 log Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2026-05-12 20:25:06,053 log Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-05-12 20:25:06,115 log Not Found: /static/admin/js/change_form.js
+WARNING 2026-05-12 20:25:21,339 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-12 20:25:21,339 log Not Found: /static/admin/img/icon-no.svg
+WARNING 2026-05-12 20:25:21,340 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-12 20:25:21,501 log Not Found: /static/admin/img/icon-no.svg
+WARNING 2026-05-12 20:25:27,752 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-12 20:25:27,754 log Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2026-05-12 20:25:27,753 log Not Found: /static/admin/js/calendar.js
+WARNING 2026-05-12 20:25:27,756 log Not Found: /static/admin/js/SelectFilter2.js
+WARNING 2026-05-12 20:25:27,757 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-12 20:25:27,759 log Not Found: /static/admin/js/SelectBox.js
+WARNING 2026-05-12 20:25:27,761 log Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-05-12 20:25:27,843 log Not Found: /static/admin/js/change_form.js
+WARNING 2026-05-12 20:25:37,739 log Not Found: /static/admin/css/login.css
+WARNING 2026-05-12 20:26:01,363 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-12 20:26:01,364 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-12 20:26:01,375 log Not Found: /static/admin/img/icon-no.svg
+WARNING 2026-05-12 20:26:01,444 log Not Found: /static/admin/img/icon-no.svg
+INFO 2026-05-12 20:26:24,482 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
+WARNING 2026-05-12 20:26:33,859 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 20:26:38,726 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 20:27:22,438 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 20:29:41,469 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-12 20:29:41,471 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-12 20:30:17,374 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-12 20:30:17,375 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-12 20:30:17,388 log Not Found: /static/admin/img/icon-no.svg
+WARNING 2026-05-12 20:30:17,508 log Not Found: /static/admin/img/icon-no.svg
+WARNING 2026-05-12 20:30:29,326 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-05-12 20:30:29,328 log Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2026-05-12 20:30:29,334 log Not Found: /static/admin/js/calendar.js
+WARNING 2026-05-12 20:30:29,336 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-05-12 20:30:29,339 log Not Found: /static/admin/js/SelectBox.js
+WARNING 2026-05-12 20:30:29,341 log Not Found: /static/admin/js/SelectFilter2.js
+WARNING 2026-05-12 20:30:29,342 log Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-05-12 20:30:29,414 log Not Found: /static/admin/js/change_form.js
+WARNING 2026-05-12 20:30:48,379 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 20:33:00,368 log Not Found: /static/images/kaminka260512.png
+INFO 2026-05-12 20:33:02,162 views Uživatel josef-augusta si prohlíží soutìž: Léto 2026 - A
+INFO 2026-05-12 20:33:18,232 views Uživatel josef-augusta si prohlíží soutìž: Léto 2026 - A
+WARNING 2026-05-12 20:33:38,214 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 20:33:39,801 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 20:33:58,732 log Not Found: /static/images/kaminka260512.png
+INFO 2026-05-12 20:34:00,517 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - A
+INFO 2026-05-12 20:34:08,160 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - C
+INFO 2026-05-12 20:34:12,168 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - B
+INFO 2026-05-12 20:34:19,657 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - E
+ERROR 2026-05-12 20:34:32,544 log Internal Server Error: /kaminka/tenis/editovat-vysledek/2961/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+TypeError: editovat_vysledek() got an unexpected keyword argument 'pk'
+INFO 2026-05-12 20:34:39,835 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - D
+INFO 2026-05-12 20:34:42,144 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - C
+INFO 2026-05-12 20:34:45,007 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - B
+INFO 2026-05-12 20:34:52,457 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - C
+INFO 2026-05-12 20:34:56,258 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - D
+INFO 2026-05-12 20:35:00,833 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - E
+INFO 2026-05-12 20:35:05,380 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-12 20:35:11,058 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - A
+INFO 2026-05-12 20:35:15,279 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - B
+INFO 2026-05-12 20:35:21,264 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - C
+INFO 2026-05-12 20:35:27,848 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - D
+INFO 2026-05-12 20:35:34,336 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - E
+INFO 2026-05-12 20:35:39,472 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-12 20:35:41,713 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - A
+INFO 2026-05-12 20:35:44,623 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - A
+ERROR 2026-05-12 20:35:47,665 log Internal Server Error: /kaminka/tenis/editovat-vysledek/2689/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+TypeError: editovat_vysledek() got an unexpected keyword argument 'pk'
+ERROR 2026-05-12 20:35:55,215 log Internal Server Error: /kaminka/tenis/editovat-vysledek/2693/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+TypeError: editovat_vysledek() got an unexpected keyword argument 'pk'
+INFO 2026-05-12 20:37:06,520 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
+INFO 2026-05-12 20:37:07,365 autoreload Watching for file changes with StatReloader
+ERROR 2026-05-12 20:37:08,682 log Internal Server Error: /kaminka/tenis/editovat-vysledek/2689/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+TypeError: editovat_vysledek() got an unexpected keyword argument 'pk'
+INFO 2026-05-12 20:41:09,844 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-12 20:41:10,416 autoreload Watching for file changes with StatReloader
+INFO 2026-05-12 20:41:34,414 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - A
+INFO 2026-05-12 20:46:27,236 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - C
+INFO 2026-05-12 20:46:32,878 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - B
+INFO 2026-05-12 20:46:35,473 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - A
+INFO 2026-05-12 20:48:11,151 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-12 20:48:15,463 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - B
+INFO 2026-05-12 20:48:17,951 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - A
+INFO 2026-05-12 20:50:10,565 autoreload Watching for file changes with StatReloader
+INFO 2026-05-12 20:50:41,581 views VÝSLEDEK ZAPSÁN: Lukáš TICHÝ vs Šimon HRUBÝ - 1:6
+ERROR 2026-05-12 20:50:48,298 log Internal Server Error: /kaminka/tenis/smazat-vysledek/3126/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 273, in smazat_vysledek
+    return render(request, 'tenis_app/potvrdit_smazani.html', {'zapas': zapas})
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '' not found. '' is not a valid view function or pattern name.
+INFO 2026-05-12 20:53:44,621 views Uživatel simon-hruby si prohlíží soutìž: 2026 zebricek
+INFO 2026-05-12 20:56:10,103 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-12 20:56:10,607 autoreload Watching for file changes with StatReloader
+INFO 2026-05-12 20:59:08,043 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-12 20:59:08,521 autoreload Watching for file changes with StatReloader
+WARNING 2026-05-12 20:59:19,990 log Not Found: /kaminka/tenis/smazat-vysledek/3126/
+INFO 2026-05-12 21:01:08,912 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-12 21:01:09,467 autoreload Watching for file changes with StatReloader
+WARNING 2026-05-12 21:01:18,399 log Not Found: /kaminka/tenis/smazat-vysledek/3126/
+INFO 2026-05-12 21:02:32,936 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-12 21:02:33,450 autoreload Watching for file changes with StatReloader
+INFO 2026-05-12 21:03:13,778 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-12 21:03:14,334 autoreload Watching for file changes with StatReloader
+INFO 2026-05-12 21:03:25,067 views VÝSLEDEK ZAPSÁN: Lukáš TICHÝ vs Šimon HRUBÝ - 1:6
+INFO 2026-05-12 21:03:52,430 views VÝSLEDEK ZAPSÁN: Jiøí CHAROUSEK vs Šimon HRUBÝ - 6:3
+INFO 2026-05-12 21:04:14,524 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - D
+INFO 2026-05-12 21:04:19,616 views Uživatel simon-hruby si prohlíží soutìž: Léto 2026 - A
