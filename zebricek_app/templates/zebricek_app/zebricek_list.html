@@ -108,11 +108,11 @@
 
                     <div style="margin-left: 15px; padding-left: 15px; border-left: 1px solid #f1f5f9; display: flex; gap: 10px;">
 							<a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" 
-							   style="text-decoration: none; filter: grayscale(1); opacity: 0.3;" 
+							   style="text-decoration: none;" 
 							   title="Editovat">✏️</a>
 							
 							<a href="{% url 'tenis_app:smazat_vysledek' zapas.id %}" 
-							   style="text-decoration: none; filter: grayscale(1); opacity: 0.3;" 
+							   style="text-decoration: none;" 
 							   onclick="return confirm('Opravdu chcete smazat tento výsledek?')"
 							   title="Smazat">❌</a>
 					</div>
