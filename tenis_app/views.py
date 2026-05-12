@@ -300,21 +300,28 @@ def pridat_hrace(request):
 
 @login_required
 def editovat_hrace(request, pk):
-    hrac = get_object_or_404(Hrac, pk=pk)
+    hrac = get_object_or_404(Hrac, id=pk)
+
+    # KONTROLA: Může editovat jen vlastník profilu nebo admin
+    # (Předpokládám, že model Hrac má vazbu na User přes hrac.user)
+    if hrac.user != request.user and not request.user.is_staff:
+        messages.error(request, "Nemáte oprávnění upravovat tento profil.")
+        return redirect('tenis_app:tenis_index')
+
     if request.method == 'POST':
         form = HracForm(request.POST, request.FILES, instance=hrac)
         if form.is_valid():
             form.save()
+            messages.success(request, f"Profil hráče {hrac.jmeno} byl aktualizován.")
             return redirect('tenis_app:tenis_index')
     else:
         form = HracForm(instance=hrac)
-    
-    # PŘIDEJTE 'hrac': hrac DO CONTEXTU:
+
     return render(request, 'tenis_app/editovat_hrace.html', {
         'form': form, 
         'hrac': hrac
     })
-
+    
 @login_required
 def smazat_hrace(request, pk):
     hrac = get_object_or_404(Hrac, pk=pk)

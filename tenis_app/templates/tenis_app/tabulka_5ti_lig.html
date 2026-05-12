@@ -291,7 +291,11 @@
 				<span style="font-size: 1rem; color: #64748b; font-weight: normal;">
                     pro: <strong style="color: var(--clay);">{{ vybrany_hrac.jmeno }}</strong>
                 </span>
-				<a href="{% url 'tenis_app:editovat_hrace' vybrany_hrac.id %}" title="Upravit hráče">✏️</a>
+				{% if request.user == vybrany_hrac.user or request.user.is_staff %}
+						<a href="{% url 'tenis_app:editovat_hrace' vybrany_hrac.id %}" title="Upravit hráče" style="text-decoration: none; margin-left: 5px;">
+							✏️
+						</a>
+				{% endif %}
             {% endif %}
         </h3>
 
