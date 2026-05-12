@@ -45,7 +45,6 @@ def zebricek_index(request):
         )
         mozni_souperi_ids = [p.hrac.id for p in mozni_souperi]
     
-    # --- NOVÁ ČÁST: Načtení historie a hráčů ---
     # Načteme zápasy patřící k žebříčku 2026 seřazené od nejnovějšího
     historie_zapasu = Zapas.objects.filter(
         soutez__slug='2026_zebricek'

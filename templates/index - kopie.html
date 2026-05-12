@@ -1,0 +1,32 @@
+
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Tenis App</title>
+</head>
+<body>
+    <h1>Vítejte v tenisové lize Kamínka!</h1>
+    
+    {% if user.is_authenticated %}
+        <p>Přihlášen jako: {{ user.username }}</p>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Odhlásit se</button>
+        </form>
+    {% else %}
+        <p>Nejste přihlášeni.</p>
+        <!-- <a href="{% url 'login' %}">Přihlásit se</a> |  -->
+		<a href="{% url 'tenis_app:login' %}">Přihlásit se</a>
+        <a href="{% url 'password_reset' %}">Zapomněl jsem heslo</a>
+    {% endif %}
+
+    <hr>
+	<nav>
+			<!-- Změň 'index' na 'tenis_app:tenis_index' -->
+			<!-- <a href="{% url 'tenis_app:tenis_index' %}">Tenisové ligy</a> -->
+			<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_A' %}">Tenisové ligy</a>
+	</nav>
+</body>
+</html>

@@ -1878,3 +1878,122 @@ INFO 2026-05-12 08:22:40,417 views Uživatel jiri-charousek si prohlíží soutìž: 2
 INFO 2026-05-12 08:26:41,324 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
 INFO 2026-05-12 08:26:41,935 autoreload Watching for file changes with StatReloader
 INFO 2026-05-12 08:31:58,668 autoreload Watching for file changes with StatReloader
+INFO 2026-05-12 18:40:11,420 autoreload Watching for file changes with StatReloader
+WARNING 2026-05-12 18:40:31,269 log Not Found: /tenis/
+ERROR 2026-05-12 18:40:46,119 log Internal Server Error: /kaminka/zebricek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\zebricek_app\views.py", line 59, in zebricek_index
+    models.Q(hrac_domaci=moje_data.hrac) | models.Q(hrac_hoste=moje_data.hrac)
+    ^^^^^^
+NameError: name 'models' is not defined
+ERROR 2026-05-12 18:41:00,053 log Internal Server Error: /kaminka/zebricek/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\zebricek_app\views.py", line 59, in zebricek_index
+    models.Q(hrac_domaci=moje_data.hrac) | models.Q(hrac_hoste=moje_data.hrac)
+    ^^^^^^
+NameError: name 'models' is not defined
+INFO 2026-05-12 18:43:02,436 autoreload C:\Users\jchar\djangoSport\zebricek_app\views.py changed, reloading.
+INFO 2026-05-12 18:43:03,007 autoreload Watching for file changes with StatReloader
+INFO 2026-05-12 18:43:23,991 views VÝSLEDEK ZAPSÁN: Sofie PØEROVSKÁ vs Jiøí CHAROUSEK - 1:6
+INFO 2026-05-12 18:44:46,401 autoreload C:\Users\jchar\djangoSport\zebricek_app\views.py changed, reloading.
+INFO 2026-05-12 18:44:46,892 autoreload Watching for file changes with StatReloader
+WARNING 2026-05-12 18:55:56,136 log Not Found: /static/images/kaminka260512.png"
+WARNING 2026-05-12 18:56:26,976 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 18:56:29,337 log Not Found: /static/images/kaminka260512.png
+ERROR 2026-05-12 18:57:40,654 log Internal Server Error: /kaminka/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: "'static/images/kaminka260512.png'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 39: ''static/images/kaminka260512.png''. Did you forget to register or load this tag?
+WARNING 2026-05-12 18:58:58,113 log Not Found: /static/images/kaminka260512.png
+INFO 2026-05-12 19:00:21,308 autoreload Watching for file changes with StatReloader
+WARNING 2026-05-12 19:00:26,327 log Not Found: /static/images/kaminka260512.png
+INFO 2026-05-12 19:00:35,706 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - A
+WARNING 2026-05-12 19:00:38,837 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 19:02:34,303 log Not Found: /static/images/kaminka260512.PNG
+WARNING 2026-05-12 19:02:56,709 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 19:03:22,769 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 19:03:37,142 log Not Found: /static/images/kaminka260512.png
+INFO 2026-05-12 19:05:41,196 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
+INFO 2026-05-12 19:05:41,710 autoreload Watching for file changes with StatReloader
+WARNING 2026-05-12 19:05:46,123 log Not Found: /static/images/kaminka260512.png
+INFO 2026-05-12 19:05:57,839 autoreload Watching for file changes with StatReloader
+WARNING 2026-05-12 19:06:00,699 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 19:06:02,555 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 19:06:03,289 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 19:06:03,712 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 19:06:04,134 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 19:06:51,695 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 19:08:14,531 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-05-12 19:10:04,467 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-05-12 19:10:04,479 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 19:10:08,731 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-05-12 19:10:08,741 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-05-12 19:10:09,482 log Not Found: /favicon.ico
+WARNING 2026-05-12 19:12:02,125 log Not Found: /static/images/kaminka260512.png
+INFO 2026-05-12 19:15:09,321 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
+INFO 2026-05-12 19:15:09,926 autoreload Watching for file changes with StatReloader
+WARNING 2026-05-12 19:15:13,937 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-05-12 19:15:33,809 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
+INFO 2026-05-12 19:15:34,354 autoreload Watching for file changes with StatReloader
+WARNING 2026-05-12 19:15:39,973 log Not Found: /.well-known/appspecific/com.chrome.devtools.json

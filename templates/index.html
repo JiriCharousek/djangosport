@@ -1,32 +1,66 @@
-
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
     <title>Tenis App</title>
+    <style>
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1e293b;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Vítejte v tenisové lize Kamínka!</h1>
-    
-    {% if user.is_authenticated %}
-        <p>Přihlášen jako: {{ user.username }}</p>
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Odhlásit se</button>
-        </form>
-    {% else %}
-        <p>Nejste přihlášeni.</p>
-        <!-- <a href="{% url 'login' %}">Přihlásit se</a> |  -->
-		<a href="{% url 'tenis_app:login' %}">Přihlásit se</a>
-        <a href="{% url 'password_reset' %}">Zapomněl jsem heslo</a>
-    {% endif %}
+    <div class="container">
+        <h1>Vítejte v tenisové lize Kamínka!</h1>
+        
+        <div>
+            <img src="{% static 'images/kaminka260512.png' %}" alt="Tenisový kurt Kamínka" class="hero-image">
+        </div>
 
-    <hr>
-	<nav>
-			<!-- Změň 'index' na 'tenis_app:tenis_index' -->
-			<!-- <a href="{% url 'tenis_app:tenis_index' %}">Tenisové ligy</a> -->
-			<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_A' %}">Tenisové ligy</a>
-	</nav>
+        {% if user.is_authenticated %}
+            <p>Přihlášen jako: <strong>{{ user.username }}</strong></p>
+            <form action="{% url 'logout' %}" method="post" style="margin-bottom: 20px;">
+                {% csrf_token %}
+                <button type="submit" style="cursor:pointer;">Odhlásit se</button>
+            </form>
+        {% else %}
+            <p>Nejste přihlášeni.</p>
+            <div style="margin-bottom: 20px;">
+                <a href="{% url 'tenis_app:login' %}">Přihlásit se</a> | 
+                <a href="{% url 'password_reset' %}">Zapomněl jsem heslo</a>
+            </div>
+        {% endif %}
+
+        <hr>
+        
+        <nav style="margin-top: 20px;">
+            <a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_A' %}">Vstoupit do ligy</a>
+        </nav>
+    </div>
 </body>
 </html>
