@@ -8,7 +8,12 @@ from django.conf import settings
 class Hrac(models.Model):
     jmeno = models.CharField(max_length=100, verbose_name="Jméno a příjmení")
     klub = models.CharField(max_length=100, blank=True, null=True, verbose_name="hraje ligu")
-    
+    souteze = models.ManyToManyField(
+        'Soutez', 
+        blank=True, 
+        related_name='hraci', 
+        verbose_name="Přihlášen do soutěží"
+    )
     # Nové profilové údaje
     foto = models.ImageField(upload_to='hraci/', blank=True, null=True, verbose_name="Fotka")
     datum_narozeni = models.DateField(blank=True, null=True, verbose_name="Datum narození")

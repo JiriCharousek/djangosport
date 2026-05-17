@@ -18,14 +18,12 @@ logger = logging.getLogger(__name__)
 
 def vypocitej_tabulku_dat(soutez, request=None):
     # 1. Základní queryset zápasů této soutěže
-    # Změňte tento řádek:
     zapasy_v_soutezi = Zapas.objects.filter(soutez=soutez)
 
     vybrany_hrac = None
-    # DEBUG: Pokud uvidíte v konzoli 0, víme, že zápasy mají v DB jinou soutěž
-    print(f"DEBUG: Soutěž '{soutez.nazev}' (ID: {soutez.id}) má {zapasy_v_soutezi.count()} zápasů.")
-    # 3. Identifikace hráčů - Zkusíme tři způsoby, jak je najít
-    # A) Podle ID ze zápasů, které jsou v této soutěži
+    
+    # === TADY JE OPRAVA A SOUČÁST (A i B) ===
+    # 1. Nejdříve zkusíme najít hráče podle ID ze zápasů, které už v této soutěži existují
     id_hracu = set()
     for z in zapasy_v_soutezi:
         id_hracu.add(z.hrac_domaci_id)
@@ -33,18 +31,16 @@ def vypocitej_tabulku_dat(soutez, request=None):
     
     hraci_obj = list(Hrac.objects.filter(id__in=id_hracu))
 
-    # B) Pokud zápasy ještě nejsou, zkusíme najít hráče podle jména soutěže (např. "Léto 2026 - D")
+    # 2. Pokud zápasy ještě vygenerované nejsou (id_hracu je prázdné), 
+    # vytáhneme hráče přímo ze soutěže přes nové ManyToMany pole souteze
     if not hraci_obj:
-        hraci_obj = list(Hrac.objects.filter(klub__icontains=soutez.nazev))
-
-    # C) Pokud ani to nepomůže, zkusíme najít hráče podle koncového písmene (např. jen "D")
-    if not hraci_obj:
-        pismeno = soutez.nazev.split('-')[-1].strip() if '-' in soutez.nazev else soutez.nazev
-        hraci_obj = list(Hrac.objects.filter(klub__icontains=pismeno))
+        hraci_obj = list(soutez.hraci.all())
+    # ========================================
 
     # 4. Příprava základních seznamů (RAW data pro výpočty)
     vsechny_odehrane = zapasy_v_soutezi.filter(odehrano=True).order_by('-datum', '-id')
     planovane_zapasy = zapasy_v_soutezi.filter(odehrano=False).order_by('-datum', 'id')
+
 
     # Tyto proměnné budeme filtrovat pouze pro zobrazení v seznamech
     zobrazit_historii = vsechny_odehrane

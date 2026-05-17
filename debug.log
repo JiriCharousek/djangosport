@@ -2260,3 +2260,52 @@ INFO 2026-05-12 21:26:31,425 autoreload C:\Users\jchar\djangoSport\tenis_app\vie
 INFO 2026-05-12 21:26:31,930 autoreload Watching for file changes with StatReloader
 INFO 2026-05-12 21:26:54,724 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
 INFO 2026-05-12 21:26:55,253 autoreload Watching for file changes with StatReloader
+INFO 2026-05-16 13:38:52,330 autoreload Watching for file changes with StatReloader
+WARNING 2026-05-16 13:39:41,699 log Not Found: /agenda/
+INFO 2026-05-17 08:02:44,143 autoreload Watching for file changes with StatReloader
+INFO 2026-05-17 08:03:01,877 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+ERROR 2026-05-17 08:03:02,203 log Internal Server Error: /kaminka/tenis/liga/26_kaminka_leto_C/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 139, in detail_souteze
+    context = vypocitej_tabulku_dat(soutez=soutez, request=request)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 25, in vypocitej_tabulku_dat
+    if not hraci_obj:
+           ^^^^^^^^^
+UnboundLocalError: cannot access local variable 'hraci_obj' where it is not associated with a value
+INFO 2026-05-17 08:07:32,960 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-05-17 08:07:34,463 autoreload Watching for file changes with StatReloader
+INFO 2026-05-17 08:07:54,352 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-05-17 08:07:57,617 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-05-17 08:07:59,769 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-05-17 08:08:04,494 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-17 08:08:17,440 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
+INFO 2026-05-17 08:09:44,740 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-05-17 08:13:56,512 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
+INFO 2026-05-17 08:14:38,777 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
+INFO 2026-05-17 08:15:06,892 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
+INFO 2026-05-17 08:15:47,873 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
+INFO 2026-05-17 08:16:27,784 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
+INFO 2026-05-17 08:16:35,199 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
+INFO 2026-05-17 08:17:10,718 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
+INFO 2026-05-17 08:17:16,411 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-17 08:17:47,652 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-17 08:18:24,006 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-17 08:19:01,895 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-17 08:20:08,816 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-17 08:20:14,761 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-17 08:20:29,518 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-05-17 08:21:58,452 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-05-17 08:22:02,153 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-17 08:26:10,488 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-05-17 08:26:18,491 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-17 08:26:30,618 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-17 08:26:48,971 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-17 08:29:33,176 autoreload Watching for file changes with StatReloader
+INFO 2026-05-17 08:30:10,059 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-05-17 08:30:20,013 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
