@@ -23,7 +23,6 @@
     .tennis-table {
         width: 100%;
         border-collapse: collapse;
-        table-layout: fixed; 
         background: white;
         min-width: 600px;
     }
@@ -38,7 +37,7 @@
     }
 
     .player-col {
-        width: 150px; 
+        width: 180px; 
         text-align: left !important;
         padding-left: 15px !important;
         white-space: nowrap;
@@ -57,22 +56,10 @@
         height: 50px; 
     }
 
-    .tennis-table td:not(.player-col):not(.stat-col) {
-        width: 65px; 
-    }
-
-    .cell-result { 
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        height: 100%; 
-        text-decoration: none; 
-    }
-
     .z-box {
         width: 45px;
         height: 30px;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
         border-radius: 6px;
@@ -90,7 +77,7 @@
     }
 
     .stat-col { 
-        width: 65px; 
+        width: 70px; 
         background: #f8f9fa; 
         font-weight: 800; 
         color: var(--navy); 
@@ -114,8 +101,16 @@
         font-weight: 600;
     }
 
-    .cell-self { background: #f2f2f2; height: 100%; }
-    .add-link { color: #ddd; font-size: 1.2rem; text-decoration: none; transition: 0.2s; }
+    .cell-self { background: #e2e8f0; height: 100%; }
+    .cell-empty { background: #f1f5f9; height: 100%; }
+    
+    .add-link { 
+        color: #cbd5e1; 
+        font-size: 1.1rem; 
+        text-decoration: none; 
+        transition: 0.2s; 
+        display: inline-block;
+    }
     .add-link:hover { color: var(--clay); transform: scale(1.2); }
 
     .history-container { max-width: 850px; margin: 0 auto; }
@@ -132,6 +127,7 @@
         transition: 0.2s;
     }
     .history-card:hover { transform: translateX(5px); }
+    
     .score-badge { 
         background: #1a202c !important; 
         color: white !important; 
@@ -141,86 +137,65 @@
         font-family: monospace; 
         font-size: 1.1rem;
     }
-	/* Styl pro buňku se zápasem */
-	.cell-match {
-		text-align: center;
-		vertical-align: middle;
-		padding: 5px !important;
-		min-width: 45px;
-	}
 
-	/* Styl pro samotný výsledek */
-	/* Styl pro výsledek v matici - kopie score-badge z historie */
-	.score-link {
-		display: inline-flex; /* Aby se choval jako badge */
-		align-items: center;
-		justify-content: center;
-		background: #1a202c !important; /* Stejná černá jako v historii */
-		color: white !important;
-		padding: 2px 10px;
-		border-radius: 6px;
-		font-weight: 800;
-		font-family: monospace;
-		font-size: 0.9rem;
-		text-decoration: none;
-		transition: transform 0.2s, background 0.2s;
-		min-width: 40px;
-	}
+    .cell-match {
+        text-align: center;
+        vertical-align: middle;
+        padding: 0 !important;
+        height: 50px;
+    }
 
-	.score-link:hover {
-		background: var(--clay) !important; /* Oranžová při najetí */
-		transform: scale(1.1);
-		color: white !important;
-	}
+    .score-link {
+        display: inline-flex; 
+        align-items: center;
+        justify-content: center;
+        background: #1a202c !important; 
+        color: white !important;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-weight: 800;
+        font-family: monospace;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: transform 0.2s, background 0.2s;
+        min-width: 45px;
+    }
 
-	/* Úprava buňky, aby se v ní výsledek centroval */
-	.cell-match {
-		text-align: center;
-		vertical-align: middle;
-		padding: 0 !important;
-		height: 50px;
-	}
-
-	/* Odlišení domácích/hostů barvou pozadí (volitelné) */
-	.bg-played {
-		background-color: #f8f9fa;
-	}
+    .score-link:hover {
+        background: var(--clay) !important; 
+        transform: scale(1.1);
+        color: white !important;
+    }
 </style>
 
 <div class="table-card">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-	<h2 style="margin: 0; color: var(--navy);">🏆 Tenisová liga Kamínka {{ soutez.nazev }}</h2>
-
+        <h2 style="margin: 0; color: var(--navy);">🏆 Tenisová liga Kamínka {{ soutez.nazev }}</h2>
     </div>
-    {# Tato sekce se zobrazí pouze superuživateli #}
+
     {% if user.is_superuser %}
     <div style="display: flex; gap: 10px; margin-bottom: 20px; padding: 10px; background: #fff4e6; border-radius: 8px; border: 1px solid #ffe8cc;">
-            <!-- Odkaz na Django Admin -->
-            <a href="/admin/" class="btn-action" 
-               style="background: var(--navy); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: bold; transition: 0.3s;">
-               ⚙️ Administrace
-            </a>
-            
-            <!-- Tlačítko pro přidání hráče -->
-            <a href="{% url 'tenis_app:pridat_hrace' %}?liga={{ pismeno }}" class="btn-action" 
-               style="background: var(--e-green); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold;">
-               + Přidat hráče
-            </a>
+        <a href="/admin/" class="btn-action" style="background: var(--navy); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: bold; transition: 0.3s;">
+            ⚙️ Administrace
+        </a>
+        
+        <a href="{% url 'tenis_app:pridat_hrace' %}?liga={{ pismeno }}" class="btn-action" style="background: var(--e-green); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+            + Přidat hráče
+        </a>
 
-            <!-- Tlačítko pro Admin Launcher (pokud ho chcete také zde) -->
-            <a href="{% url 'tenis_app:admin_tools_launcher' %}" class="btn-action" 
-               style="background: var(--clay); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold;">
-               🚀 Admin Tools
-            </a>
+        <a href="{% url 'tenis_app:admin_tools_launcher' %}" class="btn-action" style="background: var(--clay); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+            🚀 Admin Tools
+        </a>
     </div>
     {% endif %}
+
     <div style="overflow-x: auto;">
         <table class="tennis-table">
             <thead>
                 <tr>
-                    <th class="player-col" style="background: var(--navy); color: white; border: 1px solid #444;">Hráč</th>
+                    <th class="player-col">Hráč</th>
                     {% for h in hraci %}
-                        <th style="background: var(--navy); color: white; vertical-align: middle; padding: 10px 4px; border: 1px solid #444; position: relative; min-width: 85px;">
+                        <th style="vertical-align: middle; padding: 10px 4px; border: 1px solid #444; position: relative; min-width: 85px;">
                             <a href="?filtr_hrac={{ h.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == h.id %}var(--clay){% else %}white{% endif %}; display: block;">
                                 <div style="font-size: 0.75rem; line-height: 1.1; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">
                                     {{ h.jmeno_split }}
@@ -231,46 +206,39 @@
                             </a>
                         </th>
                     {% endfor %}
-                    <th class="stat-col" style="background: var(--navy); color: white; border: 1px solid #444;">Body</th>
-                    <th class="stat-col" style="background: var(--navy); color: white; border: 1px solid #444;">Sety</th>
+                    <th class="stat-col">Body</th>
+                    <th class="stat-col">Sety</th>
                 </tr>
             </thead>
             <tbody>
                 {% for radek in matice %}
-								<tr>
-									<td class="player-col">
-										<a href="?filtr_hrac={{ radek.hrac.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == radek.hrac.id %}var(--clay){% else %}inherit{% endif %}; display: block;">
-											{{ forloop.counter }}. {{ radek.hrac.jmeno }}
-										</a>
-									</td>
-									{% for bunka in radek.bunky %}
-											{% if bunka.typ == 'self' %}
-												<td class="cell-self"></td>
-											{% elif bunka.typ == 'empty' %}
-												<td class="cell-empty"></td>
-											
-											{% elif bunka.typ == 'zapas' %}
-													<td class="cell-match {% if bunka.z %}vysledek-ano{% else %}vysledek-ne{% endif %}">
-														{% if bunka.z %} 
-															{# Zápas už má výsledek - editujeme existující odehraný zápas #}
-															<a href="{% url 'tenis_app:editovat_vysledek' bunka.z.id %}" class="score-link" title="Upravit výsledek">
-																{{ bunka.vysledek }}
-															</a>
-														{% elif bunka.z_obj %}
-															{# Zápas je naplánovaný (existuje z_obj) - místo vytvoření nového jdeme na editaci #}
-															<a href="{% url 'tenis_app:editovat_vysledek' bunka.z_obj.id %}" 
-															   class="add-link" 
-															   {% if bunka.z_obj.mice_bere == radek.hrac %}title="Bereš míče!"{% endif %}>
-																🎾
-															</a>
-														{% else %}
-															{# Pro jistotu, pokud by zápas v plánu vůbec nebyl, vytvoří se nový #}
-															<a href="{{ bunka.url }}" class="add-link">🎾</a>
-														{% endif %}
-													</td>
-											{% endif %}
-
-									{% endfor %} <!-- Toto endfor uzavírá cyklus buněk -->
+                <tr>
+                    <td class="player-col">
+                        <a href="?filtr_hrac={{ radek.hrac.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == radek.hrac.id %}var(--clay){% else %}inherit{% endif %}; display: block;">
+                            {{ forloop.counter }}. {{ radek.hrac.jmeno }}
+                        </a>
+                    </td>
+                    {% for bunka in radek.bunky %}
+                        {% if bunka.typ == 'self' %}
+                            <td class="cell-self"></td>
+                        {% elif bunka.typ == 'empty' %}
+                            <td class="cell-empty"></td>
+                        {% elif bunka.typ == 'zapas' %}
+                            <td class="cell-match">
+                                {% if bunka.z %} 
+                                    <a href="{% url 'tenis_app:editovat_vysledek' bunka.z.id %}" class="score-link" title="Upravit výsledek">
+                                        {{ bunka.vysledek }}
+                                    </a>
+                                {% elif bunka.z_obj %}
+                                    <a href="{% url 'tenis_app:editovat_vysledek' bunka.z_obj.id %}" class="add-link" {% if bunka.z_obj.mice_bere == radek.hrac %}title="Bereš míče!"{% endif %}>
+                                        🎾
+                                    </a>
+                                {% else %}
+                                    <a href="{{ bunka.url }}" class="add-link">🎾</a>
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    {% endfor %}
                     <td class="stat-col"><span class="points-val">{{ radek.hrac.pocet_bodu }}</span></td>
                     <td class="stat-col"><span class="sets-val">{{ radek.hrac.s_v }}:{{ radek.hrac.s_p }}</span></td>
                 </tr>
@@ -282,20 +250,18 @@
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1400px; margin: 30px auto; padding: 0 15px;">
     
-    <!-- LEVÝ SLOUPEC: PLÁNOVANÉ ZÁPASY -->
     <div class="history-container" style="margin-top: 0;">
         <h3 style="display: flex; align-items: center; gap: 15px; border-bottom: 2px solid #f1c40f; padding-bottom: 10px; margin-bottom: 20px; color: var(--navy);">
-            <span>Plánované zápasy -  míče přinese 🎾</span>
+            <span>Plánované zápasy - míče přinese 🎾</span>
             {% if vybrany_hrac %}
-                
-				<span style="font-size: 1rem; color: #64748b; font-weight: normal;">
+                <span style="font-size: 1rem; color: #64748b; font-weight: normal;">
                     pro: <strong style="color: var(--clay);">{{ vybrany_hrac.jmeno }}</strong>
                 </span>
-				{% if request.user == vybrany_hrac.user or request.user.is_staff %}
-						<a href="{% url 'tenis_app:editovat_hrace' vybrany_hrac.id %}" title="Upravit hráče" style="text-decoration: none; margin-left: 5px;">
-							✏️
-						</a>
-				{% endif %}
+                {% if request.user == vybrany_hrac.user or request.user.is_staff %}
+                    <a href="{% url 'tenis_app:editovat_hrace' vybrany_hrac.id %}" title="Upravit hráče" style="text-decoration: none; margin-left: 5px;">
+                        ✏️
+                    </a>
+                {% endif %}
             {% endif %}
         </h3>
 
@@ -303,13 +269,11 @@
             <div class="history-card" style="border-left: 5px solid #f1c40f; display: flex; align-items: center; padding: 10px; margin-bottom: 8px; background: white; border-radius: 4px;">
                 <div style="font-weight: 800; color: var(--navy); width: 30px;">{{ forloop.counter }}.</div>
                 
-                <!-- Domácí hráč -->
                 <div style="flex: 1; text-align: right; padding-right: 15px; font-weight: 600;">
                     {{ zapas.hrac_domaci.jmeno }}
                     {% if zapas.mice_bere_domaci %} 🎾 {% endif %}
                 </div>
 
-                <!-- Střed -->
                 <div style="text-align: center; min-width: 80px;">
                     <span style="font-size: 0.8rem; color: #95a5a6; font-weight: bold;">VS</span>
                     {% if zapas.datum %}
@@ -317,30 +281,27 @@
                     {% endif %}
                 </div>
 
-                <!-- Hosté -->
                 <div style="flex: 1; text-align: left; padding-left: 15px; font-weight: 600;">
                     {% if not zapas.mice_bere_domaci %} 🎾 {% endif %}
                     {{ zapas.hrac_hoste.jmeno }}
                 </div>
                     
-                <!-- EDITACE -->
-				{% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff %}
-					<div style="margin-left: 20px;">
-						<a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
-					</div>
-				{% endif %}
+                {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff %}
+                    <div style="margin-left: 20px;">
+                        <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
+                    </div>
+                {% endif %}
             </div>
         {% empty %}
             <p style="color: #999; font-style: italic; text-align: center; padding: 20px;">Žádné další zápasy v plánu.</p>
         {% endfor %}
     </div>
 
-    <!-- PRAVÝ SLOUPEC: HISTORIE VÝSLEDKŮ + STATISTIKA -->
     <div class="history-container" style="margin-top: 0;">
         <h3 style="display: flex; align-items: center; gap: 15px; border-bottom: 2px solid var(--navy); padding-bottom: 10px; margin-bottom: 20px; color: var(--navy);">
             <span>📜 Historie výsledků</span>
             {% if vybrany_hrac %}
-			    <a href="?" style="font-size: 0.8rem; color: #e74c3c; text-decoration: none; font-weight: bold; margin-left: auto;">
+                <a href="?" style="font-size: 0.8rem; color: #e74c3c; text-decoration: none; font-weight: bold; margin-left: auto;">
                     ✕ Zrušit filtr
                 </a>
             {% endif %}
@@ -350,13 +311,11 @@
             <div class="history-card" style="border-left: 5px solid var(--navy); display: flex; align-items: center; padding: 10px; margin-bottom: 8px; background: white; border-radius: 4px;">
                 <div style="font-weight: 800; color: var(--navy); width: 30px;">{{ forloop.revcounter }}.</div>
                 
-                <!-- DOMÁCÍ -->
                 <div style="flex: 1; text-align: right; padding-right: 15px; font-weight: 600;">
                     {{ zapas.hrac_domaci.jmeno }}
                     {% if zapas.mice_bere_domaci %} 🎾 {% endif %}
                 </div>
 
-                <!-- STŘED (VÝSLEDEK) -->
                 <div style="text-align: center; min-width: 100px;">
                     <div class="score-badge" style="margin: 0 auto;">{{ zapas.sety_domaci }} : {{ zapas.sety_hoste }}</div>
                     <div style="font-size: 0.7rem; color: #888; margin-top: 3px; font-weight: bold; line-height: 1;">
@@ -367,24 +326,21 @@
                     {% endif %}
                 </div>
 
-                <!-- HOSTÉ -->
                 <div style="flex: 1; text-align: left; padding-left: 15px; font-weight: 600;">
                     {% if not zapas.mice_bere_domaci %} 🎾 {% endif %}
                     {{ zapas.hrac_hoste.jmeno }}
                 </div>
 
-                <!-- EDITACE -->
-				{% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff %}
-					<div style="margin-left: 20px;">
-						<a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
-					</div>
-				{% endif %}
+                {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff %}
+                    <div style="margin-left: 20px;">
+                        <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
+                    </div>
+                {% endif %}
             </div>
         {% empty %}
             <p style="color: #999; font-style: italic; text-align: center; padding: 20px;">Zatím nebyly odehrány žádné zápasy.</p>
         {% endfor %}
 
-        <!-- STATISTIKA MÍČŮ (Sumář pod historií) -->
         <div style="margin-top: 25px; padding: 15px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
             <h4 style="margin: 0 0 10px 0; font-size: 0.9rem; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px;">
                 📊 Kdo bere kolikrát míče (zbývá v plánu)
@@ -392,7 +348,7 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; font-size: 0.85rem;">
                 {% for h in hraci %}
                     {% if h.pocet_micku_v_planu > 0 %}
-                    <div style="display: flex; justify-content: space-between; padding: 2px 0; border-bottom: 1px ghostwhite solid;">
+                    <div style="display: flex; justify-content: space-between; padding: 2px 0; border-bottom: 1px dashed #e2e8f0;">
                         <span style="font-weight: 600; color: #475569;">{{ h.jmeno }}:</span>
                         <span style="font-weight: 800; color: var(--clay);">{{ h.pocet_micku_v_planu }}x 🎾</span>
                     </div>
