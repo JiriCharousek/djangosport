@@ -251,51 +251,51 @@
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1400px; margin: 30px auto; padding: 0 15px;">
     
     <div class="history-container" style="margin-top: 0;">
-        <h3 style="display: flex; align-items: center; gap: 15px; border-bottom: 2px solid #f1c40f; padding-bottom: 10px; margin-bottom: 20px; color: var(--navy);">
-            <span>Plánované zápasy - míče přinese 🎾</span>
-            {% if vybrany_hrac %}
-                <span style="font-size: 1rem; color: #64748b; font-weight: normal;">
-                    pro: <strong style="color: var(--clay);">{{ vybrany_hrac.jmeno }}</strong>
-                </span>
-                {% if request.user == vybrany_hrac.user or request.user.is_staff %}
-                    <a href="{% url 'tenis_app:editovat_hrace' vybrany_hrac.id %}" title="Upravit hráče" style="text-decoration: none; margin-left: 5px;">
-                        ✏️
-                    </a>
-                {% endif %}
+    <h3 style="display: flex; align-items: center; gap: 15px; border-bottom: 2px solid #f1c40f; padding-bottom: 10px; margin-bottom: 20px; color: var(--navy);">
+        <span>Plánované zápasy - míče přinese 🎾</span>
+        {% if vybrany_hrac %}
+            <span style="font-size: 1rem; color: #64748b; font-weight: normal;">
+                pro: <strong style="color: var(--clay);">{{ vybrany_hrac.jmeno }}</strong>
+            </span>
+            {% if request.user == vybrany_hrac.user or request.user.is_staff or request.user.is_superuser %}
+                <a href="{% url 'tenis_app:editovat_hrace' vybrany_hrac.id %}" title="Upravit hráče" style="text-decoration: none; margin-left: 5px;">
+                    ✏️
+                </a>
             {% endif %}
-        </h3>
+        {% endif %}
+    </h3>
 
-        {% for zapas in planovane %}
-            <div class="history-card" style="border-left: 5px solid #f1c40f; display: flex; align-items: center; padding: 10px; margin-bottom: 8px; background: white; border-radius: 4px;">
-                <div style="font-weight: 800; color: var(--navy); width: 30px;">{{ forloop.counter }}.</div>
-                
-                <div style="flex: 1; text-align: right; padding-right: 15px; font-weight: 600;">
-                    {{ zapas.hrac_domaci.jmeno }}
-                    {% if zapas.mice_bere_domaci %} 🎾 {% endif %}
-                </div>
+    {% for zapas in planovane %}
+        <div class="history-card" style="border-left: 5px solid #f1c40f; display: flex; align-items: center; padding: 10px; margin-bottom: 8px; background: white; border-radius: 4px;">
+            <div style="font-weight: 800; color: var(--navy); width: 30px; flex-shrink: 0;">{{ forloop.counter }}.</div>
+            
+            <div style="flex: 1; text-align: right; padding-right: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                {{ zapas.hrac_domaci.jmeno }}
+                {% if zapas.mice_bere_domaci %} 🎾 {% endif %}
+            </div>
 
-                <div style="text-align: center; min-width: 80px;">
-                    <span style="font-size: 0.8rem; color: #95a5a6; font-weight: bold;">VS</span>
-                    {% if zapas.datum %}
-                        <div style="font-size: 0.7rem; color: #888; margin-top: 2px;">{{ zapas.datum|date:"d. m." }}</div>
-                    {% endif %}
-                </div>
-
-                <div style="flex: 1; text-align: left; padding-left: 15px; font-weight: 600;">
-                    {% if not zapas.mice_bere_domaci %} 🎾 {% endif %}
-                    {{ zapas.hrac_hoste.jmeno }}
-                </div>
-                    
-                {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff %}
-                    <div style="margin-left: 20px;">
-                        <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
-                    </div>
+            <div style="text-align: center; min-width: 80px; flex-shrink: 0;">
+                <span style="font-size: 0.8rem; color: #95a5a6; font-weight: bold;">VS</span>
+                {% if zapas.datum %}
+                    <div style="font-size: 0.7rem; color: #888; margin-top: 2px;">{{ zapas.datum|date:"d. m." }}</div>
                 {% endif %}
             </div>
-        {% empty %}
-            <p style="color: #999; font-style: italic; text-align: center; padding: 20px;">Žádné další zápasy v plánu.</p>
-        {% endfor %}
-    </div>
+
+            <div style="flex: 1; text-align: left; padding-left: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                {% if not zapas.mice_bere_domaci %} 🎾 {% endif %}
+                {{ zapas.hrac_hoste.jmeno }}
+            </div>
+                
+            <div style="width: 40px; text-align: right; flex-shrink: 0; margin-left: 10px;">
+                {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff or request.user.is_superuser %}
+                    <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem; display: inline-block;">✏️</a>
+                {% endif %}
+            </div>
+        </div>
+    {% empty %}
+        <p style="color: #999; font-style: italic; text-align: center; padding: 20px;">Žádné další zápasy v plánu.</p>
+    {% endfor %}
+</div>
 
     <div class="history-container" style="margin-top: 0;">
     <h3 style="display: flex; align-items: center; gap: 15px; border-bottom: 2px solid var(--navy); padding-bottom: 10px; margin-bottom: 20px; color: var(--navy);">
