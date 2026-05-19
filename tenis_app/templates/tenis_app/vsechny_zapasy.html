@@ -22,7 +22,7 @@
         {% for zapas in historie %}
             <div class="list-group-item mb-2 shadow-sm" style="border-left: 5px solid #27ae60; background: white; border-radius: 8px; padding: 10px 15px; display: flex; align-items: center; justify-content: space-between; gap: 15px; position: relative;">
                 
-                <div style="display: flex; align-items: center; min-width: 140px; gap: 10px;">
+                <div style="display: flex; align-items: center; min-width: 140px; gap: 10px; flex-shrink: 0;">
                     <div style="font-size: 1.1rem; font-weight: 800; color: #2c3e50; min-width: 35px; text-align: right;">
                         {{ forloop.revcounter }}.
                     </div>
@@ -38,11 +38,11 @@
                 <div style="flex: 2; text-align: right; font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                     <a href="?filtr_hrac={{ zapas.hrac_domaci.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == zapas.hrac_domaci.id %}#e67e22{% else %}inherit{% endif %};">
                         {{ zapas.hrac_domaci.jmeno }}
-						{% if zapas.mice_bere_domaci %} 🎾 {% endif %}
+                        {% if zapas.mice_bere_domaci %} 🎾 {% endif %}
                     </a>
                 </div>
 
-                <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; min-width: 160px; gap: 4px;">
+                <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; min-width: 160px; gap: 4px; flex-shrink: 0;">
                     <span style="
                         background-color: #1a202c !important; 
                         color: white !important; 
@@ -69,16 +69,15 @@
                 <div style="flex: 2; text-align: left; font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                     <a href="?filtr_hrac={{ zapas.hrac_hoste.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == zapas.hrac_hoste.id %}#e67e22{% else %}inherit{% endif %};">
                         {% if not zapas.mice_bere_domaci %} 🎾 {% endif %}
-						{{ zapas.hrac_hoste.jmeno }}
+                        {{ zapas.hrac_hoste.jmeno }}
                     </a>
                 </div>
 
-                <!-- EDITACE -->
-				{% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff %}
-					<div style="margin-left: 20px;">
-						<a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem;">✏️</a>
-					</div>
-				{% endif %}
+                <div style="width: 45px; text-align: right; flex-shrink: 0; margin-left: 10px;">
+                    {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff or request.user.is_superuser %}
+                        <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem; display: inline-block;">✏️</a>
+                    {% endif %}
+                </div>
 
             </div>
         {% empty %}
