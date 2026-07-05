@@ -417,9 +417,9 @@ def prehled_vsech_zapasu(request):
     statistiky_hracu = list(data_hracu.values())
     statistiky_hracu.sort(
         key=lambda x: (
+            x['pocet_zapasu'],
             x['body'], 
-            x['rozdil_gemu'], 
-            x['pocet_zapasu']
+            x['rozdil_gemu']
         ), 
         reverse=True
     )
