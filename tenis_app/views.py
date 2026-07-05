@@ -331,43 +331,104 @@ def smazat_hrace(request, pk):
 
 from django.db.models import Count, Q
 
+from django.db.models import Q
+from collections import defaultdict
+from tenis_app.models import Hrac, Zapas
+
 @login_required
 def prehled_vsech_zapasu(request):
     # 1. Musíme vzít všechny zápasy
     vsechny = Zapas.objects.all()
     
-    # 2. Filtrování podle hráče (pokud je vybrán)
+    # 2. Filtrování podle hráče pro seznam zápasů (pokud je vybrán)
     hrac_id = request.GET.get('filtr_hrac')
     vybrany_hrac = None
     if hrac_id and hrac_id.isdigit():
         vybrany_hrac = get_object_or_404(Hrac, id=hrac_id)
         vsechny = vsechny.filter(Q(hrac_domaci=vybrany_hrac) | Q(hrac_hoste=vybrany_hrac))
 
-    # 3. ROZDĚLENÍ - Tady se láme chleba:
-    # Plánované = odehrano je False
+    # 3. Rozdělení na plánované a historii
     planovane = Zapas.objects.filter(odehrano=False).order_by(F('datum').desc(nulls_last=True))
-    # Historie = odehrano je True
     historie = vsechny.filter(odehrano=True).order_by('-datum')
 
-    # 📊 4. STATISTIKY AKTIVITY (Nové)
-    # Spočítáme pro každého hráče sumu odehraných zápasů doma + venku
-    statistiky_hracu = Hrac.objects.annotate(
-        pocet_zapasu=Count(
-            'domaci', 
-            filter=Q(domaci__odehrano=True, domaci__soutez__slug__startswith='26_') & ~Q(domaci__soutez__slug__icontains='zebricek'),
-            distinct=True
-        ) + Count(
-            'hoste', 
-            filter=Q(hoste__odehrano=True, hoste__soutez__slug__startswith='26_') & ~Q(hoste__soutez__slug__icontains='zebricek'),
-            distinct=True
-        )
-    ).order_by('-pocet_zapasu', 'jmeno')
+    # 📊 4. STATISTIKY AKTIVITY, BODŮ A GEMŮ (Sezóna 2026 bez žebříčku)
+    # Načteme zápasy splňující podmínky pro letošní ligy
+    zapas_stats = Zapas.objects.filter(
+        odehrano=True,
+        soutez__slug__startswith='26_'
+    ).exclude(
+        soutez__slug__icontains='zebricek'
+    ).select_related('hrac_domaci', 'hrac_hoste')
+
+    # Pomocný slovník pro ukládání dat o hráčích
+    data_hracu = defaultdict(lambda: {'pocet_zapasu': 0, 'body': 0, 'gemy_ziskane': 0, 'gemy_ztracene': 0, 'hrac_obj': None})
+
+    def secti_gemy(set_str):
+        """Pomocná funkce pro parsování stringu setu '6:3' na čísla"""
+        if not set_str or ':' not in set_str or set_str == '0:0':
+            return 0, 0
+        try:
+            d, h = map(int, set_str.split(':'))
+            return d, h
+        except ValueError:
+            return 0, 0
+
+    # Projdeme zápasy a rozpočítáme statistiky
+    for zapas in zapas_stats:
+        d_id = zapas.hrac_domaci.id
+        h_id = zapas.hrac_hoste.id
+        
+        # Uložení objektu hráče
+        data_hracu[d_id]['hrac_obj'] = zapas.hrac_domaci
+        data_hracu[h_id]['hrac_obj'] = zapas.hrac_hoste
+        
+        # Zápasy
+        data_hracu[d_id]['pocet_zapasu'] += 1
+        data_hracu[h_id]['pocet_zapasu'] += 1
+        
+        # Body za sety (přičítáme získané sety jako body)
+        data_hracu[d_id]['body'] += zapas.sety_domaci
+        data_hracu[h_id]['body'] += zapas.sety_hoste
+        
+        # Sčítání gemů ze všech 3 setů
+        for set_pole in [zapas.set1, zapas.set2, zapas.set3]:
+            g_d, g_h = secti_gemy(set_pole)
+            
+            data_hracu[d_id]['gemy_ziskane'] += g_d
+            data_hracu[d_id]['gemy_ztracene'] += g_h
+            
+            data_hracu[h_id]['gemy_ziskane'] += g_h
+            data_hracu[h_id]['gemy_ztracene'] += g_d
+
+    # Pokud některý hráč ještě nehrál zápas, doplníme ho s nulami, aby byl v tabulce
+    # Pokud některý hráč ještě nehrál zápas, doplníme ho s nulami
+    vsi_hraci = Hrac.objects.all()
+    for h in vsi_hraci:
+        if h.id not in data_hracu:
+            data_hracu[h.id] = {
+                'pocet_zapasu': 0, 'body': 0, 'gemy_ziskane': 0, 'gemy_ztracene': 0, 'rozdil_gemu': 0, 'hrac_obj': h
+            }
+        else:
+            data_hracu[h.id]['hrac_obj'] = h
+            # ROVNOU SPOČÍTÁME ROZDÍL V PYTHONU
+            data_hracu[h.id]['rozdil_gemu'] = data_hracu[h.id]['gemy_ziskane'] - data_hracu[h.id]['gemy_ztracene']
+
+    # Zabalíme do seznamu a seřadíme: 1. podle bodů, 2. podle rozdílu gemů, 3. podle počtu zápasů
+    statistiky_hracu = list(data_hracu.values())
+    statistiky_hracu.sort(
+        key=lambda x: (
+            x['body'], 
+            x['rozdil_gemu'], 
+            x['pocet_zapasu']
+        ), 
+        reverse=True
+    )
 
     return render(request, 'tenis_app/vsechny_zapasy.html', {
         'planovane': planovane,
         'historie': historie,
         'vybrany_hrac': vybrany_hrac,
-        'statistiky_hracu': statistiky_hracu,  # <-- Posíláme data do HTML tabulky
+        'statistiky_hracu': statistiky_hracu,
     })
     
 

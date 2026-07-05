@@ -163,40 +163,55 @@
         {% endfor %}
     </div>
 
-    <div class="stats-container">
+    <!-- 📊 SEKCE STATISTIK (Body a Gemy) -->
+    <div class="stats-container" style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 40px; border: 1px solid #e2e8f0;">
         <h3 style="color: #2d3748; margin-top: 0; margin-bottom: 5px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px;">
-            📊 Aktivita hráčů ve všech ligách
+            📊 Celková aktivita a úspěšnost hráčů (2026)
         </h3>
-        <p style="color: #718096; font-size: 0.85rem; margin-bottom: 15px; margin-top: 0;">Celkový počet odehraných zápasů jednotlivých hráčů napříč všemi soutěžemi.</p>
+        <p style="color: #718096; font-size: 0.85rem; margin-bottom: 15px; margin-top: 0;">Statistiky z ligových zápasů aktuální sezóny (vyjma žebříčku).</p>
         
-        <div class="stats-table-wrapper">
-            <table class="stats-table">
+        <div class="stats-table-wrapper" style="width: 100%; overflow-x: auto; border-radius: 8px; border: 1px solid #e2e8f0;">
+            <table class="stats-table" style="width: 100%; border-collapse: collapse; min-width: 550px;">
                 <thead>
-                    <tr>
-                        <th style="width: 60px;">Pořadí</th>
-                        <th>Hráč</th>
-                        <th style="width: 140px;">Odehrané zápasy</th>
+                    <tr style="background: #0f172a; color: white;">
+                        <th style="padding: 12px 10px; font-size: 0.8rem; text-align: center; width: 50px;">#</th>
+                        <th style="padding: 12px 15px; font-size: 0.8rem; text-align: left;">Hráč</th>
+                        <th style="padding: 12px 10px; font-size: 0.8rem; text-align: center; width: 80px;">Zápasy</th>
+                        <th style="padding: 12px 10px; font-size: 0.8rem; text-align: center; width: 80px;">Body</th>
+                        <th style="padding: 12px 10px; font-size: 0.8rem; text-align: center; width: 120px;">Gemy</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for hrac in statistiky_hracu %}
-                        <tr {% if hrac.id == request.user.hrac.id %}style="background-color: #f0f9ff;"{% endif %}>
-                            <td><strong>{{ forloop.counter }}.</strong></td>
-                            <td>
-                                <a href="?filtr_hrac={{ hrac.id }}" style="text-decoration: none; color: #2b6cb0;">
-                                    {{ hrac.jmeno }}
+                    {% for řádek in statistiky_hracu %}
+                        <tr style="border-bottom: 1px solid #f1f5f9; {% if řádek.hrac_obj.id == request.user.hrac.id %}background-color: #f0f9ff;{% endif %}" onmouseover="this.style.backgroundColor='#f8fafc'" onmouseout="this.style.backgroundColor='{% if řádek.hrac_obj.id == request.user.hrac.id %}#f0f9ff{% else %}transparent{% endif %}'">
+                            <td style="padding: 12px 10px; text-align: center;"><strong>{{ forloop.counter }}.</strong></td>
+                            <td style="padding: 12px 15px; text-align: left; font-weight: 600;">
+                                <a href="?filtr_hrac={{ řádek.hrac_obj.id }}" style="text-decoration: none; color: #2b6cb0;">
+                                    {{ řádek.hrac_obj.jmeno }}
                                 </a>
-                                {% if hrac.id == request.user.hrac.id %}
+                                {% if řádek.hrac_obj.id == request.user.hrac.id %}
                                     <span style="font-size: 0.7rem; background: #0ea5e9; color: white; padding: 1px 6px; border-radius: 8px; margin-left: 5px; vertical-align: middle;">Já</span>
                                 {% endif %}
                             </td>
-                            <td>
-                                <span class="badge-games">{{ hrac.pocet_zapasu }}</span>
+                            <td style="padding: 12px 10px; text-align: center;">
+                                <span style="background: #edf2f7; color: #2d3748; padding: 3px 8px; border-radius: 6px; font-weight: bold; font-size: 0.85rem;">
+                                    {{ řádek.pocet_zapasu }}
+                                </span>
                             </td>
+                            <td style="padding: 12px 10px; text-align: center; font-weight: 800; color: #2e7d32; font-size: 1rem;">
+                                {{ řádek.body }}
+                            </td>
+                            <td style="padding: 12px 10px; text-align: center; font-size: 0.85rem; color: #475569;">
+									<strong style="color: #1e293b;">{{ řádek.gemy_ziskane }}</strong>:<strong style="color: #64748b;">{{ řádek.gemy_ztracene }}</strong>
+									
+									<small style="display: block; font-size: 0.75rem; color: {% if řádek.rozdil_gemu >= 0 %}#2563eb{% else %}#dc2626{% endif %}; font-weight: 600;">
+										
+									</small>
+							</td>
                         </tr>
                     {% empty %}
                         <tr>
-                            <td colspan="3" style="color: #666; padding: 15px;">Žádná data k dispozici.</td>
+                            <td colspan="5" style="color: #666; padding: 20px; text-align: center;">Žádná data k dispozici.</td>
                         </tr>
                     {% endfor %}
                 </tbody>
