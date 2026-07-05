@@ -142,7 +142,7 @@
 
     <div class="custom-stats-container">
         <h3 style="color: #2d3748; margin-top: 0; margin-bottom: 5px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px;">
-            📊 Celková aktivita hráčů (2026)
+            📊 Odehrané zápasy
         </h3>
         <p style="color: #718096; font-size: 0.85rem; margin-bottom: 15px; margin-top: 0;">
             Statistiky z ligových zápasů aktuální sezóny (vyjma žebříčku). Řazeno primárně podle počtu odehraných zápasů.
@@ -156,7 +156,8 @@
                         <th style="text-align: left;">Hráč</th>
                         <th style="text-align: center; width: 100px; background: #1e293b;">Zápasy</th>
                         <th style="text-align: center; width: 90px;">Body</th>
-                        <th style="text-align: center; width: 130px;">Gemy</th>
+                        <th style="text-align: center; width: 90px;">Sety</th>
+						<th style="text-align: center; width: 130px;">Gemy</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -185,9 +186,14 @@
                             <td style="text-align: center; font-weight: 700; color: #2e7d32; font-size: 1rem;">
                                 {{ radek.body }}
                             </td>
-                            
+                           
                             <td style="text-align: center; font-size: 0.85rem; color: #475569; line-height: 1.2;">
-                                <strong style="color: #1e293b;">{{ radek.gemy_ziskane }} : {{ radek.gemy_ztracene }}
+                                <strong style="color: #1e293b;">{{ radek.sety_ziskane }}  : {{ radek.sety_ztracene }}
+
+                            </td>
+						   
+                            <td style="text-align: center; font-size: 0.85rem; color: #475569; line-height: 1.2;">
+                                <strong style="color: #1e293b;">{{ radek.gemy_ziskane }}  : {{ radek.gemy_ztracene }}
 
                             </td>
 

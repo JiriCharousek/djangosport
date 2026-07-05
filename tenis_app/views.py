@@ -351,20 +351,32 @@ def prehled_vsech_zapasu(request):
     planovane = Zapas.objects.filter(odehrano=False).order_by(F('datum').desc(nulls_last=True))
     historie = vsechny.filter(odehrano=True).order_by('-datum')
 
-    # 📊 4. STATISTIKY AKTIVITY, BODŮ A GEMŮ (Sezóna 2026 bez žebříčku)
-    # Načteme zápasy splňující podmínky pro letošní ligy
+    # 📊 4. STATISTIKY AKTIVITY, BODŮ, SETŮ A GEMŮ (Sezóna Léto 2026 bez žebříčku a zimy)
     zapas_stats = Zapas.objects.filter(
         odehrano=True,
         soutez__slug__startswith='26_'
     ).exclude(
-        soutez__slug__icontains='zebricek'
+        Q(soutez__slug__icontains='zebricek') | Q(soutez__slug__icontains='zima')
     ).select_related('hrac_domaci', 'hrac_hoste')
 
-    # Pomocný slovník pro ukládání dat o hráčích
-    data_hracu = defaultdict(lambda: {'pocet_zapasu': 0, 'body': 0, 'gemy_ziskane': 0, 'gemy_ztracene': 0, 'hrac_obj': None})
+    # Pomocný slovník - definujeme VŠECHNY klíče jako výchozí (0)
+    data_hracu = defaultdict(lambda: {
+        'pocet_zapasu': 0, 
+        'body': 0, 
+        'sety_ziskane': 0, 
+        'sety_ztracene': 0,
+        'gemy_ziskane': 0, 
+        'gemy_ztracene': 0, 
+        'rozdil_gemu': 0, 
+        'hrac_obj': None
+    })
+
+    # PŘEDEM naplníme slovník všemi existujícími hráči, aby se předešlo KeyError chybám
+    vsi_hraci = Hrac.objects.all()
+    for h in vsi_hraci:
+        data_hracu[h.id]['hrac_obj'] = h
 
     def secti_gemy(set_str):
-        """Pomocná funkce pro parsování stringu setu '6:3' na čísla"""
         if not set_str or ':' not in set_str or set_str == '0:0':
             return 0, 0
         try:
@@ -373,52 +385,52 @@ def prehled_vsech_zapasu(request):
         except ValueError:
             return 0, 0
 
-    # Projdeme zápasy a rozpočítáme statistiky
+    # Procházíme zápasy a rozpočítáváme statistiky (teď už klíče bezpečně existují)
     for zapas in zapas_stats:
         d_id = zapas.hrac_domaci.id
         h_id = zapas.hrac_hoste.id
         
-        # Uložení objektu hráče
-        data_hracu[d_id]['hrac_obj'] = zapas.hrac_domaci
-        data_hracu[h_id]['hrac_obj'] = zapas.hrac_hoste
-        
-        # Zápasy
+        # 1. Počet odehraných zápasů
         data_hracu[d_id]['pocet_zapasu'] += 1
         data_hracu[h_id]['pocet_zapasu'] += 1
         
-        # Body za sety (přičítáme získané sety jako body)
-        data_hracu[d_id]['body'] += zapas.sety_domaci
-        data_hracu[h_id]['body'] += zapas.sety_hoste
+        # 2. Body (3 body za 2:0, 2 body za 2:1, 1 bod za 1:2, 0 bodů za 0:2)
+        if zapas.sety_domaci == 2 and zapas.sety_hoste == 0:
+            data_hracu[d_id]['body'] += 3
+        elif zapas.sety_domaci == 2 and zapas.sety_hoste == 1:
+            data_hracu[d_id]['body'] += 2
+            data_hracu[h_id]['body'] += 1
+        elif zapas.sety_domaci == 1 and zapas.sety_hoste == 2:
+            data_hracu[d_id]['body'] += 1
+            data_hracu[h_id]['body'] += 2
+        elif zapas.sety_domaci == 0 and zapas.sety_hoste == 2:
+            data_hracu[h_id]['body'] += 3
+            
+        # 3. Sety 
+        data_hracu[d_id]['sety_ziskane'] += zapas.sety_domaci
+        data_hracu[d_id]['sety_ztracene'] += zapas.sety_hoste
+        data_hracu[h_id]['sety_ziskane'] += zapas.sety_hoste
+        data_hracu[h_id]['sety_ztracene'] += zapas.sety_domaci
         
-        # Sčítání gemů ze všech 3 setů
+        # 4. Gemy
         for set_pole in [zapas.set1, zapas.set2, zapas.set3]:
             g_d, g_h = secti_gemy(set_pole)
             
             data_hracu[d_id]['gemy_ziskane'] += g_d
             data_hracu[d_id]['gemy_ztracene'] += g_h
-            
             data_hracu[h_id]['gemy_ziskane'] += g_h
             data_hracu[h_id]['gemy_ztracene'] += g_d
 
-    # Pokud některý hráč ještě nehrál zápas, doplníme ho s nulami, aby byl v tabulce
-    # Pokud některý hráč ještě nehrál zápas, doplníme ho s nulami
-    vsi_hraci = Hrac.objects.all()
-    for h in vsi_hraci:
-        if h.id not in data_hracu:
-            data_hracu[h.id] = {
-                'pocet_zapasu': 0, 'body': 0, 'gemy_ziskane': 0, 'gemy_ztracene': 0, 'rozdil_gemu': 0, 'hrac_obj': h
-            }
-        else:
-            data_hracu[h.id]['hrac_obj'] = h
-            # ROVNOU SPOČÍTÁME ROZDÍL V PYTHONU
-            data_hracu[h.id]['rozdil_gemu'] = data_hracu[h.id]['gemy_ziskane'] - data_hracu[h.id]['gemy_ztracene']
+    # Dopočítáme rozdíl gemů pro všechny hráče ve slovníku
+    for h_id in data_hracu:
+        data_hracu[h_id]['rozdil_gemu'] = data_hracu[h_id]['gemy_ziskane'] - data_hracu[h_id]['gemy_ztracene']
 
-    # Zabalíme do seznamu a seřadíme: 1. podle bodů, 2. podle rozdílu gemů, 3. podle počtu zápasů
+    # Řazení: Aktivita (zápasy) -> Body -> Rozdíl gemů
     statistiky_hracu = list(data_hracu.values())
     statistiky_hracu.sort(
         key=lambda x: (
             x['pocet_zapasu'],
-            x['body'], 
+            x['body'],
             x['rozdil_gemu']
         ), 
         reverse=True
