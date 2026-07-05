@@ -95,7 +95,7 @@ class Zapas(models.Model):
     datum = models.DateField(null=True, blank=True, verbose_name="Datum zápasu")
     vytvoreno_kdy = models.DateTimeField(auto_now_add=True)
     
-    upraveno_kdy = models.DateTimeField(auto_now=True)
+    upraveno_kdy = models.DateTimeField(auto_now=True) 
 
     class Meta:
         unique_together = ('soutez', 'hrac_domaci', 'hrac_hoste')
