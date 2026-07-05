@@ -2366,3 +2366,163 @@ INFO 2026-07-05 15:50:07,106 autoreload Watching for file changes with StatReloa
 WARNING 2026-07-05 15:50:23,534 log Not Found: /static/images/kaminka260512.png
 INFO 2026-07-05 15:50:25,479 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
 INFO 2026-07-05 15:56:38,374 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 15:59:00,929 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 15:59:03,081 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-05 15:59:09,632 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-05 15:59:12,433 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-07-05 15:59:13,896 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-07-05 16:03:38,521 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 16:07:17,585 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-07-05 16:07:18,153 autoreload Watching for file changes with StatReloader
+ERROR 2026-07-05 16:07:22,535 log Internal Server Error: /kaminka/tenis/historie/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 354, in prehled_vsech_zapasu
+    statistiky_hracu = Hrac.objects.annotate(
+                       ~~~~~~~~~~~~~~~~~~~~~^
+        pocet_zapasu=Count('zapas_domaci', filter=Q(zapas_domaci__odehrano=True)) +
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     Count('zapas_hoste', filter=Q(zapas_hoste__odehrano=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).order_by('-pocet_zapasu', 'jmeno')
+    ^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\query.py", line 1654, in annotate
+    return self._annotate(args, kwargs, select=True)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\query.py", line 1706, in _annotate
+    clone.query.add_annotation(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        annotation,
+        ^^^^^^^^^^^
+        alias,
+        ^^^^^^
+        select=select,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\sql\query.py", line 1218, in add_annotation
+    annotation = annotation.resolve_expression(self, allow_joins=True, reuse=None)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\expressions.py", line 775, in resolve_expression
+    resolved = super().resolve_expression(
+        query,
+    ...<3 lines>...
+        for_save,
+    )
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\expressions.py", line 300, in resolve_expression
+    expr.resolve_expression(query, allow_joins, reuse, summarize, for_save)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\aggregates.py", line 176, in resolve_expression
+    result = super().resolve_expression(*args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\aggregates.py", line 63, in resolve_expression
+    c = super().resolve_expression(query, allow_joins, reuse, summarize)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\expressions.py", line 300, in resolve_expression
+    expr.resolve_expression(query, allow_joins, reuse, summarize, for_save)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\expressions.py", line 902, in resolve_expression
+    return query.resolve_ref(self.name, allow_joins, reuse, summarize)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\sql\query.py", line 2050, in resolve_ref
+    join_info = self.setup_joins(
+        field_list, self.get_meta(), self.get_initial_alias(), can_reuse=reuse
+    )
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\sql\query.py", line 1901, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+                                       ~~~~~~~~~~~~~~~~~~^
+        names[:pivot],
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        fail_on_missing=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\sql\query.py", line 1806, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'zapas_domaci' into field. Choices are: datum_narozeni, domaci, email, foto, hoste, id, info, jmeno, klub, souteze, telefon, user, user_id, web, zebricek_data
+INFO 2026-07-05 16:08:52,048 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
+INFO 2026-07-05 16:08:52,484 autoreload Watching for file changes with StatReloader
+ERROR 2026-07-05 16:08:58,632 log Internal Server Error: /kaminka/tenis/historie/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 354, in prehled_vsech_zapasu
+    statistiky_hracu = Hrac.objects.annotate(
+                       ~~~~~~~~~~~~~~~~~~~~~^
+        pocet_zapasu=Count('zapas_domaci', filter=Q(zapas_domaci__odehrano=True)) +
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     Count('zapas_hoste', filter=Q(zapas_hoste__odehrano=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).order_by('-pocet_zapasu', 'jmeno')
+    ^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\query.py", line 1654, in annotate
+    return self._annotate(args, kwargs, select=True)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\query.py", line 1706, in _annotate
+    clone.query.add_annotation(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        annotation,
+        ^^^^^^^^^^^
+        alias,
+        ^^^^^^
+        select=select,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\sql\query.py", line 1218, in add_annotation
+    annotation = annotation.resolve_expression(self, allow_joins=True, reuse=None)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\expressions.py", line 775, in resolve_expression
+    resolved = super().resolve_expression(
+        query,
+    ...<3 lines>...
+        for_save,
+    )
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\expressions.py", line 300, in resolve_expression
+    expr.resolve_expression(query, allow_joins, reuse, summarize, for_save)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\aggregates.py", line 176, in resolve_expression
+    result = super().resolve_expression(*args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\aggregates.py", line 63, in resolve_expression
+    c = super().resolve_expression(query, allow_joins, reuse, summarize)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\expressions.py", line 300, in resolve_expression
+    expr.resolve_expression(query, allow_joins, reuse, summarize, for_save)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\expressions.py", line 902, in resolve_expression
+    return query.resolve_ref(self.name, allow_joins, reuse, summarize)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\sql\query.py", line 2050, in resolve_ref
+    join_info = self.setup_joins(
+        field_list, self.get_meta(), self.get_initial_alias(), can_reuse=reuse
+    )
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\sql\query.py", line 1901, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+                                       ~~~~~~~~~~~~~~~~~~^
+        names[:pivot],
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        fail_on_missing=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\db\models\sql\query.py", line 1806, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'zapas_domaci' into field. Choices are: datum_narozeni, domaci, email, foto, hoste, id, info, jmeno, klub, souteze, telefon, user, user_id, web, zebricek_data
+INFO 2026-07-05 16:10:05,848 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-07-05 16:10:06,475 autoreload Watching for file changes with StatReloader

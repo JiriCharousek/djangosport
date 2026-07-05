@@ -329,6 +329,8 @@ def smazat_hrace(request, pk):
     hrac.delete()
     return redirect('tenis_app:tenis_index')
 
+from django.db.models import Count, Q
+
 @login_required
 def prehled_vsech_zapasu(request):
     # 1. Musíme vzít všechny zápasy
@@ -347,10 +349,18 @@ def prehled_vsech_zapasu(request):
     # Historie = odehrano je True
     historie = vsechny.filter(odehrano=True).order_by('-datum')
 
+    # 📊 4. STATISTIKY AKTIVITY (Nové)
+    # Spočítáme pro každého hráče sumu odehraných zápasů doma + venku
+    statistiky_hracu = Hrac.objects.annotate(
+        pocet_zapasu=Count('domaci', filter=Q(domaci__odehrano=True)) + 
+                     Count('hoste', filter=Q(hoste__odehrano=True))
+    ).order_by('-pocet_zapasu', 'jmeno')
+
     return render(request, 'tenis_app/vsechny_zapasy.html', {
         'planovane': planovane,
         'historie': historie,
         'vybrany_hrac': vybrany_hrac,
+        'statistiky_hracu': statistiky_hracu,  # <-- Posíláme data do HTML tabulky
     })
     
 

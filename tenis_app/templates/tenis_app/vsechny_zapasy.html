@@ -1,6 +1,84 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    /* 📱 CSS styly pro responzivní statistiky */
+    .stats-container {
+        background: white; 
+        padding: 25px; 
+        border-radius: 12px; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+        margin-top: 40px;
+        border: 1px solid #e2e8f0;
+    }
+    
+    .stats-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-top: 15px;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .stats-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: 'Segoe UI', Roboto, sans-serif;
+        min-width: 450px; /* Zajistí, že se tabulka na mobilu nesrazí, ale bude scrolovat */
+    }
+
+    .stats-table thead tr {
+        background: #0f172a;
+        color: white;
+    }
+
+    .stats-table th {
+        padding: 12px 15px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        text-align: center;
+    }
+
+    .stats-table th:nth-child(2) {
+        text-align: left; /* Jméno zarovnáme doleva */
+    }
+
+    .stats-table td {
+        padding: 10px 15px;
+        border-bottom: 1px solid #f1f5f9;
+        text-align: center;
+        font-size: 0.95rem;
+    }
+
+    .stats-table td:nth-child(2) {
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .stats-table tbody tr:hover {
+        background-color: #f8fafc;
+    }
+
+    .badge-games {
+        background: #edf2f7;
+        color: #2d3748;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-weight: bold;
+        font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+        .stats-container {
+            padding: 15px;
+            margin-top: 30px;
+        }
+    }
+</style>
+
 <div class="container mt-4" style="max-width: 900px; margin: 20px auto;">
     
     <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 30px;">
@@ -29,7 +107,7 @@
                     
                     <div style="display: flex; flex-direction: column;">
                         <small class="text-muted" style="font-weight: bold; font-size: 0.75rem;">{{ zapas.datum|date:"d.m.Y" }}</small>
-                        <span style="font-size: 0.7rem; color: #27ae60; font-weight: bold; text-transform: uppercase;">
+                        <span style="font-size: 0.7 gram; color: #27ae60; font-weight: bold; text-transform: uppercase;">
                              {{ zapas.soutez.nazev }}
                         </span>
                     </div>
@@ -84,5 +162,47 @@
             <p style="text-align: center; color: #666; padding: 20px;">Žádné zápasy k zobrazení.</p>
         {% endfor %}
     </div>
+
+    <div class="stats-container">
+        <h3 style="color: #2d3748; margin-top: 0; margin-bottom: 5px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px;">
+            📊 Aktivita hráčů ve všech ligách
+        </h3>
+        <p style="color: #718096; font-size: 0.85rem; margin-bottom: 15px; margin-top: 0;">Celkový počet odehraných zápasů jednotlivých hráčů napříč všemi soutěžemi.</p>
+        
+        <div class="stats-table-wrapper">
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th style="width: 60px;">Pořadí</th>
+                        <th>Hráč</th>
+                        <th style="width: 140px;">Odehrané zápasy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for hrac in statistiky_hracu %}
+                        <tr {% if hrac.id == request.user.hrac.id %}style="background-color: #f0f9ff;"{% endif %}>
+                            <td><strong>{{ forloop.counter }}.</strong></td>
+                            <td>
+                                <a href="?filtr_hrac={{ hrac.id }}" style="text-decoration: none; color: #2b6cb0;">
+                                    {{ hrac.jmeno }}
+                                </a>
+                                {% if hrac.id == request.user.hrac.id %}
+                                    <span style="font-size: 0.7rem; background: #0ea5e9; color: white; padding: 1px 6px; border-radius: 8px; margin-left: 5px; vertical-align: middle;">Já</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <span class="badge-games">{{ hrac.pocet_zapasu }}</span>
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="3" style="color: #666; padding: 15px;">Žádná data k dispozici.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
 {% endblock %}
