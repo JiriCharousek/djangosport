@@ -1,19 +1,116 @@
 {% extends "base.html" %}
 {% block content %}
 <style>
-    .form-container { max-width: 600px; margin: 20px auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid var(--clay); }
+    .form-container { 
+        max-width: 600px; 
+        margin: 20px auto; 
+        background: white; 
+        padding: 25px; 
+        border-radius: 12px; 
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+        border-top: 5px solid var(--clay); 
+    }
     .form-title { color: var(--navy); text-align: center; margin-bottom: 20px; font-size: 1.5rem; }
-    .match-header { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-    .sets-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: var(--navy); font-size: 0.85rem; text-transform: uppercase; }
-    input, select { width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; }
-    /* Styl pro zamčená pole hráčů */
+    
+    /* Flexbox/Grid rozvržení s podporou pro mobily */
+    .match-header { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 15px; 
+        margin-bottom: 20px; 
+    }
+    .sets-row { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr 1fr; 
+        gap: 12px; 
+        background: #f9f9f9; 
+        padding: 15px; 
+        border-radius: 8px; 
+        margin-bottom: 20px; 
+    }
+    
+    .form-group label { 
+        display: block; 
+        margin-bottom: 5px; 
+        font-weight: bold; 
+        color: var(--navy); 
+        font-size: 0.85rem; 
+        text-transform: uppercase; 
+    }
+    
+    /* Větší padding pro snazší klikání na mobilu */
+    input, select { 
+        width: 100%; 
+        padding: 12px 10px; 
+        border: 1px solid var(--border); 
+        border-radius: 6px; 
+        box-sizing: border-box; 
+        font-size: 1rem; /* Zabrání automatickému přibližování (zoomu) na iOS */
+    }
+    
     .readonly-player { background: #eee; cursor: not-allowed; font-weight: bold; }
     .meta-row { display: flex; flex-direction: column; gap: 10px; padding: 10px; border-top: 1px solid #eee; }
-    .check-item { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; }
-    .check-item input { width: auto; }
-    .btn-submit { background: var(--clay); color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 15px; }
+    
+    /* Vylepšený checkbox, aby se na něj na mobilu dalo kliknout */
+    .check-item { 
+        display: flex; 
+        align-items: center; 
+        gap: 12px; 
+        font-size: 0.95rem; 
+        cursor: pointer;
+    }
+    .check-item input[type="checkbox"] { 
+        width: 20px; 
+        height: 20px; 
+        cursor: pointer;
+    }
+    
+    .btn-submit { 
+        background: var(--clay); 
+        color: white; 
+        border: none; 
+        padding: 14px; 
+        width: 100%; 
+        border-radius: 8px; 
+        font-weight: bold; 
+        cursor: pointer; 
+        margin-top: 15px; 
+        font-size: 1rem;
+    }
     .error-msg { color: #e74c3c; font-size: 0.8rem; margin-top: 5px; display: block; }
+
+    /* 📱 MOBILNÍ OPTIMALIZACE (pro displeje menší než 500px) */
+    @media (max-width: 500px) {
+        .form-container {
+            margin: 10px;
+            padding: 15px;
+        }
+        /* Hráči půjdou pod sebe */
+        .match-header {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        /* Sety půjdou pod sebe, aby měly dost místa na zadání skóre */
+        .sets-row {
+            grid-template-columns: 1fr;
+            gap: 10px;
+            padding: 10px;
+        }
+        .sets-row .form-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+        .sets-row label {
+            margin-bottom: 0;
+            min-width: 60px;
+            text-align: left !important;
+        }
+        .sets-row input {
+            max-width: 70%;
+        }
+    }
 </style>
 
 <div class="form-container">
@@ -45,7 +142,7 @@
             </div>
         </div>
 
-        <label style="display: block; text-align: center; font-weight: bold; margin-bottom: 5px;">Výsledky setů</label>
+        <label style="display: block; text-align: center; font-weight: bold; margin-bottom: 8px;">Výsledky setů</label>
         <div class="sets-row">
             <div class="form-group">
                 <label style="text-align: center;">1. Set</label>
@@ -62,30 +159,22 @@
         </div>
 
         <div class="form-group full-width">
-			<label>📦 Kdo přinese míče?</label>
-			<div class="check-item" style="background: #f0f7ff; padding: 12px; border-radius: 8px; border: 1px solid #d0e3ff;">
-				{{ form.mice_bere_domaci }}
-				<span style="font-weight: bold; margin-left: 5px;">
-					{% if zapas.mice_bere_domaci %}
-						🎾 Míče přinese    : {{ zapas.hrac_domaci.jmeno }}
-					{% else %}
-						🎾 Míče přinese    : {{ zapas.hrac_hoste.jmeno }}
-					{% endif %}
-				</span>
-			</div>
-<!-- 			<small style="color: #666; display: block; margin-top: 5px;">
-				(Tip: Pokud se jméno po kliknutí na políčko hned nezmění, nebojte se, po uložení se v tabulce zobrazí správný hráč.)
-			</small> -->
-		</div>
-<!--         <div class="check-item">
-                {{ form.odehrano }}
-                <label>Zápas je odehrán a potvrzen</label>
+            <label>📦 Kdo přinese míče?</label>
+            <div class="check-item" style="background: #f0f7ff; padding: 12px; border-radius: 8px; border: 1px solid #d0e3ff;">
+                {{ form.mice_bere_domaci }}
+                <span style="font-weight: bold;">
+                    {% if zapas.mice_bere_domaci %}
+                        🎾 Míče přinese: {{ zapas.hrac_domaci.jmeno }}
+                    {% else %}
+                        🎾 Míče přinese: {{ zapas.hrac_hoste.jmeno }}
+                    {% endif %}
+                </span>
             </div>
-        </div> -->
+        </div>
 
         <button type="submit" class="btn-submit">Uložit výsledek</button>
     </form>
     
-    <a href="{% url 'tenis_app:detail_souteze' zapas.soutez.slug %}" style="display: block; text-align: center; padding: 10px; color: #95a5a6; text-decoration: none; font-size: 0.85rem;">Zrušit</a>
+    <a href="{% url 'tenis_app:detail_souteze' zapas.soutez.slug %}" style="display: block; text-align: center; padding: 15px 10px; color: #95a5a6; text-decoration: none; font-size: 0.9rem;">Zrušit</a>
 </div>
 {% endblock %}
