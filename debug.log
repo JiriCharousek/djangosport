@@ -2365,3 +2365,4 @@ INFO 2026-07-05 15:34:51,461 autoreload Watching for file changes with StatReloa
 INFO 2026-07-05 15:50:07,106 autoreload Watching for file changes with StatReloader
 WARNING 2026-07-05 15:50:23,534 log Not Found: /static/images/kaminka260512.png
 INFO 2026-07-05 15:50:25,479 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-05 15:56:38,374 autoreload Watching for file changes with StatReloader

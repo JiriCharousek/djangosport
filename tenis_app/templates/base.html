@@ -37,6 +37,8 @@
             top: 0;
             height: 100vh;
             overflow-y: auto;
+            transition: transform 0.3s ease; /* Plynulé vysouvání na mobilu */
+            z-index: 1000;
         }
 
         .nav-section { margin-bottom: 25px; padding: 0 15px; }
@@ -99,6 +101,7 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            min-width: 0; /* Zamezí přetékání obsahu na malých displejích */
         }
 
         .top-navbar {
@@ -112,130 +115,124 @@
         }
 
         .main-content { padding: 30px; }
-		.active-link { background: #334155; }
+        .active-link { background: #334155; }
 
-        .tenis-table { width: 100%; border-collapse: collapse; background: white; }
-        .tenis-table td, .tenis-table th { border: 1px solid var(--border); padding: 10px; text-align: center; }
-        <style>
-    /* Kontejner žebříčku */
-    .zebricek-container {
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        overflow: hidden;
-        margin-top: 20px;
-        border: 1px solid #e2e8f0;
-    }
+        /* Tlačítko pro mobilní menu (na PC schované) */
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            color: var(--navy);
+        }
 
-    .tenis-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-family: 'Segoe UI', Roboto, sans-serif;
-    }
+        /* Tlačítko pro zavření menu uvnitř sidebar (na PC schované) */
+        .sidebar-close-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            cursor: pointer;
+        }
 
-    .tenis-table thead tr {
-        background: #0f172a;
-        color: white;
-        text-align: left;
-    }
+        /* Stínové pozadí při otevřeném menu na mobilu */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 999;
+        }
 
-    .tenis-table th {
-        padding: 15px 20px;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 0.85rem;
-        letter-spacing: 0.05em;
-    }
+        /* ŽEBŘÍČEK & TABULKY STYLY */
+        .zebricek-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            margin-top: 20px;
+            border: 1px solid #e2e8f0;
+        }
+        .tenis-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+        .tenis-table thead tr { background: #0f172a; color: white; text-align: left; }
+        .tenis-table th { padding: 15px 20px; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; }
+        .tenis-table td { padding: 5px 10px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+        
+        .row-1 { background-color: rgba(255, 215, 0, 0.1); }
+        .row-2 { background-color: rgba(192, 192, 192, 0.1); }
+        .row-3 { background-color: rgba(205, 127, 50, 0.1); }
+        .row-ten { border-bottom: 2px solid #cbd5e1 !important; background-color: #f8fafc; }
+        .row-ten .rank-badge { background: #64748b; color: white; }
+        .row-me { background-color: #f0f9ff !important; border-left: 4px solid #0ea5e9; }
 
-    .tenis-table td {
-        padding: 5px 10px;
-        border-bottom: 1px solid #f1f5f9;
-        vertical-align: middle;
-    }
+        .rank-badge {
+            display: inline-block; width: 30px; height: 30px; line-height: 30px;
+            text-align: center; border-radius: 50%; background: #f1f5f9; font-weight: bold; color: #475569;
+        }
+        .row-1 .rank-badge { background: #ffd700; color: #92400e; }
+        .row-2 .rank-badge { background: #cbd5e1; color: #334155; }
+        .row-3 .rank-badge { background: #f97316; color: white; }
 
-    /* Barevné odlišení pozic (Medailové pozice) */
-    .row-1 { background-color: rgba(255, 215, 0, 0.1); } /* Zlatá */
-    .row-2 { background-color: rgba(192, 192, 192, 0.1); } /* Stříbrná */
-    .row-3 { background-color: rgba(205, 127, 50, 0.1); } /* Bronzová */
-	/* Zvýraznění každého 10. řádku */
-	.row-ten {
-		border-bottom: 2px solid #cbd5e1 !important; /* Silnější linka pod řádkem */
-		background-color: #f8fafc; /* Velmi jemné šedé pozadí */
-	}
+        .btn-challenge {
+            display: inline-flex; align-items: center; gap: 6px; background: #2563eb; color: white;
+            padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: all 0.2s;
+        }
+        .btn-challenge:hover { background: #1d4ed8; transform: translateY(-1px); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .me-label { font-size: 0.75rem; background: #0ea5e9; color: white; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
 
-.row-ten .rank-badge {
-    background: #64748b; /* Tmavší kolečko pro číslo */
-    color: white;
-}
-
-    /* Zvýraznění přihlášeného uživatele */
-    .row-me {
-        background-color: #f0f9ff !important; /* Světle modrá */
-        border-left: 4px solid #0ea5e9;
-    }
-
-    .rank-badge {
-        display: inline-block;
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        text-align: center;
-        border-radius: 50%;
-        background: #f1f5f9;
-        font-weight: bold;
-        color: #475569;
-    }
-
-    .row-1 .rank-badge { background: #ffd700; color: #92400e; }
-    .row-2 .rank-badge { background: #cbd5e1; color: #334155; }
-    .row-3 .rank-badge { background: #f97316; color: white; }
-
-    /* Tlačítko vyzvat */
-    .btn-challenge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: #2563eb;
-        color: white;
-        padding: 6px 14px;
-        border-radius: 6px;
-        text-decoration: none;
-        font-size: 0.85rem;
-        font-weight: 500;
-        transition: all 0.2s;
-    }
-
-    .btn-challenge:hover {
-        background: #1d4ed8;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-
-    .me-label {
-        font-size: 0.75rem;
-        background: #0ea5e9;
-        color: white;
-        padding: 2px 8px;
-        border-radius: 10px;
-        margin-left: 8px;
-        vertical-align: middle;
-    }
-</style>
-
+        /* 📱 RESPONSIVNÍ DESIGN PRO MOBILY */
+        @media (max-width: 992px) {
+            .mobile-menu-toggle { display: block; }
+            .sidebar-close-btn { display: block; }
+            
+            .sidebar {
+                position: fixed;
+                left: 0; top: 0; bottom: 0;
+                transform: translateX(-100%); /* Schová panel úplně vlevo mimo obrazovku */
+            }
+            .sidebar.active {
+                transform: translateX(0); /* Vysune panel na scénu */
+            }
+            .sidebar-overlay.active {
+                display: block;
+            }
+            .top-navbar { padding: 0 15px; }
+            .main-content { padding: 15px; }
+            
+            /* Aby tabulky na mobilech nerozbíjely design, povolí se vodorovné scrollování */
+            .zebricek-container {
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="sidebar">
-        <div style="padding: 0 25px 20px; text-align: center;">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <nav class="sidebar" id="sidebarMenu">
+        <button class="sidebar-close-btn" id="menuClose">&times;</button>
+
+        <div style="padding: 10px 25px 20px; text-align: center;">
             <a href="/" style="text-decoration: none; color: white; font-weight: bold; font-size: 1.2rem;">🎾 Liga Kamínka</a>
         </div>
         
-        <!-- Soutěže 2026 -->
         <div class="nav-section">
             <h3 class="nav-title">🏆 Léto 2026</h3>
             <ul class="nav-list">
-                <!-- <li><a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_A' %}" class="nav-link">Liga A</a></li> -->
-				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_A' %}" 
+                <a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_A' %}" 
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_A' %}active-link{% endif %}">
 				   Liga A
 				</a>
@@ -259,11 +256,9 @@
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_z' %}active-link{% endif %}">
 				   Ženy
 				</a>
-
             </ul>
         </div>
 		
-	
         <div class="nav-section">
             <a href="{% url 'tenis_app:prehled_vsech_zapasu' %}" style="color: #888; text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 10px;">
                 historie všech zápasů
@@ -271,25 +266,20 @@
         </div>
 
 		<div class="nav-section">
-					
-					<ul class="nav-list">
-						<li>
-							<a href="{% url 'zebricek_app:zebricek_index' %}" class="nav-link" style="color: #4ade80; font-weight: bold;">
-								🥇 ŽEBŘÍČEK 2026
-							</a>
-						</li>
-						<hr style="border: 0; border-top: 1px solid #334155; margin: 10px 0;">
-						
-						
+            <ul class="nav-list">
+                <li>
+                    <a href="{% url 'zebricek_app:zebricek_index' %}" class="nav-link" style="color: #4ade80; font-weight: bold;">
+                        🥇 ŽEBŘÍČEK 2026
+                    </a>
+                </li>
+            </ul>
+            <hr style="border: 0; border-top: 1px solid #334155; margin: 10px 0;">
 		</div>
 
-
-        <!-- ADMIN SERVISNÍ SEKCE -->
-		{% if user.is_superuser %}
+        {% if user.is_superuser %}
 		<div class="nav-section" style="border-top: 1px solid #334155; padding-top: 20px; margin-top: 20px;">
 			<h3 class="nav-title" style="color: #fbbf24;">🔧 DB SERVIS</h3>
 			<ul class="nav-list">
-				<!-- NOVÉ TLAČÍTKO: RESTART LIG -->
 				<li>
 					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
 						{% csrf_token %}
@@ -300,7 +290,6 @@
 						</button>
 					</form>
 				</li>
-                
 				<li>
 					<form action="{% url 'tenis_app:admin_tools_launcher' %}" method="post">
 						{% csrf_token %}
@@ -310,8 +299,6 @@
 						</button>
 					</form>
 				</li>
-				
-				
 				<li>
 					<form action="{% url 'tenis_app:admin_tools_launcher' %}" method="post">
 						{% csrf_token %}
@@ -322,7 +309,6 @@
 						</button>
 					</form>
 				</li>
-				
 				<li>
 					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
 						{% csrf_token %}
@@ -364,13 +350,14 @@
 			</ul>
 		</div>
 		{% endif %}
-
-   
     </nav>
 
     <div class="main-wrapper">
         <header class="top-navbar">
-            <div style="color: #64748b; font-weight: 500;">Administrace Tenisu</div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <button class="mobile-menu-toggle" id="menuOpen">☰</button>
+                <div style="color: #64748b; font-weight: 500;">Administrace Tenisu</div>
+            </div>
             <div>
                 {% if user.is_authenticated %}
                     <span style="font-size: 0.9rem; color: #64748b; margin-right: 15px;">Přihlášen: {{ user.username }}</span>
@@ -393,17 +380,20 @@
     </div>
 
     <script>
-        document.getElementById('toggle-leto25').addEventListener('click', function() {
-            var list = document.getElementById('list-leto25');
-            var arrow = document.getElementById('arrow-leto25');
-            if (list.style.display === 'none') {
-                list.style.display = 'block';
-                arrow.innerHTML = '▼';
-            } else {
-                list.style.display = 'none';
-                arrow.innerHTML = '▶';
-            }
-        });
+        // JS skript pro otevírání a zavírání mobilního sidebaru
+        const sidebar = document.getElementById('sidebarMenu');
+        const overlay = document.getElementById('sidebarOverlay');
+        const openBtn = document.getElementById('menuOpen');
+        const closeBtn = document.getElementById('menuClose');
+
+        function toggleMenu() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        openBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
     </script>
 </body>
 </html>
