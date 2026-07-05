@@ -2554,3 +2554,6 @@ Traceback (most recent call last):
 KeyError: 'sety_ziskane'
 INFO 2026-07-05 20:39:07,295 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
 INFO 2026-07-05 20:39:07,887 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 20:47:58,435 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 20:54:29,662 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-07-05 20:54:30,194 autoreload Watching for file changes with StatReloader

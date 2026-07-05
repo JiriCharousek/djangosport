@@ -359,7 +359,7 @@ def prehled_vsech_zapasu(request):
         Q(soutez__slug__icontains='zebricek') | Q(soutez__slug__icontains='zima')
     ).select_related('hrac_domaci', 'hrac_hoste')
 
-    # Pomocný slovník - definujeme VŠECHNY klíče jako výchozí (0)
+    # Pomocný slovník - přidány podrobné čítače výsledků
     data_hracu = defaultdict(lambda: {
         'pocet_zapasu': 0, 
         'body': 0, 
@@ -367,11 +367,13 @@ def prehled_vsech_zapasu(request):
         'sety_ztracene': 0,
         'gemy_ziskane': 0, 
         'gemy_ztracene': 0, 
-        'rozdil_gemu': 0, 
+        'rozdil_gemu': 0,
+        'v2_0': 0, 'v2_1': 0,  # Vyhrané zápasy 2:0 a 2:1
+        'p1_2': 0, 'p0_2': 0,  # Prohrané zápasy 1:2 a 0:2
         'hrac_obj': None
     })
 
-    # PŘEDEM naplníme slovník všemi existujícími hráči, aby se předešlo KeyError chybám
+    # Předem naplníme slovník všemi existujícími hráči
     vsi_hraci = Hrac.objects.all()
     for h in vsi_hraci:
         data_hracu[h.id]['hrac_obj'] = h
@@ -385,7 +387,7 @@ def prehled_vsech_zapasu(request):
         except ValueError:
             return 0, 0
 
-    # Procházíme zápasy a rozpočítáváme statistiky (teď už klíče bezpečně existují)
+    # Procházíme zápasy a rozpočítáváme detailní statistiky
     for zapas in zapas_stats:
         d_id = zapas.hrac_domaci.id
         h_id = zapas.hrac_hoste.id
@@ -394,17 +396,25 @@ def prehled_vsech_zapasu(request):
         data_hracu[d_id]['pocet_zapasu'] += 1
         data_hracu[h_id]['pocet_zapasu'] += 1
         
-        # 2. Body (3 body za 2:0, 2 body za 2:1, 1 bod za 1:2, 0 bodů za 0:2)
+        # 2. Body a detailní výsledky (3 body za 2:0, 2 body za 2:1, 1 bod za 1:2, 0 bodů za 0:2)
         if zapas.sety_domaci == 2 and zapas.sety_hoste == 0:
             data_hracu[d_id]['body'] += 3
+            data_hracu[d_id]['v2_0'] += 1
+            data_hracu[h_id]['p0_2'] += 1
         elif zapas.sety_domaci == 2 and zapas.sety_hoste == 1:
             data_hracu[d_id]['body'] += 2
             data_hracu[h_id]['body'] += 1
+            data_hracu[d_id]['v2_1'] += 1
+            data_hracu[h_id]['p1_2'] += 1
         elif zapas.sety_domaci == 1 and zapas.sety_hoste == 2:
             data_hracu[d_id]['body'] += 1
             data_hracu[h_id]['body'] += 2
+            data_hracu[d_id]['p1_2'] += 1
+            data_hracu[h_id]['v2_1'] += 1
         elif zapas.sety_domaci == 0 and zapas.sety_hoste == 2:
             data_hracu[h_id]['body'] += 3
+            data_hracu[d_id]['p0_2'] += 1
+            data_hracu[h_id]['v2_0'] += 1
             
         # 3. Sety 
         data_hracu[d_id]['sety_ziskane'] += zapas.sety_domaci
@@ -421,11 +431,11 @@ def prehled_vsech_zapasu(request):
             data_hracu[h_id]['gemy_ziskane'] += g_h
             data_hracu[h_id]['gemy_ztracene'] += g_d
 
-    # Dopočítáme rozdíl gemů pro všechny hráče ve slovníku
+    # Dopočítáme rozdíl gemů
     for h_id in data_hracu:
         data_hracu[h_id]['rozdil_gemu'] = data_hracu[h_id]['gemy_ziskane'] - data_hracu[h_id]['gemy_ztracene']
 
-    # Řazení: Aktivita (zápasy) -> Body -> Rozdíl gemů
+    # Řazení: Aktivita -> Body -> Rozdíl gemů
     statistiky_hracu = list(data_hracu.values())
     statistiky_hracu.sort(
         key=lambda x: (
