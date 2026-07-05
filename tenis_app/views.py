@@ -223,28 +223,33 @@ def zadat_vysledek(request):
 # =================================================================
 
 @login_required
-def editovat_vysledek(request, pk):  # Změněno ze zapas_id na pk
-    zapas = get_object_or_404(Zapas, id=pk) # Použijte pk zde
+def editovat_vysledek(request, pk):
+    zapas = get_object_or_404(Zapas, id=pk)
     
     # KONTROLA PRÁV: Je uživatel domácí, host nebo admin?
     je_ucastnik = (request.user == zapas.hrac_domaci.user or 
                   request.user == zapas.hrac_hoste.user)
     
     if not je_ucastnik and not request.user.is_staff:
-        # Pokud není účastník ani admin, vyhodíme chybu nebo přesměrujeme
         messages.error(request, "Nemůžeš editovat zápas, kterého jsi se neúčastnil.")
         return redirect('zebricek_app:zebricek_index')
    
     if request.method == 'POST':
-        # Předáme uživatele i do POSTu, aby formulář věděl, že má pole ignorovat
         form = ZapasForm(request.POST, instance=zapas, user=request.user)
         if form.is_valid():
-            # ... vaše logika uložení ...
             zapas.save()
             return redirect('tenis_app:detail_souteze', soutez_slug=zapas.soutez.slug)
     else:
-        # Předáme uživatele do prázdného formuláře
-        form = ZapasForm(instance=zapas, user=request.user)
+        default_data = {}
+        
+        # Pokud zápas ještě nemá datum nastavené (je prázdné / None),
+        # přidáme do initial dnešní datum.
+        # (Předpokládám, že se pole jmenuje 'datum')
+        if not zapas.datum:  
+            default_data['datum'] = timezone.now().date()
+        
+        # Předáme initial data a uživatele do formuláře
+        form = ZapasForm(instance=zapas, user=request.user, initial=default_data)
         
     return render(request, 'tenis_app/editovat_vysledek.html', {'form': form, 'zapas': zapas})
     
@@ -593,3 +598,13 @@ def moje_view(request):
     if request.method == "POST":
         # Logování akce
         logger.info(f"Uživatel {request.user} odeslal formulář na adrese {request.path}")
+        
+
+
+
+
+
+
+
+
+

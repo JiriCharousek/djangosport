@@ -93,6 +93,9 @@ class Zapas(models.Model):
     
     # ÚPRAVA: datum je nyní volitelné (null=True), aby plánované zápasy mohly být prázdné
     datum = models.DateField(null=True, blank=True, verbose_name="Datum zápasu")
+    vytvoreno_kdy = models.DateTimeField(auto_now_add=True)
+    
+    upraveno_kdy = models.DateTimeField(auto_now=True)
 
     class Meta:
         unique_together = ('soutez', 'hrac_domaci', 'hrac_hoste')

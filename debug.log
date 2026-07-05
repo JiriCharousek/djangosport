@@ -2316,3 +2316,49 @@ INFO 2026-05-19 22:34:20,953 autoreload Watching for file changes with StatReloa
 INFO 2026-05-19 22:40:00,462 autoreload Watching for file changes with StatReloader
 INFO 2026-05-19 22:40:01,920 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
 INFO 2026-05-19 22:40:08,504 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-05-19 22:41:31,956 autoreload Watching for file changes with StatReloader
+WARNING 2026-05-20 11:48:21,163 log Not Found: /ov/
+WARNING 2026-05-20 11:48:24,822 log Not Found: /turnusy/
+WARNING 2026-05-20 11:48:28,715 log Not Found: /login/
+WARNING 2026-05-21 07:50:18,327 log Not Found: /agenda/
+WARNING 2026-05-21 07:50:19,114 log Not Found: /favicon.ico
+INFO 2026-07-05 14:06:51,624 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 14:09:12,894 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 14:09:42,341 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-05 14:09:45,034 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-07-05 14:09:46,765 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+WARNING 2026-07-05 14:09:52,904 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-07-05 14:09:55,003 log Not Found: /static/images/kaminka260512.png
+WARNING 2026-07-05 14:10:29,055 log Not Found: /static/images/kaminka260512.png
+INFO 2026-07-05 14:10:30,941 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-05 14:10:37,878 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-07-05 14:11:18,092 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+WARNING 2026-07-05 14:12:06,641 log Not Found: /projekt/1926/
+INFO 2026-07-05 14:12:56,126 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-07-05 14:13:10,508 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-07-05 14:22:25,967 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-07-05 14:22:26,972 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 14:25:30,233 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-07-05 14:25:30,714 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 15:17:21,871 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 15:18:58,839 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 15:19:07,674 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+WARNING 2026-07-05 15:19:17,306 log Not Found: /static/admin/css/forms.css
+WARNING 2026-07-05 15:19:17,306 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-07-05 15:19:17,306 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-07-05 15:19:17,381 log Not Found: /static/admin/img/sorting-icons.svg
+WARNING 2026-07-05 15:19:21,142 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-07-05 15:19:21,142 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-07-05 15:19:32,241 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-07-05 15:19:32,242 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-07-05 15:19:36,627 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-07-05 15:19:36,628 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-07-05 15:19:39,444 log Not Found: /static/admin/css/forms.css
+WARNING 2026-07-05 15:19:39,445 log Not Found: /static/admin/js/calendar.js
+WARNING 2026-07-05 15:19:39,449 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2026-07-05 15:19:39,447 log Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2026-07-05 15:19:39,451 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2026-07-05 15:19:39,454 log Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-07-05 15:19:39,531 log Not Found: /static/admin/js/change_form.js
+INFO 2026-07-05 15:34:50,484 autoreload C:\Users\jchar\djangoSport\tenis_app\models.py changed, reloading.
+INFO 2026-07-05 15:34:51,461 autoreload Watching for file changes with StatReloader
