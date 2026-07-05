@@ -2528,3 +2528,6 @@ INFO 2026-07-05 16:10:05,848 autoreload C:\Users\jchar\djangoSport\tenis_app\vie
 INFO 2026-07-05 16:10:06,475 autoreload Watching for file changes with StatReloader
 INFO 2026-07-05 16:15:52,092 autoreload Watching for file changes with StatReloader
 INFO 2026-07-05 16:19:01,358 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 16:27:33,280 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 16:28:25,657 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-07-05 16:28:26,124 autoreload Watching for file changes with StatReloader
