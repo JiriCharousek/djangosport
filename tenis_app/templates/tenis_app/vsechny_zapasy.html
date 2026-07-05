@@ -196,13 +196,13 @@
                             <!-- 5. Detailní rozpad Výhry / Prohry (NOVÉ) -->
                             <td style="text-align: center; font-size: 0.8rem; white-space: nowrap;">
                                 <span style="color: #2e7d32; font-weight: bold;" title="Výhry 2:0 / 2:1">
-                                    {{ radek.v2_0 }}<span style="font-weight: normal; font-size: 0.75rem; color:#a2a2a2;">(2:0)</span> 
-                                    + {{ radek.v2_1 }}<span style="font-weight: normal; font-size: 0.75rem; color:#a2a2a2;">(2:1)</span>
+                                   {{ radek.v2_0 }}<span style="font-weight: normal; font-size: 0.75rem; color:#a2a2a2;"></span> 
+                                    {{ radek.v2_1 }}<span style="font-weight: normal; font-size: 0.75rem; color:#a2a2a2;"></span> 
                                 </span>
-                                <span style="color: #cbd5e1; margin: 0 4px;">|</span>
+                                <span style="color: #cbd5e1; margin: 0 4px;"></span>
                                 <span style="color: #c62828; font-weight: bold;" title="Prohry 1:2 / 0:2">
-                                    {{ radek.p1_2 }}<span style="font-weight: normal; font-size: 0.75rem; color:#a2a2a2;">(1:2)</span> 
-                                    + {{ radek.p0_2 }}<span style="font-weight: normal; font-size: 0.75rem; color:#a2a2a2;">(0:2)</span>
+                                     {{ radek.p1_2 }}<span style="font-weight: normal; font-size: 0.75rem; color:#a2a2a2;"></span> 
+                                     {{ radek.p0_2 }}<span style="font-weight: normal; font-size: 0.75rem; color:#a2a2a2;"></span>
                                 </span>
                             </td>
 
@@ -214,9 +214,7 @@
                             <!-- 7. Gemy -->
                             <td style="text-align: center; font-size: 0.85rem; color: #475569; line-height: 1.2;">
                                 <strong style="color: #1e293b;">{{ radek.gemy_ziskane }}</strong>:<strong style="color: #64748b;">{{ radek.gemy_ztracene }}</strong>
-                                <small style="display: block; font-size: 0.75rem; color: {% if radek.rozdil_gemu >= 0 %}#2563eb{% else %}#dc2626{% endif %}; font-weight: 600; margin-top: 2px;">
-                                    ({% if radek.rozdil_gemu > 0 %}+{% endif %}{{ radek.rozdil_gemu }} rozdíl)
-                                </small>
+                               
                             </td>
 
                         </tr>
