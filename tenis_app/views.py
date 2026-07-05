@@ -145,18 +145,146 @@ def vypocitej_tabulku_dat(soutez, request=None):
 # 2. HLAVNÍ POHLEDY (Views)
 # =================================================================
 
+from collections import defaultdict
+from django.db.models import Q
+from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.decorators import login_required
+# Ujisti se, že máš importovaný model Zapas a Hrac, pokud je potřeba
+
 @login_required
 def detail_souteze(request, soutez_slug):
     soutez = get_object_or_404(Soutez, slug=soutez_slug)
     logger.info(f"Uživatel {request.user.username} si prohlíží soutěž: {soutez.nazev}")
+    
+    # Získání původního kontextu
     context = vypocitej_tabulku_dat(soutez=soutez, request=request)
     
+    # 📊 VÝPOČET STATISTIK AKTIVITY PRO TUTO KONKRÉTNÍ SOUTĚŽ
+    zapas_stats = Zapas.objects.filter(
+        soutez=soutez,
+        odehrano=True
+    ).select_related('hrac_domaci', 'hrac_hoste')
+
+    # Pomocný slovník pro statistiky
+    data_hracu = defaultdict(lambda: {
+        'pocet_zapasu': 0, 
+        'body': 0, 
+        'sety_ziskane': 0, 
+        'sety_ztracene': 0,
+        'gemy_ziskane': 0, 
+        'gemy_ztracene': 0, 
+        'rozdil_gemu': 0,
+        'v2_0': 0, 'v2_1': 0,
+        'p1_2': 0, 'p0_2': 0,
+        'hrac_obj': None
+    })
+
+    # Zjistíme, jací hráči v této soutěži vůbec figurují, abychom zobrazili i ty s 0 zápasy.
+    # Použijeme hráče z původního contextu (např. z klíče 'tabulka' nebo 'hraci'), 
+    # případně pokud máš vztah na soutěž, tak soutez.hraci.all()
+    hraci_v_soutezi = []
+    if 'tabulka' in context:
+        # Pokud máš v kontextu strukturu řádků tabulky, kde je schovaný objekt hráče
+        hraci_v_soutezi = [radek['hrac'] for radek in context['tabulka'] if 'hrac' in radek]
+    elif 'hraci' in context:
+        hraci_v_soutezi = context['hraci']
+    
+    # Pokud by se nepodařilo hráče z kontextu vytáhnout, vezmeme jako zálohu ty, 
+    # kteří v dané soutěži odehráli alespoň jeden zápas, nebo všechny (podle tvé struktury M2M)
+    if not hraci_v_soutezi:
+        # Záložní varianta: Hráči navázaní na tuto soutěž (uprav podle svého modelu, např. soutez.hrac_set.all())
+        try:
+            hraci_v_soutezi = soutez.hraci.all() 
+        except AttributeError:
+            # Pokud v modelu Soutez nemáš přímou vazbu na hráče, naplníme je dynamicky ze zápasů níže
+            hraci_v_soutezi = []
+
+    # Předem naplníme seznam hráčů z této ligy
+    for h in hraci_v_soutezi:
+        data_hracu[h.id]['hrac_obj'] = h
+
+    def secti_gemy(set_str):
+        if not set_str or ':' not in set_str or set_str == '0:0':
+            return 0, 0
+        try:
+            d, h = map(int, set_str.split(':'))
+            return d, h
+        except ValueError:
+            return 0, 0
+
+    # Výpočet statistik ze zápasů
+    for zapas in zapas_stats:
+        d_id = zapas.hrac_domaci.id
+        h_id = zapas.hrac_hoste.id
+        
+        # Kdyby hráč náhodou nebyl v předpřipraveném seznamu ligy, zajistíme objekt
+        if not data_hracu[d_id]['hrac_obj']:
+            data_hracu[d_id]['hrac_obj'] = zapas.hrac_domaci
+        if not data_hracu[h_id]['hrac_obj']:
+            data_hracu[h_id]['hrac_obj'] = zapas.hrac_hoste
+        
+        # 1. Zápasy
+        data_hracu[d_id]['pocet_zapasu'] += 1
+        data_hracu[h_id]['pocet_zapasu'] += 1
+        
+        # 2. Body podle přesného klíče (3 body za 2:0, 2 body za 2:1, 1 bod za 1:2)
+        if zapas.sety_domaci == 2 and zapas.sety_hoste == 0:
+            data_hracu[d_id]['body'] += 3
+            data_hracu[d_id]['v2_0'] += 1
+            data_hracu[h_id]['p0_2'] += 1
+        elif zapas.sety_domaci == 2 and zapas.sety_hoste == 1:
+            data_hracu[d_id]['body'] += 2
+            data_hracu[h_id]['body'] += 1
+            data_hracu[d_id]['v2_1'] += 1
+            data_hracu[h_id]['p1_2'] += 1
+        elif zapas.sety_domaci == 1 and zapas.sety_hoste == 2:
+            data_hracu[d_id]['body'] += 1
+            data_hracu[h_id]['body'] += 2
+            data_hracu[d_id]['p1_2'] += 1
+            data_hracu[h_id]['v2_1'] += 1
+        elif zapas.sety_domaci == 0 and zapas.sety_hoste == 2:
+            data_hracu[h_id]['body'] += 3
+            data_hracu[d_id]['p0_2'] += 1
+            data_hracu[h_id]['v2_0'] += 1
+            
+        # 3. Sety
+        data_hracu[d_id]['sety_ziskane'] += zapas.sety_domaci
+        data_hracu[d_id]['sety_ztracene'] += zapas.sety_hoste
+        data_hracu[h_id]['sety_ziskane'] += zapas.sety_hoste
+        data_hracu[h_id]['sety_ztracene'] += zapas.sety_domaci
+        
+        # 4. Gemy
+        for set_pole in [zapas.set1, zapas.set2, zapas.set3]:
+            g_d, g_h = secti_gemy(set_pole)
+            data_hracu[d_id]['gemy_ziskane'] += g_d
+            data_hracu[d_id]['gemy_ztracene'] += g_h
+            data_hracu[h_id]['gemy_ziskane'] += g_h
+            data_hracu[h_id]['gemy_ztracene'] += g_d
+
+    # Dopočet rozdílů
+    for h_id in data_hracu:
+        data_hracu[h_id]['rozdil_gemu'] = data_hracu[h_id]['gemy_ziskane'] - data_hracu[h_id]['gemy_ztracene']
+
+    # Seřazení statistik
+    # Seřazení statistik: Body -> Rozdíl gemů -> Aktivita (zápasy)
+    statistiky_ligy = list(data_hracu.values())
+    statistiky_ligy.sort(
+        key=lambda x: (
+            x['body'],           # 1. Nejdůležitější jsou body
+            x['rozdil_gemu'],    # 2. Při rovnosti bodů rozhoduje skóre gemů
+            x['pocet_zapasu']    # 3. Jako další pomocné kritérium počet zápasů
+        ), 
+        reverse=True
+    )
+
+    # Vložíme hotové statistiky do kontextu
+    context['statistiky_ligy'] = statistiky_ligy
+
     # Přidáme 'tenis_app/' před název souboru
     if soutez.typ == '2K':
         return render(request, 'tenis_app/dvoukolova_tabulka.html', context)
     else:
         return render(request, 'tenis_app/tabulka_5ti_lig.html', context)
-    
     
 @login_required
 def zadat_vysledek(request):
