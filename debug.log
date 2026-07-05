@@ -2742,3 +2742,5 @@ INFO 2026-07-05 21:47:55,064 autoreload C:\Users\jchar\djangoSport\tenis_app\vie
 INFO 2026-07-05 21:47:55,590 autoreload Watching for file changes with StatReloader
 INFO 2026-07-05 21:48:04,962 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
 INFO 2026-07-05 21:49:21,817 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
+INFO 2026-07-05 21:57:33,141 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 21:57:36,206 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
