@@ -352,8 +352,8 @@ def prehled_vsech_zapasu(request):
     # 📊 4. STATISTIKY AKTIVITY (Nové)
     # Spočítáme pro každého hráče sumu odehraných zápasů doma + venku
     statistiky_hracu = Hrac.objects.annotate(
-        pocet_zapasu=Count('domaci', filter=Q(domaci__odehrano=True)) + 
-                     Count('hoste', filter=Q(hoste__odehrano=True))
+        pocet_zapasu=Count('domaci', filter=Q(domaci__odehrano=True, domaci__soutez__slug__startswith='26_')) + 
+                     Count('hoste', filter=Q(hoste__odehrano=True, hoste__soutez__slug__startswith='26_'))
     ).order_by('-pocet_zapasu', 'jmeno')
 
     return render(request, 'tenis_app/vsechny_zapasy.html', {

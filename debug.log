@@ -2526,3 +2526,4 @@ Traceback (most recent call last):
 django.core.exceptions.FieldError: Cannot resolve keyword 'zapas_domaci' into field. Choices are: datum_narozeni, domaci, email, foto, hoste, id, info, jmeno, klub, souteze, telefon, user, user_id, web, zebricek_data
 INFO 2026-07-05 16:10:05,848 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
 INFO 2026-07-05 16:10:06,475 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 16:15:52,092 autoreload Watching for file changes with StatReloader
