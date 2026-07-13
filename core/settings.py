@@ -220,3 +220,8 @@ SECURE_HSTS_PRELOAD = True
 
 # Důležité, pokud běžíš za proxy (např. Nginx v Dockeru)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Prefix pro běh pod cestou /kaminka/
+FORCE_SCRIPT_NAME = '/kaminka'
+USE_X_FORWARDED_HOST = True
+
