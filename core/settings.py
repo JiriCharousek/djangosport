@@ -222,6 +222,11 @@ SECURE_HSTS_PRELOAD = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Prefix pro běh pod cestou /kaminka/
-FORCE_SCRIPT_NAME = '/kaminka'
+if not DEBUG:
+    # V produkci (kde je DEBUG = False) potřebujeme prefix /kaminka
+    FORCE_SCRIPT_NAME = '/kaminka'
+else:
+    # Lokálně (kde je DEBUG = True) necháme Django běžet bez vnuceného prefixu
+    FORCE_SCRIPT_NAME = None
 USE_X_FORWARDED_HOST = True
 

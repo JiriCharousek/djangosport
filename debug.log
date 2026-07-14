@@ -2746,3 +2746,45 @@ INFO 2026-07-05 21:57:33,141 autoreload Watching for file changes with StatReloa
 INFO 2026-07-05 21:57:36,206 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
 INFO 2026-07-13 17:10:57,116 autoreload Watching for file changes with StatReloader
 WARNING 2026-07-13 17:11:03,876 log Not Found: /kaminka/kaminka/kaminka/accounts/login/
+INFO 2026-07-14 08:06:15,366 autoreload Watching for file changes with StatReloader
+WARNING 2026-07-14 08:06:23,482 log Not Found: /kaminka/kaminka/tenis/
+WARNING 2026-07-14 08:06:32,503 log Not Found: /kaminka/kaminka
+WARNING 2026-07-14 08:07:02,635 log Not Found: /kaminka/kaminka/tenis/
+WARNING 2026-07-14 08:07:17,261 log Not Found: /kaminka/kaminka/
+WARNING 2026-07-14 08:07:20,142 log Not Found: /kaminka/kaminka/
+INFO 2026-07-14 08:10:55,055 autoreload C:\Users\jchar\djangoSport\core\urls.py changed, reloading.
+INFO 2026-07-14 08:10:55,601 autoreload Watching for file changes with StatReloader
+WARNING 2026-07-14 08:11:40,843 log Not Found: /kaminka/kaminka/accounts/login/
+WARNING 2026-07-14 08:11:47,825 log Not Found: /kaminka/kaminka/accounts/login/
+WARNING 2026-07-14 08:12:16,000 log Not Found: /kaminka/kaminka/kaminka/
+WARNING 2026-07-14 08:34:59,329 log Not Found: /kaminka/kaminka/kaminka/
+WARNING 2026-07-14 08:36:24,047 log Not Found: /kaminka/static/images/kaminka260512.png
+WARNING 2026-07-14 08:37:34,858 log Not Found: /kaminka/kaminka/accounts/login/
+INFO 2026-07-14 08:40:47,483 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
+INFO 2026-07-14 08:40:48,149 autoreload Watching for file changes with StatReloader
+WARNING 2026-07-14 08:41:50,881 log Not Found: /kaminka/kaminka/accounts/login/
+WARNING 2026-07-14 08:41:57,056 log Not Found: /kaminka/kaminka/accounts/login/
+WARNING 2026-07-14 08:42:03,821 log Not Found: /kaminka/static/images/kaminka260512.png
+WARNING 2026-07-14 08:42:08,078 log Not Found: /kaminka/kaminka/kaminka/liga/26_kaminka_leto_A/
+WARNING 2026-07-14 08:45:37,065 log Not Found: /kaminka/kaminka/kaminka/login/
+WARNING 2026-07-14 08:45:45,958 log Not Found: /kaminka/kaminka/kaminka/liga/26_kaminka_leto_A/
+WARNING 2026-07-14 08:47:38,942 log Not Found: /kaminka/kaminka/kaminka/
+WARNING 2026-07-14 08:47:40,488 log Not Found: /kaminka/kaminka/kaminka/
+INFO 2026-07-14 08:49:59,831 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
+INFO 2026-07-14 08:50:00,338 autoreload Watching for file changes with StatReloader
+INFO 2026-07-14 08:50:24,071 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-07-14 08:50:30,427 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-07-14 08:50:39,127 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-14 08:51:06,803 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-14 08:53:03,624 views Uživatel jchar si prohlíží soutìž: Léto 2025 - A
+INFO 2026-07-14 08:53:11,076 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-07-14 08:57:25,625 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-14 08:57:43,488 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-14 08:59:10,040 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-14 08:59:13,586 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-07-14 08:59:23,435 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-07-14 08:59:31,668 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-14 08:59:34,314 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-07-14 09:01:03,394 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-14 09:01:54,492 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
+INFO 2026-07-14 09:01:55,102 autoreload Watching for file changes with StatReloader
