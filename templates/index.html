@@ -3,34 +3,122 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <title>Tenis App</title>
+    <title>Tenisová liga Kamínka</title>
     <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f1f5f9;
+            color: #334155;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.2rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
         .hero-image {
             width: 100%;
-            max-width: 800px;
+            max-width: 700px;
             height: auto;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin: 25px 0;
             display: block;
             margin-left: auto;
             margin-right: auto;
         }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            font-family: sans-serif;
-            text-align: center;
+        .user-info {
+            font-size: 1rem;
+            color: #64748b;
+            margin-bottom: 15px;
         }
-        nav a {
+        .user-info strong {
+            color: #1e293b;
+        }
+        .auth-links a, .logout-btn {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .auth-links a:hover {
+            text-decoration: underline;
+            color: #1d4ed8;
+        }
+        .logout-btn {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 0;
+            font-family: inherit;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #e2e8f0;
+            margin: 30px 0;
+        }
+        .stats-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: left;
+            box-sizing: border-box;
+        }
+        .stats-box h3 {
+            margin-top: 0;
+            text-align: center;
+            color: #1e293b;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .stats-box p {
+            margin: 10px 0;
+            font-size: 1.05rem;
+        }
+        .stats-box ul {
+            padding-left: 20px;
+            margin: 15px 0 0 0;
+        }
+        .stats-box li {
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+        nav {
+            margin-top: 30px;
+        }
+        nav a.main-btn {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #1e293b;
+            padding: 14px 28px;
+            background-color: #2563eb;
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        nav a.main-btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
         }
     </style>
 </head>
@@ -42,24 +130,46 @@
             <img src="{% static 'images/kaminka260512.png' %}" alt="Tenisový kurt Kamínka" class="hero-image">
         </div>
 
-        {% if user.is_authenticated %}
-            <p>Přihlášen jako: <strong>{{ user.username }}</strong></p>
-            <form action="{% url 'logout' %}" method="post" style="margin-bottom: 20px;">
-                {% csrf_token %}
-                <button type="submit" style="cursor:pointer;">Odhlásit se</button>
-            </form>
-        {% else %}
-            <p>Nejste přihlášeni.</p>
-            <div style="margin-bottom: 20px;">
-                <a href="{% url 'tenis_app:login' %}">Přihlásit se</a> | 
-                <a href="{% url 'password_reset' %}">Zapomněl jsem heslo</a>
-            </div>
-        {% endif %}
+        <div class="user-info">
+            {% if user.is_authenticated %}
+                <p>Přihlášen jako: <strong>{{ user.username }}</strong></p>
+                <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-btn">Odhlásit se</button>
+                </form>
+            {% else %}
+                <p>Nejste přihlášeni.</p>
+                <div class="auth-links">
+                    <a href="{% url 'tenis_app:login' %}">Přihlásit se</a> &nbsp;|&nbsp; 
+                    <a href="{% url 'password_reset' %}">Zapomněl jsem heslo</a>
+                </div>
+            {% endif %}
+        </div>
 
         <hr>
+
+        <!-- Sekce statistik -->
+        <div class="stats-box">
+            <h3>📊 Statistiky ligy</h3>
+            <p><strong>Do konce ligy zbývá:</strong> {{ dni_do_konce|default:"0" }} dní <span style="color: #64748b; font-size: 0.9em;">(liga končí 18. 9. 2026)</span></p>
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 15px 0;">
+            <p><strong>Celkem odehráno zápasů:</strong> {{ celkem_odehrano|default:"0" }}</p>
+            <p><strong>Celkem zbývá odehrát:</strong> {{ celkem_zbyva|default:"0" }}</p>
+            
+            {% if ligy_statistiky %}
+                <p style="margin-top: 20px; font-weight: 600; color: #1e293b;">Statistiky podle jednotlivých lig:</p>
+                <ul>
+                    {% for liga in ligy_statistiky %}
+                        <li><strong>{{ liga.nazev }}:</strong> Odehráno {{ liga.odehrano }}, zbývá odehrát {{ liga.zbyva }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p style="color: gray; font-size: 0.9em;">Žádné aktivní ligy nenalezeny.</p>
+            {% endif %}
+        </div>
         
-        <nav style="margin-top: 20px;">
-            <a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_A' %}">Vstoupit do ligy</a>
+        <nav>
+            <a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_A' %}" class="main-btn">Vstoupit do ligy</a>
         </nav>
     </div>
 </body>

@@ -2788,3 +2788,130 @@ INFO 2026-07-14 08:59:34,314 views Uživatel jchar si prohlíží soutìž: Léto 2026 
 INFO 2026-07-14 09:01:03,394 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
 INFO 2026-07-14 09:01:54,492 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
 INFO 2026-07-14 09:01:55,102 autoreload Watching for file changes with StatReloader
+INFO 2026-07-18 09:52:59,109 autoreload Watching for file changes with StatReloader
+WARNING 2026-07-18 09:53:10,527 log Not Found: /kaminka/kaminka/tenis/
+WARNING 2026-07-18 09:53:11,987 log Not Found: /kaminka/favicon.ico
+WARNING 2026-07-18 09:53:19,210 log Not Found: /kaminka/tenis/
+WARNING 2026-07-18 09:53:23,601 log Not Found: /kaminka/tenis/
+WARNING 2026-07-18 09:53:29,958 log Not Found: /kaminka/static/images/kaminka260512.png
+WARNING 2026-07-18 09:53:34,290 log Not Found: /kaminka/kaminka/kaminka/login/
+WARNING 2026-07-18 09:54:00,359 log Not Found: /kaminka/static/images/kaminka260512.png
+WARNING 2026-07-18 09:54:02,752 log Not Found: /kaminka/kaminka/kaminka/liga/26_kaminka_leto_A/
+INFO 2026-07-18 09:54:10,414 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-18 09:54:18,724 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-18 09:54:40,981 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-18 09:55:59,288 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+WARNING 2026-07-18 10:28:13,056 log Not Found: /kaminka/kaminka/kaminka/liga/26_kaminka_leto_D/
+WARNING 2026-07-18 10:56:14,402 log Not Found: /kaminka/vykazy/
+WARNING 2026-07-18 10:56:22,126 log Not Found: /kaminka/static/images/kaminka260512.png
+WARNING 2026-07-18 10:56:24,029 log Not Found: /kaminka/kaminka/kaminka/liga/26_kaminka_leto_A/
+INFO 2026-07-18 10:56:31,673 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-18 10:56:35,620 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-18 10:59:13,554 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-18 10:59:17,195 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-18 11:00:19,946 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-18 11:03:49,359 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-07-22 22:21:30,983 autoreload Watching for file changes with StatReloader
+WARNING 2026-07-22 22:21:46,163 log Not Found: /kaminka/static/images/kaminka260512.png
+WARNING 2026-07-22 22:21:50,005 log Not Found: /kaminka/kaminka/kaminka/login/
+INFO 2026-08-04 19:35:11,773 autoreload Watching for file changes with StatReloader
+WARNING 2026-08-04 19:35:24,879 log Not Found: /kaminka/kaminka/tenis/
+WARNING 2026-08-04 19:35:39,015 log Not Found: /kaminka/kaminka/accounts/login/
+WARNING 2026-08-04 19:35:39,426 log Not Found: /kaminka/kaminka/accounts/login/
+WARNING 2026-08-04 19:35:48,426 log Not Found: /kaminka/kaminka/accounts/login/
+WARNING 2026-08-04 19:36:10,261 log Not Found: /kaminka/static/images/kaminka260512.png
+WARNING 2026-08-04 19:36:16,809 log Not Found: /kaminka/kaminka/kaminka/login/
+WARNING 2026-08-04 19:36:54,193 log Not Found: /kaminka/static/images/kaminka260512.png
+WARNING 2026-08-04 19:36:56,664 log Not Found: /kaminka/kaminka/kaminka/liga/26_kaminka_leto_A/
+INFO 2026-08-04 19:37:06,100 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-08-04 19:41:13,244 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
+INFO 2026-08-04 19:41:14,624 autoreload Watching for file changes with StatReloader
+WARNING 2026-08-04 19:41:15,999 log Not Found: /dbmatprojekt/
+INFO 2026-08-04 19:41:27,510 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-08-04 19:49:29,097 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-08-04 19:49:30,161 autoreload Watching for file changes with StatReloader
+WARNING 2026-08-04 19:49:42,633 log Not Found: /kaminka/kaminka/
+INFO 2026-08-04 19:49:55,035 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-08-04 19:51:18,092 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-08-04 19:51:19,244 autoreload Watching for file changes with StatReloader
+INFO 2026-08-04 19:51:32,265 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-08-04 19:53:55,238 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-08-04 19:53:56,255 autoreload Watching for file changes with StatReloader
+INFO 2026-08-04 19:54:07,714 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-08-04 19:54:40,173 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-08-04 19:54:41,247 autoreload Watching for file changes with StatReloader
+INFO 2026-08-04 19:55:09,778 autoreload Watching for file changes with StatReloader
+INFO 2026-08-04 19:55:21,656 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+WARNING 2026-08-04 19:56:04,978 log Not Found: /k
+INFO 2026-08-04 19:56:11,059 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-08-04 19:57:08,188 autoreload C:\Users\jchar\djangoSport\tenis_app\urls.py changed, reloading.
+INFO 2026-08-04 19:57:09,224 autoreload Watching for file changes with StatReloader
+INFO 2026-08-04 19:57:23,974 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+ERROR 2026-08-04 19:57:24,760 log Internal Server Error: /kaminka/liga/26_kaminka_leto_A/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 287, in detail_souteze
+    return render(request, 'tenis_app/tabulka_5ti_lig.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tenis_index' not found. 'tenis_index' is not a valid view function or pattern name.
+INFO 2026-08-04 19:57:42,697 autoreload C:\Users\jchar\djangoSport\tenis_app\urls.py changed, reloading.
+INFO 2026-08-04 19:57:44,032 autoreload Watching for file changes with StatReloader
+INFO 2026-08-04 19:57:44,581 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-08-04 20:00:16,635 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-08-04 20:00:17,807 autoreload Watching for file changes with StatReloader
+INFO 2026-08-04 20:08:21,196 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-08-04 20:08:36,523 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-08-04 20:08:41,829 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-08-04 20:09:45,740 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-08-04 20:09:47,211 autoreload Watching for file changes with StatReloader
+INFO 2026-08-04 20:11:38,764 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-08-04 20:11:42,677 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-08-04 20:17:11,055 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-08-04 20:17:12,429 autoreload Watching for file changes with StatReloader
+INFO 2026-08-04 20:18:59,837 autoreload Watching for file changes with StatReloader
+INFO 2026-08-04 20:32:02,338 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-08-04 20:32:03,604 autoreload Watching for file changes with StatReloader
+INFO 2026-08-04 20:34:41,933 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-08-04 20:34:43,284 autoreload Watching for file changes with StatReloader

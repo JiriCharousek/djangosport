@@ -32,12 +32,33 @@
             border-radius: 8px;
             font-weight: bold;
         }
+        .stats-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+            display: inline-block;
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+        }
+        .stats-box h3 {
+            margin-top: 0;
+            text-align: center;
+            color: #1e293b;
+        }
+        .stats-box ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Vítejte v tenisové lize Kamínka!</h1>
-        
+        <p style="color: red;">DEBUG TEST - Dny: {{ dni_do_konce }} | Odehráno: {{ celkem_odehrano }}</p>
         <div>
             <img src="{% static 'images/kaminka260512.png' %}" alt="Tenisový kurt Kamínka" class="hero-image">
         </div>
@@ -57,6 +78,26 @@
         {% endif %}
 
         <hr>
+
+        <!-- Sekce statistik -->
+        <div class="stats-box">
+            <h3>📊 Statistiky ligy</h3>
+            <p><strong>Do konce ligy zbývá:</strong> {{ dni_do_konce|default:"0" }} dní (liga končí 18. 9. 2026)</p>
+            <hr style="border: 0; border-top: 1px solid #e2e8f0;">
+            <p><strong>Celkem odehráno zápasů:</strong> {{ celkem_odehrano|default:"0" }}</p>
+            <p><strong>Celkem zbývá odehrát:</strong> {{ celkem_zbyva|default:"0" }}</p>
+            
+            {% if ligy_statistiky %}
+                <p style="margin-top: 15px;"><strong>Statistiky podle jednotlivých lig:</strong></p>
+                <ul>
+                    {% for liga in ligy_statistiky %}
+                        <li><strong>{{ liga.nazev }}:</strong> Odehráno {{ liga.odehrano }}, zbývá odehrát {{ liga.zbyva }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p style="color: gray; font-size: 0.9em;">Žádné aktivní ligy nenalezeny.</p>
+            {% endif %}
+        </div>
         
         <nav style="margin-top: 20px;">
             <a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_A' %}">Vstoupit do ligy</a>
