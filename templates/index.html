@@ -149,8 +149,8 @@
         <hr>
 
         <!-- Sekce statistik -->
-        <div class="stats-box">
-            
+       <!--  <div class="stats-box">
+            <h3>📊 Statistiky ligy</h3>
             <p><strong>Do konce ligy zbývá:</strong> {{ dni_do_konce|default:"0" }} dní <span style="color: #64748b; font-size: 0.9em;">(liga končí 18. 9. 2026)</span></p>
             <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 15px 0;">
             <p><strong>Celkem odehráno zápasů:</strong> {{ celkem_odehrano|default:"0" }}</p>
@@ -166,7 +166,7 @@
             {% else %}
                 <p style="color: gray; font-size: 0.9em;">Žádné aktivní ligy nenalezeny.</p>
             {% endif %}
-        </div>
+        </div> -->
         
         <nav>
             <a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_A' %}" class="main-btn">Vstoupit do ligy</a>

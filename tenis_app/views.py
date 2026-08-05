@@ -829,14 +829,17 @@ def moje_view(request):
         
 
 
+
+
 from datetime import date
 from django.shortcuts import render
+# NEPOUŽÍVAT: from django.contrib.auth.decorators import login_required
 from tenis_app.models import Zapas, Soutez
 
-
+# Ujistěte se, že zde NENÍ řádek s @login_required
 def tenis_index(request):
-    # 1. Výpočet zbývajících dní do 18. 9. 2026
-    konec_ligy = date(2026, 9, 18)
+    # 1. Výpočet zbývajících dní do 18. 9. 2026  C:\Users\jchar\djangoSport\tenis_app\views.py
+    konec_ligy = date(2026, 9, 19)
     dnes = date.today()
     dni_do_konce = (konec_ligy - dnes).days
     if dni_do_konce < 0:
@@ -845,7 +848,7 @@ def tenis_index(request):
     # 2. Výběr aktivních soutěží pro rok 2026
     aktivni_souteze = Soutez.objects.filter(nazev__icontains="2026", aktivni=True)
     
-    # 3. Statistiky pro jednotlivé ligy (s filtrem na vyřazení žebříčku a mixů)
+    # 3. Statistiky pro jednotlivé ligy (bez mixů a žebříčku)
     ligy_statistiky = []
     souteze_k_zapoctu = []
 
@@ -853,7 +856,6 @@ def tenis_index(request):
         nazev_lower = soutez.nazev.lower()
         slug_lower = soutez.slug.lower()
 
-        # Přeskočíme žebříček a mixy
         if "zebricek" in slug_lower or "mix" in nazev_lower:
             continue
 
@@ -869,7 +871,7 @@ def tenis_index(request):
             'zbyva': zbyva_soutez
         })
 
-    # 4. Celkové statistiky počítané pouze z vyfiltrovaných lig (bez mixů a žebříčku)
+    # 4. Celkové statistiky
     celkem_odehrano = Zapas.objects.filter(soutez__in=souteze_k_zapoctu, odehrano=True).count()
     celkem_zbyva = Zapas.objects.filter(soutez__in=souteze_k_zapoctu, odehrano=False).count()
 
