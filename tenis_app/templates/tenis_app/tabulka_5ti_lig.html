@@ -234,9 +234,9 @@
                 <tr>
                     <th class="player-col">Hráč</th>
                     {% for h in hraci %}
-                        <th style="vertical-align: middle; padding: 10px 4px; border: 1px solid #444; position: relative; min-width: 85px;">
+                        <th style="vertical-align: middle; padding: 4px 4px; border: 1px solid #444; position: relative; min-width: 55px;">
                             <a href="?filtr_hrac={{ h.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == h.id %}var(--clay){% else %}white{% endif %}; display: block;">
-                                <div style="font-size: 0.75rem; line-height: 1.1; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">
+                                <div style="font-size: 0.7rem; line-height: 1.1; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
                                     {{ h.jmeno_split }}
                                 </div>
                                 {% if vybrany_hrac.id == h.id %}
