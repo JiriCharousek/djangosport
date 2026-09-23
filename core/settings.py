@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nz!d#!e7-jmo+723$sp93m7fv#o$pvjtq006r&_r+68wm4v6kh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ['sportadmin.cz', 'www.sportadmin.cz', '89.167.35.225','127.0.0.1' ]
@@ -215,5 +215,6 @@ if not DEBUG:
 else:
     # Lokálně (kde je DEBUG = True) necháme Django běžet bez vnuceného prefixu
     FORCE_SCRIPT_NAME = None
+    
 USE_X_FORWARDED_HOST = True
 

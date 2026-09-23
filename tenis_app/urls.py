@@ -7,7 +7,7 @@ app_name = 'tenis_app'
 urlpatterns = [
     # Hlavní rozcestník
     path('', views.tenis_index, name='tenis_index'),
-    #path('', views.index_view, name='index'),
+    
     
     # --- AUTENTIZACE A RESET HESLA ---
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
