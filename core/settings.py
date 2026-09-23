@@ -13,7 +13,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nz!d#!e7-jmo+723$sp93m7fv#o$pvjtq006r&_r+68wm4v6kh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Převede textovou hodnotu z Coolify (FALSE / True / atd.) na reálný booleovský typ
+debug_val = os.environ.get('DEBUG', 'False')
+DEBUG = str(debug_val).lower() in ('true', '1', 't', 'yes')
 
 #ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ['sportadmin.cz', 'www.sportadmin.cz', '89.167.35.225','127.0.0.1' ]
