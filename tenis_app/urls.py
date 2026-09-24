@@ -33,7 +33,8 @@ urlpatterns = [
     # ---------------------------------
 
     # Detail konkrétní ligy
-    path('liga/<slug:soutez_slug>/', views.detail_souteze, name='detail_souteze'),
+   
+    path('detail/<slug:soutez_slug>/', views.detail_souteze, name='detail_souteze'),
     
     # Formuláře a akce
     path('pridat-hrace/', views.pridat_hrace, name='pridat_hrace'),
