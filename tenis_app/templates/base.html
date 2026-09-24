@@ -230,7 +230,8 @@
             <a href="{% url 'tenis_app:tenis_index' %}" style="text-decoration: none; color: white; font-weight: bold; font-size: 1.2rem;">🎾 Liga Kamínka</a>
         </div>
         
-        <div class="nav-section">
+        
+		<div class="nav-section">
             <h3 class="nav-title">🏆 Léto 2026</h3>
             <ul class="nav-list">
                 <a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_A' %}" 
@@ -278,6 +279,40 @@
 		</div>
 
         {% if user.is_superuser %}
+		
+		
+		
+		<div class="nav-section">
+            <h3 class="nav-title">🏆 Zima 26/27</h3>
+            <ul class="nav-list">
+                <a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_A' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '	27_kaminka_zima_A' %}active-link{% endif %}">
+				   Liga A
+				</a>
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_B' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_B' %}active-link{% endif %}">
+				   Liga B
+				</a>
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_C' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_C' %}active-link{% endif %}">
+				   Liga C
+				</a>
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_D' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_D' %}active-link{% endif %}">
+				   Liga D
+				</a>
+				<!-- <a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_E' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_E' %}active-link{% endif %}">
+				   Liga E
+				</a>
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_z' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_z' %}active-link{% endif %}">
+				   Ženy
+				</a> -->
+            </ul>
+        </div>
+		
+		
 		<div class="nav-section" style="border-top: 1px solid #334155; padding-top: 20px; margin-top: 20px;">
 			<h3 class="nav-title" style="color: #fbbf24;">🔧 DB SERVIS</h3>
 			<ul class="nav-list">

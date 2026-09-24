@@ -11,6 +11,7 @@ for m in models_to_clean:
 class SoutezAdmin(admin.ModelAdmin):
     list_display = ('nazev', 'slug')  # Necháme jen název, pokud popis neexistuje
     list_filter = ('nazev', 'slug') 
+    save_as = True
     
 # 3. Registrace Hráče
 @admin.register(Hrac)
