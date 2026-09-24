@@ -211,25 +211,19 @@ SECURE_HSTS_PRELOAD = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
-# if DEBUG:
-    # FORCE_SCRIPT_NAME = None
-    # APPLICATION_ROOT = None
-# else:
-    # # Zapnout pouze pro produkční server (Coolify)
-    # # FORCE_SCRIPT_NAME = '/kaminka'  <-- ZAKOMENTOVAT / ODSTRANIT
-    # # APPLICATION_ROOT = '/kaminka'   <-- ZAKOMENTOVAT / ODSTRANIT
-    # USE_X_FORWARDED_HOST = True
-    # USE_X_FORWARDED_PORT = True
-    
+# Zajištění, že DEBUG je opravdu booleovská hodnota (pokud se tahá z os.environ)
+DEBUG = str(os.environ.get('DEBUG', 'True')).lower() in ('true', '1', 't', 'yes')
+
 if DEBUG:
+    # LOKÁLNÍ PROSTŘEDÍ: Žádný prefix, aplikace běží v kořenu http://localhost:8000/
     FORCE_SCRIPT_NAME = None
     APPLICATION_ROOT = None
+    USE_X_FORWARDED_HOST = False
+    USE_X_FORWARDED_PORT = False
 else:
-    # Vrátíme zpět definici prefixu, protože pod ním server reálně běží:
+    # PRODUKČNÍ SERVER (Coolify): Aplikace běží na podadresáři /kaminka
     FORCE_SCRIPT_NAME = '/kaminka'
     APPLICATION_ROOT = '/kaminka'
-    
-    # Klíčové pro Coolify/Traefik, aby nedocházelo k SSL smyčkám:
     USE_X_FORWARDED_HOST = True
     USE_X_FORWARDED_PORT = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
