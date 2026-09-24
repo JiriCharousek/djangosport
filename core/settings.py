@@ -211,12 +211,25 @@ SECURE_HSTS_PRELOAD = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
+# if DEBUG:
+    # FORCE_SCRIPT_NAME = None
+    # APPLICATION_ROOT = None
+# else:
+    # # Zapnout pouze pro produkční server (Coolify)
+    # # FORCE_SCRIPT_NAME = '/kaminka'  <-- ZAKOMENTOVAT / ODSTRANIT
+    # # APPLICATION_ROOT = '/kaminka'   <-- ZAKOMENTOVAT / ODSTRANIT
+    # USE_X_FORWARDED_HOST = True
+    # USE_X_FORWARDED_PORT = True
+    
 if DEBUG:
     FORCE_SCRIPT_NAME = None
     APPLICATION_ROOT = None
 else:
-    # Zapnout pouze pro produkční server (Coolify)
-    # FORCE_SCRIPT_NAME = '/kaminka'  <-- ZAKOMENTOVAT / ODSTRANIT
-    # APPLICATION_ROOT = '/kaminka'   <-- ZAKOMENTOVAT / ODSTRANIT
+    # Vrátíme zpět definici prefixu, protože pod ním server reálně běží:
+    FORCE_SCRIPT_NAME = '/kaminka'
+    APPLICATION_ROOT = '/kaminka'
+    
+    # Klíčové pro Coolify/Traefik, aby nedocházelo k SSL smyčkám:
     USE_X_FORWARDED_HOST = True
     USE_X_FORWARDED_PORT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

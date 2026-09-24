@@ -3208,3 +3208,6 @@ INFO 2026-09-24 11:30:40,064 autoreload Watching for file changes with StatReloa
 INFO 2026-09-24 11:30:44,239 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
 INFO 2026-09-24 11:30:45,986 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
 INFO 2026-09-24 11:30:47,504 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-09-24 11:35:47,557 autoreload Watching for file changes with StatReloader
+INFO 2026-09-24 11:36:00,873 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+WARNING 2026-09-24 11:36:03,741 log Not Found: /kaminka/kaminka/kaminka/detail/26_kaminka_leto_C/
