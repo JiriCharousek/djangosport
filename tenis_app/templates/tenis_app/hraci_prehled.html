@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>🎾 Správa a přehled hráčů (Rozlosování lig)</h2>
+        <span class="text-muted">Celkem hráčů: {{ hraci|length }}</span>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Formulář pro hromadné/rychlé uložení změn přiřazení do lig -->
+    <form method="post">
+        {% csrf_token %}
+        <div class="card shadow-sm">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped table-bordered align-middle mb-0 small">
+                        <thead class="table-dark text-center">
+                            <tr>
+                                <th style="width: 4%;">#</th>
+                                <th style="width: 20%;">Jméno a příjmení</th>
+								<th style="width: 5%;">edit</th>
+                                <!-- <th style="width: 12%;">Telefon / Email</th> -->
+                                <th style="width: 15%;">Stávající</th>
+								
+								
+								<!-- Sloupec pro akce / editaci v řádku tabulky -->
+								
+																
+								
+                                <!-- Dynamické sloupce pro 4 zimní ligy (připraveno pro zaškrtávání) -->
+                                
+								<th class="bg-primary text-white text-left" style="width: 10%;">Zima A    </th>
+                                <th class="bg-primary text-white" style="width: 10%;">Zima B</th>
+                                <th class="bg-primary text-white" style="width: 10%;">Zima C</th>
+                                <th class="bg-primary text-white" style="width: 10%;">Zima D</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for hrac in hraci %}
+                                <tr>
+                                    <td class="text-center text-muted">{{ forloop.counter }}</td>
+                                    <td class="fw-bold">
+                                        {{ hrac.jmeno }}
+                                        <!-- {% if hrac.klub %}<br><span class="text-muted fw-normal" style="font-size: 0.8rem;">Klub: {{ hrac.klub }}</span>{% endif %} -->
+                                    </td>
+									<td class="text-center">
+										<a href="{% url 'tenis_app:hrac_edit' hrac.id %}" class="btn btn-sm btn-outline-primary" title="Upravit hráče">✏️</a>
+										
+									</td>
+                                    <!-- <td>
+                                        {% if hrac.telefon %}<a href="tel:{{ hrac.telefon }}">{{ hrac.telefon }}</a>{% else %}<span class="text-muted">-</span>{% endif %}
+                                        {% if hrac.email %}<br><span class="text-muted" style="font-size: 0.75rem;">{{ hrac.email }}</span>{% endif %}
+                                    </td> -->
+                                    <td>
+                                        {% if hrac.klub %}
+                                            <span class="badge bg-info text-dark mb-1">{{ hrac.klub }}</span>
+                                        {% else %}
+                                            <span class="text-muted">Žádná</span>
+                                        {% endif %}
+                                    </td>
+                                    
+                                    <!-- Zaškrtávátka pro zimní ligy vycentrovaná na střed -->
+										<td class="text-center align-middle">
+											<input type="checkbox" name="hrac_{{ hrac.id }}_27_kaminka_zima_A" value="1" 
+												   {% if zimni_souteze_dict.zima_a.id in hrac.soutez_ids_list %}checked{% endif %} class="form-check-input m-0">
+										</td>
+										<td class="text-center align-middle">
+											<input type="checkbox" name="hrac_{{ hrac.id }}_27_kaminka_zima_B" value="1" 
+												   {% if zimni_souteze_dict.zima_b.id in hrac.soutez_ids_list %}checked{% endif %} class="form-check-input m-0">
+										</td>
+										<td class="text-center align-middle">
+											<input type="checkbox" name="hrac_{{ hrac.id }}_27_kaminka_zima_C" value="1" 
+												   {% if zimni_souteze_dict.zima_c.id in hrac.soutez_ids_list %}checked{% endif %} class="form-check-input m-0">
+										</td>
+										<td class="text-center align-middle">
+											<input type="checkbox" name="hrac_{{ hrac.id }}_27_kaminka_zima_D" value="1" 
+												   {% if zimni_souteze_dict.zima_d.id in hrac.soutez_ids_list %}checked{% endif %} class="form-check-input m-0">
+										</td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="8" class="text-center py-4 text-muted">V databázi nejsou žádní hráči.</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer bg-light d-flex justify-content-between align-items-center py-3">
+                <span class="text-muted small">Zaškrtnutím políček u jednotlivých hráčů určíš, do které zimní ligy patří.</span>
+                <button type="submit" class="btn btn-success px-4">💾 Uložit rozlosování zimních lig</button>
+            </div>
+        </div>
+    </form>
+	
+<!-- Přehled rozlosovaných hráčů po jednotlivých zimních ligách -->
+<div class="row mt-5">
+    <h3 class="mb-3">📋 Souhrn rozlosování do zimních lig</h3>
+    
+    <!-- Zima A -->
+    <div class="col-md-3 mb-3">
+        <div class="card h-100 shadow-sm border-primary">
+            <div class="card-header bg-primary text-white fw-bold">Zima 26/27 - A</div>
+            <ul class="list-group list-group-flush small">
+                {% for hrac in hraci %}
+                    {% if zimni_souteze_dict.zima_a.id in hrac.soutez_ids_list %}
+                        <li class="list-group-item">{{ hrac.jmeno }}</li>
+                    {% endif %}
+                {% empty %}
+                    <li class="list-group-item text-muted">Nikdo není přiřazen</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Zima B -->
+    <div class="col-md-3 mb-3">
+        <div class="card h-100 shadow-sm border-primary">
+            <div class="card-header bg-primary text-white fw-bold">Zima 26/27 - B</div>
+            <ul class="list-group list-group-flush small">
+                {% for hrac in hraci %}
+                    {% if zimni_souteze_dict.zima_b.id in hrac.soutez_ids_list %}
+                        <li class="list-group-item">{{ hrac.jmeno }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Zima C -->
+    <div class="col-md-3 mb-3">
+        <div class="card h-100 shadow-sm border-primary">
+            <div class="card-header bg-primary text-white fw-bold">Zima 26/27 - C</div>
+            <ul class="list-group list-group-flush small">
+                {% for hrac in hraci %}
+                    {% if zimni_souteze_dict.zima_c.id in hrac.soutez_ids_list %}
+                        <li class="list-group-item">{{ hrac.jmeno }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Zima D -->
+    <div class="col-md-3 mb-3">
+        <div class="card h-100 shadow-sm border-primary">
+            <div class="card-header bg-primary text-white fw-bold">Zima 26/27 - D</div>
+            <ul class="list-group list-group-flush small">
+                {% for hrac in hraci %}
+                    {% if zimni_souteze_dict.zima_d.id in hrac.soutez_ids_list %}
+                        <li class="list-group-item">{{ hrac.jmeno }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

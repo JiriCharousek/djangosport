@@ -432,17 +432,16 @@ def editovat_hrace(request, pk):
     hrac = get_object_or_404(Hrac, id=pk)
 
     # KONTROLA: Může editovat jen vlastník profilu nebo admin
-    # (Předpokládám, že model Hrac má vazbu na User přes hrac.user)
     if hrac.user != request.user and not request.user.is_staff:
         messages.error(request, "Nemáte oprávnění upravovat tento profil.")
-        return redirect('tenis_app:tenis_index')
+        return redirect('tenis_app:hraci_prehled') # <-- Změněno, ať tě to neháže pryč
 
     if request.method == 'POST':
         form = HracForm(request.POST, request.FILES, instance=hrac)
         if form.is_valid():
             form.save()
             messages.success(request, f"Profil hráče {hrac.jmeno} byl aktualizován.")
-            return redirect('tenis_app:tenis_index')
+            return redirect('tenis_app:hraci_prehled') # <-- Změněno, vrátí tě to zpět do seznamu
     else:
         form = HracForm(instance=hrac)
 
@@ -642,7 +641,7 @@ def admin_tools_view(request):
 
         return redirect('tenis_app:admin_tools')
 
-    return render(request, 'tenis_app:admin_tools.html')
+    return render(request, 'tenis_app/admin_tools.html')
     
     
     
@@ -889,3 +888,153 @@ def tenis_index(request):
 
 
 
+
+
+
+
+
+
+
+from tenis_app.models import Hrac, Soutez, Zapas
+from django.contrib.admin.views.decorators import staff_member_required # nebo @user_passes_test
+from django.shortcuts import render, redirect
+from django.contrib import messages
+
+# --- POMOCNÁ FUNKCE PRO GENEROVÁNÍ ZÁPASŮ ---
+def vygeneruj_zapas_pro_soutez(soutez_slug):
+    try:
+        soutez = Soutez.objects.get(slug=soutez_slug)
+    except Soutez.DoesNotExist:
+        return 0
+
+    hraci = list(soutez.hraci.all())
+    n = len(hraci)
+    if n < 2:
+        return 0
+
+    vytvoreno = 0
+    # Pro dvoukolovou ligu ('2K') hraje každý s každým dvakrát (doma/venku)
+    for i in range(n):
+        for j in range(n):
+            if i != j:
+                hrac1 = hraci[i]
+                hrac2 = hraci[j]
+                
+                # Zkontrolujeme, zda už zápas existuje, abychom duplicitně nevytvářeli to samé
+                obj, created = Zapas.objects.get_or_create(
+                    soutez=soutez,
+                    hrac1=hrac1,
+                    hrac2=hrac2,
+                    defaults={'odehrano': False}
+                )
+                if created:
+                    vytvoreno += 1
+    return vytvoreno
+
+
+# --- TVŮJ EXISTUJÍCÍ POHLED PRO ADMIN NÁSTROJE ---
+@user_passes_test(lambda u: u.is_superuser) 
+def admin_tools_view(request):
+    if request.method == "POST":
+        akce = request.POST.get("akce")
+        
+        if akce == "opravit_vazby":
+            soutez = Soutez.objects.filter(slug='26_kaminka_leto_D').first()
+            if soutez:
+                updated = Zapas.objects.filter(soutez__isnull=True).update(soutez=soutez)
+                messages.success(request, f"Opraveno {updated} zápasů.")
+            else:
+                messages.error(request, "Soutěž nenalezena.")
+                
+        elif akce == "vynutit_migrace":
+            from django.core.management import call_command
+            try:
+                call_command('migrate', '--fake-initial')
+                messages.success(request, "Migrace proběhly (fake-initial).")
+            except Exception as e:
+                messages.error(request, f"Chyba: {e}")
+
+        # --- NOVÁ AKCE PRO ZIMNÍ LIGY ---
+        elif akce == "vygenerovat_zimni":
+            # Sem si dosaď slugy svých 4 zimních lig, jaké máš v databázi:
+            zimni_slugy = ['zimni-liga-1', 'zimni-liga-2', 'zimni-liga-3', 'zimni-liga-4']
+            celkem_vytvoreno = 0
+            
+            for slug in zimni_slugy:
+                pocet = vygeneruj_zapas_pro_soutez(slug)
+                celkem_vytvoreno += pocet
+                
+            messages.success(request, f"Úspěšně vygenerováno {celkem_vytvoreno} nových zápasů pro zimní ligy.")
+
+        return redirect('tenis_app:admin_tools')
+
+    return render(request, 'tenis_app/admin_tools.html')
+
+
+
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import Hrac, Soutez
+
+def hraci_prehled(request):
+    # Skutečné slugy tvých zimních lig
+    zimni_slugy = ['27_kaminka_zima_A', '27_kaminka_zima_B', '27_kaminka_zima_C', '27_kaminka_zima_D']
+    
+    # Slovník pro šablonu (klíče s podtržítky pro bezpečný přístup)
+    zimni_souteze_dict = {
+        'zima_a': Soutez.objects.filter(slug='27_kaminka_zima_A').first(),
+        'zima_b': Soutez.objects.filter(slug='27_kaminka_zima_B').first(),
+        'zima_c': Soutez.objects.filter(slug='27_kaminka_zima_C').first(),
+        'zima_d': Soutez.objects.filter(slug='27_kaminka_zima_D').first(),
+    }
+    
+    if request.method == "POST":
+        hraci = Hrac.objects.all()
+        for hrac in hraci:
+            for slug in zimni_slugy:
+                soutez = Soutez.objects.filter(slug=slug).first()
+                if not soutez:
+                    continue
+                
+                # Jméno inputu v HTML formuláři
+                checkbox_name = f"hrac_{hrac.id}_{slug}"
+                is_checked = checkbox_name in request.POST
+                
+                if is_checked and not hrac.souteze.filter(slug=slug).exists():
+                    hrac.souteze.add(soutez)
+                elif not is_checked and hrac.souteze.filter(slug=slug).exists():
+                    hrac.souteze.remove(soutez)
+                    
+        messages.success(request, "Rozlosování zimních lig bylo úspěšně uloženo.")
+        return redirect('tenis_app:hraci_prehled')
+
+    
+    # Načtení hráčů seřazených primárně podle letní ligy (pole 'klub') a sekundárně podle jména
+    hraci = Hrac.objects.prefetch_related('souteze').all().order_by('klub', 'jmeno')
+    for hrac in hraci:
+        hrac.soutez_ids_list = list(hrac.souteze.values_list('id', flat=True))
+    
+    context = {
+        'hraci': hraci,
+        'zimni_souteze_dict': zimni_souteze_dict,
+    }
+    return render(request, 'tenis_app/hraci_prehled.html', context)
+    
+    
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from .models import Hrac
+from .forms import HracForm  # Předpokládá formulář pro model Hrac
+
+def hrac_edit(request, pk):
+    hrac = get_object_or_404(Hrac, pk=pk)
+    if request.method == 'POST':
+        form = HracForm(request.POST, instance=hrac)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"Hráč {hrac.jmeno} byl úspěšně upraven.")
+            return redirect('tenis_app:hraci_prehled')
+    else:
+        form = HracForm(instance=hrac)
+    
+    return render(request, 'tenis_app/hrac_form.html', {'form': form, 'hrac': hrac})

@@ -3650,3 +3650,910 @@ WARNING 2026-09-24 14:11:13,835 log Not Found: /kaminka/detail/27_kaminka_zima_D
 INFO 2026-09-24 14:11:24,946 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
 INFO 2026-09-24 14:15:16,167 autoreload C:\Users\jchar\djangoSport\tenis_app\admin.py changed, reloading.
 INFO 2026-09-24 14:15:17,894 autoreload Watching for file changes with StatReloader
+INFO 2026-09-24 14:17:16,595 autoreload Watching for file changes with StatReloader
+INFO 2026-09-24 14:17:26,806 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-09-24 14:17:31,564 views Uživatel jchar si prohlíží soutìž: Zima 25/26 - A
+INFO 2026-09-24 21:26:26,780 autoreload Watching for file changes with StatReloader
+WARNING 2026-09-24 21:26:31,532 log Not Found: /kaminka/tenis/
+WARNING 2026-09-24 21:26:34,283 log Not Found: /kaminka/tenis/
+INFO 2026-09-24 21:26:58,756 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+WARNING 2026-09-24 21:27:40,318 log Not Found: /kaminka/detail/27_kaminka_zima_B/
+INFO 2026-09-24 21:27:44,977 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+WARNING 2026-09-24 21:27:47,053 log Not Found: /kaminka/detail/27_kaminka_zima_B/
+INFO 2026-09-24 21:27:51,597 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-09-24 21:29:05,876 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-09-24 21:29:08,876 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-09-24 21:29:10,909 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-09-24 21:29:12,694 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - D
+INFO 2026-09-24 21:29:14,203 views Uživatel jchar si prohlíží soutìž: Zima 25/26 - A
+INFO 2026-09-24 21:32:42,986 views Uživatel jchar si prohlíží soutìž: Zima 25/26 - A
+INFO 2026-09-24 21:33:25,786 views Uživatel jchar si prohlíží soutìž: Zima 25/26 - A
+INFO 2026-09-24 21:33:46,658 views Uživatel jchar si prohlíží soutìž: Zima 25/26 - A
+INFO 2026-09-24 21:33:48,200 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-09-24 21:33:50,241 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-09-24 21:33:51,249 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - D
+ERROR 2026-09-24 21:34:11,238 log Internal Server Error: /kaminka/admin-tools/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 645, in admin_tools_view
+    return render(request, 'tenis_app:admin_tools.html')
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: tenis_app:admin_tools.html
+ERROR 2026-09-24 21:35:11,062 log Internal Server Error: /kaminka/admin-tools/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 645, in admin_tools_view
+    return render(request, 'tenis_app:admin_tools.html')
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: tenis_app:admin_tools.html
+ERROR 2026-09-24 21:38:35,627 log Internal Server Error: /kaminka/admin-tools/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 645, in admin_tools_view
+    return render(request, 'tenis_app:admin_tools.html')
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: tenis_app:admin_tools.html
+INFO 2026-09-24 21:49:27,219 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-09-24 21:49:30,530 autoreload Watching for file changes with StatReloader
+INFO 2026-09-24 21:50:05,832 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-09-24 21:50:11,302 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-09-24 21:50:12,751 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-09-24 21:50:14,079 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - D
+INFO 2026-09-24 21:50:15,518 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-09-24 21:50:21,869 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-09-24 22:08:45,034 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-09-24 22:08:48,211 autoreload Watching for file changes with StatReloader
+INFO 2026-09-24 22:10:05,110 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-09-24 22:10:33,832 views Uživatel jchar si prohlíží soutìž: Zima 25/26 - A
+INFO 2026-09-24 22:10:37,293 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-09-24 22:10:39,511 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-09-24 22:10:40,684 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - D
+INFO 2026-09-24 22:10:53,390 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-09-24 22:10:58,863 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-09-24 22:11:01,461 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-09-24 22:11:02,998 views Uživatel jchar si prohlíží soutìž: Zima 25/26 - A
+INFO 2026-09-24 22:11:05,384 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-09-24 22:11:07,010 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-09-24 22:11:38,109 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-09-24 22:12:05,237 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-09-24 22:12:07,054 views Uživatel jchar si prohlíží soutìž: Zima 25/26 - A
+INFO 2026-09-24 22:12:10,299 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-09-24 22:13:34,509 views --- START DIAGNOSTIKY PÁROVÁNÍ ---
+INFO 2026-09-24 22:13:34,518 views SKIP: Hráè 'Petr VODVÁØKA' už uživatele má.
+INFO 2026-09-24 22:13:34,524 views SKIP: Hráè 'Daniel KRÁL' už uživatele má.
+INFO 2026-09-24 22:13:34,527 views SKIP: Hráè 'Vojtìch MAHELKA' už uživatele má.
+INFO 2026-09-24 22:13:34,529 views SKIP: Hráè 'Jiøí KRAUS' už uživatele má.
+INFO 2026-09-24 22:13:34,531 views SKIP: Hráè 'Jiøí CHAROUSEK' už uživatele má.
+INFO 2026-09-24 22:13:34,534 views SKIP: Hráè 'Martin BALCÁREK' už uživatele má.
+INFO 2026-09-24 22:13:34,537 views SKIP: Hráè 'Anna MAHELKOVÁ' už uživatele má.
+INFO 2026-09-24 22:13:34,539 views SKIP: Hráè 'Klára WANTULOK' už uživatele má.
+INFO 2026-09-24 22:13:34,541 views SKIP: Hráè 'Dominik ZMEŠKAL' už uživatele má.
+INFO 2026-09-24 22:13:34,543 views SKIP: Hráè 'Ondøej BRANT' už uživatele má.
+INFO 2026-09-24 22:13:34,546 views SKIP: Hráè 'Martin BUKÁÈEK' už uživatele má.
+INFO 2026-09-24 22:13:34,548 views SKIP: Hráè 'Michal GÁBRLE' už uživatele má.
+INFO 2026-09-24 22:13:34,553 views SKIP: Hráè 'Miroslav SIEDEM' už uživatele má.
+INFO 2026-09-24 22:13:34,555 views SKIP: Hráè 'Radek LÁSKA' už uživatele má.
+INFO 2026-09-24 22:13:34,557 views SKIP: Hráè 'Michal PODZIMEK' už uživatele má.
+INFO 2026-09-24 22:13:34,564 views SKIP: Hráè 'Tomáš HORÈIÈKA' už uživatele má.
+INFO 2026-09-24 22:13:34,568 views SKIP: Hráè 'Boris NESTRAŠIL' už uživatele má.
+INFO 2026-09-24 22:13:34,571 views SKIP: Hráè 'Ivan GAÈ' už uživatele má.
+INFO 2026-09-24 22:13:34,573 views SKIP: Hráè 'Jaroslav MÁCHA' už uživatele má.
+INFO 2026-09-24 22:13:34,578 views SKIP: Hráè 'Tomáš DOLEŽAL' už uživatele má.
+INFO 2026-09-24 22:13:34,580 views SKIP: Hráè 'Petr JANDOVSKÝ' už uživatele má.
+INFO 2026-09-24 22:13:34,583 views SKIP: Hráè 'Miroslav ŠTEMBERK' už uživatele má.
+INFO 2026-09-24 22:13:34,586 views SKIP: Hráè 'Šimon HRUBÝ' už uživatele má.
+INFO 2026-09-24 22:13:34,588 views SKIP: Hráè 'Josef AUGUSTA' už uživatele má.
+INFO 2026-09-24 22:13:34,590 views SKIP: Hráè 'Oto KLÍMA' už uživatele má.
+INFO 2026-09-24 22:13:34,593 views SKIP: Hráè 'Karel VLÈEK' už uživatele má.
+INFO 2026-09-24 22:13:34,595 views SKIP: Hráè 'Michal ZMEŠKAL' už uživatele má.
+INFO 2026-09-24 22:13:34,598 views SKIP: Hráè 'Svatopluk SÝKORA' už uživatele má.
+INFO 2026-09-24 22:13:34,602 views SKIP: Hráè 'Robert HRUBÝ' už uživatele má.
+INFO 2026-09-24 22:13:34,605 views SKIP: Hráè 'Ondøej HLOUPÝ' už uživatele má.
+INFO 2026-09-24 22:13:34,607 views SKIP: Hráè 'Jan ŽIDLICKÝ' už uživatele má.
+INFO 2026-09-24 22:13:34,609 views SKIP: Hráè 'David KREMLÍK' už uživatele má.
+INFO 2026-09-24 22:13:34,612 views SKIP: Hráè 'Karel MAHELKA' už uživatele má.
+INFO 2026-09-24 22:13:34,615 views SKIP: Hráè 'Daniel PADEVÌT' už uživatele má.
+INFO 2026-09-24 22:13:34,618 views SKIP: Hráè 'Jakub ŽIDLICKÝ' už uživatele má.
+INFO 2026-09-24 22:13:34,621 views SKIP: Hráè 'Dušan ZENÁHLÍK' už uživatele má.
+INFO 2026-09-24 22:13:34,623 views SKIP: Hráè 'Jiøí CHLOUBA' už uživatele má.
+INFO 2026-09-24 22:13:34,625 views SKIP: Hráè 'Petr HOVORKA' už uživatele má.
+INFO 2026-09-24 22:13:34,627 views SKIP: Hráè 'Petr ŠIMONÍÈEK' už uživatele má.
+INFO 2026-09-24 22:13:34,630 views SKIP: Hráè 'Adam GAÈ' už uživatele má.
+INFO 2026-09-24 22:13:34,632 views SKIP: Hráè 'František KARDOŠ' už uživatele má.
+INFO 2026-09-24 22:13:34,635 views SKIP: Hráè 'Lukáš TICHÝ' už uživatele má.
+INFO 2026-09-24 22:13:34,637 views SKIP: Hráè 'Milan KOUDELKA' už uživatele má.
+INFO 2026-09-24 22:13:34,640 views SKIP: Hráè 'Jana BECHOVÁ' už uživatele má.
+INFO 2026-09-24 22:13:34,642 views SKIP: Hráè 'Petr KUNZMANN' už uživatele má.
+INFO 2026-09-24 22:13:34,644 views SKIP: Hráè 'Jaroslav HERODES' už uživatele má.
+INFO 2026-09-24 22:13:34,646 views SKIP: Hráè 'Jan ŠEVÈÍK' už uživatele má.
+INFO 2026-09-24 22:13:34,649 views SKIP: Hráè 'Stanislav ØEZNÍK' už uživatele má.
+INFO 2026-09-24 22:13:34,652 views SKIP: Hráè 'Michala KARPÍŠKOVÁ' už uživatele má.
+INFO 2026-09-24 22:13:34,654 views SKIP: Hráè 'Jiøí ŠPAÈEK' už uživatele má.
+INFO 2026-09-24 22:13:34,656 views SKIP: Hráè 'Petr KOPRNICKÝ' už uživatele má.
+INFO 2026-09-24 22:13:34,659 views SKIP: Hráè 'Zdenìk MÁLEK' už uživatele má.
+INFO 2026-09-24 22:13:34,661 views SKIP: Hráè 'Dušan HOFMAN' už uživatele má.
+INFO 2026-09-24 22:13:34,662 views SKIP: Hráè 'Ivan POLEDNÍK' už uživatele má.
+INFO 2026-09-24 22:13:34,665 views SKIP: Hráè 'Jana MASOPUSTOVÁ' už uživatele má.
+INFO 2026-09-24 22:13:34,667 views SKIP: Hráè 'Helena LIŠKOVÁ' už uživatele má.
+WARNING 2026-09-24 22:13:34,669 views NENALEZENO: Pro hráèe 'Klára WANTULOK-' systém hledal username 'klara-wantulok-'
+INFO 2026-09-24 22:13:34,671 views SKIP: Hráè 'Alice Hanušová' už uživatele má.
+INFO 2026-09-24 22:13:34,672 views SKIP: Hráè 'Ivana MÁCHOVÁ' už uživatele má.
+INFO 2026-09-24 22:13:34,675 views SKIP: Hráè 'Petra HANZLÍÈKOVÁ' už uživatele má.
+INFO 2026-09-24 22:13:34,677 views SKIP: Hráè 'Anna LYTVYNOVÁ' už uživatele má.
+INFO 2026-09-24 22:13:34,679 views SKIP: Hráè 'Marina HRUBÁ' už uživatele má.
+INFO 2026-09-24 22:13:34,681 views SKIP: Hráè 'Romana BENEŠOVÁ' už uživatele má.
+INFO 2026-09-24 22:13:34,684 views SKIP: Hráè 'Klára KOSÍKOVÁ' už uživatele má.
+INFO 2026-09-24 22:13:34,686 views SKIP: Hráè 'Alena STANICHOVÁ' už uživatele má.
+INFO 2026-09-24 22:13:34,688 views SKIP: Hráè 'Sofie PØEROVSKÁ' už uživatele má.
+INFO 2026-09-24 22:13:34,690 views SKIP: Hráè 'Adéla Augustová' už uživatele má.
+INFO 2026-09-24 22:13:34,709 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+WARNING 2026-09-25 06:59:54,873 log Not Found: /admin/agenda_app/prijatafaktura/
+WARNING 2026-09-25 07:23:35,909 log Not Found: /katalog/
+INFO 2026-09-25 10:35:22,171 autoreload Watching for file changes with StatReloader
+INFO 2026-09-25 10:35:58,128 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-09-25 10:42:27,387 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+ERROR 2026-09-25 10:42:27,960 log Internal Server Error: /kaminka/detail/26_kaminka_leto_A/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 287, in detail_souteze
+    return render(request, 'tenis_app/tabulka_5ti_lig.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'hraci_prehled' not found. 'hraci_prehled' is not a valid view function or pattern name.
+INFO 2026-09-25 10:43:15,442 autoreload C:\Users\jchar\djangoSport\tenis_app\urls.py changed, reloading.
+INFO 2026-09-25 10:43:18,087 autoreload Watching for file changes with StatReloader
+INFO 2026-09-25 10:44:10,386 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-09-25 10:44:11,087 autoreload Watching for file changes with StatReloader
+INFO 2026-09-25 10:44:15,603 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+WARNING 2026-09-25 10:44:20,031 log Not Found: /media/hraci/ja_8x9tIBh.jpg
+ERROR 2026-09-25 10:46:08,436 log Internal Server Error: /kaminka/hraci/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\smartif.py", line 180, in translate_token
+    op = OPERATORS[token]
+         ~~~~~~~~~^^^^^^^
+KeyError: 'zimni_souteze_dict.zimni-liga-1'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 986, in hraci_prehled
+    return render(request, 'tenis_app/hraci_prehled.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 961, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 894, in __init__
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\smartif.py", line 171, in __init__
+    mapped_tokens.append(self.translate_token(token))
+                         ~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\smartif.py", line 182, in translate_token
+    return self.create_var(token)
+           ~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 897, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '-liga-1' from 'zimni_souteze_dict.zimni-liga-1'
+INFO 2026-09-25 10:48:12,786 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-09-25 10:48:14,459 autoreload Watching for file changes with StatReloader
+INFO 2026-09-25 10:53:34,058 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-09-25 10:53:53,045 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-09-25 11:01:04,184 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-09-25 11:01:05,968 autoreload Watching for file changes with StatReloader
+INFO 2026-09-25 11:05:38,075 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-09-25 11:05:39,704 autoreload Watching for file changes with StatReloader
+ERROR 2026-09-25 11:10:29,920 log Internal Server Error: /kaminka/hraci/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 1022, in hraci_prehled
+    return render(request, 'tenis_app/hraci_prehled.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'hrac_edit' not found. 'hrac_edit' is not a valid view function or pattern name.
+ERROR 2026-09-25 11:11:30,782 log Internal Server Error: /kaminka/hraci/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 1022, in hraci_prehled
+    return render(request, 'tenis_app/hraci_prehled.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'editovat_hrace' with arguments '('',)' not found. 1 pattern(s) tried: ['kaminka/editovat\\-hrace/(?P<pk>[0-9]+)/\\Z']
+ERROR 2026-09-25 11:12:38,729 log Internal Server Error: /kaminka/hraci/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 1022, in hraci_prehled
+    return render(request, 'tenis_app/hraci_prehled.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'editovat_hrace' with arguments '('',)' not found. 1 pattern(s) tried: ['kaminka/editovat\\-hrace/(?P<pk>[0-9]+)/\\Z']
+ERROR 2026-09-25 11:14:17,600 log Internal Server Error: /kaminka/hraci/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 1022, in hraci_prehled
+    return render(request, 'tenis_app/hraci_prehled.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'editovat_hrace' with arguments '('',)' not found. 1 pattern(s) tried: ['kaminka/editovat\\-hrace/(?P<pk>[0-9]+)/\\Z']
+ERROR 2026-09-25 11:14:47,838 log Internal Server Error: /kaminka/hraci/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 1022, in hraci_prehled
+    return render(request, 'tenis_app/hraci_prehled.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'editovat_hrace' with arguments '('',)' not found. 1 pattern(s) tried: ['kaminka/editovat\\-hrace/(?P<pk>[0-9]+)/\\Z']
+INFO 2026-09-25 11:16:06,507 autoreload C:\Users\jchar\djangoSport\tenis_app\urls.py changed, reloading.
+INFO 2026-09-25 11:16:08,222 autoreload Watching for file changes with StatReloader
+INFO 2026-09-25 11:16:53,346 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-09-25 11:16:54,962 autoreload Watching for file changes with StatReloader
+ERROR 2026-09-25 11:17:00,620 log Internal Server Error: /kaminka/hraci/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 1022, in hraci_prehled
+    return render(request, 'tenis_app/hraci_prehled.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'editovat_hrace' with arguments '('',)' not found. 1 pattern(s) tried: ['kaminka/editovat\\-hrace/(?P<pk>[0-9]+)/\\Z']
+ERROR 2026-09-25 11:17:05,670 log Internal Server Error: /kaminka/hraci/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 1022, in hraci_prehled
+    return render(request, 'tenis_app/hraci_prehled.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'editovat_hrace' with arguments '('',)' not found. 1 pattern(s) tried: ['kaminka/editovat\\-hrace/(?P<pk>[0-9]+)/\\Z']
+ERROR 2026-09-25 11:17:48,256 log Internal Server Error: /kaminka/hraci/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 1022, in hraci_prehled
+    return render(request, 'tenis_app/hraci_prehled.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'hrac_edit' with arguments '('',)' not found. 1 pattern(s) tried: ['kaminka/hrac/(?P<pk>[0-9]+)/editovat/\\Z']
+ERROR 2026-09-25 11:17:52,091 log Internal Server Error: /kaminka/hraci/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 1022, in hraci_prehled
+    return render(request, 'tenis_app/hraci_prehled.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'hrac_edit' with arguments '('',)' not found. 1 pattern(s) tried: ['kaminka/hrac/(?P<pk>[0-9]+)/editovat/\\Z']
+ERROR 2026-09-25 11:19:54,679 log Internal Server Error: /kaminka/hrac/65/editovat/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 1041, in hrac_edit
+    return render(request, 'tenis_app/hrac_form.html', {'form': form, 'hrac': hrac})
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: tenis_app/hrac_form.html
+INFO 2026-09-25 11:23:38,274 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-09-25 11:23:39,987 autoreload Watching for file changes with StatReloader
+ERROR 2026-09-25 11:23:44,433 log Internal Server Error: /kaminka/hrac/78/editovat/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 1040, in hrac_edit
+    return render(request, 'tenis_app/hrac_form.html', {'form': form, 'hrac': hrac})
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: tenis_app/hrac_form.html
+ERROR 2026-09-25 11:24:20,377 log Internal Server Error: /kaminka/hrac/63/editovat/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 1040, in hrac_edit
+    return render(request, 'tenis_app/hrac_form.html', {'form': form, 'hrac': hrac})
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: tenis_app/hrac_form.html
+INFO 2026-09-25 11:26:03,915 autoreload C:\Users\jchar\djangoSport\tenis_app\urls.py changed, reloading.
+INFO 2026-09-25 11:26:05,476 autoreload Watching for file changes with StatReloader
+WARNING 2026-09-25 11:28:08,224 log Not Found: /media/hraci/ja_8x9tIBh.jpg
+INFO 2026-09-25 12:17:14,541 autoreload C:\Users\jchar\djangoSport\tenis_app\forms.py changed, reloading.
+INFO 2026-09-25 12:17:16,585 autoreload Watching for file changes with StatReloader
+WARNING 2026-09-25 12:17:20,570 log Not Found: /media/hraci/ja_8x9tIBh.jpg
+INFO 2026-09-25 12:21:12,427 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-09-25 12:22:37,885 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-09-25 12:31:49,834 autoreload C:\Users\jchar\djangoSport\tenis_app\forms.py changed, reloading.
+INFO 2026-09-25 12:31:51,545 autoreload Watching for file changes with StatReloader
+INFO 2026-09-25 12:32:00,038 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-09-25 12:33:07,643 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-09-25 12:33:35,004 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-09-25 12:34:03,062 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-09-25 12:37:15,018 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-09-25 12:37:58,075 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-09-25 12:38:10,215 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-09-25 12:38:10,896 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-09-25 12:38:14,387 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-09-25 12:38:18,477 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-09-25 12:38:23,640 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-09-25 12:38:26,068 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-09-25 12:39:33,337 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-09-25 12:39:35,512 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-09-25 12:39:36,992 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A

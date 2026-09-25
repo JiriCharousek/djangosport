@@ -16,7 +16,17 @@
         <input type="hidden" name="akce" value="vynutit_migrace">
         <button type="submit" class="btn btn-danger">Spustit nouzové migrace</button>
     </form>
+	
+	<form method="post">
+			{% csrf_token %}
+			<input type="hidden" name="akce" value="vygenerovat_zimni">
+			<button type="submit" class="btn btn-primary">Vygenerovat zápasy pro zimní ligy</button>
+	</form>
+	
 </div>
+
+
+
 
 {% if messages %}
     <ul style="margin-top: 20px;">

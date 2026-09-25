@@ -6,17 +6,12 @@ from .models import Zapas, Hrac
 class HracForm(forms.ModelForm):
     class Meta:
         model = Hrac
-        # Tímto řeknete Djangu, aby do formuláře zahrnulo všechna pole z modelu
-        fields = '__all__' 
-        
-        # Přidání kalendáře pro datum a lepší stylování
+        exclude = ['souteze']
         widgets = {
+            'jmeno': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'readonly'}),  # <-- 'readonly' zajistí, že pole nelze měnit
             'datum_narozeni': forms.DateInput(attrs={'type': 'date'}),
             'info': forms.Textarea(attrs={'rows': 4}),
         }
-
-
-
 
 
 
