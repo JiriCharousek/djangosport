@@ -190,7 +190,7 @@
         .btn-challenge:hover { background: #1d4ed8; transform: translateY(-1px); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
         .me-label { font-size: 0.75rem; background: #0ea5e9; color: white; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
 
-        /* 📱 RESPONSIVNÍ DESIGN PRO MOBILY */
+       /* 📱 RESPONSIVNÍ DESIGN PRO MOBILY */
         @media (max-width: 992px) {
             .mobile-menu-toggle { display: block; }
             .sidebar-close-btn { display: block; }
@@ -207,29 +207,38 @@
                 display: block;
             }
             .top-navbar { padding: 0 15px; }
-            .main-content { padding: 15px; }
             
-            /* Aby tabulky na mobilech nerozbíjely design, povolí se vodorovné scrollování */
-            .zebricek-container {
-                width: 100%;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
+            /* --- TADY JSOU DOPLNĚNÉ OPRAVY PRO PLNOU ŠÍŘKU --- */
+            .main-wrapper {
+                width: 100% !important;
+                min-width: 100% !important;
+            }
+            .main-content { 
+                padding: 10px 8px !important; /* Zmenšíme boční padding, aby tabulka měla víc místa */
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            
+            /* Abychom zabránili úzkému zobrazení i uvnitř šablon */
+            .table-card, .zebricek-container {
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
             }
         }
-    </style>
-</head>
-<body>
-
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-    <nav class="sidebar" id="sidebarMenu">
-        <button class="sidebar-close-btn" id="menuClose">&times;</button>
-
-        <div style="padding: 10px 25px 20px; text-align: center;">
-            <!-- Musí tam být buď lomítko na začátku, nebo Django tag, jinak se cesty budou zdvojovat! -->
-            <a href="{% url 'tenis_app:tenis_index' %}" style="text-decoration: none; color: white; font-weight: bold; font-size: 1.2rem;">🎾 Liga Kamínka</a>
-        </div>
         
+	</style>
+		</head>
+		<body>
+
+			<div class="sidebar-overlay" id="sidebarOverlay"></div>
+			<nav class="sidebar" id="sidebarMenu">
+				<button class="sidebar-close-btn" id="menuClose">&times;</button>
+				<div style="padding: 10px 25px 20px; text-align: center;">
+					<!-- Musí tam být buď lomítko na začátku, nebo Django tag, jinak se cesty budou zdvojovat! -->
+					<a href="{% url 'tenis_app:tenis_index' %}" style="text-decoration: none; color: white; font-weight: bold; font-size: 1.2rem;">🎾 Liga Kamínka</a>
+        </div>
+       
         
 		<div class="nav-section">
             <h3 class="nav-title">🏆 Léto 2026</h3>
