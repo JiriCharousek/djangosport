@@ -241,29 +241,10 @@
     </div>
     {% endif %}
 
-    <div class="table-card" style="padding: 15px 10px;"> <!-- Zmenšeno boční padding pro lepší využití mobilu -->
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <h2 style="margin: 0; color: var(--navy); font-size: 1.3rem;">🏆 Tenisová liga Kamínka {{ soutez.nazev }}</h2>
-    </div>
 
-    {% if user.is_superuser %}
-    <div style="display: flex; gap: 10px; margin-bottom: 20px; padding: 10px; background: #fff4e6; border-radius: 8px; border: 1px solid #ffe8cc; flex-wrap: wrap;">
-        <a href="/admin/" class="btn-action" style="background: var(--navy); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: bold; transition: 0.3s;">
-            ⚙️ Administrace
-        </a>
-        
-        <a href="{% url 'tenis_app:pridat_hrace' %}?liga={{ pismeno }}" class="btn-action" style="background: var(--e-green); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold;">
-            + Přidat hráče
-        </a>
 
-        <a href="{% url 'tenis_app:admin_tools_launcher' %}" class="btn-action" style="background: var(--clay); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold;">
-            🚀 Admin Tools
-        </a>
-    </div>
-    {% endif %}
-
-    <!-- ROŠÍŘENÝ KONTEJNER PRO MOBIL - Optimalizováno -->
-    <div style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff;">
+    <!-- ROŠÍŘENÝ KONTEJNER PRO MOBIL  overflow-x: auto; - Optimalizováno -->
+    <div style="width: 100%;  -webkit-overflow-scrolling: touch; margin-bottom: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff;">
         <table class="tennis-table" style="width: 100%; white-space: nowrap;">
             <thead>
                 <tr>
