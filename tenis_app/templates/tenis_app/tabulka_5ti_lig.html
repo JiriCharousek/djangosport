@@ -13,13 +13,13 @@
 
     .table-card { 
         background: white; 
-        padding: 20px 10px; /* Menší padding na bocích pro maximální využití prostoru */
+        padding: 25px; 
         border-radius: 12px; 
         box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
         border-top: 6px solid var(--navy); 
         margin-bottom: 30px;
-        width: 100% !important;
-        max-width: 100% !important; /* Zruší jakékoliv omezení šířki */
+        width: 100%;        /* <--- Zajišťuje plnou šířku */
+        max-width: 100%;    /* <--- Odstraní případné omezení šířky */
     }
 
     /* Změna pro spodní mřížku statistik a historie, aby se roztáhla */
@@ -196,7 +196,7 @@
     }
     .custom-stats-table-wrapper {
         width: 100%;
-        <!-- overflow-x: auto; -->
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         margin-top: 15px;
         border-radius: 6px;
@@ -268,8 +268,7 @@
     {% endif %}
 
     <!-- ROŠÍŘENÝ KONTEJNER PRO MOBIL - Optimalizováno -->
-    <!-- ROŠÍŘENÝ KONTEJNER PRO MOBIL   overflow-x: auto; -->
-    <div style="width: 100%;  -webkit-overflow-scrolling: touch; margin-bottom: 10px; border-radius: 6px;">
+    <div style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff;">
         <table class="tennis-table" style="width: 100%; white-space: nowrap;">
             <thead>
                 <tr>
@@ -328,7 +327,7 @@
     </div>
 </div>
 
-
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-px; margin: 30px auto; padding: 0 15px;">
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 100%; margin: 30px auto; padding: 0 15px;">
     
     <div class="history-container" style="margin-top: 0;">
