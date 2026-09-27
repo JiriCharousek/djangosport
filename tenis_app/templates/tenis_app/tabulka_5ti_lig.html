@@ -13,13 +13,13 @@
 
     .table-card { 
         background: white; 
-        padding: 25px; 
+        padding: 20px 10px; /* Menší padding na bocích pro maximální využití prostoru */
         border-radius: 12px; 
         box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
         border-top: 6px solid var(--navy); 
         margin-bottom: 30px;
-        width: 100%;        /* <--- Zajišťuje plnou šířku */
-        max-width: 100%;    /* <--- Odstraní případné omezení šířky */
+        width: 100% !important;
+        max-width: 100% !important; /* Zruší jakékoliv omezení šířki */
     }
 
     /* Změna pro spodní mřížku statistik a historie, aby se roztáhla */
@@ -268,7 +268,8 @@
     {% endif %}
 
     <!-- ROŠÍŘENÝ KONTEJNER PRO MOBIL - Optimalizováno -->
-    <div style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff;">
+    <!-- ROŠÍŘENÝ KONTEJNER PRO MOBIL -->
+    <div style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 10px; border-radius: 6px;">
         <table class="tennis-table" style="width: 100%; white-space: nowrap;">
             <thead>
                 <tr>
