@@ -18,7 +18,21 @@
         box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
         border-top: 6px solid var(--navy); 
         margin-bottom: 30px;
+        width: 100%;        /* <--- Zajišťuje plnou šířku */
+        max-width: 100%;    /* <--- Odstraní případné omezení šířky */
     }
+
+    /* Změna pro spodní mřížku statistik a historie, aby se roztáhla */
+    .bottom-grid-container {
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 30px; 
+        max-width: 100%;    /* <--- Rozšířeno na 100% místo fixních 1400px */
+        margin: 30px auto; 
+        padding: 0 15px;
+    }
+	
+	
 
     .tennis-table {
         width: 100%;
@@ -27,6 +41,10 @@
         min-width: 600px;
     }
 
+	@media (max-width: 992px) {
+				.bottom-grid-container {
+					grid-template-columns: 1fr; /* Na užších displejích pod sebe */
+				}
     .tennis-table th { 
         background: var(--navy); 
         color: white; 
@@ -309,7 +327,7 @@
     </div>
 </div>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1400px; margin: 30px auto; padding: 0 15px;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1800px; margin: 30px auto; padding: 0 15px;">
     
     <div class="history-container" style="margin-top: 0;">
         <h3 style="display: flex; align-items: center; gap: 15px; border-bottom: 2px solid #f1c40f; padding-bottom: 10px; margin-bottom: 20px; color: var(--navy);">
