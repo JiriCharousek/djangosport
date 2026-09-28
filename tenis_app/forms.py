@@ -20,9 +20,19 @@ class HracForm(forms.ModelForm):
 class ZapasForm(forms.ModelForm):
     class Meta:
         model = Zapas
-        fields = ['datum', 'hrac_domaci', 'hrac_hoste', 'set1', 'set2', 'set3', 'mice_bere_domaci']
+        fields = [
+            'datum', 
+            'hrac_domaci', 
+            'hrac_hoste', 
+            'set1', 'tiebreak_set1', 
+            'set2', 'tiebreak_set2', 
+            'set3', 'tiebreak_set3', 
+            'poznamka', 
+            'mice_bere_domaci'
+        ]
         widgets = {
             'datum': forms.DateInput(attrs={'type': 'date'}),
+            'poznamka': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Zde můžete zapsat poznámku k zápasu...'}),
         }
 
     def __init__(self, *args, **kwargs):

@@ -83,6 +83,14 @@ class Zapas(models.Model):
     set2 = models.CharField(max_length=5, choices=VYSLEDKY_SETU, default='0:0')
     set3 = models.CharField(max_length=10, default='0:0', blank=True)
     
+    # NOVÉ: Výsledky tiebreaků pro jednotlivé sety (např. '7:3', '5:7' apod.)
+    tiebreak_set1 = models.CharField(max_length=10, default='', blank=True, verbose_name="Tiebreak 1. setu")
+    tiebreak_set2 = models.CharField(max_length=10, default='', blank=True, verbose_name="Tiebreak 2. setu")
+    tiebreak_set3 = models.CharField(max_length=10, default='', blank=True, verbose_name="Tiebreak 3. setu")
+    
+    # NOVÉ: Textová poznámka k zápasu
+    poznamka = models.TextField(blank=True, default='', verbose_name="Poznámka")
+    
     sety_domaci = models.IntegerField(default=0)
     sety_hoste = models.IntegerField(default=0)
     gamy_domaci = models.IntegerField(default=0)

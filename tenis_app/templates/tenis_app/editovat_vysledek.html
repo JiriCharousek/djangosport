@@ -2,7 +2,7 @@
 {% block content %}
 <style>
     .form-container { 
-        max-width: 600px; 
+        max-width: 650px; 
         margin: 20px auto; 
         background: white; 
         padding: 25px; 
@@ -19,14 +19,27 @@
         gap: 15px; 
         margin-bottom: 20px; 
     }
-    .sets-row { 
-        display: grid; 
-        grid-template-columns: 1fr 1fr 1fr; 
-        gap: 12px; 
-        background: #f9f9f9; 
-        padding: 15px; 
-        border-radius: 8px; 
-        margin-bottom: 20px; 
+    
+    /* Sekce setů a tiebreaků */
+    .sets-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 12px;
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    .set-box {
+        background: white;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+    }
+    .set-box label {
+        font-size: 0.75rem;
+        text-align: center;
+        margin-bottom: 4px;
     }
     
     .form-group label { 
@@ -39,17 +52,21 @@
     }
     
     /* Větší padding pro snazší klikání na mobilu */
-    input, select { 
+    input, select, textarea { 
         width: 100%; 
-        padding: 12px 10px; 
+        padding: 10px; 
         border: 1px solid var(--border); 
         border-radius: 6px; 
         box-sizing: border-box; 
         font-size: 1rem; /* Zabrání automatickému přibližování (zoomu) na iOS */
     }
     
+    textarea {
+        resize: vertical;
+        min-height: 80px;
+    }
+    
     .readonly-player { background: #eee; cursor: not-allowed; font-weight: bold; }
-    .meta-row { display: flex; flex-direction: column; gap: 10px; padding: 10px; border-top: 1px solid #eee; }
     
     /* Vylepšený checkbox, aby se na něj na mobilu dalo kliknout */
     .check-item { 
@@ -79,36 +96,20 @@
     }
     .error-msg { color: #e74c3c; font-size: 0.8rem; margin-top: 5px; display: block; }
 
-    /* 📱 MOBILNÍ OPTIMALIZACE (pro displeje menší než 500px) */
-    @media (max-width: 500px) {
+    /* 📱 MOBILNÍ OPTIMALIZACE */
+    @media (max-width: 600px) {
         .form-container {
             margin: 10px;
             padding: 15px;
         }
-        /* Hráči půjdou pod sebe */
         .match-header {
             grid-template-columns: 1fr;
             gap: 10px;
         }
-        /* Sety půjdou pod sebe, aby měly dost místa na zadání skóre */
-        .sets-row {
+        .sets-grid {
             grid-template-columns: 1fr;
             gap: 10px;
             padding: 10px;
-        }
-        .sets-row .form-group {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-        }
-        .sets-row label {
-            margin-bottom: 0;
-            min-width: 60px;
-            text-align: left !important;
-        }
-        .sets-row input {
-            max-width: 70%;
         }
     }
 </style>
@@ -142,23 +143,56 @@
             </div>
         </div>
 
-        <label style="display: block; text-align: center; font-weight: bold; margin-bottom: 8px;">Výsledky setů</label>
-        <div class="sets-row">
-            <div class="form-group">
-                <label style="text-align: center;">1. Set</label>
-                {{ form.set1 }}
+        <label style="display: block; font-weight: bold; margin-bottom: 8px; color: var(--navy); text-transform: uppercase; font-size: 0.85rem;">Výsledky setů a tiebreaků</label>
+        
+        <div class="sets-grid">
+            <!-- 1. SET -->
+            <div class="set-box">
+                <label style="display: block; font-weight: bold; color: var(--navy); text-align: center; margin-bottom: 8px;">1. SET</label>
+                <div style="margin-bottom: 8px;">
+                    <span style="font-size: 0.75rem; color: #666; display: block; margin-bottom: 2px;">Skóre:</span>
+                    {{ form.set1 }}
+                </div>
+                <div>
+                    <span style="font-size: 0.75rem; color: #666; display: block; margin-bottom: 2px;">Tiebreak:</span>
+                    {{ form.tiebreak_set1 }}
+                </div>
             </div>
-            <div class="form-group">
-                <label style="text-align: center;">2. Set</label>
-                {{ form.set2 }}
+
+            <!-- 2. SET -->
+            <div class="set-box">
+                <label style="display: block; font-weight: bold; color: var(--navy); text-align: center; margin-bottom: 8px;">2. SET</label>
+                <div style="margin-bottom: 8px;">
+                    <span style="font-size: 0.75rem; color: #666; display: block; margin-bottom: 2px;">Skóre:</span>
+                    {{ form.set2 }}
+                </div>
+                <div>
+                    <span style="font-size: 0.75rem; color: #666; display: block; margin-bottom: 2px;">Tiebreak:</span>
+                    {{ form.tiebreak_set2 }}
+                </div>
             </div>
-            <div class="form-group">
-                <label style="text-align: center;">3. Set</label>
-                {{ form.set3 }}
+
+            <!-- 3. SET (opraveno, aby byl stejný jako 1. a 2.) -->
+            <div class="set-box">
+                <label style="display: block; font-weight: bold; color: var(--navy); text-align: center; margin-bottom: 8px;">3. SET</label>
+                <div style="margin-bottom: 8px;">
+                    <span style="font-size: 0.75rem; color: #666; display: block; margin-bottom: 2px;">Skóre:</span>
+                    {{ form.set3 }}
+                </div>
+                <div>
+                    <span style="font-size: 0.75rem; color: #666; display: block; margin-bottom: 2px;">Tiebreak:</span>
+                    {{ form.tiebreak_set3 }}
+                </div>
             </div>
         </div>
 
-        <div class="form-group full-width">
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label>💬 Poznámka k zápasu</label>
+            {{ form.poznamka }}
+            {{ form.poznamka.errors }}
+        </div>
+
+        <div class="form-group full-width" style="margin-bottom: 15px;">
             <label>📦 Kdo přinese míče?</label>
             <div class="check-item" style="background: #f0f7ff; padding: 12px; border-radius: 8px; border: 1px solid #d0e3ff;">
                 {{ form.mice_bere_domaci }}
