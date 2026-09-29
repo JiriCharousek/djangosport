@@ -378,15 +378,30 @@
                     {% if zapas.mice_bere_domaci %} 🎾 {% endif %}
                 </div>
 
-                <div style="text-align: center; min-width: 100px; flex-shrink: 0;">
-                    <div class="score-badge" style="margin: 0 auto;">{{ zapas.sety_domaci }} : {{ zapas.sety_hoste }}</div>
-                    <div style="font-size: 0.7rem; color: #888; margin-top: 3px; font-weight: bold; line-height: 1;">
-                        ({{ zapas.set1 }}|{{ zapas.set2 }}{% if zapas.set3 and zapas.set3 != '0:0' %}|{{ zapas.set3 }}{% endif %})
-                    </div>
-                    {% if zapas.datum %}
-                        <div style="font-size: 0.65rem; color: #95a5a6; margin-top: 2px;">{{ zapas.datum|date:"d.m.Y" }}</div>
-                    {% endif %}
-                </div>
+                <div style="text-align: center; min-width: 110px; flex-shrink: 0;">
+					<div class="score-badge" style="margin: 0 auto;">{{ zapas.sety_domaci }} : {{ zapas.sety_hoste }}</div>
+					<div style="font-size: 0.7rem; color: #888; margin-top: 3px; font-weight: bold; line-height: 1.2;">
+						<!-- 1. set + tiebreak -->
+						({{ zapas.set1 }}{% if zapas.tiebreak_set1 %}<sup>({{ zapas.tiebreak_set1 }})</sup>{% endif %}|
+						
+						<!-- 2. set + tiebreak -->
+						{{ zapas.set2 }}{% if zapas.tiebreak_set2 %}<sup>({{ zapas.tiebreak_set2 }})</sup>{% endif %}
+						
+						<!-- 3. set + tiebreak (pokud existuje) -->
+						{% if zapas.set3 and zapas.set3 != '0:0' %}|{{ zapas.set3 }}{% if zapas.tiebreak_set3 %}<sup>({{ zapas.tiebreak_set3 }})</sup>{% endif %}{% endif %})
+					</div>
+
+					<!-- Pokud existuje poznámka, zobrazíme ji pod sety -->
+					{% if zapas.poznamka %}
+						<div style="font-size: 0.65rem; color: #d35400; margin-top: 3px; font-style: italic; max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="{{ zapas.poznamka }}">
+							💬 {{ zapas.poznamka }}
+						</div>
+					{% endif %}
+
+					{% if zapas.datum %}
+						<div style="font-size: 0.65rem; color: #95a5a6; margin-top: 2px;">{{ zapas.datum|date:"d.m.Y" }}</div>
+					{% endif %}
+				</div>
 
                 <div style="flex: 1; text-align: left; padding-left: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                     {% if not zapas.mice_bere_domaci %} 🎾 {% endif %}
