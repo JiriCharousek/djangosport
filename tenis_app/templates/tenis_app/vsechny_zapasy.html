@@ -129,8 +129,9 @@
                 </span>
 
                 <!-- Pokud existuje poznámka, zobrazíme ji pod sety -->
+                <!-- Pokud existuje poznámka, zobrazíme ji celou pod sety -->
                 {% if zapas.poznamka %}
-                    <span style="font-size: 0.7rem; color: #d35400; font-style: italic; max-width: 160px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-block;" title="{{ zapas.poznamka }}">
+                    <span style="font-size: 0.7rem; color: #d35400; font-style: italic; width: 100%; display: block; word-break: break-word; margin-top: 2px;">
                         💬 {{ zapas.poznamka }}
                     </span>
                 {% endif %}
