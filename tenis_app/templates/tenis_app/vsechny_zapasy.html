@@ -67,7 +67,7 @@
                     hráče: <strong style="color: #e67e22;">{{ vybrany_hrac.jmeno }}</strong>
                 </span>
                 <a href="?" style="font-size: 0.8rem; color: #e74c3c; text-decoration: none; font-weight: bold; margin-left: auto;">
-                   ✕ Zrušit filtr
+                    ✕ Zrušit filtr
                 </a>
             {% endif %}
         </h2>
@@ -75,79 +75,85 @@
 
     <div class="list-group">
     {% for zapas in historie %}
-        <div class="list-group-item mb-2 shadow-sm" style="border-left: 5px solid #27ae60; background: white; border-radius: 8px; padding: 10px 15px; display: flex; align-items: center; justify-content: space-between; gap: 15px; position: relative;">
+        <!-- Hlavní karta zápasu – nastaveno na column, aby poznámka mohla pod něj -->
+        <div class="list-group-item mb-2 shadow-sm" style="border-left: 5px solid #27ae60; background: white; border-radius: 8px; padding: 12px 15px; display: flex; flex-direction: column; gap: 8px;">
             
-            <div style="display: flex; align-items: center; min-width: 140px; gap: 10px; flex-shrink: 0;">
-                <div style="font-size: 1.1rem; font-weight: 800; color: #2c3e50; min-width: 35px; text-align: right;">
-                    {{ forloop.revcounter }}.
-                </div>
+            <!-- Řádek se samotnými údaji o zápasu -->
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px; width: 100%;">
                 
-                <div style="display: flex; flex-direction: column;">
-                    <small class="text-muted" style="font-weight: bold; font-size: 0.75rem;">{{ zapas.datum|date:"d.m.Y" }}</small>
-                    <span style="font-size: 0.75rem; color: #27ae60; font-weight: bold; text-transform: uppercase;">
-                         {{ zapas.soutez.nazev }}
+                <div style="display: flex; align-items: center; min-width: 140px; gap: 10px; flex-shrink: 0;">
+                    <div style="font-size: 1.1rem; font-weight: 800; color: #2c3e50; min-width: 35px; text-align: right;">
+                        {{ forloop.revcounter }}.
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column;">
+                        <small class="text-muted" style="font-weight: bold; font-size: 0.75rem;">{{ zapas.datum|date:"d.m.Y" }}</small>
+                        <span style="font-size: 0.75rem; color: #27ae60; font-weight: bold; text-transform: uppercase;">
+                             {{ zapas.soutez.nazev }}
+                        </span>
+                    </div>
+                </div>
+
+                <div style="flex: 2; text-align: right; font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    <a href="?filtr_hrac={{ zapas.hrac_domaci.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == zapas.hrac_domaci.id %}#e67e22{% else %}inherit{% endif %};">
+                        {{ zapas.hrac_domaci.jmeno }}
+                        {% if zapas.mice_bere_domaci %} 🎾 {% endif %}
+                    </a>
+                </div>
+
+                <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; min-width: 170px; gap: 4px; flex-shrink: 0;">
+                    <span style="
+                        background-color: #1a202c !important; 
+                        color: white !important; 
+                        font-weight: 800; 
+                        font-size: 1.1rem; 
+                        padding: 2px 15px; 
+                        border-radius: 6px; 
+                        display: inline-block; 
+                        white-space: nowrap;
+                    ">
+                        {{ zapas.sety_domaci }} : {{ zapas.sety_hoste }}
+                    </span>
+
+                    <span style="
+                        color: #718096 !important; 
+                        font-size: 0.8rem; 
+                        font-weight: 600; 
+                        white-space: nowrap;
+                        text-align: center;
+                    ">
+                        <!-- 1. set + tiebreak -->
+                        ({{ zapas.set1 }}{% if zapas.tiebreak_set1 %}<sup>({{ zapas.tiebreak_set1 }})</sup>{% endif %} |
+                        
+                        <!-- 2. set + tiebreak -->
+                        {{ zapas.set2 }}{% if zapas.tiebreak_set2 %}<sup>({{ zapas.tiebreak_set2 }})</sup>{% endif %}
+                        
+                        <!-- 3. set + tiebreak (pokud existuje) -->
+                        {% if zapas.set3 and zapas.set3 != '0:0' %} | {{ zapas.set3 }}{% if zapas.tiebreak_set3 %}<sup>({{ zapas.tiebreak_set3 }})</sup>{% endif %}{% endif %})
                     </span>
                 </div>
+
+                <div style="flex: 2; text-align: left; font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    <a href="?filtr_hrac={{ zapas.hrac_hoste.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == zapas.hrac_hoste.id %}#e67e22{% else %}inherit{% endif %};">
+                        {% if not zapas.mice_bere_domaci %} 🎾 {% endif %}
+                        {{ zapas.hrac_hoste.jmeno }}
+                    </a>
+                </div>
+
+                <div style="width: 45px; text-align: right; flex-shrink: 0; margin-left: 10px;">
+                    {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff or request.user.is_superuser %}
+                        <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem; display: inline-block;">✏️️</a>
+                    {% endif %}
+                </div>
+
             </div>
 
-            <div style="flex: 2; text-align: right; font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                <a href="?filtr_hrac={{ zapas.hrac_domaci.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == zapas.hrac_domaci.id %}#e67e22{% else %}inherit{% endif %};">
-                    {{ zapas.hrac_domaci.jmeno }}
-                    {% if zapas.mice_bere_domaci %} 🎾 {% endif %}
-                </a>
-            </div>
-
-            <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; min-width: 170px; gap: 4px; flex-shrink: 0;">
-                <span style="
-                    background-color: #1a202c !important; 
-                    color: white !important; 
-                    font-weight: 800; 
-                    font-size: 1.1rem; 
-                    padding: 2px 15px; 
-                    border-radius: 6px; 
-                    display: inline-block; 
-                    white-space: nowrap;
-                ">
-                    {{ zapas.sety_domaci }} : {{ zapas.sety_hoste }}
-                </span>
-
-                <span style="
-                    color: #718096 !important; 
-                    font-size: 0.8rem; 
-                    font-weight: 600; 
-                    white-space: nowrap;
-                    text-align: center;
-                ">
-                    <!-- 1. set + tiebreak -->
-                    ({{ zapas.set1 }}{% if zapas.tiebreak_set1 %}<sup>({{ zapas.tiebreak_set1 }})</sup>{% endif %} |
-                    
-                    <!-- 2. set + tiebreak -->
-                    {{ zapas.set2 }}{% if zapas.tiebreak_set2 %}<sup>({{ zapas.tiebreak_set2 }})</sup>{% endif %}
-                    
-                    <!-- 3. set + tiebreak (pokud existuje) -->
-                    {% if zapas.set3 and zapas.set3 != '0:0' %} | {{ zapas.set3 }}{% if zapas.tiebreak_set3 %}<sup>({{ zapas.tiebreak_set3 }})</sup>{% endif %}{% endif %})
-                </span>
-
-                <!-- Pokud existuje poznámka, zobrazíme ji pod sety -->
-                {% if zapas.poznamka %}
-                    <span style="font-size: 0.7rem; color: #d35400; font-style: italic; max-width: 60px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-block;" title="{{ zapas.poznamka }}">
-                        💬 {{ zapas.poznamka }}
-                    </span>
-                {% endif %}
-            </div>
-
-            <div style="flex: 2; text-align: left; font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                <a href="?filtr_hrac={{ zapas.hrac_hoste.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == zapas.hrac_hoste.id %}#e67e22{% else %}inherit{% endif %};">
-                    {% if not zapas.mice_bere_domaci %} 🎾 {% endif %}
-                    {{ zapas.hrac_hoste.jmeno }}
-                </a>
-            </div>
-
-            <div style="width: 45px; text-align: right; flex-shrink: 0; margin-left: 10px;">
-                {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff or request.user.is_superuser %}
-                    <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem; display: inline-block;">✏️</a>
-                {% endif %}
-            </div>
+            <!-- Samostatný řádek pro celou poznámku přes plnou šířku -->
+            {% if zapas.poznamka %}
+                <div style="width: 100%; border-top: 1px dashed #e2e8f0; padding-top: 6px; margin-top: 2px; font-size: 0.85rem; color: #d35400; font-style: italic; word-break: break-word;">
+                    💬 <strong>Poznámka:</strong> {{ zapas.poznamka }}
+                </div>
+            {% endif %}
 
         </div>
     {% empty %}
@@ -208,7 +214,7 @@
                                 {{ radek.body }}
                             </td>
 
-                            <!-- 5. Detailní rozpad Výhry / Prohry (NOVÉ) -->
+                            <!-- 5. Detailní rozpad Výhry / Prohry -->
                             <td style="text-align: center; font-size: 0.8rem; white-space: nowrap;">
                                 <span style="color: #2e7d32; font-weight: bold;" title="Výhry 2:0 / 2:1">
                                    {{ radek.v2_0 }}<span style="font-weight: normal; font-size: 0.75rem; color:#a2a2a2;"></span> 
@@ -229,7 +235,6 @@
                             <!-- 7. Gemy -->
                             <td style="text-align: center; font-size: 0.85rem; color: #475569; line-height: 1.2;">
                                 <strong style="color: #1e293b;">{{ radek.gemy_ziskane }}</strong>:<strong style="color: #64748b;">{{ radek.gemy_ztracene }}</strong>
-                               
                             </td>
 
                         </tr>
