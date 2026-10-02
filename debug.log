@@ -4814,3 +4814,6 @@ Traceback (most recent call last):
     ...<8 lines>...
     )
 django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 178: 'empty', expected 'endblock'. Did you forget to register or load this tag?
+INFO 2026-10-02 19:49:57,905 autoreload Watching for file changes with StatReloader
+INFO 2026-10-02 19:50:01,166 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-02 19:50:11,165 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
