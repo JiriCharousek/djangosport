@@ -50,7 +50,7 @@ urlpatterns = [
     path('smazat-hrace/<int:pk>/', views.smazat_hrace, name='smazat_hrace'),
     
     path('admin-tools/', views.admin_tools_view, name='admin_tools'),
-    path('run-admin-tool/', views.admin_tools_launcher, name='admin_tools_launcher'),
+    path('run-admin-tool/', views.admin_tools_view, name='admin_tools'),
     
     path('hraci/', views.hraci_prehled, name='hraci_prehled'),
 ]

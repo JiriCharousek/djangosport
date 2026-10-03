@@ -376,7 +376,7 @@
 					</form>
 				</li>
 				<li>
-					<form action="{% url 'tenis_app:admin_tools_launcher' %}" method="post">
+					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
 						{% csrf_token %}
 						<input type="hidden" name="akce" value="parovat_hrace_uzivatele">
 						<button type="submit" class="admin-btn btn-info">
@@ -385,7 +385,7 @@
 					</form>
 				</li>
 				<li>
-					<form action="{% url 'tenis_app:admin_tools_launcher' %}" method="post">
+					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
 						{% csrf_token %}
 						<input type="hidden" name="akce" value="inicializovat_zebricek">
 						<button type="submit" class="admin-btn btn-info" 
@@ -416,7 +416,7 @@
 					</form>
 				</li>
 				<li>
-				<form method="post" action="{% url 'tenis_app:admin_tools_launcher' %}">
+				<form method="post" action="{% url 'tenis_app:admin_tools' %}">
 					{% csrf_token %}
 					<button type="submit" name="akce" value="vytvor_hrace" class="btn-submit">
 						🔐 Vygenerovat účty a hesla

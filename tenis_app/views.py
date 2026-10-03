@@ -1,38 +1,90 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.db.models import Q, F
-from django.utils import timezone
-from django.urls import reverse
-from .models import Hrac, Zapas, Soutez
-from .forms import HracForm, ZapasForm
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404, redirect
-from django.contrib import messages
-from django.http import HttpResponseForbidden
 import logging
+import random
+import unicodedata
+from collections import defaultdict
+from datetime import date
+
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.models import User
+from django.core.management import call_command
+from django.db.models import F, Q
+from django.http import HttpResponse, HttpResponseForbidden
+from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
+from django.utils import timezone
+
+from zebricek_app.models import ZebricekPozice
+from zebricek_app.views import aktualizuj_pozice_zebricku
+
+from .forms import HracForm, ZapasForm
+from .models import Hrac, Soutez, Zapas
 
 logger = logging.getLogger(__name__)
+
+
 # =================================================================
-# 1. UNIVERZÁLNÍ VÝPOČETNÍ JÁDRO (Modulární systém)
+# POMOCNÉ FUNKCE
+# =================================================================
+
+def secti_gemy(set_str):
+    """Pomocná funkce pro rozpad řetězce setu (např. '6:4') na gemy."""
+    if not set_str or ':' not in set_str or set_str == '0:0':
+        return 0, 0
+    try:
+        d, h = map(int, set_str.split(':'))
+        return d, h
+    except ValueError:
+        return 0, 0
+
+
+def vygeneruj_zapas_pro_soutez(soutez_slug):
+    """Vygeneruje zápasy každý s každým pro zadanou soutěž."""
+    try:
+        soutez = Soutez.objects.get(slug=soutez_slug)
+    except Soutez.DoesNotExist:
+        return 0
+
+    hraci = list(soutez.hraci.all())
+    n = len(hraci)
+    if n < 2:
+        return 0
+
+    vytvoreno = 0
+    for i in range(n):
+        for j in range(n):
+            if i != j:
+                hrac1 = hraci[i]
+                hrac2 = hraci[j]
+                
+                obj, created = Zapas.objects.get_or_create(
+                    soutez=soutez,
+                    hrac_domaci=hrac1,
+                    hrac_hoste=hrac2,
+                    defaults={'odehrano': False}
+                )
+                if created:
+                    vytvoreno += 1
+    return vytvoreno
+
+
+# =================================================================
+# 1. UNIVERZÁLNÍ VÝPOČETNÍ JÁDRO
 # =================================================================
 
 def vypocitej_tabulku_dat(soutez, request=None):
-    # 1. Základní queryset zápasů této soutěže
     zapasy_v_soutezi = Zapas.objects.filter(soutez=soutez)
-
     vybrany_hrac = None
     
-    # 2. Zjištění hráčů ze zápasů nebo ze soutěže
     id_hracu = set()
     for z in zapasy_v_soutezi:
         id_hracu.add(z.hrac_domaci_id)
         id_hracu.add(z.hrac_hoste_id)
     
     hraci_obj = list(Hrac.objects.filter(id__in=id_hracu))
-
     if not hraci_obj:
         hraci_obj = list(soutez.hraci.all())
 
-    # 3. Příprava seznamů pro historii a plán
     vsechny_odehrane = zapasy_v_soutezi.filter(odehrano=True).order_by('-datum', '-id')
     planovane_zapasy = zapasy_v_soutezi.filter(odehrano=False).order_by('-datum', 'id')
 
@@ -51,10 +103,9 @@ def vypocitej_tabulku_dat(soutez, request=None):
                     Q(hrac_domaci=vybrany_hrac) | Q(hrac_hoste=vybrany_hrac)
                 )
 
-    # 4. Výpočet statistik (body, sety, gemy) pro každého hráče
     for h in hraci_obj:
         h.pocet_bodu, h.s_v, h.s_p = 0, 0, 0
-        h.g_v, h.g_p = 0, 0  # <--- Doplňte inicializaci gemů
+        h.g_v, h.g_p = 0, 0
         
         zps = zapasy_v_soutezi.filter(odehrano=True).filter(Q(hrac_domaci=h) | Q(hrac_hoste=h))
         
@@ -73,34 +124,28 @@ def vypocitej_tabulku_dat(soutez, request=None):
                 _, bh = z.ziskej_body()
                 h.pocet_bodu += bh
 
-            # <--- Doplňte součet gemů ze všech setů
             for set_str in [z.set1, z.set2, z.set3]:
-                if set_str and ':' in set_str and set_str != '0:0':
-                    try:
-                        g_d, g_h = map(int, set_str.split(':'))
-                        if z.hrac_domaci == h:
-                            h.g_v += g_d
-                            h.g_p += g_h
-                        else:
-                            h.g_v += g_h
-                            h.g_p += g_d
-                    except ValueError:
-                        pass
+                g_d, g_h = secti_gemy(set_str)
+                if z.hrac_domaci == h:
+                    h.g_v += g_d
+                    h.g_p += g_h
+                else:
+                    h.g_v += g_h
+                    h.g_p += g_d
 
-    # === ŘAZENÍ MATICE S ZAPOČÍTANÝMI GEMY ===
+    # Řazení tabulky
     hraci_obj.sort(
         key=lambda x: (
             x.pocet_bodu,          # 1. Body
             (x.s_v - x.s_p),       # 2. Rozdíl setů
             x.s_v,                 # 3. Vyhrané sety
-            (x.g_v - x.g_p),       # 4. Rozdíl gemů (Vyřeší prohození 1. a 2. místa)
+            (x.g_v - x.g_p),       # 4. Rozdíl gemů
             x.g_v                  # 5. Vyhrané gemy
         ), 
         reverse=True
     )
-    # ========================================================
 
-    # 5. Křížová tabulka - teď už se generuje přesně podle seřazeného seznamu `hraci_obj`
+    # Křížová tabulka
     matice = []
     for h_radek in hraci_obj:
         radek_bunky = []
@@ -112,10 +157,8 @@ def vypocitej_tabulku_dat(soutez, request=None):
                     (z.hrac_domaci_id == h_radek.id and z.hrac_hoste_id == h_sloupec.id) or
                     (z.hrac_domaci_id == h_sloupec.id and z.hrac_hoste_id == h_radek.id)]
                 
-                z1 = None
-                z2 = None
-                url1 = None
-                url2 = None
+                z1, z2 = None, None
+                url1, url2 = None, None
                 z_obj = None
                 vysledek_v_bunce = None
 
@@ -156,7 +199,6 @@ def vypocitej_tabulku_dat(soutez, request=None):
                 })
         matice.append({'hrac': h_radek, 'bunky': radek_bunky})
 
-    # 6. Finální návrat dat
     return {
         'soutez': soutez,
         'hraci': hraci_obj,
@@ -166,33 +208,63 @@ def vypocitej_tabulku_dat(soutez, request=None):
         'vybrany_hrac': vybrany_hrac,
         'pismeno': soutez.nazev
     }
-    
-    
+
+
 # =================================================================
-# 2. HLAVNÍ POHLEDY (Views)
+# 2. HLAVNÍ UŽIVATELSKÉ POHLEDY (Views)
 # =================================================================
 
-from collections import defaultdict
-from django.db.models import Q
-from django.shortcuts import get_object_or_404, render
-from django.contrib.auth.decorators import login_required
-# Ujisti se, že máš importovaný model Zapas a Hrac, pokud je potřeba
+def tenis_index(request):
+    """Hlavní strana s odpočtem a přehledem odehranosti lig."""
+    konec_ligy = date(2026, 9, 19)
+    dnes = date.today()
+    dni_do_konce = max((konec_ligy - dnes).days, 0)
+
+    aktivni_souteze = Soutez.objects.filter(nazev__icontains="2026", aktivni=True)
+    
+    ligy_statistiky = []
+    souteze_k_zapoctu = []
+
+    for soutez in aktivni_souteze:
+        nazev_lower = soutez.nazev.lower()
+        slug_lower = soutez.slug.lower()
+
+        if "zebricek" in slug_lower or "mix" in nazev_lower:
+            continue
+
+        souteze_k_zapoctu.append(soutez)
+        soutez_zapasu = Zapas.objects.filter(soutez=soutez)
+        
+        ligy_statistiky.append({
+            'nazev': soutez.nazev,
+            'odehrano': soutez_zapasu.filter(odehrano=True).count(),
+            'zbyva': soutez_zapasu.filter(odehrano=False).count()
+        })
+
+    celkem_odehrano = Zapas.objects.filter(soutez__in=souteze_k_zapoctu, odehrano=True).count()
+    celkem_zbyva = Zapas.objects.filter(soutez__in=souteze_k_zapoctu, odehrano=False).count()
+
+    context = {
+        'dni_do_konce': dni_do_konce,
+        'celkem_odehrano': celkem_odehrano,
+        'celkem_zbyva': celkem_zbyva,
+        'ligy_statistiky': ligy_statistiky,
+    }
+    return render(request, 'index.html', context)
+
 
 @login_required
 def detail_souteze(request, soutez_slug):
     soutez = get_object_or_404(Soutez, slug=soutez_slug)
     logger.info(f"Uživatel {request.user.username} si prohlíží soutěž: {soutez.nazev}")
     
-    # Získání původního kontextu
     context = vypocitej_tabulku_dat(soutez=soutez, request=request)
     
-    # 📊 VÝPOČET STATISTIK AKTIVITY PRO TUTO KONKRÉTNÍ SOUTĚŽ
     zapas_stats = Zapas.objects.filter(
         soutez=soutez,
         odehrano=True
     ).select_related('hrac_domaci', 'hrac_hoste')
 
-    # Pomocný slovník pro statistiky
     data_hracu = defaultdict(lambda: {
         'pocet_zapasu': 0, 
         'body': 0, 
@@ -206,55 +278,28 @@ def detail_souteze(request, soutez_slug):
         'hrac_obj': None
     })
 
-    # Zjistíme, jací hráči v této soutěži vůbec figurují, abychom zobrazili i ty s 0 zápasy.
-    # Použijeme hráče z původního contextu (např. z klíče 'tabulka' nebo 'hraci'), 
-    # případně pokud máš vztah na soutěž, tak soutez.hraci.all()
-    hraci_v_soutezi = []
-    if 'tabulka' in context:
-        # Pokud máš v kontextu strukturu řádků tabulky, kde je schovaný objekt hráče
-        hraci_v_soutezi = [radek['hrac'] for radek in context['tabulka'] if 'hrac' in radek]
-    elif 'hraci' in context:
-        hraci_v_soutezi = context['hraci']
-    
-    # Pokud by se nepodařilo hráče z kontextu vytáhnout, vezmeme jako zálohu ty, 
-    # kteří v dané soutěži odehráli alespoň jeden zápas, nebo všechny (podle tvé struktury M2M)
+    hraci_v_soutezi = context.get('hraci', [])
     if not hraci_v_soutezi:
-        # Záložní varianta: Hráči navázaní na tuto soutěž (uprav podle svého modelu, např. soutez.hrac_set.all())
         try:
-            hraci_v_soutezi = soutez.hraci.all() 
+            hraci_v_soutezi = soutez.hraci.all()
         except AttributeError:
-            # Pokud v modelu Soutez nemáš přímou vazbu na hráče, naplníme je dynamicky ze zápasů níže
             hraci_v_soutezi = []
 
-    # Předem naplníme seznam hráčů z této ligy
     for h in hraci_v_soutezi:
         data_hracu[h.id]['hrac_obj'] = h
 
-    def secti_gemy(set_str):
-        if not set_str or ':' not in set_str or set_str == '0:0':
-            return 0, 0
-        try:
-            d, h = map(int, set_str.split(':'))
-            return d, h
-        except ValueError:
-            return 0, 0
-
-    # Výpočet statistik ze zápasů
     for zapas in zapas_stats:
         d_id = zapas.hrac_domaci.id
         h_id = zapas.hrac_hoste.id
         
-        # Kdyby hráč náhodou nebyl v předpřipraveném seznamu ligy, zajistíme objekt
         if not data_hracu[d_id]['hrac_obj']:
             data_hracu[d_id]['hrac_obj'] = zapas.hrac_domaci
         if not data_hracu[h_id]['hrac_obj']:
             data_hracu[h_id]['hrac_obj'] = zapas.hrac_hoste
         
-        # 1. Zápasy
         data_hracu[d_id]['pocet_zapasu'] += 1
         data_hracu[h_id]['pocet_zapasu'] += 1
         
-        # 2. Body podle přesného klíče (3 body za 2:0, 2 body za 2:1, 1 bod za 1:2)
         if zapas.sety_domaci == 2 and zapas.sety_hoste == 0:
             data_hracu[d_id]['body'] += 3
             data_hracu[d_id]['v2_0'] += 1
@@ -274,13 +319,11 @@ def detail_souteze(request, soutez_slug):
             data_hracu[d_id]['p0_2'] += 1
             data_hracu[h_id]['v2_0'] += 1
             
-        # 3. Sety
         data_hracu[d_id]['sety_ziskane'] += zapas.sety_domaci
         data_hracu[d_id]['sety_ztracene'] += zapas.sety_hoste
         data_hracu[h_id]['sety_ziskane'] += zapas.sety_hoste
         data_hracu[h_id]['sety_ztracene'] += zapas.sety_domaci
         
-        # 4. Gemy
         for set_pole in [zapas.set1, zapas.set2, zapas.set3]:
             g_d, g_h = secti_gemy(set_pole)
             data_hracu[d_id]['gemy_ziskane'] += g_d
@@ -288,94 +331,46 @@ def detail_souteze(request, soutez_slug):
             data_hracu[h_id]['gemy_ziskane'] += g_h
             data_hracu[h_id]['gemy_ztracene'] += g_d
 
-    # Dopočet rozdílů
     for h_id in data_hracu:
         data_hracu[h_id]['rozdil_gemu'] = data_hracu[h_id]['gemy_ziskane'] - data_hracu[h_id]['gemy_ztracene']
 
-    # Seřazení statistik
-    # Seřazení statistik: Body -> Rozdíl gemů -> Aktivita (zápasy)
     statistiky_ligy = list(data_hracu.values())
     statistiky_ligy.sort(
         key=lambda x: (
-            x['body'],                                           # 1. Body
-            (x['sety_ziskane'] - x['sety_ztracene']),            # 2. Rozdíl setů
-            (x['gemy_ziskane'] - x['gemy_ztracene'])             # 3. Rozdíl gemů
+            x['body'],
+            (x['sety_ziskane'] - x['sety_ztracene']),
+            (x['gemy_ziskane'] - x['gemy_ztracene'])
         ),
-        reverse=True  # Sestupně (od nejlepších po horší)
-    
+        reverse=True
     )
-# 🔗 PROPOJENÍ STATISTIK S MATICÍ PRO JEDNOKOLOVOU TABULKU
+
     if 'matice' in context:
         for radek in context['matice']:
-            # Získáme objekt hráče z řádku matice
-            hrac_obj = getattr(radek, 'hrac', None) or (radek.get('hrac') if isinstance(radek, dict) else None)
-            
+            hrac_obj = radek.get('hrac') if isinstance(radek, dict) else getattr(radek, 'hrac', None)
             if hrac_obj and hrac_obj.id in data_hracu:
                 stats = data_hracu[hrac_obj.id]
-                
-                # Přidáme vypočítané statistiky přímo do řádku v matici
-                if isinstance(radek, dict):
-                    radek['pocet_zapasu'] = stats['pocet_zapasu']
-                    radek['body'] = stats['body']
-                    radek['sety_ziskane'] = stats['sety_ziskane']
-                    radek['sety_ztracene'] = stats['sety_ztracene']
-                    radek['gemy_ziskane'] = stats['gemy_ziskane']
-                    radek['gemy_ztracene'] = stats['gemy_ztracene']
-                else:
-                    radek.pocet_zapasu = stats['pocet_zapasu']
-                    radek.body = stats['body']
-                    radek.sety_ziskane = stats['sety_ziskane']
-                    radek.sety_ztracene = stats['sety_ztracene']
-                    radek.gemy_ziskane = stats['gemy_ziskane']
-                    radek.gemy_ztracene = stats['gemy_ztracene']
+                radek['pocet_zapasu'] = stats['pocet_zapasu']
+                radek['body'] = stats['body']
+                radek['sety_ziskane'] = stats['sety_ziskane']
+                radek['sety_ztracene'] = stats['sety_ztracene']
+                radek['gemy_ziskane'] = stats['gemy_ziskane']
+                radek['gemy_ztracene'] = stats['gemy_ztracene']
 
-    # 🔗 PROPOJENÍ STATISTIK S KŘÍŽOVOU TABULKOU (pro 2K)
-    if 'tabulka' in context:
-        for radek in context['tabulka']:
-            hrac_obj = getattr(radek, 'hrac', None) or (radek.get('hrac') if isinstance(radek, dict) else None)
-            if hrac_obj and hrac_obj.id in data_hracu:
-                stats = data_hracu[hrac_obj.id]
-                if isinstance(radek, dict):
-                    radek['pocet_zapasu'] = stats['pocet_zapasu']
-                    radek['body'] = stats['body']
-                    radek['sety_ziskane'] = stats['sety_ziskane']
-                    radek['sety_ztracene'] = stats['sety_ztracene']
-                    radek['gemy_ziskane'] = stats['gemy_ziskane']
-                    radek['gemy_ztracene'] = stats['gemy_ztracene']
-                else:
-                    radek.pocet_zapasu = stats['pocet_zapasu']
-                    radek.body = stats['body']
-                    radek.sety_ziskane = stats['sety_ziskane']
-                    radek.sety_ztracene = stats['sety_ztracene']
-                    radek.gemy_ziskane = stats['gemy_ziskane']
-                    radek.gemy_ztracene = stats['gemy_ztracene']
-
-    # Vložíme hotové statistiky do kontextu
     context['statistiky_ligy'] = statistiky_ligy
 
-    # Přidáme 'tenis_app/' před název souboru
     if soutez.typ == '2K':
         return render(request, 'tenis_app/dvoukolova_tabulka.html', context)
-    else:
-        return render(request, 'tenis_app/tabulka_5ti_lig.html', context)
-    
+    return render(request, 'tenis_app/tabulka_5ti_lig.html', context)
+
+
 @login_required
 def zadat_vysledek(request):
-    # 1. Načtení parametrů z URL
     hrac_domaci_id = request.GET.get('hrac_domaci')
     hrac_hoste_id = request.GET.get('hrac_hoste')
     soutez_slug = request.GET.get('soutez') or request.GET.get('slug')
 
-    # 2. Načtení soutěže
-    soutez_obj = None
-    if soutez_slug:
-        soutez_obj = Soutez.objects.filter(slug=soutez_slug).first()
-    
+    soutez_obj = Soutez.objects.filter(slug=soutez_slug).first() if soutez_slug else Soutez.objects.first()
     if not soutez_obj:
-        soutez_obj = Soutez.objects.first()
-
-    if not soutez_obj:
-        from django.http import HttpResponse
         return HttpResponse("V databázi neexistuje žádná soutěž.")
 
     if request.method == 'POST':
@@ -385,12 +380,9 @@ def zadat_vysledek(request):
             zapas.soutez = soutez_obj
             zapas.odehrano = True
             
-            # Nastavení data, pokud chybí
-            from django.utils import timezone
             if not zapas.datum: 
                 zapas.datum = timezone.now().date()
             
-            # --- VÝPOČET SETŮ A GAMŮ (aby se žebříček měl podle čeho rozhodnout) ---
             zapas.sety_domaci = 0
             zapas.sety_hoste = 0
             for s in [zapas.set1, zapas.set2, zapas.set3]:
@@ -398,19 +390,11 @@ def zadat_vysledek(request):
                     d, h = map(int, s.split(':'))
                     if d > h: zapas.sety_domaci += 1
                     elif h > d: zapas.sety_hoste += 1
-            # ---------------------------------------------------------------------
 
             zapas.save()
-
-            # LOGOVÁNÍ (opravené, aby nepadalo)
             logger.info(f"VÝSLEDEK ZAPSÁN: {zapas.hrac_domaci} vs {zapas.hrac_hoste} - {zapas.set1}")
 
-            # --- ŽEBŘÍČEK: PROHOZENÍ POZIC ---
-            from zebricek_app.views import aktualizuj_pozice_zebricku
             aktualizuj_pozice_zebricku(zapas)
-            # ---------------------------------
-
-            #return redirect('tenis_app:detail_souteze', soutez_slug=soutez_obj.slug)
             return redirect('zebricek_app:zebricek_index')
     else:
         form = ZapasForm(initial={
@@ -419,139 +403,22 @@ def zadat_vysledek(request):
         })
     
     return render(request, 'tenis_app/zadat_vysledek.html', {'form': form, 'soutez': soutez_obj})
-# =================================================================
-# 3. SPRÁVA (Editace, Mazání)
-# =================================================================
 
-@login_required
-def editovat_vysledek(request, pk):
-    zapas = get_object_or_404(Zapas, id=pk)
-    
-    # KONTROLA PRÁV: Je uživatel domácí, host nebo admin?
-    je_ucastnik = (request.user == zapas.hrac_domaci.user or 
-                  request.user == zapas.hrac_hoste.user)
-    
-    if not je_ucastnik and not request.user.is_staff:
-        messages.error(request, "Nemůžeš editovat zápas, kterého jsi se neúčastnil.")
-        return redirect('zebricek_app:zebricek_index')
-   
-    if request.method == 'POST':
-        form = ZapasForm(request.POST, instance=zapas, user=request.user)
-        if form.is_valid():
-            zapas.save()
-            return redirect('tenis_app:detail_souteze', soutez_slug=zapas.soutez.slug)
-    else:
-        default_data = {}
-        
-        # Pokud zápas ještě nemá datum nastavené (je prázdné / None),
-        # přidáme do initial dnešní datum.
-        # (Předpokládám, že se pole jmenuje 'datum')
-        if not zapas.datum:  
-            default_data['datum'] = timezone.now().date()
-        
-        # Předáme initial data a uživatele do formuláře
-        form = ZapasForm(instance=zapas, user=request.user, initial=default_data)
-        
-    return render(request, 'tenis_app/editovat_vysledek.html', {'form': form, 'zapas': zapas})
-    
-    
-from django.core.exceptions import ObjectDoesNotExist
-
-@login_required
-def smazat_vysledek(request, pk):
-    try:
-        zapas = Zapas.objects.get(id=pk)
-    except Zapas.DoesNotExist:
-        messages.error(request, "zápas smazán")
-        return redirect('zebricek_app:zebricek_index')    
-
-    zapas = get_object_or_404(Zapas, id=pk)
-    
-    # KONTROLA PRÁV
-    je_ucastnik = (request.user == zapas.hrac_domaci.user or 
-                  request.user == zapas.hrac_hoste.user)
-    
-    if not je_ucastnik and not request.user.is_staff:
-        messages.error(request, "Nemáš oprávnění smazat tento výsledek.")
-        return redirect('zebricek_app:zebricek_index')
-
-    if request.method == 'POST':
-        zapas.delete()
-        messages.success(request, "Výsledek byl úspěšně smazán.")
-        return redirect('zebricek_app:zebricek_index')
-
-    # TADY JE OPRAVA: Předáme přesná data, která šablona očekává v tagu {% url %}
-    context = {
-        'zapas': zapas,
-        'objekt': f"{zapas.hrac_domaci} vs {zapas.hrac_hoste}",
-        'zpet_url_name': 'zebricek_app:zebricek_index', # Tohle opraví chybu NoReverseMatch
-    }
-    
-    return render(request, 'tenis_app/potvrdit_smazani.html', context)
-
-@login_required
-def pridat_hrace(request):
-    if request.method == 'POST':
-        form = HracForm(request.POST, request.FILES) # Přidejte request.FILES kvůli fotkám
-        if form.is_valid():
-            form.save()
-            return redirect('tenis_app:tenis_index')
-    else:
-        form = HracForm() # Žádné initial={'klub': ...}
-    return render(request, 'tenis_app/pridat_hrace.html', {'form': form})
-
-@login_required
-def editovat_hrace(request, pk):
-    hrac = get_object_or_404(Hrac, id=pk)
-
-    # KONTROLA: Může editovat jen vlastník profilu nebo admin
-    if hrac.user != request.user and not request.user.is_staff:
-        messages.error(request, "Nemáte oprávnění upravovat tento profil.")
-        return redirect('tenis_app:hraci_prehled') # <-- Změněno, ať tě to neháže pryč
-
-    if request.method == 'POST':
-        form = HracForm(request.POST, request.FILES, instance=hrac)
-        if form.is_valid():
-            form.save()
-            messages.success(request, f"Profil hráče {hrac.jmeno} byl aktualizován.")
-            return redirect('tenis_app:hraci_prehled') # <-- Změněno, vrátí tě to zpět do seznamu
-    else:
-        form = HracForm(instance=hrac)
-
-    return render(request, 'tenis_app/editovat_hrace.html', {
-        'form': form, 
-        'hrac': hrac
-    })
-    
-@login_required
-def smazat_hrace(request, pk):
-    hrac = get_object_or_404(Hrac, pk=pk)
-    hrac.delete()
-    return redirect('tenis_app:tenis_index')
-
-from django.db.models import Count, Q
-
-from django.db.models import Q
-from collections import defaultdict
-from tenis_app.models import Hrac, Zapas
 
 @login_required
 def prehled_vsech_zapasu(request):
-    # 1. Musíme vzít všechny zápasy
+    """Přehled zápasů a celkových statistik pro sezónu Léto 2026."""
     vsechny = Zapas.objects.all()
     
-    # 2. Filtrování podle hráče pro seznam zápasů (pokud je vybrán)
     hrac_id = request.GET.get('filtr_hrac')
     vybrany_hrac = None
     if hrac_id and hrac_id.isdigit():
         vybrany_hrac = get_object_or_404(Hrac, id=hrac_id)
         vsechny = vsechny.filter(Q(hrac_domaci=vybrany_hrac) | Q(hrac_hoste=vybrany_hrac))
 
-    # 3. Rozdělení na plánované a historii
     planovane = Zapas.objects.filter(odehrano=False).order_by(F('datum').desc(nulls_last=True))
     historie = vsechny.filter(odehrano=True).order_by('-datum')
 
-    # 📊 4. STATISTIKY AKTIVITY, BODŮ, SETŮ A GEMŮ (Sezóna Léto 2026 bez žebříčku a zimy)
     zapas_stats = Zapas.objects.filter(
         odehrano=True,
         soutez__slug__startswith='26_'
@@ -559,7 +426,6 @@ def prehled_vsech_zapasu(request):
         Q(soutez__slug__icontains='zebricek') | Q(soutez__slug__icontains='zima')
     ).select_related('hrac_domaci', 'hrac_hoste')
 
-    # Pomocný slovník - přidány podrobné čítače výsledků
     data_hracu = defaultdict(lambda: {
         'pocet_zapasu': 0, 
         'body': 0, 
@@ -568,35 +434,21 @@ def prehled_vsech_zapasu(request):
         'gemy_ziskane': 0, 
         'gemy_ztracene': 0, 
         'rozdil_gemu': 0,
-        'v2_0': 0, 'v2_1': 0,  # Vyhrané zápasy 2:0 a 2:1
-        'p1_2': 0, 'p0_2': 0,  # Prohrané zápasy 1:2 a 0:2
+        'v2_0': 0, 'v2_1': 0,
+        'p1_2': 0, 'p0_2': 0,
         'hrac_obj': None
     })
 
-    # Předem naplníme slovník všemi existujícími hráči
-    vsi_hraci = Hrac.objects.all()
-    for h in vsi_hraci:
+    for h in Hrac.objects.all():
         data_hracu[h.id]['hrac_obj'] = h
 
-    def secti_gemy(set_str):
-        if not set_str or ':' not in set_str or set_str == '0:0':
-            return 0, 0
-        try:
-            d, h = map(int, set_str.split(':'))
-            return d, h
-        except ValueError:
-            return 0, 0
-
-    # Procházíme zápasy a rozpočítáváme detailní statistiky
     for zapas in zapas_stats:
         d_id = zapas.hrac_domaci.id
         h_id = zapas.hrac_hoste.id
         
-        # 1. Počet odehraných zápasů
         data_hracu[d_id]['pocet_zapasu'] += 1
         data_hracu[h_id]['pocet_zapasu'] += 1
         
-        # 2. Body a detailní výsledky (3 body za 2:0, 2 body za 2:1, 1 bod za 1:2, 0 bodů za 0:2)
         if zapas.sety_domaci == 2 and zapas.sety_hoste == 0:
             data_hracu[d_id]['body'] += 3
             data_hracu[d_id]['v2_0'] += 1
@@ -616,33 +468,24 @@ def prehled_vsech_zapasu(request):
             data_hracu[d_id]['p0_2'] += 1
             data_hracu[h_id]['v2_0'] += 1
             
-        # 3. Sety 
         data_hracu[d_id]['sety_ziskane'] += zapas.sety_domaci
         data_hracu[d_id]['sety_ztracene'] += zapas.sety_hoste
         data_hracu[h_id]['sety_ziskane'] += zapas.sety_hoste
         data_hracu[h_id]['sety_ztracene'] += zapas.sety_domaci
         
-        # 4. Gemy
         for set_pole in [zapas.set1, zapas.set2, zapas.set3]:
             g_d, g_h = secti_gemy(set_pole)
-            
             data_hracu[d_id]['gemy_ziskane'] += g_d
             data_hracu[d_id]['gemy_ztracene'] += g_h
             data_hracu[h_id]['gemy_ziskane'] += g_h
             data_hracu[h_id]['gemy_ztracene'] += g_d
 
-    # Dopočítáme rozdíl gemů
     for h_id in data_hracu:
         data_hracu[h_id]['rozdil_gemu'] = data_hracu[h_id]['gemy_ziskane'] - data_hracu[h_id]['gemy_ztracene']
 
-    # Řazení: Aktivita -> Body -> Rozdíl gemů
     statistiky_hracu = list(data_hracu.values())
     statistiky_hracu.sort(
-        key=lambda x: (
-            x['pocet_zapasu'],
-            x['body'],
-            x['rozdil_gemu']
-        ), 
+        key=lambda x: (x['pocet_zapasu'], x['body'], x['rozdil_gemu']), 
         reverse=True
     )
 
@@ -652,85 +495,148 @@ def prehled_vsech_zapasu(request):
         'vybrany_hrac': vybrany_hrac,
         'statistiky_hracu': statistiky_hracu,
     })
-    
 
-from django.db.models import Q  # Ujisti se, že máš tento import nahoře
+
+# =================================================================
+# 3. SPRÁVA ZÁPASŮ A HRÁČŮ
+# =================================================================
+
 @login_required
-def vsechny_zapasy(request):
-    # 1. Základní načtení všech odehraných zápasů
-    historie = Zapas.objects.filter(odehrano=True).order_by('-datum', '-id')
+def editovat_vysledek(request, pk):
+    zapas = get_object_or_404(Zapas, id=pk)
     
-    # 2. CHYTÁNÍ FILTRU: Podíváme se, jestli v URL není ?filtr_hrac=ID
-    hrac_id = request.GET.get('filtr_hrac')
-    vybrany_hrac = None
-    
-    if hrac_id and hrac_id.isdigit():
-        vybrany_hrac = get_object_or_404(Hrac, id=hrac_id)
-        # Vyfiltrujeme zápasy, kde byl daný hráč buď domácí, nebo host
-        historie = historie.filter(Q(hrac_domaci=vybrany_hrac) | Q(hrac_hoste=vybrany_hrac))
-
-    # 3. Předání do šablony
-    context = {
-        'historie': historie,
-        'vybrany_hrac': vybrany_hrac,
-        'titulek': 'Všechny odehrané zápasy'
-    }
-    return render(request, 'tenis_app/vsechny_zapasy.html', context)
-    
-@login_required    
-def tenis_index(request):
-    souteze = Soutez.objects.filter(aktivni=True)
-    return render(request, 'tenis_app/index.html', {'souteze': souteze})
-    
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from django.contrib.auth.decorators import user_passes_test
-from .models import Zapas, Soutez
-# Importuj logiku ze svých commandů, pokud ji máš ve funkcích, 
-# nebo ji sem prostě zkopíruj.
-
-@user_passes_test(lambda u: u.is_superuser)  # Přístup jen pro admina
-def admin_tools_view(request):
-    if request.method == "POST":
-        akce = request.POST.get("akce")
+    je_ucastnik = (request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user)
+    if not je_ucastnik and not request.user.is_staff:
+        messages.error(request, "Nemůžeš editovat zápas, kterého jsi se neúčastnil.")
+        return redirect('zebricek_app:zebricek_index')
+   
+    if request.method == 'POST':
+        form = ZapasForm(request.POST, instance=zapas, user=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('tenis_app:detail_souteze', soutez_slug=zapas.soutez.slug)
+    else:
+        default_data = {}
+        if not zapas.datum:  
+            default_data['datum'] = timezone.now().date()
+        form = ZapasForm(instance=zapas, user=request.user, initial=default_data)
         
-        if akce == "opravit_vazby":
-            # Tady je ten kód, co jsme psali do shellu
-            soutez = Soutez.objects.filter(slug='26_kaminka_leto_D').first()
-            if soutez:
-                updated = Zapas.objects.filter(soutez__isnull=True).update(soutez=soutez)
-                messages.success(request, f"Opraveno {updated} zápasů.")
-            else:
-                messages.error(request, "Soutěž nenalezena.")
+    return render(request, 'tenis_app/editovat_vysledek.html', {'form': form, 'zapas': zapas})
+
+
+@login_required
+def smazat_vysledek(request, pk):
+    zapas = get_object_or_404(Zapas, id=pk)
+    
+    je_ucastnik = (request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user)
+    if not je_ucastnik and not request.user.is_staff:
+        messages.error(request, "Nemáš oprávnění smazat tento výsledek.")
+        return redirect('zebricek_app:zebricek_index')
+
+    if request.method == 'POST':
+        zapas.delete()
+        messages.success(request, "Výsledek byl úspěšně smazán.")
+        return redirect('zebricek_app:zebricek_index')
+
+    context = {
+        'zapas': zapas,
+        'objekt': f"{zapas.hrac_domaci} vs {zapas.hrac_hoste}",
+        'zpet_url_name': 'zebricek_app:zebricek_index',
+    }
+    return render(request, 'tenis_app/potvrdit_smazani.html', context)
+
+
+@login_required
+def pridat_hrace(request):
+    if request.method == 'POST':
+        form = HracForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('tenis_app:hraci_prehled')
+    else:
+        form = HracForm()
+    return render(request, 'tenis_app/pridat_hrace.html', {'form': form})
+
+
+@login_required
+def editovat_hrace(request, pk):
+    hrac = get_object_or_404(Hrac, id=pk)
+
+    if hrac.user != request.user and not request.user.is_staff:
+        messages.error(request, "Nemáte oprávnění upravovat tento profil.")
+        return redirect('tenis_app:hraci_prehled')
+
+    if request.method == 'POST':
+        form = HracForm(request.POST, request.FILES, instance=hrac)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"Profil hráče {hrac.jmeno} byl aktualizován.")
+            return redirect('tenis_app:hraci_prehled')
+    else:
+        form = HracForm(instance=hrac)
+
+    return render(request, 'tenis_app/editovat_hrace.html', {'form': form, 'hrac': hrac})
+
+
+@login_required
+def smazat_hrace(request, pk):
+    hrac = get_object_or_404(Hrac, pk=pk)
+    hrac.delete()
+    return redirect('tenis_app:hraci_prehled')
+
+
+def hraci_prehled(request):
+    zimni_slugy = ['27_kaminka_zima_A', '27_kaminka_zima_B', '27_kaminka_zima_C', '27_kaminka_zima_D']
+    
+    zimni_souteze_dict = {
+        'zima_a': Soutez.objects.filter(slug='27_kaminka_zima_A').first(),
+        'zima_b': Soutez.objects.filter(slug='27_kaminka_zima_B').first(),
+        'zima_c': Soutez.objects.filter(slug='27_kaminka_zima_C').first(),
+        'zima_d': Soutez.objects.filter(slug='27_kaminka_zima_D').first(),
+    }
+    
+    if request.method == "POST":
+        hraci = Hrac.objects.all()
+        for hrac in hraci:
+            for slug in zimni_slugy:
+                soutez = Soutez.objects.filter(slug=slug).first()
+                if not soutez:
+                    continue
                 
-        elif akce == "vynutit_migrace":
-            # Můžeš volat i management commandy přímo z kódu
-            from django.core.management import call_command
-            try:
-                call_command('migrate', '--fake-initial')
-                messages.success(request, "Migrace proběhly (fake-initial).")
-            except Exception as e:
-                messages.error(request, f"Chyba: {e}")
+                checkbox_name = f"hrac_{hrac.id}_{slug}"
+                is_checked = checkbox_name in request.POST
+                
+                if is_checked and not hrac.souteze.filter(slug=slug).exists():
+                    hrac.souteze.add(soutez)
+                elif not is_checked and hrac.souteze.filter(slug=slug).exists():
+                    hrac.souteze.remove(soutez)
+                    
+        messages.success(request, "Rozlosování zimních lig bylo úspěšně uloženo.")
+        return redirect('tenis_app:hraci_prehled')
 
-        return redirect('tenis_app:admin_tools')
+    hraci = Hrac.objects.prefetch_related('souteze').all().order_by('klub', 'jmeno')
+    for hrac in hraci:
+        hrac.soutez_ids_list = list(hrac.souteze.values_list('id', flat=True))
+    
+    context = {
+        'hraci': hraci,
+        'zimni_souteze_dict': zimni_souteze_dict,
+    }
+    return render(request, 'tenis_app/hraci_prehled.html', context)
 
-    return render(request, 'tenis_app/admin_tools.html')
-    
-    
-    
-from django.shortcuts import redirect
-from django.contrib import messages
-from django.core.management import call_command
-from django.contrib.auth.decorators import user_passes_test
+
+# =================================================================
+# 4. ADMIN NÁSTROJE
+# =================================================================
 
 @user_passes_test(lambda u: u.is_superuser)
-def admin_tools_launcher(request):
+def admin_tools_view(request):
+    """Společné rozhraní pro administrátorské akce."""
     if request.method == "POST":
         akce = request.POST.get("akce")
         
         try:
             if akce == "generovat_ligy":
-                # Přidáme Base ligu do seznamu, jak jste chtěl
                 ligy_k_uprave = [
                     {'slug': '26_kaminka_leto_base', 'klub': 'Léto 2026 - BASE'}, 
                     {'slug': '26_kaminka_leto_A', 'klub': 'Léto 2026 - A'},
@@ -743,7 +649,6 @@ def admin_tools_launcher(request):
 
                 celkovy_pocet = 0
                 for liga in ligy_k_uprave:
-                    # Tady používáme globální Soutez - nesmí se přepsat!
                     soutez_obj = Soutez.objects.filter(slug=liga['slug']).first()
                     hraci = list(Hrac.objects.filter(klub=liga['klub']))
                     
@@ -757,7 +662,6 @@ def admin_tools_launcher(request):
                         for j in range(i + 1, len(hraci)):
                             vsechny_dvojice.append([hraci[i], hraci[j]])
 
-                    import random # Import raději tady nebo úplně nahoře
                     random.shuffle(vsechny_dvojice)
                     pocitadlo = {hrac.id: 0 for hrac in hraci}
 
@@ -779,325 +683,66 @@ def admin_tools_launcher(request):
                         )
                         celkovy_pocet += 1
                 
-                messages.success(request, f"🚀 Ligy restartovány! Vygenerováno {celkovy_pocet} vybalancovaných zápasů.")
+                messages.success(request, f"🚀 Ligy restartovány! Vygenerováno {celkovy_pocet} zápasů.")
 
-            # --- OPRAVA TADY: Smazány řádky "from .models import Zapas, Soutez" ---
-            
             elif akce == "vytvor_hrace":
-                    try:
-                        from django.core.management import call_command
-                        # Spuštění příkazu a zachycení výstupu
-                        call_command('vytvor_hrace')
-                        messages.success(request, "✅ Účty byly úspěšně vygenerovány.")
-                    except Exception as e:
-                        # Pokud se něco pokazí, uvidíte přesně co (např. chyba v importu)
-                        messages.error(request, f"❌ Chyba při spouštění skriptu: {str(e)}")
-            
+                call_command('vytvor_hrace')
+                messages.success(request, "✅ Účty byly úspěšně vygenerovány.")
+
             elif akce == "inicializovat_zebricek":
-                try:
-                    # 1. Vyčištění starých dat (pro jistotu)
-                    ZebricekPozice.objects.all().delete()
-                    
-                    # 2. Načtení všech existujících hráčů
-                    vsechny_hraci = list(Hrac.objects.all())
-                    
-                    if not vsechny_hraci:
-                        messages.warning(request, "V databázi nejsou žádní hráči k přidání.")
-                    else:
-                        # 3. Náhodné promíchání pro startovní pozice
-                        random.shuffle(vsechny_hraci)
-                        
-                        # 4. Hromadné vytvoření záznamů
-                        novy_zebricek = []
-                        for index, hrac in enumerate(vsechny_hraci, start=1):
-                            novy_zebricek.append(
-                                ZebricekPozice(hrac=hrac, pozice=index)
-                            )
-                        
-                        ZebricekPozice.objects.bulk_create(novy_zebricek)
-                        
-                        logger.info(f"Žebříček inicializován pro {len(novy_zebricek)} hráčů.")
-                        messages.success(request, f"✅ Žebříček byl vytvořen ({len(novy_zebricek)} hráčů).")
+                ZebricekPozice.objects.all().delete()
+                vsechny_hraci = list(Hrac.objects.all())
                 
-                except Exception as e:
-                    logger.error(f"Chyba při inicializaci žebříčku: {e}")
-                    messages.error(request, f"❌ Chyba: {e}")
-            
-            
-            
-            
-            
+                if not vsechny_hraci:
+                    messages.warning(request, "V databázi nejsou žádní hráči.")
+                else:
+                    random.shuffle(vsechny_hraci)
+                    novy_zebricek = [
+                        ZebricekPozice(hrac=hrac, pozice=idx)
+                        for idx, hrac in enumerate(vsechny_hraci, start=1)
+                    ]
+                    ZebricekPozice.objects.bulk_create(novy_zebricek)
+                    messages.success(request, f"✅ Žebříček vytvořen pro {len(novy_zebricek)} hráčů.")
+
             elif akce == "parovat_hrace_uzivatele":
-                    from django.contrib.auth.models import User
-                    from tenis_app.models import Hrac
-                    import unicodedata
-                    import logging
+                pocet_opraveno = 0
+                for hrac in Hrac.objects.all():
+                    normalized = unicodedata.normalize('NFD', hrac.jmeno.lower().strip())
+                    slug_jmeno = "".join(c for c in normalized if unicodedata.category(c) != 'Mn').replace(" ", "-")
+                    
+                    user = User.objects.filter(username=slug_jmeno).first()
+                    if user and not hrac.user:
+                        hrac.user = user
+                        hrac.save()
+                        pocet_opraveno += 1
 
-                    logger = logging.getLogger(__name__)
-                    hraci = Hrac.objects.all()  # Zkusíme úplně všechny pro kontrolu
-                    pocet_opraveno = 0
+                messages.success(request, f"🚀 Hotovo. Nově spárováno: {pocet_opraveno}.")
 
-                    logger.info("--- START DIAGNOSTIKY PÁROVÁNÍ ---")
-
-                    for hrac in hraci:
-                        # Odstranění diakritiky a převod na formát jmeno-prijmeni
-                        normalized = unicodedata.normalize('NFD', hrac.jmeno.lower().strip())
-                        slug_jmeno = "".join(c for c in normalized if unicodedata.category(c) != 'Mn')
-                        slug_jmeno = slug_jmeno.replace(" ", "-")
-                        
-                        # Najdeme uživatele
-                        user = User.objects.filter(username=slug_jmeno).first()
-                        
-                        if user:
-                            if not hrac.user:
-                                hrac.user = user
-                                hrac.save()
-                                pocet_opraveno += 1
-                                logger.info(f"NALEZENO: Hráč '{hrac.jmeno}' -> User '{slug_jmeno}'")
-                            else:
-                                logger.info(f"SKIP: Hráč '{hrac.jmeno}' už uživatele má.")
-                        else:
-                            # TADY UVÍDÍŠ V LOGU, CO JE ŠPATNĚ
-                            logger.warning(f"NENALEZENO: Pro hráče '{hrac.jmeno}' systém hledal username '{slug_jmeno}'")
-
-                    messages.success(request, f"🚀 Hotovo. Nově spárováno: {pocet_opraveno}. Koukni do debug.log!")
-            
             elif akce == "opravit_vazby":
                 s = Soutez.objects.filter(slug='26_kaminka_leto_D').first()
-                count = Zapas.objects.filter(soutez__isnull=True).update(soutez=s)
-                messages.success(request, f"🚀 Hotovo: {count} zápasů přiřazeno.")
-                
+                if s:
+                    count = Zapas.objects.filter(soutez__isnull=True).update(soutez=s)
+                    messages.success(request, f"🚀 Hotovo: {count} zápasů přiřazeno.")
+                else:
+                    messages.error(request, "Soutěž 26_kaminka_leto_D neexistuje.")
+
+            elif akce == "vygenerovat_zimni":
+                zimni_slugy = ['27_kaminka_zima_A', '27_kaminka_zima_B', '27_kaminka_zima_C', '27_kaminka_zima_D']
+                celkem = sum(vygeneruj_zapas_pro_soutez(slug) for slug in zimni_slugy)
+                messages.success(request, f"Úspěšně vygenerováno {celkem} zápasů pro zimní ligy.")
+
             elif akce == "vynutit_migrace":
                 call_command('migrate', '--fake-initial')
                 messages.success(request, "✅ Migrace proběhly (fake-initial).")
 
-            elif akce == "fix_mice":
-                from django.db import connection
-                with connection.cursor() as cursor:
-                    try:
-                        cursor.execute("ALTER TABLE tenis_app_zapas ADD COLUMN mice_bere_domaci bool NOT NULL DEFAULT 1")
-                        messages.success(request, "Sloupec pro míče byl úspěšně přidán.")
-                    except Exception as e:
-                        messages.info(request, f"Sloupec již existuje: {e}")
-                            
             elif akce == "smazat_data_zapasu":
-                # Tady byl další zbytečný import, smazán.
                 count = Zapas.objects.filter(odehrano=False).update(datum=None)
-                messages.success(request, f"Vynulováno datum u {count} zápasů.")
+                messages.success(request, f"Vynulováno datum u {count} neodehraných zápasů.")
 
         except Exception as e:
+            logger.error(f"Chyba při admin akci '{akce}': {e}")
             messages.error(request, f"❌ Chyba: {str(e)}")
-
-    return redirect(request.META.get('HTTP_REFERER', '/'))
-
-
-import logging
-logger = logging.getLogger(__name__)
-
-def moje_view(request):
-    if request.method == "POST":
-        # Logování akce
-        logger.info(f"Uživatel {request.user} odeslal formulář na adrese {request.path}")
-        
-
-
-
-
-from datetime import date
-from django.shortcuts import render
-# NEPOUŽÍVAT: from django.contrib.auth.decorators import login_required
-from tenis_app.models import Zapas, Soutez
-
-# Ujistěte se, že zde NENÍ řádek s @login_required
-def tenis_index(request):
-    # 1. Výpočet zbývajících dní do 18. 9. 2026  C:\Users\jchar\djangoSport\tenis_app\views.py
-    konec_ligy = date(2026, 9, 19)
-    dnes = date.today()
-    dni_do_konce = (konec_ligy - dnes).days
-    if dni_do_konce < 0:
-        dni_do_konce = 0
-
-    # 2. Výběr aktivních soutěží pro rok 2026
-    aktivni_souteze = Soutez.objects.filter(nazev__icontains="2026", aktivni=True)
-    
-    # 3. Statistiky pro jednotlivé ligy (bez mixů a žebříčku)
-    ligy_statistiky = []
-    souteze_k_zapoctu = []
-
-    for soutez in aktivni_souteze:
-        nazev_lower = soutez.nazev.lower()
-        slug_lower = soutez.slug.lower()
-
-        if "zebricek" in slug_lower or "mix" in nazev_lower:
-            continue
-
-        souteze_k_zapoctu.append(soutez)
-
-        soutez_zapasu = Zapas.objects.filter(soutez=soutez)
-        odehrano_soutez = soutez_zapasu.filter(odehrano=True).count()
-        zbyva_soutez = soutez_zapasu.filter(odehrano=False).count()
-        
-        ligy_statistiky.append({
-            'nazev': soutez.nazev,
-            'odehrano': odehrano_soutez,
-            'zbyva': zbyva_soutez
-        })
-
-    # 4. Celkové statistiky
-    celkem_odehrano = Zapas.objects.filter(soutez__in=souteze_k_zapoctu, odehrano=True).count()
-    celkem_zbyva = Zapas.objects.filter(soutez__in=souteze_k_zapoctu, odehrano=False).count()
-
-    context = {
-        'dni_do_konce': dni_do_konce,
-        'celkem_odehrano': celkem_odehrano,
-        'celkem_zbyva': celkem_zbyva,
-        'ligy_statistiky': ligy_statistiky,
-    }
-    
-    return render(request, 'index.html', context)
-
-
-
-from tenis_app.models import Hrac, Soutez, Zapas
-from django.contrib.admin.views.decorators import staff_member_required # nebo @user_passes_test
-from django.shortcuts import render, redirect
-from django.contrib import messages
-
-# --- POMOCNÁ FUNKCE PRO GENEROVÁNÍ ZÁPASŮ ---
-def vygeneruj_zapas_pro_soutez(soutez_slug):
-    try:
-        soutez = Soutez.objects.get(slug=soutez_slug)
-    except Soutez.DoesNotExist:
-        return 0
-
-    hraci = list(soutez.hraci.all())
-    n = len(hraci)
-    if n < 2:
-        return 0
-
-    vytvoreno = 0
-    # Pro dvoukolovou ligu ('2K') hraje každý s každým dvakrát (doma/venku)
-    for i in range(n):
-        for j in range(n):
-            if i != j:
-                hrac1 = hraci[i]
-                hrac2 = hraci[j]
-                
-                # Zkontrolujeme, zda už zápas existuje, abychom duplicitně nevytvářeli to samé
-                obj, created = Zapas.objects.get_or_create(
-                    soutez=soutez,
-                    hrac1=hrac1,
-                    hrac2=hrac2,
-                    defaults={'odehrano': False}
-                )
-                if created:
-                    vytvoreno += 1
-    return vytvoreno
-
-
-# --- TVŮJ EXISTUJÍCÍ POHLED PRO ADMIN NÁSTROJE ---
-@user_passes_test(lambda u: u.is_superuser) 
-def admin_tools_view(request):
-    if request.method == "POST":
-        akce = request.POST.get("akce")
-        
-        if akce == "opravit_vazby":
-            soutez = Soutez.objects.filter(slug='26_kaminka_leto_D').first()
-            if soutez:
-                updated = Zapas.objects.filter(soutez__isnull=True).update(soutez=soutez)
-                messages.success(request, f"Opraveno {updated} zápasů.")
-            else:
-                messages.error(request, "Soutěž nenalezena.")
-                
-        elif akce == "vynutit_migrace":
-            from django.core.management import call_command
-            try:
-                call_command('migrate', '--fake-initial')
-                messages.success(request, "Migrace proběhly (fake-initial).")
-            except Exception as e:
-                messages.error(request, f"Chyba: {e}")
-
-        # --- NOVÁ AKCE PRO ZIMNÍ LIGY ---
-        elif akce == "vygenerovat_zimni":
-            # Sem si dosaď slugy svých 4 zimních lig, jaké máš v databázi:
-            zimni_slugy = ['zimni-liga-1', 'zimni-liga-2', 'zimni-liga-3', 'zimni-liga-4']
-            celkem_vytvoreno = 0
-            
-            for slug in zimni_slugy:
-                pocet = vygeneruj_zapas_pro_soutez(slug)
-                celkem_vytvoreno += pocet
-                
-            messages.success(request, f"Úspěšně vygenerováno {celkem_vytvoreno} nových zápasů pro zimní ligy.")
 
         return redirect('tenis_app:admin_tools')
 
     return render(request, 'tenis_app/admin_tools.html')
-
-
-
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from .models import Hrac, Soutez
-
-def hraci_prehled(request):
-    # Skutečné slugy tvých zimních lig
-    zimni_slugy = ['27_kaminka_zima_A', '27_kaminka_zima_B', '27_kaminka_zima_C', '27_kaminka_zima_D']
-    
-    # Slovník pro šablonu (klíče s podtržítky pro bezpečný přístup)
-    zimni_souteze_dict = {
-        'zima_a': Soutez.objects.filter(slug='27_kaminka_zima_A').first(),
-        'zima_b': Soutez.objects.filter(slug='27_kaminka_zima_B').first(),
-        'zima_c': Soutez.objects.filter(slug='27_kaminka_zima_C').first(),
-        'zima_d': Soutez.objects.filter(slug='27_kaminka_zima_D').first(),
-    }
-    
-    if request.method == "POST":
-        hraci = Hrac.objects.all()
-        for hrac in hraci:
-            for slug in zimni_slugy:
-                soutez = Soutez.objects.filter(slug=slug).first()
-                if not soutez:
-                    continue
-                
-                # Jméno inputu v HTML formuláři
-                checkbox_name = f"hrac_{hrac.id}_{slug}"
-                is_checked = checkbox_name in request.POST
-                
-                if is_checked and not hrac.souteze.filter(slug=slug).exists():
-                    hrac.souteze.add(soutez)
-                elif not is_checked and hrac.souteze.filter(slug=slug).exists():
-                    hrac.souteze.remove(soutez)
-                    
-        messages.success(request, "Rozlosování zimních lig bylo úspěšně uloženo.")
-        return redirect('tenis_app:hraci_prehled')
-
-    
-    # Načtení hráčů seřazených primárně podle letní ligy (pole 'klub') a sekundárně podle jména
-    hraci = Hrac.objects.prefetch_related('souteze').all().order_by('klub', 'jmeno')
-    for hrac in hraci:
-        hrac.soutez_ids_list = list(hrac.souteze.values_list('id', flat=True))
-    
-    context = {
-        'hraci': hraci,
-        'zimni_souteze_dict': zimni_souteze_dict,
-    }
-    return render(request, 'tenis_app/hraci_prehled.html', context)
-    
-    
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib import messages
-from .models import Hrac
-from .forms import HracForm  # Předpokládá formulář pro model Hrac
-
-def hrac_edit(request, pk):
-    hrac = get_object_or_404(Hrac, pk=pk)
-    if request.method == 'POST':
-        form = HracForm(request.POST, instance=hrac)
-        if form.is_valid():
-            form.save()
-            messages.success(request, f"Hráč {hrac.jmeno} byl úspěšně upraven.")
-            return redirect('tenis_app:hraci_prehled')
-    else:
-        form = HracForm(instance=hrac)
-    
-    return render(request, 'tenis_app/hrac_form.html', {'form': form, 'hrac': hrac})
