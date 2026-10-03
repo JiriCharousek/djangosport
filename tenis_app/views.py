@@ -92,7 +92,8 @@ def vypocitej_tabulku_dat(soutez, request=None):
     # Seřazení tabulky
     hraci_obj.sort(key=lambda x: (x.pocet_bodu, (x.s_v - x.s_p), x.s_v), reverse=True)
 
-    # 7. Křížová tabulka (Matice)
+    # 7. Křížová tabulka (Univerzální pro 1. i 2. kolo)
+    # 7. Křížová tabulka (Univerzální pro 1. i 2. kolo - plná kompatibilita se všemi šablonami)
     matice = []
     for h_radek in hraci_obj:
         radek_bunky = []
@@ -100,34 +101,54 @@ def vypocitej_tabulku_dat(soutez, request=None):
             if h_radek == h_sloupec:
                 radek_bunky.append({'typ': 'self' if soutez.typ == '1K' else 'empty'})
             else:
-                # Najdeme zápas mezi těmito dvěma hráči
+                # Najdeme všechny zápasy mezi těmito dvěma hráči
                 mozne_zapasy = [z for z in zapasy_v_soutezi if 
-                               (z.hrac_domaci_id == h_radek.id and z.hrac_hoste_id == h_sloupec.id) or
-                               (z.hrac_domaci_id == h_sloupec.id and z.hrac_hoste_id == h_radek.id)]
+                    (z.hrac_domaci_id == h_radek.id and z.hrac_hoste_id == h_sloupec.id) or
+                    (z.hrac_domaci_id == h_sloupec.id and z.hrac_hoste_id == h_radek.id)]
                 
-                z_obj = next((z for z in mozne_zapasy), None)
+                z1 = None
+                z2 = None
+                url1 = None
+                url2 = None
+                z_obj = None
                 vysledek_v_bunce = None
 
-                # Pokud je zápas odehraný, připravíme text skóre
+                if soutez.typ == '1K':
+                    if mozne_zapasy:
+                        z1 = mozne_zapasy[0]
+                        z_obj = z1
+                    
+                    if not z1:
+                        url1 = f"{reverse('tenis_app:zadat_vysledek')}?hrac_domaci={h_radek.id}&hrac_hoste={h_sloupec.id}&slug={soutez.slug}"
+                    else:
+                        url1 = reverse('tenis_app:editovat_vysledek', args=[z1.id])
+                else:
+                    z1 = next((z for z in mozne_zapasy if z.hrac_domaci_id == h_radek.id), None)
+                    z2 = next((z for z in mozne_zapasy if z.hrac_hoste_id == h_radek.id), None)
+
+                    if not z1:
+                        url1 = f"{reverse('tenis_app:zadat_vysledek')}?hrac_domaci={h_radek.id}&hrac_hoste={h_sloupec.id}&slug={soutez.slug}"
+                    if not z2:
+                        url2 = f"{reverse('tenis_app:zadat_vysledek')}?hrac_domaci={h_sloupec.id}&hrac_hoste={h_radek.id}&slug={soutez.slug}"
+
+                # Pokud je zápas odehraný, připravíme text skóre z pohledu h_radek (pro jednokolovou šablonu)
                 if z_obj and z_obj.odehrano:
                     if z_obj.hrac_domaci_id == h_radek.id:
                         vysledek_v_bunce = f"{z_obj.sety_domaci}:{z_obj.sety_hoste}"
                     else:
                         vysledek_v_bunce = f"{z_obj.sety_hoste}:{z_obj.sety_domaci}"
-                
-                # Sestavení URL pro proklik
-                if z_obj:
-                    u = reverse('tenis_app:editovat_vysledek', args=[z_obj.id])
-                else:
-                    u = f"{reverse('tenis_app:zadat_vysledek')}?hrac_domaci={h_radek.id}&hrac_hoste={h_sloupec.id}&slug={soutez.slug}"
-                
-                # TADY JE TO KLÍČOVÉ:
+
+                # Vytvoříme slovník obsahující klíče pro 1K i 2K šablony
                 radek_bunky.append({
                     'typ': 'zapas', 
-                    'z': z_obj if (z_obj and z_obj.odehrano) else None, # Pro výsledek
-                    'z_obj': z_obj,                                    # Pro tenisák 🎾
-                    'vysledek': vysledek_v_bunce, 
-                    'url': u
+                    'z1': z1,
+                    'z2': z2,
+                    'url1': url1,
+                    'url2': url2,
+                    'z': z_obj if (z_obj and z_obj.odehrano) else None,  # Pro jednokolové šablony
+                    'z_obj': z_obj,                                    # Pro jistotu
+                    'vysledek': vysledek_v_bunce,                      # Pro jednokolové šablony
+                    'url': url1                                        # Pro jednokolové šablony
                 })
         matice.append({'hrac': h_radek, 'bunky': radek_bunky})
 
@@ -882,16 +903,6 @@ def tenis_index(request):
     }
     
     return render(request, 'index.html', context)
-
-
-
-
-
-
-
-
-
-
 
 
 
