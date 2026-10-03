@@ -15,15 +15,13 @@ logger = logging.getLogger(__name__)
 # 1. UNIVERZÁLNÍ VÝPOČETNÍ JÁDRO (Modulární systém)
 # =================================================================
 
-
 def vypocitej_tabulku_dat(soutez, request=None):
     # 1. Základní queryset zápasů této soutěže
     zapasy_v_soutezi = Zapas.objects.filter(soutez=soutez)
 
     vybrany_hrac = None
     
-    # === TADY JE OPRAVA A SOUČÁST (A i B) ===
-    # 1. Nejdříve zkusíme najít hráče podle ID ze zápasů, které už v této soutěži existují
+    # 2. Zjištění hráčů ze zápasů nebo ze soutěže
     id_hracu = set()
     for z in zapasy_v_soutezi:
         id_hracu.add(z.hrac_domaci_id)
@@ -31,47 +29,33 @@ def vypocitej_tabulku_dat(soutez, request=None):
     
     hraci_obj = list(Hrac.objects.filter(id__in=id_hracu))
 
-    # 2. Pokud zápasy ještě vygenerované nejsou (id_hracu je prázdné), 
-    # vytáhneme hráče přímo ze soutěže přes nové ManyToMany pole souteze
     if not hraci_obj:
         hraci_obj = list(soutez.hraci.all())
-    # ========================================
 
-    # 4. Příprava základních seznamů (RAW data pro výpočty)
+    # 3. Příprava seznamů pro historii a plán
     vsechny_odehrane = zapasy_v_soutezi.filter(odehrano=True).order_by('-datum', '-id')
     planovane_zapasy = zapasy_v_soutezi.filter(odehrano=False).order_by('-datum', 'id')
 
-
-    # Tyto proměnné budeme filtrovat pouze pro zobrazení v seznamech
-    zobrazit_historii = vsechny_odehrane
+    zobrazit_historie = vsechny_odehrane
     zobrazit_plan = planovane_zapasy
 
-    # 5. Zpracování filtru (pokud je request)
     if request:
         filtr_hrac_id = request.GET.get('filtr_hrac')
         if filtr_hrac_id and filtr_hrac_id.isdigit():
             vybrany_hrac = Hrac.objects.filter(id=filtr_hrac_id).first()
             if vybrany_hrac:
-                # Filtrujeme pouze verze pro zobrazení
-                zobrazit_historii = vsechny_odehrane.filter(
+                zobrazit_historie = vsechny_odehrane.filter(
                     Q(hrac_domaci=vybrany_hrac) | Q(hrac_hoste=vybrany_hrac)
                 )
                 zobrazit_plan = planovane_zapasy.filter(
                     Q(hrac_domaci=vybrany_hrac) | Q(hrac_hoste=vybrany_hrac)
                 )
 
-    # --- VÝPOČET STATISTIKY MÍČŮ V PLÁNU ---
-    for h in hraci_obj:
-        # Používáme nefiltrované planovane_zapasy
-        h.pocet_micku_v_planu = planovane_zapasy.filter(
-            Q(hrac_domaci=h, mice_bere_domaci=True) | 
-            Q(hrac_hoste=h, mice_bere_domaci=False)
-        ).count()
-    
-    # 6. Výpočet bodů pro tabulku
+    # 4. Výpočet statistik (body, sety, gemy) pro každého hráče
     for h in hraci_obj:
         h.pocet_bodu, h.s_v, h.s_p = 0, 0, 0
-        # Používáme základní zapasy_v_soutezi (nefiltrované filtrem hráče)
+        h.g_v, h.g_p = 0, 0  # <--- Doplňte inicializaci gemů
+        
         zps = zapasy_v_soutezi.filter(odehrano=True).filter(Q(hrac_domaci=h) | Q(hrac_hoste=h))
         
         for z in zps:
@@ -89,11 +73,34 @@ def vypocitej_tabulku_dat(soutez, request=None):
                 _, bh = z.ziskej_body()
                 h.pocet_bodu += bh
 
-    # Seřazení tabulky
-    hraci_obj.sort(key=lambda x: (x.pocet_bodu, (x.s_v - x.s_p), x.s_v), reverse=True)
+            # <--- Doplňte součet gemů ze všech setů
+            for set_str in [z.set1, z.set2, z.set3]:
+                if set_str and ':' in set_str and set_str != '0:0':
+                    try:
+                        g_d, g_h = map(int, set_str.split(':'))
+                        if z.hrac_domaci == h:
+                            h.g_v += g_d
+                            h.g_p += g_h
+                        else:
+                            h.g_v += g_h
+                            h.g_p += g_d
+                    except ValueError:
+                        pass
 
-    # 7. Křížová tabulka (Univerzální pro 1. i 2. kolo)
-    # 7. Křížová tabulka (Univerzální pro 1. i 2. kolo - plná kompatibilita se všemi šablonami)
+    # === ŘAZENÍ MATICE S ZAPOČÍTANÝMI GEMY ===
+    hraci_obj.sort(
+        key=lambda x: (
+            x.pocet_bodu,          # 1. Body
+            (x.s_v - x.s_p),       # 2. Rozdíl setů
+            x.s_v,                 # 3. Vyhrané sety
+            (x.g_v - x.g_p),       # 4. Rozdíl gemů (Vyřeší prohození 1. a 2. místa)
+            x.g_v                  # 5. Vyhrané gemy
+        ), 
+        reverse=True
+    )
+    # ========================================================
+
+    # 5. Křížová tabulka - teď už se generuje přesně podle seřazeného seznamu `hraci_obj`
     matice = []
     for h_radek in hraci_obj:
         radek_bunky = []
@@ -101,7 +108,6 @@ def vypocitej_tabulku_dat(soutez, request=None):
             if h_radek == h_sloupec:
                 radek_bunky.append({'typ': 'self' if soutez.typ == '1K' else 'empty'})
             else:
-                # Najdeme všechny zápasy mezi těmito dvěma hráči
                 mozne_zapasy = [z for z in zapasy_v_soutezi if 
                     (z.hrac_domaci_id == h_radek.id and z.hrac_hoste_id == h_sloupec.id) or
                     (z.hrac_domaci_id == h_sloupec.id and z.hrac_hoste_id == h_radek.id)]
@@ -131,37 +137,37 @@ def vypocitej_tabulku_dat(soutez, request=None):
                     if not z2:
                         url2 = f"{reverse('tenis_app:zadat_vysledek')}?hrac_domaci={h_sloupec.id}&hrac_hoste={h_radek.id}&slug={soutez.slug}"
 
-                # Pokud je zápas odehraný, připravíme text skóre z pohledu h_radek (pro jednokolovou šablonu)
                 if z_obj and z_obj.odehrano:
                     if z_obj.hrac_domaci_id == h_radek.id:
                         vysledek_v_bunce = f"{z_obj.sety_domaci}:{z_obj.sety_hoste}"
                     else:
                         vysledek_v_bunce = f"{z_obj.sety_hoste}:{z_obj.sety_domaci}"
 
-                # Vytvoříme slovník obsahující klíče pro 1K i 2K šablony
                 radek_bunky.append({
                     'typ': 'zapas', 
                     'z1': z1,
                     'z2': z2,
                     'url1': url1,
                     'url2': url2,
-                    'z': z_obj if (z_obj and z_obj.odehrano) else None,  # Pro jednokolové šablony
-                    'z_obj': z_obj,                                    # Pro jistotu
-                    'vysledek': vysledek_v_bunce,                      # Pro jednokolové šablony
-                    'url': url1                                        # Pro jednokolové šablony
+                    'z': z_obj if (z_obj and z_obj.odehrano) else None,
+                    'z_obj': z_obj,
+                    'vysledek': vysledek_v_bunce,
+                    'url': url1
                 })
         matice.append({'hrac': h_radek, 'bunky': radek_bunky})
 
-    # 8. Finální návrat dat - TADY BYLA TA CHYBA (přiřazení historie a planovane)
+    # 6. Finální návrat dat
     return {
         'soutez': soutez,
         'hraci': hraci_obj,
         'matice': matice,
-        'historie': zobrazit_historii,  # Opraveno
-        'planovane': zobrazit_plan,     # Opraveno
+        'historie': zobrazit_historie,
+        'planovane': zobrazit_plan,
         'vybrany_hrac': vybrany_hrac,
         'pismeno': soutez.nazev
     }
+    
+    
 # =================================================================
 # 2. HLAVNÍ POHLEDY (Views)
 # =================================================================
@@ -291,12 +297,58 @@ def detail_souteze(request, soutez_slug):
     statistiky_ligy = list(data_hracu.values())
     statistiky_ligy.sort(
         key=lambda x: (
-            x['body'],           # 1. Nejdůležitější jsou body
-            x['rozdil_gemu'],    # 2. Při rovnosti bodů rozhoduje skóre gemů
-            x['pocet_zapasu']    # 3. Jako další pomocné kritérium počet zápasů
-        ), 
-        reverse=True
+            x['body'],                                           # 1. Body
+            (x['sety_ziskane'] - x['sety_ztracene']),            # 2. Rozdíl setů
+            (x['gemy_ziskane'] - x['gemy_ztracene'])             # 3. Rozdíl gemů
+        ),
+        reverse=True  # Sestupně (od nejlepších po horší)
+    
     )
+# 🔗 PROPOJENÍ STATISTIK S MATICÍ PRO JEDNOKOLOVOU TABULKU
+    if 'matice' in context:
+        for radek in context['matice']:
+            # Získáme objekt hráče z řádku matice
+            hrac_obj = getattr(radek, 'hrac', None) or (radek.get('hrac') if isinstance(radek, dict) else None)
+            
+            if hrac_obj and hrac_obj.id in data_hracu:
+                stats = data_hracu[hrac_obj.id]
+                
+                # Přidáme vypočítané statistiky přímo do řádku v matici
+                if isinstance(radek, dict):
+                    radek['pocet_zapasu'] = stats['pocet_zapasu']
+                    radek['body'] = stats['body']
+                    radek['sety_ziskane'] = stats['sety_ziskane']
+                    radek['sety_ztracene'] = stats['sety_ztracene']
+                    radek['gemy_ziskane'] = stats['gemy_ziskane']
+                    radek['gemy_ztracene'] = stats['gemy_ztracene']
+                else:
+                    radek.pocet_zapasu = stats['pocet_zapasu']
+                    radek.body = stats['body']
+                    radek.sety_ziskane = stats['sety_ziskane']
+                    radek.sety_ztracene = stats['sety_ztracene']
+                    radek.gemy_ziskane = stats['gemy_ziskane']
+                    radek.gemy_ztracene = stats['gemy_ztracene']
+
+    # 🔗 PROPOJENÍ STATISTIK S KŘÍŽOVOU TABULKOU (pro 2K)
+    if 'tabulka' in context:
+        for radek in context['tabulka']:
+            hrac_obj = getattr(radek, 'hrac', None) or (radek.get('hrac') if isinstance(radek, dict) else None)
+            if hrac_obj and hrac_obj.id in data_hracu:
+                stats = data_hracu[hrac_obj.id]
+                if isinstance(radek, dict):
+                    radek['pocet_zapasu'] = stats['pocet_zapasu']
+                    radek['body'] = stats['body']
+                    radek['sety_ziskane'] = stats['sety_ziskane']
+                    radek['sety_ztracene'] = stats['sety_ztracene']
+                    radek['gemy_ziskane'] = stats['gemy_ziskane']
+                    radek['gemy_ztracene'] = stats['gemy_ztracene']
+                else:
+                    radek.pocet_zapasu = stats['pocet_zapasu']
+                    radek.body = stats['body']
+                    radek.sety_ziskane = stats['sety_ziskane']
+                    radek.sety_ztracene = stats['sety_ztracene']
+                    radek.gemy_ziskane = stats['gemy_ziskane']
+                    radek.gemy_ztracene = stats['gemy_ztracene']
 
     # Vložíme hotové statistiky do kontextu
     context['statistiky_ligy'] = statistiky_ligy

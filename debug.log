@@ -4901,3 +4901,277 @@ INFO 2026-10-03 09:25:11,182 views Uživatel jchar si prohlíží soutìž: Zima 26/27
 INFO 2026-10-03 09:25:13,860 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
 INFO 2026-10-03 09:25:20,206 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
 INFO 2026-10-03 09:25:22,311 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 09:37:44,996 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 09:38:05,047 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-03 09:38:36,473 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-03 09:39:05,570 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 09:39:26,721 views VÝSLEDEK ZAPSÁN: Daniel KRÁL vs Vojtìch MAHELKA - 6:2
+INFO 2026-10-03 09:39:30,922 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 09:40:03,291 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 09:40:21,143 views VÝSLEDEK ZAPSÁN: Jiøí KRAUS vs Vojtìch MAHELKA - 6:1
+INFO 2026-10-03 09:40:24,568 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 09:40:32,511 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 09:40:58,529 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 09:43:00,721 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 09:48:29,187 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 09:48:32,354 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 09:50:54,444 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+ERROR 2026-10-03 09:50:54,628 log Internal Server Error: /kaminka/detail/26_kaminka_leto_A/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 182, in detail_souteze
+    context = vypocitej_tabulku_dat(soutez=soutez, request=request)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 99, in vypocitej_tabulku_dat
+    stats_dict = {stat['hrac_obj'].id: stat for stat in statistiky_ligy}
+                                                        ^^^^^^^^^^^^^^^
+NameError: name 'statistiky_ligy' is not defined
+INFO 2026-10-03 09:53:54,287 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 09:53:55,819 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 09:54:00,593 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 09:54:15,460 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 09:54:18,849 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-03 09:54:21,127 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 09:56:14,351 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 09:56:43,517 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 09:57:01,628 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:01:57,751 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:03:56,282 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 10:03:59,748 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 10:04:01,169 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:05:30,475 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 10:05:31,327 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 10:05:35,525 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:10:17,381 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 10:10:20,011 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 10:10:24,325 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+ERROR 2026-10-03 10:10:24,474 log Internal Server Error: /kaminka/detail/26_kaminka_leto_A/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 185, in detail_souteze
+    context = vypocitej_tabulku_dat(soutez=soutez, request=request)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 71, in vypocitej_tabulku_dat
+    gd = z.gemy_domaci if z.gemy_domaci is not None else 0
+                          ^^^^^^^^^^^^^
+AttributeError: 'Zapas' object has no attribute 'gemy_domaci'. Did you mean: 'gamy_domaci'?
+INFO 2026-10-03 10:11:16,311 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 10:11:18,743 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 10:11:20,538 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:11:32,469 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 10:11:35,653 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:11:52,693 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:16:22,931 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 10:16:25,337 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 10:20:55,006 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 10:20:57,220 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 10:21:07,415 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:24:17,958 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 10:24:20,249 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 10:24:28,275 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:24:35,642 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-03 10:24:39,786 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:26:02,242 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 10:26:04,420 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 10:26:11,825 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:28:51,900 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 10:28:54,188 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 10:29:12,285 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 10:29:14,424 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 10:30:09,235 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 10:30:11,409 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 10:30:18,244 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:30:40,331 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 10:30:42,839 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 10:30:52,012 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-03 10:30:54,276 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:33:19,522 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:34:50,586 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:34:54,287 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:35:28,345 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:38:05,651 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:39:30,260 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:40:52,918 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 10:40:55,387 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 10:41:00,447 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:48:54,941 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:52:00,199 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:52:14,884 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:53:28,380 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:53:59,146 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:54:21,899 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 10:55:27,585 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:04:41,425 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:07:04,697 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:08:44,638 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:12:44,533 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:17:51,903 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 11:17:54,497 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 11:18:03,638 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:25:04,021 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 11:25:06,304 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 11:25:40,011 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 11:25:42,301 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 11:25:47,701 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:33:32,172 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 11:33:34,681 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 11:33:45,379 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+ERROR 2026-10-03 11:33:45,544 log Internal Server Error: /kaminka/detail/26_kaminka_leto_A/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 185, in detail_souteze
+    context = vypocitej_tabulku_dat(soutez=soutez, request=request)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 73, in vypocitej_tabulku_dat
+    gd = z.gemy_domaci if z.gemy_domaci is not None else 0
+                          ^^^^^^^^^^^^^
+AttributeError: 'Zapas' object has no attribute 'gemy_domaci'. Did you mean: 'gamy_domaci'?
+INFO 2026-10-03 11:34:58,667 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 11:35:01,286 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 11:35:07,818 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:38:47,100 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 11:38:49,524 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 11:38:55,481 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+ERROR 2026-10-03 11:38:55,636 log Internal Server Error: /kaminka/detail/26_kaminka_leto_A/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 186, in detail_souteze
+    context = vypocitej_tabulku_dat(soutez=soutez, request=request)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 73, in vypocitej_tabulku_dat
+    gd = z.gemy_domaci if z.gemy_domaci is not None else 0
+                          ^^^^^^^^^^^^^
+AttributeError: 'Zapas' object has no attribute 'gemy_domaci'. Did you mean: 'gamy_domaci'?
+INFO 2026-10-03 11:39:52,633 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 11:39:55,087 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 11:40:00,222 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:41:44,288 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 11:41:46,864 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 11:41:50,593 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:41:54,586 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:45:50,728 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:45:54,720 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:49:59,028 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:50:24,073 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:50:57,637 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 11:51:05,279 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 11:53:57,638 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 11:53:59,867 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 11:54:05,227 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+ERROR 2026-10-03 11:54:05,331 log Internal Server Error: /kaminka/detail/26_kaminka_leto_A/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 192, in detail_souteze
+    if 'tabulka' in context:
+       ^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not a container or iterable
+INFO 2026-10-03 11:55:45,834 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 11:55:48,280 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 11:55:53,294 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+ERROR 2026-10-03 11:55:53,439 log Internal Server Error: /kaminka/detail/26_kaminka_leto_A/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 190, in detail_souteze
+    if 'tabulka' in context:
+       ^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not a container or iterable
+INFO 2026-10-03 11:56:43,402 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 11:56:45,833 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 11:56:47,113 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+ERROR 2026-10-03 11:56:47,214 log Internal Server Error: /kaminka/detail/26_kaminka_leto_A/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 190, in detail_souteze
+    if 'matice' in context:
+       ^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not a container or iterable
+INFO 2026-10-03 11:58:22,219 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 11:58:23,953 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 11:58:27,985 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 12:00:12,329 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 12:00:14,132 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 12:00:18,775 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 12:01:16,280 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 12:01:18,001 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 12:01:19,352 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+ERROR 2026-10-03 12:01:19,407 log Internal Server Error: /kaminka/detail/26_kaminka_leto_A/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 190, in detail_souteze
+    if 'matice' in context:
+       ^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not a container or iterable
+INFO 2026-10-03 12:01:24,537 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 12:01:26,227 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 12:01:27,274 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+ERROR 2026-10-03 12:01:27,316 log Internal Server Error: /kaminka/detail/26_kaminka_leto_A/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 190, in detail_souteze
+    if 'tabulka' in context:
+       ^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not a container or iterable
+INFO 2026-10-03 12:01:32,710 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 12:01:34,401 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 12:01:34,782 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+ERROR 2026-10-03 12:01:34,829 log Internal Server Error: /kaminka/detail/26_kaminka_leto_A/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 192, in detail_souteze
+    if 'tabulka' in context:
+       ^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not a container or iterable
+INFO 2026-10-03 12:01:38,760 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 12:01:40,525 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 12:01:40,764 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 12:04:01,936 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 17:34:32,159 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 17:39:51,101 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 17:39:53,304 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 17:40:00,069 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
