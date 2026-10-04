@@ -2,170 +2,171 @@
 
 {% block content %}
 <div class="container-fluid my-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>🎾 Správa a přehled hráčů (Rozlosování lig)</h2>
-        <span class="text-muted">Celkem hráčů: {{ hraci|length }}</span>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2>🎾 Přehled hráčů</h2>
+            <p class="text-muted mb-0"></p>
+        </div>
+        <span class="badge bg-secondary fs-6 px-3 py-2">Celkem hráčů: {{ hraci|length }}</span>
     </div>
 
     {% if messages %}
         {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow-sm" role="alert">
                 {{ message }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endfor %}
     {% endif %}
 
-    <!-- Formulář pro hromadné/rychlé uložení změn přiřazení do lig -->
+    <!-- Formulář pro hromadné/rychlé uložení změn -->
     <form method="post">
         {% csrf_token %}
-        <div class="card shadow-sm">
+        <div class="card shadow border-0 rounded-3">
             <div class="card-body p-0">
                 <div class="table-responsive">
-                    <table class="table table-hover table-striped table-bordered align-middle mb-0 small">
-                        <thead class="table-dark text-center">
+                    <table class="table table-hover table-striped align-middle mb-0" style="font-size: 0.9rem;">
+                        <thead class="table-dark text-center text-uppercase fs-7">
                             <tr>
-                                <th style="width: 4%;">#</th>
-                                <th style="width: 20%;">Jméno a příjmení</th>
-								<th style="width: 5%;">edit</th>
-                                <th style="width: 12%;">Telefon / Email</th>
-                                <th style="width: 15%;">Stávající</th>
-								
-								
-								<!-- Sloupec pro akce / editaci v řádku tabulky -->
-								
-																
-								
-                                <!-- Dynamické sloupce pro 4 zimní ligy (připraveno pro zaškrtávání) -->
-                                
-								<!-- <th class="bg-primary text-white text-left" style="width: 10%;">Zima A    </th>
-                                <th class="bg-primary text-white" style="width: 10%;">Zima B</th>
-                                <th class="bg-primary text-white" style="width: 10%;">Zima C</th>
-                                <th class="bg-primary text-white" style="width: 10%;">Zima D</th -->
+                                <th style="width: 1%; text-align: left;">#</th>
+                                <th style="width: 7%; text-align: left; padding-left: 15px;">Jméno a příjmení</th>
+                                <th style="width: 2%;text-align: left;">Ed</th>
+                                <th style="width: 4%; text-align: left;">Telefon</th>
+                                <th style="width: 8%; text-align: left;">Email</th>
+                                <th style="width: 8%; text-align: left;">Adresa</th>
+                                <th style="width: 13%; text-align: left;">Info</th>
+                                <th style="width: 10%;text-align: left;">Stávající</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for hrac in hraci %}
                                 <tr>
-                                    <td class="text-center text-muted">{{ forloop.counter }}</td>
-                                    <td class="fw-bold">
+                                    <td class="text-center text-muted fw-bold">{{ forloop.counter }}</td>
+                                    <td class="fw-bold" style="padding-left: 15px;">
                                         {{ hrac.jmeno }}
-                                        <!-- {% if hrac.klub %}<br><span class="text-muted fw-normal" style="font-size: 0.8rem;">Klub: {{ hrac.klub }}</span>{% endif %} -->
                                     </td>
-	                                
-									<td class="text-center">
-										<a href="{% url 'tenis_app:hrac_edit' hrac.id %}" class="btn btn-sm btn-outline-primary" title="Upravit hráče">✏️</a>
-										
-									</td>
+                                    
+                                    <td class="text-center">
+                                        <a href="{% url 'tenis_app:hrac_edit' hrac.id %}" class="btn btn-sm btn-outline-primary border-0 bg-light" title="Upravit hráče">✏️</a>
+                                    </td>
+                                    
                                     <td>
-                                        {% if hrac.telefon %}<a href="tel:{{ hrac.telefon }}">{{ hrac.telefon }}</a>{% else %}<span class="text-muted">-</span>{% endif %}
-                                    </td>
-									<td>
-									{% if hrac.email %}<br><span class="text-muted" style="font-size: 0.75rem;">{{ hrac.email }}</span>{% endif %}
-                                    </td>
-                                    <td>
-                                        {% if hrac.klub %}
-                                            <span class="badge bg-info text-dark mb-1">{{ hrac.klub }}</span>
+                                        {% if hrac.telefon %}
+                                            <a href="tel:{{ hrac.telefon }}" class="text-decoration-none text-dark">📞 {{ hrac.telefon }}</a>
                                         {% else %}
-                                            <span class="text-muted">Žádná</span>
+                                            <span class="text-muted">-</span>
                                         {% endif %}
                                     </td>
                                     
-                                    <!-- Zaškrtávátka pro zimní ligy vycentrovaná na střed -->
-										<!-- <td class="text-center align-middle">
-											<input type="checkbox" name="hrac_{{ hrac.id }}_27_kaminka_zima_A" value="1" 
-												   {% if zimni_souteze_dict.zima_a.id in hrac.soutez_ids_list %}checked{% endif %} class="form-check-input m-0">
-										</td>
-										<td class="text-center align-middle">
-											<input type="checkbox" name="hrac_{{ hrac.id }}_27_kaminka_zima_B" value="1" 
-												   {% if zimni_souteze_dict.zima_b.id in hrac.soutez_ids_list %}checked{% endif %} class="form-check-input m-0">
-										</td>
-										<td class="text-center align-middle">
-											<input type="checkbox" name="hrac_{{ hrac.id }}_27_kaminka_zima_C" value="1" 
-												   {% if zimni_souteze_dict.zima_c.id in hrac.soutez_ids_list %}checked{% endif %} class="form-check-input m-0">
-										</td>
-										<td class="text-center align-middle">
-											<input type="checkbox" name="hrac_{{ hrac.id }}_27_kaminka_zima_D" value="1" 
-												   {% if zimni_souteze_dict.zima_d.id in hrac.soutez_ids_list %}checked{% endif %} class="form-check-input m-0">
-										</td> -->
+                                    <td>
+                                        {% if hrac.email %}
+                                            <a href="mailto:{{ hrac.email }}" class="text-decoration-none text-muted" style="font-size: 0.85rem;">✉️ {{ hrac.email }}</a>
+                                        {% else %}
+                                            <span class="text-muted">-</span>
+                                        {% endif %}
+                                    </td>
+                                    
+                                    <td>
+                                        {% if hrac.adresa %}
+                                            <span class="text-secondary" style="font-size: 0.85rem;">📍 {{ hrac.adresa }}</span>
+                                        {% else %}
+                                            <span class="text-muted">-</span>
+                                        {% endif %}
+                                    </td>
+                                    
+                                    <td>
+                                        {% if hrac.info %}
+                                            <span class="text-info-emphasis bg-light px-2 py-1 rounded" style="font-size: 0.8rem;">📝 {{ hrac.info }}</span>
+                                        {% else %}
+                                            <span class="text-muted">-</span>
+                                        {% endif %}
+                                    </td>
+                                    
+                                    <td class="text-center">
+                                        {% if hrac.klub %}
+                                            <span class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle px-2 py-1">{{ hrac.klub }}</span>
+                                        {% else %}
+                                            <span class="badge bg-secondary bg-opacity-10 text-muted">Žádná</span>
+                                        {% endif %}
+                                    </td>
                                 </tr>
                             {% empty %}
                                 <tr>
-                                    <td colspan="8" class="text-center py-4 text-muted">V databázi nejsou žádní hráči.</td>
+                                    <td colspan="8" class="text-center py-5 text-muted">V databázi nejsou žádní hráči.</td>
                                 </tr>
                             {% endfor %}
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="card-footer bg-light d-flex justify-content-between align-items-center py-3">
-                <span class="text-muted small">Zaškrtnutím políček u jednotlivých hráčů určíš, do které zimní ligy patří.</span>
-                <button type="submit" class="btn btn-success px-4">💾 Uložit rozlosování zimních lig</button>
-            </div>
+           <!--  <div class="card-footer bg-light d-flex justify-content-between align-items-center py-3 px-4">
+                <span class="text-muted small">💡 Všechny základní údaje hráče máš nyní přehledně pohromadě.</span>
+                <button type="submit" class="btn btn-success px-4 shadow-sm">💾 Uložit změny</button>
+            </div> -->
         </div>
     </form>
 	
-<!-- Přehled rozlosovaných hráčů po jednotlivých zimních ligách -->
-<div class="row mt-5">
-    <h3 class="mb-3">📋 Souhrn rozlosování do zimních lig</h3>
-    
-    <!-- Zima A -->
-    <div class="col-md-3 mb-3">
-        <div class="card h-100 shadow-sm border-primary">
-            <div class="card-header bg-primary text-white fw-bold">Zima 26/27 - A</div>
-            <ul class="list-group list-group-flush small">
-                {% for hrac in hraci %}
-                    {% if zimni_souteze_dict.zima_a.id in hrac.soutez_ids_list %}
-                        <li class="list-group-item">{{ hrac.jmeno }}</li>
-                    {% endif %}
-                {% empty %}
-                    <li class="list-group-item text-muted">Nikdo není přiřazen</li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
+    <!-- Přehled rozlosovaných hráčů po jednotlivých zimních ligách -->
+    <!-- <div class="row mt-5">
+        <h3 class="mb-4 text-secondary border-bottom pb-2">📋 Souhrn rozlosování do zimních lig</h3>
+        
+        <!-- Zima A -->
+        <!-- <div class="col-md-3 mb-3">
+            <div class="card h-100 shadow-sm border-0 border-top border-primary border-4 rounded-3">
+                <div class="card-header bg-white fw-bold text-primary py-3">Zima 26/27 - A</div>
+                <ul class="list-group list-group-flush small">
+                    {% for hrac in hraci %}
+                        {% if zimni_souteze_dict.zima_a.id in hrac.soutez_ids_list %}
+                            <li class="list-group-item py-2">🎾 {{ hrac.jmeno }}</li>
+                        {% endif %}
+                    {% empty %}
+                        <li class="list-group-item text-muted py-2">Nikdo není přiřazen</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div> -->
 
-    <!-- Zima B -->
-    <div class="col-md-3 mb-3">
-        <div class="card h-100 shadow-sm border-primary">
-            <div class="card-header bg-primary text-white fw-bold">Zima 26/27 - B</div>
-            <ul class="list-group list-group-flush small">
-                {% for hrac in hraci %}
-                    {% if zimni_souteze_dict.zima_b.id in hrac.soutez_ids_list %}
-                        <li class="list-group-item">{{ hrac.jmeno }}</li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
+        <!-- Zima B -->
+        <!-- <div class="col-md-3 mb-3">
+            <div class="card h-100 shadow-sm border-0 border-top border-primary border-4 rounded-3">
+                <div class="card-header bg-white fw-bold text-primary py-3">Zima 26/27 - B</div>
+                <ul class="list-group list-group-flush small">
+                    {% for hrac in hraci %}
+                        {% if zimni_souteze_dict.zima_b.id in hrac.soutez_ids_list %}
+                            <li class="list-group-item py-2">🎾 {{ hrac.jmeno }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div> -->
 
-    <!-- Zima C -->
-    <div class="col-md-3 mb-3">
-        <div class="card h-100 shadow-sm border-primary">
-            <div class="card-header bg-primary text-white fw-bold">Zima 26/27 - C</div>
-            <ul class="list-group list-group-flush small">
-                {% for hrac in hraci %}
-                    {% if zimni_souteze_dict.zima_c.id in hrac.soutez_ids_list %}
-                        <li class="list-group-item">{{ hrac.jmeno }}</li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
+        <!-- Zima C -->
+        <!-- <div class="col-md-3 mb-3">
+            <div class="card h-100 shadow-sm border-0 border-top border-primary border-4 rounded-3">
+                <div class="card-header bg-white fw-bold text-primary py-3">Zima 26/27 - C</div>
+                <ul class="list-group list-group-flush small">
+                    {% for hrac in hraci %}
+                        {% if zimni_souteze_dict.zima_c.id in hrac.soutez_ids_list %}
+                            <li class="list-group-item py-2">🎾 {{ hrac.jmeno }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div> -->
 
-    <!-- Zima D -->
-    <div class="col-md-3 mb-3">
-        <div class="card h-100 shadow-sm border-primary">
-            <div class="card-header bg-primary text-white fw-bold">Zima 26/27 - D</div>
-            <ul class="list-group list-group-flush small">
-                {% for hrac in hraci %}
-                    {% if zimni_souteze_dict.zima_d.id in hrac.soutez_ids_list %}
-                        <li class="list-group-item">{{ hrac.jmeno }}</li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
+        <!-- Zima D -->
+        <!-- <div class="col-md-3 mb-3">
+            <div class="card h-100 shadow-sm border-0 border-top border-primary border-4 rounded-3">
+                <div class="card-header bg-white fw-bold text-primary py-3">Zima 26/27 - D</div>
+                <ul class="list-group list-group-flush small">
+                    {% for hrac in hraci %}
+                        {% if zimni_souteze_dict.zima_d.id in hrac.soutez_ids_list %}
+                            <li class="list-group-item py-2">🎾 {{ hrac.jmeno }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div> -->
     </div>
 </div>
-
 {% endblock %}

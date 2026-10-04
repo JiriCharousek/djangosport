@@ -6,7 +6,7 @@ from .models import Zapas, Hrac
 class HracForm(forms.ModelForm):
     class Meta:
         model = Hrac
-        exclude = ['user' ]
+        exclude = ['user','souteze' ]
         widgets = {
             'jmeno': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'readonly'}),  # <-- 'readonly' zajistí, že pole nelze měnit
             'datum_narozeni': forms.DateInput(attrs={'type': 'date'}),
