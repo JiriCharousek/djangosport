@@ -5371,3 +5371,290 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'admin_tools_launcher' not fo
 INFO 2026-10-03 20:06:32,875 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
 INFO 2026-10-03 20:06:37,308 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
 INFO 2026-10-03 20:06:38,954 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-03 20:37:52,189 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 20:37:58,342 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-03 20:50:53,534 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 20:57:22,762 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 20:57:25,398 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-03 20:57:49,877 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+WARNING 2026-10-03 20:58:01,276 log Not Found: /kaminka/detail/27_kaminka_zima_D/
+INFO 2026-10-03 21:03:22,107 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-03 21:05:06,142 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 21:10:38,686 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 21:22:48,974 autoreload C:\Users\jchar\djangoSport\tenis_app\management\commands\dopln_jednu_ligu.py changed, reloading.
+INFO 2026-10-03 21:22:51,501 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 21:23:14,723 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+WARNING 2026-10-03 21:23:43,720 log Not Found: /kaminka/detail/27_kaminka_zima_D/
+INFO 2026-10-03 21:25:33,342 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 21:25:35,102 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:25:56,002 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:26:56,496 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:27:36,957 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-03 21:27:38,947 views Uživatel jchar si prohlíží soutìž: Zima 25/26 - A
+INFO 2026-10-03 21:27:42,229 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 21:27:44,460 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:27:58,286 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 21:28:43,804 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:29:48,300 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-10-03 21:33:03,361 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+ERROR 2026-10-03 21:33:04,200 log Internal Server Error: /kaminka/detail/27_kaminka_zima_zeny/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 901, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Hrac' object has no attribute 'pocet_zapasu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    current = current[int(bit)]
+                      ~~~^^^^^
+ValueError: invalid literal for int() with base 10: 'pocet_zapasu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 362, in detail_souteze
+    return render(request, 'tenis_app/dvoukolova_tabulka.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1075, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 743, in resolve
+    arg_vals.append(arg.resolve(context))
+                    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 914, in _resolve_lookup
+    raise VariableDoesNotExist(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )  # missing attribute
+    ^
+django.template.base.VariableDoesNotExist: Failed lookup for key [pocet_zapasu] in <Hrac: Anna MAHELKOVÁ>
+INFO 2026-10-03 21:36:08,030 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:36:51,424 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:39:39,380 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:39:51,251 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:40:40,644 views VÝSLEDEK ZAPSÁN: Helena LIŠKOVÁ vs Jana MASOPUSTOVÁ - 6:2
+INFO 2026-10-03 21:40:45,478 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:41:11,329 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-10-03 21:41:15,798 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-03 21:45:33,805 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:48:28,356 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 21:48:31,000 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 21:48:34,118 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:48:51,244 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:48:58,078 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:49:58,413 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:51:42,807 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 21:53:45,521 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:04:42,977 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 22:04:45,308 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 22:05:17,274 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:05:27,617 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:06:46,174 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:07:13,038 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:10:39,306 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:10:44,259 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:24:17,923 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:28:12,338 views VÝSLEDEK ZAPSÁN: Helena LIŠKOVÁ vs Sofie PØEROVSKÁ - 6:0
+INFO 2026-10-03 22:30:33,340 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:30:48,637 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:30:52,961 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 22:30:54,681 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-03 22:30:56,324 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 22:35:37,415 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 22:35:42,453 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:35:57,544 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 22:36:01,491 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:36:58,527 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:38:09,606 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:38:12,940 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-10-03 22:39:14,174 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:39:17,045 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:39:56,057 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:40:16,904 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:54:22,735 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 22:54:25,186 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 22:57:33,467 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 22:57:42,768 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 23:04:44,674 autoreload C:\Users\jchar\djangoSport\tenis_app\models.py changed, reloading.
+INFO 2026-10-03 23:04:47,509 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 23:04:54,386 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 23:05:04,655 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 23:05:11,809 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 23:07:03,274 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-03 23:07:15,588 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:08:20,219 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:08:33,435 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:11:32,858 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:11:34,815 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:11:37,492 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:11:39,132 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:11:41,484 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:11:44,222 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-03 23:12:33,265 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-10-03 23:12:45,596 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-10-03 23:13:16,617 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-10-03 23:13:53,386 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 23:13:55,076 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-10-03 23:14:44,737 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-10-03 23:15:46,762 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-10-03 23:16:50,099 views Uživatel jchar si prohlíží soutìž: Léto 2026 - Ženy
+INFO 2026-10-03 23:16:54,505 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 23:17:33,784 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 23:18:14,600 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-03 23:18:17,599 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-10-03 23:18:26,252 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-10-03 23:18:41,504 autoreload C:\Users\jchar\djangoSport\tenis_app\models.py changed, reloading.
+INFO 2026-10-03 23:18:43,288 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 23:18:43,982 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-10-03 23:18:47,046 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 23:18:49,785 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 23:19:19,409 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-03 23:19:21,120 autoreload Watching for file changes with StatReloader
+INFO 2026-10-03 23:19:22,592 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 23:19:28,783 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-10-03 23:19:33,522 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 23:20:19,739 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-03 23:20:21,983 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 23:20:24,945 views Uživatel jchar si prohlíží soutìž: Léto 2026 - E
+INFO 2026-10-03 23:20:31,370 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-03 23:20:33,004 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 23:20:34,588 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-03 23:20:35,940 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:20:56,769 views VÝSLEDEK ZAPSÁN: Dominik ZMEŠKAL vs Jiøí CHAROUSEK - 2:6
+INFO 2026-10-03 23:20:59,790 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:21:23,826 views VÝSLEDEK ZAPSÁN: Jiøí CHAROUSEK vs Dominik ZMEŠKAL - 6:3
+INFO 2026-10-03 23:21:27,021 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:21:50,561 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:28:09,962 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 23:29:10,141 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 23:29:12,386 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 23:29:32,133 views VÝSLEDEK ZAPSÁN: Karel VLÈEK vs Boris NESTRAŠIL - 6:2
+INFO 2026-10-03 23:29:35,407 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 23:30:09,968 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 23:30:52,899 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 23:31:23,927 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 23:33:24,376 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-03 23:33:28,975 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:33:31,669 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:33:55,069 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-03 23:34:59,637 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-03 23:57:12,360 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-04 07:09:22,849 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:09:33,533 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:09:52,324 views VÝSLEDEK ZAPSÁN: Sofie PØEROVSKÁ vs Helena LIŠKOVÁ - 6:4
+INFO 2026-10-04 07:09:56,263 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:11:30,711 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:11:57,741 views VÝSLEDEK ZAPSÁN: Helena LIŠKOVÁ vs Klára WANTULOK - 3:6
+INFO 2026-10-04 07:12:01,902 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:13:29,552 views VÝSLEDEK ZAPSÁN: Jana MASOPUSTOVÁ vs Anna MAHELKOVÁ - 6:1
+INFO 2026-10-04 07:13:33,276 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:15:06,274 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-04 07:16:25,579 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:17:17,649 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:17:26,011 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:19:41,352 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:20:00,123 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:20:09,801 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:23:06,070 autoreload C:\Users\jchar\djangoSport\tenis_app\management\commands\dopln_jednu_ligu.py changed, reloading.
+INFO 2026-10-04 07:23:08,843 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:23:44,250 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:23:55,047 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:24:19,282 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:25:02,505 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:28:29,178 autoreload C:\Users\jchar\djangoSport\tenis_app\management\commands\dopln_jednu_ligu.py changed, reloading.
+INFO 2026-10-04 07:28:31,478 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:29:07,839 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:29:16,289 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:35:43,221 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-04 07:35:48,182 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:35:57,957 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:36:33,044 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-04 07:39:59,777 autoreload C:\Users\jchar\djangoSport\tenis_app\models.py changed, reloading.
+INFO 2026-10-04 07:40:02,405 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:40:39,225 autoreload C:\Users\jchar\djangoSport\tenis_app\models.py changed, reloading.
+INFO 2026-10-04 07:40:41,487 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:41:40,090 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:44:20,911 autoreload C:\Users\jchar\djangoSport\tenis_app\forms.py changed, reloading.
+INFO 2026-10-04 07:44:24,231 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:45:13,922 autoreload C:\Users\jchar\djangoSport\tenis_app\forms.py changed, reloading.
+INFO 2026-10-04 07:45:15,377 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:50:32,728 autoreload C:\Users\jchar\djangoSport\tenis_app\forms.py changed, reloading.
+INFO 2026-10-04 07:50:35,081 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:51:33,610 autoreload C:\Users\jchar\djangoSport\tenis_app\forms.py changed, reloading.
+INFO 2026-10-04 07:51:35,848 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:53:18,909 autoreload C:\Users\jchar\djangoSport\tenis_app\forms.py changed, reloading.
+INFO 2026-10-04 07:53:21,095 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:54:28,848 autoreload C:\Users\jchar\djangoSport\tenis_app\forms.py changed, reloading.
+INFO 2026-10-04 07:54:31,056 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:55:26,378 autoreload C:\Users\jchar\djangoSport\tenis_app\forms.py changed, reloading.
+INFO 2026-10-04 07:55:28,536 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:55:39,586 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:55:55,493 autoreload C:\Users\jchar\djangoSport\tenis_app\forms.py changed, reloading.
+INFO 2026-10-04 07:55:57,634 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:56:19,871 autoreload C:\Users\jchar\djangoSport\tenis_app\forms.py changed, reloading.
+INFO 2026-10-04 07:56:21,999 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:57:22,663 autoreload C:\Users\jchar\djangoSport\tenis_app\forms.py changed, reloading.
+INFO 2026-10-04 07:57:24,972 autoreload Watching for file changes with StatReloader
+INFO 2026-10-04 07:59:22,173 autoreload C:\Users\jchar\djangoSport\tenis_app\models.py changed, reloading.
+INFO 2026-10-04 07:59:24,725 autoreload Watching for file changes with StatReloader

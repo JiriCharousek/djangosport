@@ -315,9 +315,9 @@
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_C' %}active-link{% endif %}">
 				   Liga C
 				</a>
-				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_D' %}" 
-				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_D' %}active-link{% endif %}">
-				   Liga D
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_zeny' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_zeny' %}active-link{% endif %}">
+				   Liga Ženy
 				</a>
 				<!-- <a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_E' %}" 
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_E' %}active-link{% endif %}">
@@ -366,13 +366,21 @@
 			<h3 class="nav-title" style="color: #fbbf24;">🔧 DB SERVIS</h3>
 			<ul class="nav-list">
 				<li>
-					<form action="{% url 'tenis_app:admin_tools' %}" method="post">
-						{% csrf_token %}
-						<input type="hidden" name="akce" value="generovat_ligy">
-						<button type="submit" class="admin-btn" style="color: #e67e22; border-color: #e67e22;" 
-								onclick="return confirm('POZOR: Tato akce smaže všechny zápasy v ligách 2026 a vygeneruje nové se spravedlivým rozdělením míčů. Pokračovat?')">
-							♻️ Restartovat ligy 2026
-						</button>
+					<form method="post" action="{% url 'tenis_app:admin_tools' %}">
+							{% csrf_token %}
+							<input type="hidden" name="akce" value="generovat_jednu_ligu">
+							
+							<label for="soutez_id">Vyberte soutěž k vygenerování:</label>
+							<select name="soutez_id" id="soutez_id" class="form-select mb-2" required>
+								<option value="">-- Zvolte soutěž --</option>
+								{% for soutez in souteze %}
+									<option value="{{ soutez.slug }}">{{ soutez.nazev }} ({{ soutez.slug }})</option>
+								{% empty %}
+									<option value="" disabled>Žádné soutěže nebyly nalezeny</option>
+								{% endfor %}
+							</select>
+							
+							<button type="submit" class="btn btn-primary">⚡ Vygenerovat soutěž</button>
 					</form>
 				</li>
 				<li>

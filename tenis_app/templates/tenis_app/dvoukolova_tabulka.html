@@ -85,28 +85,11 @@
 
     /* STATISTIKY - Zelené body a centrování */
     .stat-col {
-        width: 70px;
         background: #f8f9fa;
         font-weight: 800;
         color: var(--navy);
         text-align: center !important;
         vertical-align: middle !important;
-    }
-
-    .points-val { 
-        color: var(--e-green) !important; 
-        font-size: 1.1rem; 
-        font-weight: 900;
-        display: block;
-        text-align: center;
-    }
-
-    .sets-val {
-        color: #666;
-        font-size: 0.85rem;
-        display: block;
-        text-align: center;
-        font-weight: 600;
     }
 
     /* Buňky s výsledky */
@@ -226,20 +209,24 @@
             <thead>
                 <tr>
                     <th class="player-col" style="min-width: 120px; max-width: 140px; position: sticky; left: 0; background: var(--navy); z-index: 3;">Hráč</th>
-                    {% for h in hraci %}
-                        <th style="vertical-align: middle; padding: 8px 4px; position: relative; min-width: 80px; text-align: center;">
-                            <a href="?filtr_hrac={{ h.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == h.id %}var(--clay){% else %}white{% endif %}; display: block;">
+                    
+                    {% for radek in matice %}
+                        <th style="vertical-align: middle; padding: 8px 4px; border: 1px solid #444; position: relative; min-width: 80px; text-align: center;">
+                            <a href="?filtr_hrac={{ radek.hrac.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == radek.hrac.id %}var(--clay){% else %}white{% endif %}; display: block;">
                                 <div style="font-size: 0.75rem; line-height: 1.1; font-weight: 800; text-transform: uppercase;">
-                                    {{ h.jmeno_split|safe }}
+                                    {{ radek.hrac.jmeno_split|safe }}
                                 </div>
-                                {% if vybrany_hrac.id == h.id %}
+                                {% if vybrany_hrac.id == radek.hrac.id %}
                                     <div style="font-size: 0.5rem; color: var(--clay); font-weight: bold; margin-top: 2px;">[FILTR]</div>
                                 {% endif %}
                             </a>
                         </th>
                     {% endfor %}
-                    <th class="stat-col" style="width: 50px; min-width: 50px; text-align: center;">Body</th>
-                    <th class="stat-col" style="width: 60px; min-width: 60px; text-align: center;">Sety</th>
+                    
+                    <th style="text-align: center; width: 65px; background: #1e293b; color: white;">Zápasy</th>
+                    <th style="text-align: center; width: 55px; background: #1e293b; color: white;">Body</th>
+                    <th style="text-align: center; width: 65px; background: #1e293b; color: white;">Sety</th>
+                    <th style="text-align: center; width: 75px; background: #1e293b; color: white;">Gemy</th>
                 </tr>
             </thead>
             <tbody>
@@ -250,38 +237,68 @@
                             {{ forloop.counter }}. {{ radek.hrac.jmeno }}
                         </a>
                     </td>
+                    
                     {% for bunka in radek.bunky %}
-                        <td>
-                            {% if bunka.typ == 'zapas' %}
-                                <div class="cell-double">
-                                    {% if bunka.z1 %}
-                                        <a href="{% url 'tenis_app:editovat_vysledek' bunka.z1.id %}" class="z-box res-link" title="Upravit zápas 1">
-                                            {% if bunka.z1.hrac_domaci == radek.hrac %}{{ bunka.z1.sety_domaci }}:{{ bunka.z1.sety_hoste }}{% else %}{{ bunka.z1.sety_hoste }}:{{ bunka.z1.sety_domaci }}{% endif %}
-                                        </a>
-                                    {% else %}
-                                        <a href="{{ bunka.url1 }}" class="z-box empty-link" title="Zadat zápas 1">🎾</a>
-                                    {% endif %}
+							<td>
+								{% if bunka.typ == 'zapas' %}
+									<div class="cell-double">
+										{# PRVNÍ ZÁPAS #}
+										{% if bunka.z1 and bunka.z1.odehrano %}
+											<a href="{% url 'tenis_app:editovat_vysledek' bunka.z1.id %}" class="z-box res-link" title="Upravit zápas 1">
+												{% if bunka.z1.hrac_domaci == radek.hrac %}
+													{{ bunka.z1.sety_domaci }}:{{ bunka.z1.sety_hoste }}
+												{% else %}
+													{{ bunka.z1.sety_hoste }}:{{ bunka.z1.sety_domaci }}
+												{% endif %}
+											</a>
+										{% elif bunka.z1 %}
+											{# Zápas v DB existuje, ale ještě není odehraný -> odkázat na zadání výsledku s ikonu rakety #}
+											<a href="{% url 'tenis_app:editovat_vysledek' bunka.z1.id %}" class="z-box empty-link" title="Zadat výsledek 1">🎾</a>
+										{% else %}
+											{# Zápas v DB ještě neexistuje -> vytvořit nový #}
+											<a href="{{ bunka.url1 }}" class="z-box empty-link" title="Zadat zápas 1">🎾</a>
+										{% endif %}
 
-                                    <div class="v-divider"></div>
+										<div class="v-divider"></div>
 
-                                    {% if bunka.z2 %}
-                                        <a href="{% url 'tenis_app:editovat_vysledek' bunka.z2.id %}" class="z-box res-link" title="Upravit zápas 2">
-                                            {% if bunka.z2.hrac_domaci == radek.hrac %}{{ bunka.z2.sety_domaci }}:{{ bunka.z2.sety_hoste }}{% else %}{{ bunka.z2.sety_hoste }}:{{ bunka.z2.sety_domaci }}{% endif %}
-                                        </a>
-                                    {% else %}
-                                        <a href="{{ bunka.url2 }}" class="z-box empty-link" title="Zadat zápas 2">🎾</a>
-                                    {% endif %}
-                                </div>
-                            {% else %}
-                                <div class="diagonal-empty"></div>
-                            {% endif %}
-                        </td>
-                    {% endfor %}
-                    <td class="stat-col" style="text-align: center;">
-                        <span class="points-val">{{ radek.hrac.pocet_bodu }}</span>
+										{# DRUHÝ ZÁPAS #}
+										{% if bunka.z2 and bunka.z2.odehrano %}
+											<a href="{% url 'tenis_app:editovat_vysledek' bunka.z2.id %}" class="z-box res-link" title="Upravit zápas 2">
+												{% if bunka.z2.hrac_domaci == radek.hrac %}
+													{{ bunka.z2.sety_domaci }}:{{ bunka.z2.sety_hoste }}
+												{% else %}
+													{{ bunka.z2.sety_hoste }}:{{ bunka.z2.sety_domaci }}
+												{% endif %}
+											</a>
+										{% elif bunka.z2 %}
+											<a href="{% url 'tenis_app:editovat_vysledek' bunka.z2.id %}" class="z-box empty-link" title="Zadat výsledek 2">🎾</a>
+										{% else %}
+											<a href="{{ bunka.url2 }}" class="z-box empty-link" title="Zadat zápas 2">🎾</a>
+										{% endif %}
+									</div>
+								{% else %}
+									<div class="diagonal-empty"></div>
+								{% endif %}
+							</td>
+					{% endfor %}
+
+                    <td class="stat-col">
+                        <span style="background: #0284c7; color: white; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 0.8rem;">
+                            {{ radek.pocet_zapasu|default:0 }}
+                        </span>
                     </td>
-                    <td class="stat-col" style="text-align: center;">
-                        <span class="sets-val">{{ radek.hrac.s_v }}:{{ radek.hrac.s_p }}</span>
+                    <td class="stat-col" style="font-weight: bold; color: #2e7d32;">
+                        {{ radek.body|default:0 }}
+                    </td>
+                    <td class="stat-col" style="font-size: 0.85rem; color: #475569;">
+                        {% if radek.sety_ziskane is not None %}
+                            {{ radek.sety_ziskane }}:{{ radek.sety_ztracene }}
+                        {% else %}
+                            0:0
+                        {% endif %}
+                    </td>
+                    <td class="stat-col" style="font-size: 0.85rem; color: #475569;">
+                        <strong style="color: #1e293b;">{{ radek.gemy_ziskane|default:0 }}</strong>:<strong style="color: #64748b;">{{ radek.gemy_ztracene|default:0 }}</strong>
                     </td>
                 </tr>
                 {% endfor %}
@@ -343,28 +360,33 @@
         {% endfor %}
 
         <!-- Přehled kdo bere míče v plánu -->
-        <div style="margin-top: 25px; padding: 15px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
-            <h4 style="margin: 0 0 10px 0; font-size: 0.9rem; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px;">
-                📊 Kdo bere kolikrát míče (zbývá v plánu)
-            </h4>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; font-size: 0.85rem;">
-                {% for h in hraci %}
-                    {% if h.pocet_micku_v_planu > 0 %}
-                    <div style="display: flex; justify-content: space-between; padding: 2px 0; border-bottom: 1px dashed #e2e8f0;">
-                        <span style="font-weight: 600; color: #475569;">{{ h.jmeno }}:</span>
-                        <span style="font-weight: 800; color: var(--clay);">{{ h.pocet_micku_v_planu }}x 🎾</span>
-                    </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </div>
+		<div style="margin-top: 25px; padding: 15px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+			<h4 style="margin: 0 0 10px 0; font-size: 0.9rem; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px;">
+				📊 Kdo bere kolikrát míče (zbývá v plánu)
+			</h4>
+			<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; font-size: 0.85rem;">
+				{% for h in hraci %}
+					<div style="display: flex; justify-content: space-between; padding: 2px 0; border-bottom: 1px dashed #e2e8f0;">
+						<span style="font-weight: 600; color: #475569;">{{ h.jmeno }}:</span>
+						<span style="font-weight: 800; color: var(--clay);">{{ h.pocet_micku_v_planu|default:0 }}x 🎾</span>
+					</div>
+				{% empty %}
+					<div style="grid-column: 1 / -1; color: #94a3b8; font-style: italic; text-align: center;">
+						Žádní hráči k dispozici.
+					</div>
+				{% endfor %}
+			</div>
+		</div>
     </div>
+	
+	
+	
 
     <!-- Sloupec 2: Historie výsledků (s podporou pro poznámky přes celou šířku) -->
     <div>
         <h3 style="display: flex; align-items: center; gap: 15px; border-bottom: 2px solid var(--navy); padding-bottom: 10px; margin-bottom: 20px; color: var(--navy);">
             <span>📜 Historie výsledků</span>
-            {% if vybrany_hrac and not planovane %} <!-- Zajištění viditelnosti filtru i zde, pokud chybí nadpis vlevo -->
+            {% if vybrany_hrac and not planovane %}
                 <a href="?" style="font-size: 0.8rem; color: #e74c3c; text-decoration: none; font-weight: bold; margin-left: auto;">
                     ✕ Zrušit filtr
                 </a>
@@ -438,70 +460,6 @@
 
 </div>
 
-<!-- Sekce detailních statistik na plnou šířku -->
-<div style="width: 100%; margin: 0 auto 20px auto; padding: 0; box-sizing: border-box;">
-    <div class="custom-stats-container">
-        <h4 style="margin: 0 0 5px 0; font-size: 0.9rem; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px;">
-            📊 Statistiky
-        </h4>
-        <p style="color: #718096; font-size: 0.8rem; margin-bottom: 10px; margin-top: 0;">Řazeno podle bodů, setů a rozdílu gemů.</p>
-        
-        <div class="custom-stats-table-wrapper">
-            <table class="custom-stats-table">
-                <thead>
-                    <tr>
-                        <th style="text-align: center; width: 5%;">#</th>
-                        <th style="text-align: left; width: 25%; background: #1e293b;">Hráč</th>
-                        <th style="text-align: center; width: 6%; background: #1e293b;">Zápasy</th>
-                        <th style="text-align: center; width: 6%;">Body</th>
-                        <th style="text-align: center; width: 6%;">Výhry/Prohry</th>
-                        <th style="text-align: center; width: 6%;">Sety</th>
-                        <th style="text-align: center; width: 6%;">Gemy</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for radek in statistiky_ligy %}
-                        <tr style="{% if radek.hrac_obj.id == request.user.hrac.id %}background-color: #f0f9ff;{% endif %}">
-                            <td style="text-align: center; font-weight: bold;">{{ forloop.counter }}.</td>
-                            <td style="text-align: left; font-weight: 600;">
-                                {{ radek.hrac_obj.jmeno }}
-                                {% if radek.hrac_obj.id == request.user.hrac.id %}
-                                    <span style="font-size: 0.65rem; background: #0ea5e9; color: white; padding: 1px 5px; border-radius: 6px; margin-left: 3px; display: inline-block; vertical-align: middle;">Já</span>
-                                {% endif %}
-                            </td>
-                            <td style="text-align: center;">
-                                <span style="background: #0284c7; color: white; padding: 3px 8px; border-radius: 4px; font-weight: bold;">
-                                    {{ radek.pocet_zapasu }}
-                                </span>
-                            </td>
-                            <td style="text-align: center; font-weight: 700; color: #2e7d32; font-size: 0.95rem;">
-                                {{ radek.body }}
-                            </td>
-                            <td style="text-align: center; font-size: 0.75rem; white-space: nowrap;">
-                                <span style="color: #2e7d32; font-weight: bold;">
-                                    {{ radek.v2_0 }} {{ radek.v2_1 }}
-                                </span>
-                                <span style="color: #cbd5e1; margin: 0 2px;">|</span>
-                                <span style="color: #c62828; font-weight: bold;">
-                                    {{ radek.p1_2 }} {{ radek.p0_2 }}
-                                </span>
-                            </td>
-                            <td style="text-align: center; font-weight: 600; color: #475569;">
-                                {{ radek.sety_ziskane }}:{{ radek.sety_ztracene }}
-                            </td>
-                            <td style="text-align: center; color: #475569; line-height: 1.1;">
-                                <strong style="color: #1e293b;">{{ radek.gemy_ziskane }}</strong>:<strong style="color: #64748b;">{{ radek.gemy_ztracene }}</strong>
-                            </td>
-                        </tr>
-                    {% empty %}
-                        <tr>
-                            <td colspan="7" style="color: #64748b; padding: 20px; text-align: center; font-style: italic;">Žádná data nebyla nalezena.</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+
 
 {% endblock %}

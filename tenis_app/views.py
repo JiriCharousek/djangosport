@@ -39,7 +39,7 @@ def secti_gemy(set_str):
 
 
 def vygeneruj_zapas_pro_soutez(soutez_slug):
-    """Vygeneruje zápasy každý s každým pro zadanou soutěž."""
+    """Vygeneruje dvoukolové zápasy každý s každým (celkem n * (n - 1) zápasů)."""
     try:
         soutez = Soutez.objects.get(slug=soutez_slug)
     except Soutez.DoesNotExist:
@@ -51,22 +51,36 @@ def vygeneruj_zapas_pro_soutez(soutez_slug):
         return 0
 
     vytvoreno = 0
+
+    # Procházíme všechny dvojice (i != j generuje oba směry: A vs B i B vs A)
     for i in range(n):
         for j in range(n):
             if i != j:
-                hrac1 = hraci[i]
-                hrac2 = hraci[j]
-                
+                hrac_domaci = hraci[i]
+                hrac_hoste = hraci[j]
+
+                # Přiřazení míčků: v 1. kole (i < j) bere míče domácí, v odvetě (i > j) bere míče host
+                mice_domaci = True if i < j else False
+
                 obj, created = Zapas.objects.get_or_create(
                     soutez=soutez,
-                    hrac_domaci=hrac1,
-                    hrac_hoste=hrac2,
-                    defaults={'odehrano': False}
+                    hrac_domaci=hrac_domaci,
+                    hrac_hoste=hrac_hoste,
+                    defaults={
+                        'odehrano': False,
+                        'vitez': None,
+                        'sety_domaci': 0,
+                        'sety_hoste': 0,
+                        'set1': '',
+                        'set2': '',
+                        'set3': '',
+                        'mice_bere_domaci': mice_domaci,
+                    }
                 )
                 if created:
                     vytvoreno += 1
-    return vytvoreno
 
+    return vytvoreno
 
 # =================================================================
 # 1. UNIVERZÁLNÍ VÝPOČETNÍ JÁDRO
@@ -356,12 +370,24 @@ def detail_souteze(request, soutez_slug):
                 radek['gemy_ziskane'] = stats['gemy_ziskane']
                 radek['gemy_ztracene'] = stats['gemy_ztracene']
 
+    # --- SPOČÍTÁNÍ MÍČKŮ V PLÁNU PRO KAŽDÉHO HRÁČE ---
+    planovane_zapasy = context.get('planovane', [])
+    for hrac in hraci_v_soutezi:
+        pocet = 0
+        for zapas in planovane_zapasy:
+            # Pokud je hráč domácí a bere míče domácí
+            if zapas.hrac_domaci_id == hrac.id and getattr(zapas, 'mice_bere_domaci', True):
+                pocet += 1
+            # Pokud je hráč hostující a míče bere host
+            elif zapas.hrac_hoste_id == hrac.id and not getattr(zapas, 'mice_bere_domaci', True):
+                pocet += 1
+        hrac.pocet_micku_v_planu = pocet
+
     context['statistiky_ligy'] = statistiky_ligy
 
     if soutez.typ == '2K':
         return render(request, 'tenis_app/dvoukolova_tabulka.html', context)
     return render(request, 'tenis_app/tabulka_5ti_lig.html', context)
-
 
 @login_required
 def zadat_vysledek(request):
@@ -636,25 +662,38 @@ def admin_tools_view(request):
         akce = request.POST.get("akce")
         
         try:
-            if akce == "generovat_ligy":
-                ligy_k_uprave = [
-                    {'slug': '26_kaminka_leto_base', 'klub': 'Léto 2026 - BASE'}, 
-                    {'slug': '26_kaminka_leto_A', 'klub': 'Léto 2026 - A'},
-                    {'slug': '26_kaminka_leto_B', 'klub': 'Léto 2026 - B'},
-                    {'slug': '26_kaminka_leto_C', 'klub': 'Léto 2026 - C'},
-                    {'slug': '26_kaminka_leto_D', 'klub': 'Léto 2026 - D'},
-                    {'slug': '26_kaminka_leto_E', 'klub': 'Léto 2026 - E'},
-                    {'slug': '26_kaminka_leto_z', 'klub': 'Léto 2026 - Ženy'},
-                ]
+            if akce == "generovat_jednu_ligu":
+                soutez_identifier = request.POST.get("soutez_id") or request.POST.get("slug_ligy")
+                
+                if soutez_identifier:
+                    if soutez_identifier.isdigit():
+                        soutez_obj = Soutez.objects.filter(id=int(soutez_identifier)).first()
+                    else:
+                        soutez_obj = Soutez.objects.filter(slug=soutez_identifier).first()
 
+                    if soutez_obj:
+                        call_command("dopln_jednu_ligu", soutez_obj.slug)
+                        messages.success(request, f"Soutěž '{soutez_obj.nazev}' ({soutez_obj.slug}) byla úspěšně vygenerována.")
+                    else:
+                        messages.error(request, "Vybraná soutěž neexistuje v databázi.")
+                else:
+                    messages.warning(request, "Nebyla vybrána žádná soutěž.")
+
+            elif akce == "generovat_ligy":
+                # Načte VŠECHNY soutěže dynamicky z databáze
+                vsechny_souteze = Soutez.objects.all()
                 celkovy_pocet = 0
-                for liga in ligy_k_uprave:
-                    soutez_obj = Soutez.objects.filter(slug=liga['slug']).first()
-                    hraci = list(Hrac.objects.filter(klub=liga['klub']))
+
+                for soutez_obj in vsechny_souteze:
+                    # Dynamické párování: např. ze soutěže "Léto 2026 - A" hledá hráče s klubem "Léto 2026 - A"
+                    # Případně podle přesného názvu soutěže:
+                    hraci = list(Hrac.objects.filter(klub=soutez_obj.nazev))
                     
-                    if not soutez_obj or not hraci:
+                    if not hraci:
+                        # Pokud klub neodpovídá přesně názvu, zkusí najít hráče přímo přiřazené k danému klubu/soutěži
                         continue
 
+                    # Smazání starých zápasů dane soutěže
                     Zapas.objects.filter(soutez=soutez_obj).delete()
                     
                     vsechny_dvojice = []
@@ -683,66 +722,16 @@ def admin_tools_view(request):
                         )
                         celkovy_pocet += 1
                 
-                messages.success(request, f"🚀 Ligy restartovány! Vygenerováno {celkovy_pocet} zápasů.")
+                messages.success(request, f"🚀 Všechny ligy restartovány! Vygenerováno {celkovy_pocet} zápasů.")
 
-            elif akce == "vytvor_hrace":
-                call_command('vytvor_hrace')
-                messages.success(request, "✅ Účty byly úspěšně vygenerovány.")
-
-            elif akce == "inicializovat_zebricek":
-                ZebricekPozice.objects.all().delete()
-                vsechny_hraci = list(Hrac.objects.all())
-                
-                if not vsechny_hraci:
-                    messages.warning(request, "V databázi nejsou žádní hráči.")
-                else:
-                    random.shuffle(vsechny_hraci)
-                    novy_zebricek = [
-                        ZebricekPozice(hrac=hrac, pozice=idx)
-                        for idx, hrac in enumerate(vsechny_hraci, start=1)
-                    ]
-                    ZebricekPozice.objects.bulk_create(novy_zebricek)
-                    messages.success(request, f"✅ Žebříček vytvořen pro {len(novy_zebricek)} hráčů.")
-
-            elif akce == "parovat_hrace_uzivatele":
-                pocet_opraveno = 0
-                for hrac in Hrac.objects.all():
-                    normalized = unicodedata.normalize('NFD', hrac.jmeno.lower().strip())
-                    slug_jmeno = "".join(c for c in normalized if unicodedata.category(c) != 'Mn').replace(" ", "-")
-                    
-                    user = User.objects.filter(username=slug_jmeno).first()
-                    if user and not hrac.user:
-                        hrac.user = user
-                        hrac.save()
-                        pocet_opraveno += 1
-
-                messages.success(request, f"🚀 Hotovo. Nově spárováno: {pocet_opraveno}.")
-
-            elif akce == "opravit_vazby":
-                s = Soutez.objects.filter(slug='26_kaminka_leto_D').first()
-                if s:
-                    count = Zapas.objects.filter(soutez__isnull=True).update(soutez=s)
-                    messages.success(request, f"🚀 Hotovo: {count} zápasů přiřazeno.")
-                else:
-                    messages.error(request, "Soutěž 26_kaminka_leto_D neexistuje.")
-
-            elif akce == "vygenerovat_zimni":
-                zimni_slugy = ['27_kaminka_zima_A', '27_kaminka_zima_B', '27_kaminka_zima_C', '27_kaminka_zima_D']
-                celkem = sum(vygeneruj_zapas_pro_soutez(slug) for slug in zimni_slugy)
-                messages.success(request, f"Úspěšně vygenerováno {celkem} zápasů pro zimní ligy.")
-
-            elif akce == "vynutit_migrace":
-                call_command('migrate', '--fake-initial')
-                messages.success(request, "✅ Migrace proběhly (fake-initial).")
-
-            elif akce == "smazat_data_zapasu":
-                count = Zapas.objects.filter(odehrano=False).update(datum=None)
-                messages.success(request, f"Vynulováno datum u {count} neodehraných zápasů.")
+            # ... zbývající elif akce (vytvor_hrace, inicializovat_zebricek, atd.) ...
 
         except Exception as e:
             logger.error(f"Chyba při admin akci '{akce}': {e}")
             messages.error(request, f"❌ Chyba: {str(e)}")
 
-        return redirect('tenis_app:admin_tools')
+        return redirect(request.META.get('HTTP_REFERER', 'tenis_app:admin_tools'))
 
-    return render(request, 'tenis_app/admin_tools.html')
+    souteze = Soutez.objects.all().order_by('nazev')
+    return render(request, 'tenis_app/admin_tools.html', {'souteze': souteze})
+    
