@@ -147,31 +147,51 @@ def vypocitej_tabulku_dat(soutez, request=None):
                     h.g_v += g_h
                     h.g_p += g_d
 
-    # Řazení tabulky podle nových pravidel: 1. body, 2. vzájemný zápas, 3. sety
-    def ziskej_body_ze_vzajemnych(h1, h2):
-        """Vrátí součet bodů hráče h1 ze vzájemných zápasů s hráčem h2."""
+    # Řazení tabulky: 1. Body, 2. Vzájemný zápas, 3. Rozdíl setů, 4. Vyhrané sety
+    def vzajemny_zapas_porovnani(h1, h2):
+        """Zjistí vzájemný zápas mezi h1 a h2. 
+           Vrátí 1, pokud by měl být h1 před h2, -1 pokud h2 před h1, jinak 0."""
         vzajemne = zapasy_v_soutezi.filter(odehrano=True).filter(
             (Q(hrac_domaci=h1) & Q(hrac_hoste=h2)) | (Q(hrac_domaci=h2) & Q(hrac_hoste=h1))
         )
-        body = 0
+        b1, b2 = 0, 0
         for z in vzajemne:
             bd, bh = z.ziskej_body()
             if z.hrac_domaci == h1:
-                body += bd
+                b1 += bd
+                b2 += bh
             else:
-                body += bh
-        return body
+                b1 += bh
+                b2 += bd
+        
+        if b1 > b2:
+            return 1   # h1 vyhrál vzájemný zápas -> bude výš
+        elif b1 < b2:
+            return -1  # h2 vyhrál vzájemný zápas -> bude výš
+        return 0       # vzájemný zápas nerozhodl
 
-    hraci_obj.sort(
-        key=lambda x: (
-            x.pocet_bodu,                                   # 1. Celkové body
-            # 2. Vzájemný zápas: Sečteme body proti všem soupeřům, kteří mají ÚPLNĚ STEJNÝ počet bodů
-            sum(ziskej_body_ze_vzajemnych(x, y) for y in hraci_obj if y != x and y.pocet_bodu == x.pocet_bodu),
-            (x.s_v - x.s_p),                                # 3. Rozdíl setů
-            x.s_v                                           # 4. Vyhrané sety
-        ), 
-        reverse=True
-    )
+    from functools import cmp_to_key
+
+    def custom_sort(h1, h2):
+        # 1. Celkové body (sestupně -> ten s více body je dřív)
+        if h1.pocet_bodu != h2.pocet_bodu:
+            return h2.pocet_bodu - h1.pocet_bodu
+        
+        # 2. Vzájemný zápas (pokud mají stejné body)
+        vysledek_vzajemneho = vzajemny_zapas_porovnani(h1, h2)
+        if vysledek_vzajemneho != 0:
+            return -vysledek_vzajemneho  # záporné znaménko, protože cmp_to_key řadí sestupně
+            
+        # 3. Rozdíl setů (sestupně)
+        rozdil_1 = h1.s_v - h1.s_p
+        rozdil_2 = h2.s_v - h2.s_p
+        if rozdil_1 != rozdil_2:
+            return rozdil_2 - rozdil_1
+            
+        # 4. Vyhrané sety (sestupně)
+        return h2.s_v - h1.s_v
+
+    hraci_obj.sort(key=cmp_to_key(custom_sort))
 
     # Křížová tabulka
     matice = []
