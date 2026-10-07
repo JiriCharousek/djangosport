@@ -5814,3 +5814,20 @@ Traceback (most recent call last):
     ...<8 lines>...
     )
 django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 357: 'endif', expected 'empty' or 'endfor'. Did you forget to register or load this tag?
+INFO 2026-10-07 22:21:26,711 autoreload Watching for file changes with StatReloader
+INFO 2026-10-07 22:21:35,539 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-07 22:21:38,750 autoreload Watching for file changes with StatReloader
+INFO 2026-10-07 22:22:03,787 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-07 22:22:11,538 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-07 22:23:00,510 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-07 22:24:31,535 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-07 22:25:04,271 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-07 22:25:30,097 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-07 22:30:03,023 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-07 22:30:04,755 autoreload Watching for file changes with StatReloader
+INFO 2026-10-07 22:30:16,040 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-07 22:30:46,330 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-07 22:31:14,527 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-07 22:31:41,128 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-07 22:31:59,107 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-07 22:32:16,559 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A

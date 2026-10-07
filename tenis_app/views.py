@@ -147,14 +147,28 @@ def vypocitej_tabulku_dat(soutez, request=None):
                     h.g_v += g_h
                     h.g_p += g_d
 
-    # Řazení tabulky
+    # Řazení tabulky podle nových pravidel: 1. body, 2. vzájemný zápas, 3. sety
+    def ziskej_body_ze_vzajemnych(h1, h2):
+        """Vrátí součet bodů hráče h1 ze vzájemných zápasů s hráčem h2."""
+        vzajemne = zapasy_v_soutezi.filter(odehrano=True).filter(
+            (Q(hrac_domaci=h1) & Q(hrac_hoste=h2)) | (Q(hrac_domaci=h2) & Q(hrac_hoste=h1))
+        )
+        body = 0
+        for z in vzajemne:
+            bd, bh = z.ziskej_body()
+            if z.hrac_domaci == h1:
+                body += bd
+            else:
+                body += bh
+        return body
+
     hraci_obj.sort(
         key=lambda x: (
-            x.pocet_bodu,          # 1. Body
-            (x.s_v - x.s_p),       # 2. Rozdíl setů
-            x.s_v,                 # 3. Vyhrané sety
-            (x.g_v - x.g_p),       # 4. Rozdíl gemů
-            x.g_v                  # 5. Vyhrané gemy
+            x.pocet_bodu,                                   # 1. Celkové body
+            # 2. Vzájemný zápas: Sečteme body proti všem soupeřům, kteří mají ÚPLNĚ STEJNÝ počet bodů
+            sum(ziskej_body_ze_vzajemnych(x, y) for y in hraci_obj if y != x and y.pocet_bodu == x.pocet_bodu),
+            (x.s_v - x.s_p),                                # 3. Rozdíl setů
+            x.s_v                                           # 4. Vyhrané sety
         ), 
         reverse=True
     )
