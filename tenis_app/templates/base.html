@@ -237,7 +237,7 @@
 				<div style="padding: 10px 25px 20px; text-align: center;">
 					<a href="{% url 'tenis_app:tenis_index' %}" style="text-decoration: none; color: white; font-weight: bold; font-size: 1.2rem;">🎾 Liga Kamínka</a>
 		</div>
-		
+		{% if user.is_superuser %}
 		<!-- ZIMA 26/27 -->
 		<div class="nav-section">
 			<h3 class="nav-title">🏆 Zima 26/27</h3>
@@ -260,6 +260,8 @@
 				</a>
 			</ul>
 		</div>
+		{% endif %}
+		
        	<div class="nav-section">
 			<a href="{% url 'tenis_app:prehled_vsech_zapasu' %}" style="color: #888; text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 10px;">
 				historie a statistiky všech zápasů
