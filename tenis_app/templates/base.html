@@ -347,7 +347,7 @@
 
 
 		
-		
+		{% if user.is_superuser %}
 		
 		<div class="nav-section" style="border-top: 1px solid #334155; padding-top: 20px; margin-top: 20px;">
 			<h3 class="nav-title" style="color: #fbbf24;">🔧 DB SERVIS</h3>
@@ -458,7 +458,7 @@
             {% endblock %}
         </main>
     </div>
-
+    {% endif %}
     <script>
         // JS skript pro otevírání a zavírání mobilního sidebaru
         const sidebar = document.getElementById('sidebarMenu');
