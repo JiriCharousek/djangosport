@@ -240,6 +240,49 @@
         </div>
        
         
+		{% if user.is_superuser or user.username == 'josef-augusta' %}
+
+		<div class="nav-section">
+			<h3 class="nav-title">👥 Hráči</h3>
+			<ul class="nav-list">
+				<a href="{% url 'tenis_app:hraci_prehled' %}" 
+				   class="nav-link {% if request.resolver_match.url_name == 'hraci_prehled' %}active-link{% endif %}">
+				   Přehled hráčů
+				</a>
+			</ul>
+		</div>
+		
+		<div class="nav-section">
+            <h3 class="nav-title">🏆 Zima 26/27</h3>
+            <ul class="nav-list">
+                <a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_A' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '	27_kaminka_zima_A' %}active-link{% endif %}">
+				   Liga A
+				</a>
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_B' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_B' %}active-link{% endif %}">
+				   Liga B
+				</a>
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_C' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_C' %}active-link{% endif %}">
+				   Liga C
+				</a>
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_zeny' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_zeny' %}active-link{% endif %}">
+				   Liga Ženy
+				</a>
+				<!-- <a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_E' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_E' %}active-link{% endif %}">
+				   Liga E
+				</a>
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_z' %}" 
+				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_z' %}active-link{% endif %}">
+				   Ženy
+				</a> -->
+            </ul>
+        </div>
+		
+		{% endif %}
 		<div class="nav-section">
             <h3 class="nav-title">🏆 Léto 2026</h3>
             <ul class="nav-list">
@@ -288,49 +331,9 @@
 		</div>
 
         
-		<!-- {% if user.is_superuser or user.username == 'josef-augusta' %} -->
-
-		<div class="nav-section">
-			<h3 class="nav-title">👥 Hráči</h3>
-			<ul class="nav-list">
-				<a href="{% url 'tenis_app:hraci_prehled' %}" 
-				   class="nav-link {% if request.resolver_match.url_name == 'hraci_prehled' %}active-link{% endif %}">
-				   Přehled hráčů
-				</a>
-			</ul>
-		</div>
 		
-		<div class="nav-section">
-            <h3 class="nav-title">🏆 Zima 26/27</h3>
-            <ul class="nav-list">
-                <a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_A' %}" 
-				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '	27_kaminka_zima_A' %}active-link{% endif %}">
-				   Liga A
-				</a>
-				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_B' %}" 
-				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_B' %}active-link{% endif %}">
-				   Liga B
-				</a>
-				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_C' %}" 
-				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_C' %}active-link{% endif %}">
-				   Liga C
-				</a>
-				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_zeny' %}" 
-				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_zeny' %}active-link{% endif %}">
-				   Liga Ženy
-				</a>
-				<!-- <a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_E' %}" 
-				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_E' %}active-link{% endif %}">
-				   Liga E
-				</a>
-				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_z' %}" 
-				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_z' %}active-link{% endif %}">
-				   Ženy
-				</a> -->
-            </ul>
-        </div>
-		<!-- {% endif %} -->
-		{% if user.is_superuser %}
+		
+		<!-- {% if user.is_superuser %}
 		<div class="nav-section">
             <h3 class="nav-title">🏆 Zima 25/26</h3>
             <ul class="nav-list">
@@ -350,16 +353,16 @@
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_D' %}active-link{% endif %}">
 				   Liga D
 				</a>
-				<!-- <a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_E' %}" 
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_E' %}" 
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_E' %}active-link{% endif %}">
 				   Liga E
 				</a>
 				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_z' %}" 
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_z' %}active-link{% endif %}">
 				   Ženy
-				</a> -->
+				</a>
             </ul>
-        </div>
+        </div> -->
 		
 		
 		<div class="nav-section" style="border-top: 1px solid #334155; padding-top: 20px; margin-top: 20px;">
