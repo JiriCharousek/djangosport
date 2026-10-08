@@ -329,7 +329,7 @@
 				</a> -->
             </ul>
         </div>
-		{% endif %}
+		<!-- {% endif %} -->
 		{% if user.is_superuser %}
 		<div class="nav-section">
             <h3 class="nav-title">🏆 Zima 25/26</h3>
@@ -350,14 +350,14 @@
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_D' %}active-link{% endif %}">
 				   Liga D
 				</a>
-				<!-- <a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_E' %}" 
+				<!-- <!-- <a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_E' %}" 
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_E' %}active-link{% endif %}">
 				   Liga E
 				</a>
 				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='26_kaminka_leto_z' %}" 
 				   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '26_kaminka_leto_z' %}active-link{% endif %}">
 				   Ženy
-				</a> -->
+				</a> --> -->
             </ul>
         </div>
 		
