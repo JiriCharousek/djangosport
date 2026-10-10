@@ -43,6 +43,7 @@ urlpatterns = [
     path('smazat-vysledek/<int:pk>/', views.smazat_vysledek, name='smazat_vysledek'),
     
     path('historie/', views.prehled_vsech_zapasu, name='prehled_vsech_zapasu'),
+    path('historie-nova/', views.prehled_aktualnich_zapasu, name='prehled_aktualnich_zapasu'),
     
     path('editovat-hrace/<int:pk>/', views.editovat_hrace, name='editovat_hrace'),
     path('hrac/<int:pk>/editovat/', views.editovat_hrace, name='hrac_edit'),

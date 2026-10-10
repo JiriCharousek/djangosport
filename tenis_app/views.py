@@ -769,3 +769,107 @@ def admin_tools_view(request):
     souteze = Soutez.objects.all().order_by('nazev')
     return render(request, 'tenis_app/admin_tools.html', {'souteze': souteze})
     
+    
+from datetime import date
+from .models import Zapas
+
+from datetime import date
+from django.db.models import Q, F
+from django.shortcuts import render, get_object_or_404
+from collections import defaultdict
+from .models import Zapas, Hrac
+
+@login_required
+def prehled_aktualnich_zapasu(request):
+    """Přehled zápasů a statistik pro zimu od 15.10.2026."""
+    datum_limit = date(2026, 10, 15)
+    
+    # Základní queryset pro historii od 15.10.2026
+    vsechny = Zapas.objects.filter(datum__gte=datum_limit)
+    
+    hrac_id = request.GET.get('filtr_hrac')
+    vybrany_hrac = None
+    if hrac_id and hrac_id.isdigit():
+        vybrany_hrac = get_object_or_404(Hrac, id=hrac_id)
+        vsechny = vsechny.filter(Q(hrac_domaci=vybrany_hrac) | Q(hrac_hoste=vybrany_hrac))
+
+    planovane = Zapas.objects.filter(datum__gte=datum_limit, odehrano=False).order_by(F('datum').desc(nulls_last=True))
+    historie = vsechny.filter(odehrano=True).order_by('-datum')
+
+    # TADY JE KLÍČOVÁ ÚPRAVA: Zápasy pro statistiky omezené od 15.10.2026
+    zapas_stats = Zapas.objects.filter(
+        odehrano=True,
+        datum__gte=datum_limit
+    ).select_related('hrac_domaci', 'hrac_hoste')
+
+    data_hracu = defaultdict(lambda: {
+        'pocet_zapasu': 0, 
+        'body': 0, 
+        'sety_ziskane': 0, 
+        'sety_ztracene': 0,
+        'gemy_ziskane': 0, 
+        'gemy_ztracene': 0, 
+        'rozdil_gemu': 0,
+        'v2_0': 0, 'v2_1': 0,
+        'p1_2': 0, 'p0_2': 0,
+        'hrac_obj': None
+    })
+
+    for h in Hrac.objects.all():
+        data_hracu[h.id]['hrac_obj'] = h
+
+    for zapas in zapas_stats:
+        d_id = zapas.hrac_domaci.id
+        h_id = zapas.hrac_hoste.id
+        
+        data_hracu[d_id]['pocet_zapasu'] += 1
+        data_hracu[h_id]['pocet_zapasu'] += 1
+        
+        if zapas.sety_domaci == 2 and zapas.sety_hoste == 0:
+            data_hracu[d_id]['body'] += 3
+            data_hracu[d_id]['v2_0'] += 1
+            data_hracu[h_id]['p0_2'] += 1
+        elif zapas.sety_domaci == 2 and zapas.sety_hoste == 1:
+            data_hracu[d_id]['body'] += 2
+            data_hracu[h_id]['body'] += 1
+            data_hracu[d_id]['v2_1'] += 1
+            data_hracu[h_id]['p1_2'] += 1
+        elif zapas.sety_domaci == 1 and zapas.sety_hoste == 2:
+            data_hracu[d_id]['body'] += 1
+            data_hracu[h_id]['body'] += 2
+            data_hracu[d_id]['p1_2'] += 1
+            data_hracu[h_id]['v2_1'] += 1
+        elif zapas.sety_domaci == 0 and zapas.sety_hoste == 2:
+            data_hracu[h_id]['body'] += 3
+            data_hracu[d_id]['p0_2'] += 1
+            data_hracu[h_id]['v2_0'] += 1
+            
+        data_hracu[d_id]['sety_ziskane'] += zapas.sety_domaci
+        data_hracu[d_id]['sety_ztracene'] += zapas.sety_hoste
+        data_hracu[h_id]['sety_ziskane'] += zapas.sety_hoste
+        data_hracu[h_id]['sety_ztracene'] += zapas.sety_domaci
+        
+        for set_pole in [zapas.set1, zapas.set2, zapas.set3]:
+            g_d, g_h = secti_gemy(set_pole)
+            data_hracu[d_id]['gemy_ziskane'] += g_d
+            data_hracu[d_id]['gemy_ztracene'] += g_h
+            data_hracu[h_id]['gemy_ziskane'] += g_h
+            data_hracu[h_id]['gemy_ztracene'] += g_d
+
+    for h_id in data_hracu:
+        data_hracu[h_id]['rozdil_gemu'] = data_hracu[h_id]['gemy_ziskane'] - data_hracu[h_id]['gemy_ztracene']
+
+    statistiky_hracu = list(data_hracu.values())
+    statistiky_hracu.sort(
+        key=lambda x: (x['pocet_zapasu'], x['body'], x['rozdil_gemu']), 
+        reverse=True
+    )
+
+    return render(request, 'tenis_app/aktualni_zapasy.html', {
+        'planovane': planovane,
+        'historie': historie,
+        'vybrany_hrac': vybrany_hrac,
+        'statistiky_hracu': statistiky_hracu,
+    })
+
+    
