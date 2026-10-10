@@ -6089,3 +6089,5 @@ INFO 2026-10-10 08:12:14,434 views Uživatel jchar si prohlíží soutìž: Zima 26/27
 INFO 2026-10-10 08:12:32,295 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
 INFO 2026-10-10 08:30:51,386 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
 INFO 2026-10-10 08:30:53,699 autoreload Watching for file changes with StatReloader
+INFO 2026-10-10 08:33:45,041 autoreload Watching for file changes with StatReloader
+INFO 2026-10-10 08:43:51,303 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
