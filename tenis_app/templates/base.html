@@ -248,9 +248,25 @@
                    class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_C' %}active-link{% endif %}">
                    Liga C
                 </a>
-                <a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_zeny' %}" 
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_D' %}" 
+                   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_D' %}active-link{% endif %}">
+                   Liga D
+                </a>
+                <a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_zenyA' %}" 
+                   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_zenyA' %}active-link{% endif %}">
+                   Liga Ženy A
+                </a>                
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_zenyB' %}" 
+                   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_zenyB' %}active-link{% endif %}">
+                   Liga Ženy B
+                </a>
+				<!-- <a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_zeny' %}" 
                    class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_zeny' %}active-link{% endif %}">
                    Liga Ženy
+                </a> -->
+				<a href="{% url 'tenis_app:detail_souteze' soutez_slug='27_kaminka_zima_mx' %}" 
+                   class="nav-link {% if request.resolver_match.kwargs.soutez_slug == '27_kaminka_zima_mx' %}active-link{% endif %}">
+                   Liga Mixy
                 </a>
             </ul>
         </div>
