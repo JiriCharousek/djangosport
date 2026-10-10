@@ -321,7 +321,7 @@
                 <span style="display: flex; gap: 8px; margin-left: auto;">
                     {% if request.user == vybrany_hrac.user or request.user.is_staff or request.user.is_superuser %}
                         <a href="{% url 'tenis_app:editovat_hrace' vybrany_hrac.id %}" style="font-size: 0.75rem; background: #3498db; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-weight: bold;">✏️ Upravit</a>
-                        <a href="{% url 'tenis_app:smazat_hrace' vybrany_hrac.id %}" style="font-size: 0.75rem; background: #e74c3c; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-weight: bold;" onclick="return confirm('Smazat hráče {{ vybrany_hrac.jmeno }}?')">🗑️ Smazat</a>
+                        <!-- <a href="{% url 'tenis_app:smazat_hrace' vybrany_hrac.id %}" style="font-size: 0.75rem; background: #e74c3c; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-weight: bold;" onclick="return confirm('Smazat hráče {{ vybrany_hrac.jmeno }}?')">🗑️ Smazat</a> -->
                     {% endif %}
                     <a href="?" style="font-size: 0.75rem; color: #e74c3c; text-decoration: none; align-self: center; font-weight: bold;">✕ Zrušit filtr</a>
                 </span>
