@@ -782,7 +782,7 @@ from .models import Zapas, Hrac
 @login_required
 def prehled_aktualnich_zapasu(request):
     """Přehled zápasů a statistik pro zimu od 15.10.2026."""
-    datum_limit = date(2026, 10, 15)
+    datum_limit = date(2026, 10, 11)
     
     # Základní queryset pro historii od 15.10.2026
     vsechny = Zapas.objects.filter(datum__gte=datum_limit)
