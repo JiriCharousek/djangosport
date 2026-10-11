@@ -6132,3 +6132,7 @@ INFO 2026-10-11 08:15:13,936 autoreload Watching for file changes with StatReloa
 INFO 2026-10-11 08:44:25,876 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
 INFO 2026-10-11 08:44:28,957 autoreload Watching for file changes with StatReloader
 INFO 2026-10-11 20:24:37,046 autoreload Watching for file changes with StatReloader
+INFO 2026-10-11 22:20:31,208 autoreload Watching for file changes with StatReloader
+WARNING 2026-10-11 22:21:07,438 log Not Found: /favicon.ico
+INFO 2026-10-11 22:21:08,691 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-11 22:26:35,608 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A

@@ -73,23 +73,48 @@
         {% endfor %}
     {% endif %}
 
-    <!-- CSS pro otočení textu v hlavičkách -->
+    <!-- CSS pro otočení textu v hlavičkách a zakotvení tabulky -->
+    <!-- CSS pro otočení textu v hlavičkách a zakotvení tabulky -->
     <style>
+        .table-responsive {
+            max-height: 70vh; /* Omezení výšky tabulky pro vertikální scrollbar */
+            overflow-y: auto;  
+            overflow-x: auto;  
+            position: relative;
+        }
+        .table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: #212529; /* Zajištění pevného pozadí pro sticky hlavičku */
+        }
         .rotated-header {
-            height: 140px;
+            height: 130px;
             white-space: nowrap;
             vertical-align: bottom;
-            padding-bottom: 10px !important;
+            padding: 0 !important; /* Vynulování paddingu kvůli přesnému ořezu */
             text-align: center;
             background-color: #212529 !important;
             border-right: 1px solid #374151;
+            position: relative;
+        }
+        /* Obal pro oříznutí přetékajícího textu uvnitř hlavičky */
+        .rotated-header-inner {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            height: 120px;
+            overflow: hidden; /* Zde se text ořízne a nepoleze ven */
+            display: flex;
+            justify-content: center;
         }
         .rotated-header span {
             display: inline-block;
             writing-mode: vertical-rl;
             transform: rotate(180deg);
             text-align: left;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 0.03em;
             color: #ffffff !important;
             font-weight: 600;
@@ -105,25 +130,25 @@
                     <table class="table table-hover table-striped align-middle mb-0" style="font-size: 0.9rem;">
                         <thead class="table-dark text-uppercase fs-7">
                             <tr>
-                                <th style="width: 1%; text-align: left; vertical-align: middle;">#</th>
-                                <th style="width: 15%; text-align: left; padding-left: 15px; vertical-align: middle;">Jméno a příjmení</th>
-                                <th style="width: 2%; text-align: left; vertical-align: middle;">Ed</th>
-                                <!-- <th style="width: 8%; text-align: left; vertical-align: middle;">Telefon</th>
-                                <th style="width: 12%; text-align: left; vertical-align: middle;">Email</th> -->
-                                <!-- <th style="width: 8%; text-align: left; vertical-align: middle;">Adresa</th>
-                                <th style="width: 8%; text-align: left; vertical-align: middle;">Info</th> -->
+                                <th style="width: 1%; text-align: left; vertical-align: middle; color: white !important;">#</th>
+                                <th style="width: 15%; text-align: left; padding-left: 15px; vertical-align: middle; color: white !important;">Jméno a příjmení</th>
+                                <th style="width: 2%; text-align: left; vertical-align: middle; color: white !important;">Ed</th>
                                 
                                 <!-- Svisle otočené hlavičky pro KLUBY -->
                                 {% for klub_nazev in vsechny_kluby %}
                                     <th class="rotated-header" title="Klub: {{ klub_nazev }}">
-                                        <span>{{ klub_nazev }}</span>
+                                        <div class="rotated-header-inner">
+                                            <span>{{ klub_nazev }}</span>
+                                        </div>
                                     </th>
                                 {% endfor %}
 
                                 <!-- Svisle otočené hlavičky pro SOUTĚŽE -->
                                 {% for soutez in vsechny_souteze %}
                                     <th class="rotated-header" title="{{ soutez.nazev }}">
-                                        <span>{{ soutez.nazev }}</span>
+                                        <div class="rotated-header-inner">
+                                            <span>{{ soutez.nazev }}</span>
+                                        </div>
                                     </th>
                                 {% endfor %}
                             </tr>
@@ -139,38 +164,6 @@
                                     <td class="text-center">
                                         <a href="{% url 'tenis_app:hrac_edit' hrac.id %}" class="btn btn-sm btn-outline-primary border-0 bg-light" title="Upravit hráče">✏️</a>
                                     </td>
-                                    
-                                   <!--  <td>
-                                        {% if hrac.telefon %}
-                                            <a href="tel:{{ hrac.telefon }}" class="text-decoration-none text-dark">📞 {{ hrac.telefon }}</a>
-                                        {% else %}
-                                            <span class="text-muted">-</span>
-                                        {% endif %}
-                                    </td>
-                                    
-                                    <td>
-                                        {% if hrac.email %}
-                                            <a href="mailto:{{ hrac.email }}" class="text-decoration-none text-muted" style="font-size: 0.85rem;">✉️ {{ hrac.email }}</a>
-                                        {% else %}
-                                            <span class="text-muted">-</span>
-                                        {% endif %}
-                                    </td> -->
-
-                                    <!-- <td>
-                                        {% if hrac.adresa %}
-                                            <span class="text-secondary" style="font-size: 0.85rem;">📍 {{ hrac.adresa }}</span>
-                                        {% else %}
-                                            <span class="text-muted">-</span>
-                                        {% endif %}
-                                    </td>
-                                    
-                                    <td>
-                                        {% if hrac.info %}
-                                            <span class="text-info-emphasis bg-light px-2 py-1 rounded" style="font-size: 0.8rem;">📝 {{ hrac.info }}</span>
-                                        {% else %}
-                                            <span class="text-muted">-</span>
-                                        {% endif %}
-                                    </td> -->
 
                                     <!-- Dynamické přepínače (radio) pro kluby -->
                                     {% for klub_nazev in vsechny_kluby %}
