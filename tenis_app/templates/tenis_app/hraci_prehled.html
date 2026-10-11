@@ -89,10 +89,10 @@
                                 <th style="width: 1%; text-align: left;">#</th>
                                 <th style="width: 7%; text-align: left; padding-left: 15px;">Jméno a příjmení</th>
                                 <th style="width: 2%; text-align: left;">Ed</th>
-                                <th style="width: 4%; text-align: left;">Telefon</th>
+                                <!-- <th style="width: 4%; text-align: left;">Telefon</th>
                                 <th style="width: 8%; text-align: left;">Email</th>
                                 <th style="width: 8%; text-align: left;">Adresa</th>
-                                <th style="width: 8%; text-align: left;">Info</th>
+                                <th style="width: 8%; text-align: left;">Info</th> -->
                                 <th style="width: 10%; text-align: left;">Klub</th>
                                 <th style="width: 12%; text-align: left;">Soutěže</th>
                             </tr>
@@ -109,7 +109,7 @@
                                         <a href="{% url 'tenis_app:hrac_edit' hrac.id %}" class="btn btn-sm btn-outline-primary border-0 bg-light" title="Upravit hráče">✏️</a>
                                     </td>
                                     
-                                    <td>
+                                    <!-- <td>
                                         {% if hrac.telefon %}
                                             <a href="tel:{{ hrac.telefon }}" class="text-decoration-none text-dark">📞 {{ hrac.telefon }}</a>
                                         {% else %}
@@ -139,7 +139,7 @@
                                         {% else %}
                                             <span class="text-muted">-</span>
                                         {% endif %}
-                                    </td>
+                                    </td> -->
                                     
                                     <td>
                                         {% if hrac.klub %}
