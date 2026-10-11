@@ -876,7 +876,29 @@ from .models import Hrac, Soutez
 
 from .models import Hrac, Soutez
 
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from .models import Hrac, Soutez
+
 def hraci_prehled(request):
+    # Zpracování odeslaného formuláře (hromadné uložení zaškrtnutých soutěží)
+    if request.method == 'POST':
+        vsechny_souteze = Soutez.objects.all()
+        for hrac in Hrac.objects.all():
+            # Sestavíme seznam ID soutěží, které byly pro daného hráče zaškrtnuty
+            aktivni_souteze_ids = []
+            for soutez in vsechny_souteze:
+                checkbox_name = f"hrac_{hrac.id}_soutez_{soutez.id}"
+                if request.POST.get(checkbox_name) == '1':
+                    aktivni_souteze_ids.append(soutez.id)
+            
+            # Aktualizujeme ManyToMany relaci
+            hrac.souteze.set(aktivni_souteze_ids)
+            
+        messages.success(request, "Změny v soutěžích hráčů byly úspěšně uloženy.")
+        return redirect('tenis_app:hraci_prehled')
+
+    # Načtení dat pro zobrazení
     hraci = Hrac.objects.prefetch_related('souteze').all()
     
     vybrany_klub = request.GET.get('klub')
@@ -892,10 +914,8 @@ def hraci_prehled(request):
         hraci = hraci.filter(souteze__id=soutez_id)
         vybrana_soutez = Soutez.objects.filter(id=soutez_id).first()
 
-    # Získání všech soutěží a unikátních klubů pro tlačítka
+    # Získání dat pro dynamická tlačítka a hlavičku tabulky
     vsechny_souteze = Soutez.objects.all()
-    
-    # Vybere všechny neprázdné kluby, seřadí je a odstraní duplicity
     vsechny_kluby = Hrac.objects.exclude(klub__isnull=True).exclude(klub='').values_list('klub', flat=True).distinct().order_by('klub')
 
     context = {
@@ -903,7 +923,7 @@ def hraci_prehled(request):
         'vybrany_klub': vybrany_klub,
         'vybrana_soutez': vybrana_soutez,
         'vsechny_souteze': vsechny_souteze,
-        'vsechny_kluby': vsechny_kluby,  # Předáme do šablony
+        'vsechny_kluby': vsechny_kluby,
     }
     return render(request, 'tenis_app/hraci_prehled.html', context)
 

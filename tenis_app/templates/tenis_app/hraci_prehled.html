@@ -20,45 +20,40 @@
         <span class="badge bg-secondary fs-6 px-3 py-2">Zobrazeno hráčů: {{ hraci|length }}</span>
     </div>
 
-    <!-- OBLAST GRAFICKÝCH TLAČÍTEK PRO FILTRY -->
+    <!-- OBLAST TLAČÍTEK PRO FILTRY -->
     <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 25px; border: 1px solid #e2e8f0;">
         <div style="display: flex; flex-direction: column; gap: 15px;">
             
-            <!-- 1. Řádek: Tlačítka pro Kluby -->
+            <!-- 1. Řádek: Kluby -->
             <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
                 <span style="font-weight: bold; font-size: 0.85rem; color: #64748b; min-width: 90px; text-transform: uppercase;">Filtr Klub:</span>
-                
                 <a href="?{% if vybrana_soutez %}soutez={{ vybrana_soutez.id }}{% endif %}" 
-                   style="padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; font-weight: 600; transition: 0.2s; background: {% if not vybrany_klub %}#0f172a{% else %}#f1f5f9{% endif %}; color: {% if not vybrany_klub %}white{% else %}#475569{% endif %}; border: 1px solid {% if not vybrany_klub %}#0f172a{% else %}#cbd5e1{% endif %};">
+                   style="padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; font-weight: 600; background: {% if not vybrany_klub %}#0f172a{% else %}#f1f5f9{% endif %}; color: {% if not vybrany_klub %}white{% else %}#475569{% endif %}; border: 1px solid {% if not vybrany_klub %}#0f172a{% else %}#cbd5e1{% endif %};">
                     Všechny kluby
                 </a>
-                
                 {% for k in vsechny_kluby %}
                     <a href="?klub={{ k }}{% if vybrana_soutez %}&soutez={{ vybrana_soutez.id }}{% endif %}" 
-                       style="padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; font-weight: 600; transition: 0.2s; background: {% if vybrany_klub == k %}#2563eb{% else %}#f1f5f9{% endif %}; color: {% if vybrany_klub == k %}white{% else %}#475569{% endif %}; border: 1px solid {% if vybrany_klub == k %}#2563eb{% else %}#cbd5e1{% endif %};">
+                       style="padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; font-weight: 600; background: {% if vybrany_klub == k %}#2563eb{% else %}#f1f5f9{% endif %}; color: {% if vybrany_klub == k %}white{% else %}#475569{% endif %}; border: 1px solid {% if vybrany_klub == k %}#2563eb{% else %}#cbd5e1{% endif %};">
                         {{ k }}
                     </a>
                 {% endfor %}
             </div>
 
-            <!-- 2. Řádek: Tlačítka pro Soutěže -->
+            <!-- 2. Řádek: Soutěže -->
             <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
                 <span style="font-weight: bold; font-size: 0.85rem; color: #64748b; min-width: 90px; text-transform: uppercase;">Filtr Soutěž:</span>
-                
                 <a href="?{% if vybrany_klub %}klub={{ vybrany_klub }}{% endif %}" 
-                   style="padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; font-weight: 600; transition: 0.2s; background: {% if not vybrana_soutez %}#0f172a{% else %}#f1f5f9{% endif %}; color: {% if not vybrana_soutez %}white{% else %}#475569{% endif %}; border: 1px solid {% if not vybrana_soutez %}#0f172a{% else %}#cbd5e1{% endif %};">
+                   style="padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; font-weight: 600; background: {% if not vybrana_soutez %}#0f172a{% else %}#f1f5f9{% endif %}; color: {% if not vybrana_soutez %}white{% else %}#475569{% endif %}; border: 1px solid {% if not vybrana_soutez %}#0f172a{% else %}#cbd5e1{% endif %};">
                     Všechny soutěže
                 </a>
-                
                 {% for s in vsechny_souteze %}
                     <a href="?soutez={{ s.id }}{% if vybrany_klub %}&klub={{ vybrany_klub }}{% endif %}" 
-                       style="padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; font-weight: 600; transition: 0.2s; background: {% if vybrana_soutez.id == s.id %}#16a34a{% else %}#f1f5f9{% endif %}; color: {% if vybrana_soutez.id == s.id %}white{% else %}#475569{% endif %}; border: 1px solid {% if vybrana_soutez.id == s.id %}#16a34a{% else %}#cbd5e1{% endif %};">
+                       style="padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; font-weight: 600; background: {% if vybrana_soutez.id == s.id %}#16a34a{% else %}#f1f5f9{% endif %}; color: {% if vybrana_soutez.id == s.id %}white{% else %}#475569{% endif %}; border: 1px solid {% if vybrana_soutez.id == s.id %}#16a34a{% else %}#cbd5e1{% endif %};">
                         🏆 {{ s.nazev }}
                     </a>
                 {% endfor %}
             </div>
 
-            <!-- Tlačítko zrušení filtrů -->
             {% if vybrany_klub or vybrana_soutez %}
                 <div style="display: flex; justify-content: flex-end; border-top: 1px solid #f1f5f9; padding-top: 10px; margin-top: 5px;">
                     <a href="?" style="padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; text-decoration: none; font-weight: 600; background: #fee2e2; color: #dc2626; border: 1px solid #fecaca;">
@@ -78,23 +73,46 @@
         {% endfor %}
     {% endif %}
 
+    <!-- CSS pro otočení textu v hlavičkách -->
+    <style>
+        .rotated-header {
+            height: 140px; /* Pevná výška záhlaví, aby se dlouhé názvy vešly */
+            white-space: nowrap;
+            vertical-align: bottom;
+            padding-bottom: 10px !important;
+            text-align: center;
+        }
+        .rotated-header span {
+            display: inline-block;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg); /* Otočí text směrem nahoru */
+            text-align: left;
+            font-size: 0.8rem;
+            letter-spacing: 0.03em;
+        }
+    </style>
+
+    <!-- Formulář pro hromadné uložení změn zaškrtávátek -->
     <form method="post">
         {% csrf_token %}
         <div class="card shadow border-0 rounded-3">
             <div class="card-body p-0">
                 <div class="table-responsive">
                     <table class="table table-hover table-striped align-middle mb-0" style="font-size: 0.9rem;">
-                        <thead class="table-dark text-center text-uppercase fs-7">
+                        <thead class="table-dark text-uppercase fs-7">
                             <tr>
-                                <th style="width: 1%; text-align: left;">#</th>
-                                <th style="width: 7%; text-align: left; padding-left: 15px;">Jméno a příjmení</th>
-                                <th style="width: 2%; text-align: left;">Ed</th>
-                                <!-- <th style="width: 4%; text-align: left;">Telefon</th>
-                                <th style="width: 8%; text-align: left;">Email</th>
-                                <th style="width: 8%; text-align: left;">Adresa</th>
-                                <th style="width: 8%; text-align: left;">Info</th> -->
-                                <th style="width: 10%; text-align: left;">Klub</th>
-                                <th style="width: 12%; text-align: left;">Soutěže</th>
+                                <th style="width: 1%; text-align: left; vertical-align: middle;">#</th>
+                                <th style="width: 15%; text-align: left; padding-left: 15px; vertical-align: middle;">Jméno a příjmení</th>
+                                <th style="width: 2%; text-align: left; vertical-align: middle;">Ed</th>
+                                <th style="width: 8%; text-align: left; vertical-align: middle;">Telefon</th>
+                                <th style="width: 10%; text-align: left; vertical-align: middle;">Email</th>
+                                <th style="width: 8%; text-align: left; vertical-align: middle;">Klub</th>
+                                <!-- Svisle otočené hlavičky pro jednotlivé soutěže -->
+                                {% for soutez in vsechny_souteze %}
+                                    <th class="rotated-header" title="{{ soutez.nazev }}">
+                                        <span>{{ soutez.nazev }}</span>
+                                    </th>
+                                {% endfor %}
                             </tr>
                         </thead>
                         <tbody>
@@ -109,7 +127,7 @@
                                         <a href="{% url 'tenis_app:hrac_edit' hrac.id %}" class="btn btn-sm btn-outline-primary border-0 bg-light" title="Upravit hráče">✏️</a>
                                     </td>
                                     
-                                    <!-- <td>
+                                    <td>
                                         {% if hrac.telefon %}
                                             <a href="tel:{{ hrac.telefon }}" class="text-decoration-none text-dark">📞 {{ hrac.telefon }}</a>
                                         {% else %}
@@ -126,22 +144,6 @@
                                     </td>
                                     
                                     <td>
-                                        {% if hrac.adresa %}
-                                            <span class="text-secondary" style="font-size: 0.85rem;">📍 {{ hrac.adresa }}</span>
-                                        {% else %}
-                                            <span class="text-muted">-</span>
-                                        {% endif %}
-                                    </td>
-                                    
-                                    <td>
-                                        {% if hrac.info %}
-                                            <span class="text-info-emphasis bg-light px-2 py-1 rounded" style="font-size: 0.8rem;">📝 {{ hrac.info }}</span>
-                                        {% else %}
-                                            <span class="text-muted">-</span>
-                                        {% endif %}
-                                    </td> -->
-                                    
-                                    <td>
                                         {% if hrac.klub %}
                                             <span class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle px-2 py-1">{{ hrac.klub }}</span>
                                         {% else %}
@@ -149,24 +151,30 @@
                                         {% endif %}
                                     </td>
 
-                                    <td>
-                                        {% for soutez in hrac.souteze.all %}
-                                            <span class="badge bg-success bg-opacity-10 text-success border border-success-subtle px-2 py-1 me-1 mb-1" style="font-size: 0.75rem;">
-                                                🏆 {{ soutez.nazev }}
-                                            </span>
-                                        {% empty %}
-                                            <span class="text-muted small">Žádná soutěž</span>
-                                        {% endfor %}
-                                    </td>
+                                    <!-- Dynamické checkboxy pro jednotlivé soutěže -->
+                                    {% for soutez in vsechny_souteze %}
+                                        <td class="text-center align-middle">
+                                            <input type="checkbox" 
+                                                   name="hrac_{{ hrac.id }}_soutez_{{ soutez.id }}" 
+                                                   value="1" 
+                                                   {% if soutez in hrac.souteze.all %}checked{% endif %} 
+                                                   class="form-check-input m-0">
+                                        </td>
+                                    {% endfor %}
                                 </tr>
                             {% empty %}
                                 <tr>
-                                    <td colspan="9" class="text-center py-5 text-muted">Žádní hráči neodpovídají zvoleným filtrům.</td>
+                                    <td colspan="{{ vsechny_souteze|length|add:6 }}" class="text-center py-5 text-muted">Žádní hráči neodpovídají zvoleným filtrům.</td>
                                 </tr>
                             {% endfor %}
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <!-- Patička s tlačítkem pro uložení změn zaškrtávátek -->
+            <div class="card-footer bg-light d-flex justify-content-between align-items-center py-3 px-4">
+                <span class="text-muted small">💡 Zaškrtnutím políček upravíš přiřazení hráčů do soutěží.</span>
+                <button type="submit" class="btn btn-success px-4 shadow-sm">💾 Uložit změny v soutěžích</button>
             </div>
         </div>
     </form>
