@@ -297,6 +297,8 @@
         </div>
 
         {% if user.is_superuser or user.username == 'josef-augusta' %}
+		{% endif %}
+		{% if user.is_superuser %}
         <div class="nav-section">
             <h3 class="nav-title">👥 Hráči</h3>
             <ul class="nav-list">

@@ -871,5 +871,40 @@ def prehled_aktualnich_zapasu(request):
         'vybrany_hrac': vybrany_hrac,
         'statistiky_hracu': statistiky_hracu,
     })
+    
+from .models import Hrac, Soutez
+
+from .models import Hrac, Soutez
+
+def hraci_prehled(request):
+    hraci = Hrac.objects.prefetch_related('souteze').all()
+    
+    vybrany_klub = request.GET.get('klub')
+    soutez_id = request.GET.get('soutez')
+    
+    # Filtr podle klubu
+    if vybrany_klub:
+        hraci = hraci.filter(klub=vybrany_klub)
+        
+    # Filtr podle soutěže
+    vybrana_soutez = None
+    if soutez_id and soutez_id.isdigit():
+        hraci = hraci.filter(souteze__id=soutez_id)
+        vybrana_soutez = Soutez.objects.filter(id=soutez_id).first()
+
+    # Získání všech soutěží a unikátních klubů pro tlačítka
+    vsechny_souteze = Soutez.objects.all()
+    
+    # Vybere všechny neprázdné kluby, seřadí je a odstraní duplicity
+    vsechny_kluby = Hrac.objects.exclude(klub__isnull=True).exclude(klub='').values_list('klub', flat=True).distinct().order_by('klub')
+
+    context = {
+        'hraci': hraci,
+        'vybrany_klub': vybrany_klub,
+        'vybrana_soutez': vybrana_soutez,
+        'vsechny_souteze': vsechny_souteze,
+        'vsechny_kluby': vsechny_kluby,  # Předáme do šablony
+    }
+    return render(request, 'tenis_app/hraci_prehled.html', context)
 
     

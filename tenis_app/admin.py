@@ -17,8 +17,11 @@ class SoutezAdmin(admin.ModelAdmin):
 @admin.register(Hrac)
 class HracAdmin(admin.ModelAdmin):
     list_display = ('jmeno', 'klub', 'email', 'telefon', 'info')
-    list_filter = ('jmeno','klub')
-    search_fields = ('jmeno', 'klub')
+    search_fields = ('jmeno', 'email', 'telefon')
+    list_filter = ('klub',)
+    
+    # Přidá přehledný výběr pro ManyToMany pole 'souteze'
+    filter_horizontal = ('souteze',)
 
 
  # 4. Registrace Zápasu
