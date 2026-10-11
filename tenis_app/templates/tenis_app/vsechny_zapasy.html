@@ -160,7 +160,7 @@
         <p style="text-align: center; color: #666; padding: 20px;">Žádné zápasy k zobrazení.</p>
     {% endfor %}
 </div>
-
+    {% if user.is_superuser %}
     <!-- 📊 SEKCE STATISTIK (Aktivita hráčů se všemi detaily) -->
     <div class="custom-stats-container">
         <h3 style="color: #2d3748; margin-top: 0; margin-bottom: 5px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px;">
@@ -249,6 +249,7 @@
             </table>
         </div>
     </div>
+	{% endif %}
 
 </div>
 {% endblock %}
