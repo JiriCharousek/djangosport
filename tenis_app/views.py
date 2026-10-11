@@ -880,22 +880,30 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from .models import Hrac, Soutez
 
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from .models import Hrac, Soutez
+
 def hraci_prehled(request):
-    # Zpracování odeslaného formuláře (hromadné uložení zaškrtnutých soutěží)
+    vsechny_souteze = Soutez.objects.all()
+    vsechny_kluby = list(Hrac.objects.exclude(klub__isnull=True).exclude(klub='').values_list('klub', flat=True).distinct().order_by('klub'))
+
     if request.method == 'POST':
-        vsechny_souteze = Soutez.objects.all()
         for hrac in Hrac.objects.all():
-            # Sestavíme seznam ID soutěží, které byly pro daného hráče zaškrtnuty
+            # 1. Uložení soutěží (ManyToManyField)
             aktivni_souteze_ids = []
             for soutez in vsechny_souteze:
-                checkbox_name = f"hrac_{hrac.id}_soutez_{soutez.id}"
-                if request.POST.get(checkbox_name) == '1':
+                if request.POST.get(f"hrac_{hrac.id}_soutez_{soutez.id}") == '1':
                     aktivni_souteze_ids.append(soutez.id)
-            
-            # Aktualizujeme ManyToMany relaci
             hrac.souteze.set(aktivni_souteze_ids)
             
-        messages.success(request, "Změny v soutěžích hráčů byly úspěšně uloženy.")
+            # 2. Uložení klubu (CharField - vybírá se přes radio tlačítko)
+            vybrany_klub_form = request.POST.get(f"hrac_{hrac.id}_klub")
+            if vybrany_klub_form is not None:
+                hrac.klub = vybrany_klub_form if vybrany_klub_form != '__none__' else ''
+                hrac.save()
+                
+        messages.success(request, "Změny v klubech a soutěžích byly úspěšně uloženy.")
         return redirect('tenis_app:hraci_prehled')
 
     # Načtení dat pro zobrazení
@@ -904,19 +912,13 @@ def hraci_prehled(request):
     vybrany_klub = request.GET.get('klub')
     soutez_id = request.GET.get('soutez')
     
-    # Filtr podle klubu
     if vybrany_klub:
         hraci = hraci.filter(klub=vybrany_klub)
         
-    # Filtr podle soutěže
     vybrana_soutez = None
     if soutez_id and soutez_id.isdigit():
         hraci = hraci.filter(souteze__id=soutez_id)
         vybrana_soutez = Soutez.objects.filter(id=soutez_id).first()
-
-    # Získání dat pro dynamická tlačítka a hlavičku tabulky
-    vsechny_souteze = Soutez.objects.all()
-    vsechny_kluby = Hrac.objects.exclude(klub__isnull=True).exclude(klub='').values_list('klub', flat=True).distinct().order_by('klub')
 
     context = {
         'hraci': hraci,

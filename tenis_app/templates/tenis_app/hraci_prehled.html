@@ -76,23 +76,27 @@
     <!-- CSS pro otočení textu v hlavičkách -->
     <style>
         .rotated-header {
-            height: 140px; /* Pevná výška záhlaví, aby se dlouhé názvy vešly */
+            height: 140px;
             white-space: nowrap;
             vertical-align: bottom;
             padding-bottom: 10px !important;
             text-align: center;
+            background-color: #212529 !important;
+            border-right: 1px solid #374151;
         }
         .rotated-header span {
             display: inline-block;
             writing-mode: vertical-rl;
-            transform: rotate(180deg); /* Otočí text směrem nahoru */
+            transform: rotate(180deg);
             text-align: left;
             font-size: 0.8rem;
             letter-spacing: 0.03em;
+            color: #ffffff !important;
+            font-weight: 600;
         }
     </style>
 
-    <!-- Formulář pro hromadné uložení změn zaškrtávátek -->
+    <!-- Formulář pro hromadné uložení změn -->
     <form method="post">
         {% csrf_token %}
         <div class="card shadow border-0 rounded-3">
@@ -104,10 +108,19 @@
                                 <th style="width: 1%; text-align: left; vertical-align: middle;">#</th>
                                 <th style="width: 15%; text-align: left; padding-left: 15px; vertical-align: middle;">Jméno a příjmení</th>
                                 <th style="width: 2%; text-align: left; vertical-align: middle;">Ed</th>
-                                <th style="width: 8%; text-align: left; vertical-align: middle;">Telefon</th>
-                                <th style="width: 10%; text-align: left; vertical-align: middle;">Email</th>
-                                <th style="width: 8%; text-align: left; vertical-align: middle;">Klub</th>
-                                <!-- Svisle otočené hlavičky pro jednotlivé soutěže -->
+                                <!-- <th style="width: 8%; text-align: left; vertical-align: middle;">Telefon</th>
+                                <th style="width: 12%; text-align: left; vertical-align: middle;">Email</th> -->
+                                <!-- <th style="width: 8%; text-align: left; vertical-align: middle;">Adresa</th>
+                                <th style="width: 8%; text-align: left; vertical-align: middle;">Info</th> -->
+                                
+                                <!-- Svisle otočené hlavičky pro KLUBY -->
+                                {% for klub_nazev in vsechny_kluby %}
+                                    <th class="rotated-header" title="Klub: {{ klub_nazev }}">
+                                        <span>{{ klub_nazev }}</span>
+                                    </th>
+                                {% endfor %}
+
+                                <!-- Svisle otočené hlavičky pro SOUTĚŽE -->
                                 {% for soutez in vsechny_souteze %}
                                     <th class="rotated-header" title="{{ soutez.nazev }}">
                                         <span>{{ soutez.nazev }}</span>
@@ -127,7 +140,7 @@
                                         <a href="{% url 'tenis_app:hrac_edit' hrac.id %}" class="btn btn-sm btn-outline-primary border-0 bg-light" title="Upravit hráče">✏️</a>
                                     </td>
                                     
-                                    <td>
+                                   <!--  <td>
                                         {% if hrac.telefon %}
                                             <a href="tel:{{ hrac.telefon }}" class="text-decoration-none text-dark">📞 {{ hrac.telefon }}</a>
                                         {% else %}
@@ -141,17 +154,36 @@
                                         {% else %}
                                             <span class="text-muted">-</span>
                                         {% endif %}
+                                    </td> -->
+
+                                    <!-- <td>
+                                        {% if hrac.adresa %}
+                                            <span class="text-secondary" style="font-size: 0.85rem;">📍 {{ hrac.adresa }}</span>
+                                        {% else %}
+                                            <span class="text-muted">-</span>
+                                        {% endif %}
                                     </td>
                                     
                                     <td>
-                                        {% if hrac.klub %}
-                                            <span class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle px-2 py-1">{{ hrac.klub }}</span>
+                                        {% if hrac.info %}
+                                            <span class="text-info-emphasis bg-light px-2 py-1 rounded" style="font-size: 0.8rem;">📝 {{ hrac.info }}</span>
                                         {% else %}
-                                            <span class="badge bg-secondary bg-opacity-10 text-muted">Žádný</span>
+                                            <span class="text-muted">-</span>
                                         {% endif %}
-                                    </td>
+                                    </td> -->
 
-                                    <!-- Dynamické checkboxy pro jednotlivé soutěže -->
+                                    <!-- Dynamické přepínače (radio) pro kluby -->
+                                    {% for klub_nazev in vsechny_kluby %}
+                                        <td class="text-center align-middle" style="background-color: #f8fafc;">
+                                            <input type="radio" 
+                                                   name="hrac_{{ hrac.id }}_klub" 
+                                                   value="{{ klub_nazev }}" 
+                                                   {% if hrac.klub == klub_nazev %}checked{% endif %} 
+                                                   class="form-check-input m-0">
+                                        </td>
+                                    {% endfor %}
+
+                                    <!-- Dynamické checkboxy pro soutěže -->
                                     {% for soutez in vsechny_souteze %}
                                         <td class="text-center align-middle">
                                             <input type="checkbox" 
@@ -164,17 +196,17 @@
                                 </tr>
                             {% empty %}
                                 <tr>
-                                    <td colspan="{{ vsechny_souteze|length|add:6 }}" class="text-center py-5 text-muted">Žádní hráči neodpovídají zvoleným filtrům.</td>
+                                    <td colspan="100" class="text-center py-5 text-muted">Žádní hráči neodpovídají zvoleným filtrům.</td>
                                 </tr>
                             {% endfor %}
                         </tbody>
                     </table>
                 </div>
             </div>
-            <!-- Patička s tlačítkem pro uložení změn zaškrtávátek -->
+            <!-- Patička s tlačítkem pro uložení změn -->
             <div class="card-footer bg-light d-flex justify-content-between align-items-center py-3 px-4">
-                <span class="text-muted small">💡 Zaškrtnutím políček upravíš přiřazení hráčů do soutěží.</span>
-                <button type="submit" class="btn btn-success px-4 shadow-sm">💾 Uložit změny v soutěžích</button>
+                <span class="text-muted small">💡 Změny v klubech a soutěžích uložíš kliknutím na tlačítko.</span>
+                <button type="submit" class="btn btn-success px-4 shadow-sm">💾 Uložit změny</button>
             </div>
         </div>
     </form>
