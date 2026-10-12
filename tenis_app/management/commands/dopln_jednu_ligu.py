@@ -1,63 +1,77 @@
-import random
+from itertools import combinations
 from django.core.management.base import BaseCommand
 from tenis_app.models import Hrac, Zapas, Soutez
 
 class Command(BaseCommand):
-    help = 'Vygeneruje zápasy dvoukolově, kde v každém zápase bere míče domácí hráč'
+    help = 'Vygeneruje zápasy pro soutěž podle jejího typu (1K nebo 2K)'
 
     def add_arguments(self, parser):
-        parser.add_argument('slug', type=str, help='Slug ligy (např. 26_kaminka_leto_A)')
+        parser.add_argument('slug', type=str, help='Slug ligy (např. 27_kaminka_zima_mx)')
 
     def handle(self, *args, **options):
         slug = options['slug']
 
-        # Načtení soutěže
         try:
             soutez = Soutez.objects.get(slug=slug)
         except Soutez.DoesNotExist:
             self.stdout.write(self.style.ERROR(f"Soutěž se slugem '{slug}' nebyla v databázi nalezena."))
             return
 
-        klub_jmeno = soutez.nazev
-        self.stdout.write(f"\n--- Zpracovávám ligu: {klub_jmeno} (slug: {slug}) ---")
+        self.stdout.write(f"\n--- Zpracovávám ligu: {soutez.nazev} (slug: {slug}, typ: {soutez.typ}) ---")
 
-        # Načtení hráčů
-        hraci = list(Hrac.objects.filter(klub=klub_jmeno))
+        # Načtení hráčů přímo z vazby soutěže
+        hraci = list(soutez.hraci.all())
+        n = len(hraci)
 
-        if not hraci:
-            self.stdout.write(self.style.WARNING(f"V lize '{klub_jmeno}' nebyly nalezeni žádní hráči."))
+        if n < 2:
+            self.stdout.write(self.style.WARNING(f"V lize '{soutez.nazev}' není dostatek hráčů."))
             return
 
         # Smazání starých zápasů
         smazano, _ = Zapas.objects.filter(soutez=soutez).delete()
         self.stdout.write(f"Smazáno {smazano} původních zápasů.")
         
-        # Generování dvoukolových dvojic (každý s každým 2x: A->B i B->A)
-        vsechny_dvojice = []
-        for i in range(len(hraci)):
-            for j in range(len(hraci)):
-                if i != j:
-                    vsechny_dvojice.append((hraci[i], hraci[j]))
-
-        random.shuffle(vsechny_dvojice)
-        
-        # Počitadlo pro přehled ve výpisu
+        vytvoreno = 0
         pocitadlo = {hrac.id: 0 for hrac in hraci}
 
-        for h1, h2 in vsechny_dvojice:
-            # Vždy platí: domaci = h1, host = h2, a míče bere vždy domácí (True)
-            domaci, host, bere_domaci = h1, h2, True
-            pocitadlo[domaci.id] += 1
-            
-            Zapas.objects.create(
-                soutez=soutez,
-                hrac_domaci=domaci,
-                hrac_hoste=host,
-                mice_bere_domaci=bere_domaci,
-                odehrano=False,
-                datum=None
-            )
+        # --- JEDNOKOLOVÁ SOUTĚŽ (1K) ---
+        if soutez.typ == '1K':
+            for idx, (h1, h2) in enumerate(combinations(hraci, 2)):
+                # Střídání míčků
+                bere_domaci = (idx % 2 == 0)
+                pocitadlo[h1.id] += 1 if bere_domaci else 0
+                pocitadlo[h2.id] += 0 if bere_domaci else 1
 
-        self.stdout.write(self.style.SUCCESS(f"Liga '{klub_jmeno}' byla úspěšně vygenerována (celkem {len(vsechny_dvojice)} zápasů)."))
+                Zapas.objects.create(
+                    soutez=soutez,
+                    hrac_domaci=h1,
+                    hrac_hoste=h2,
+                    mice_bere_domaci=bere_domaci,
+                    odehrano=False,
+                    datum=None
+                )
+                vytvoreno += 1
+
+        # --- DVOUKOLOVÁ SOUTĚŽ (2K) ---
+        else:
+            for i in range(n):
+                for j in range(n):
+                    if i != j:
+                        h1, h2 = hraci[i], hraci[j]
+                        bere_domaci = True if i < j else False
+                        if bere_domaci:
+                            pocitadlo[h1.id] += 1
+
+                        Zapas.objects.create(
+                            soutez=soutez,
+                            hrac_domaci=h1,
+                            hrac_hoste=h2,
+                            mice_bere_domaci=bere_domaci,
+                            odehrano=False,
+                            datum=None
+                        )
+                        vytvoreno += 1
+
+        self.stdout.write(self.style.SUCCESS(f"Liga '{soutez.nazev}' byla úspěšně vygenerována (celkem {vytvoreno} zápasů)."))
         vysledky = [f"{h.jmeno}: {pocitadlo[h.id]}x 🎾" for h in hraci]
         self.stdout.write(f"Rozdělení míčů (domácí zápasy):\n" + "\n".join(vysledky))
