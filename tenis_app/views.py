@@ -42,10 +42,10 @@ from itertools import combinations
 from itertools import combinations
 
 def vygeneruj_zapas_pro_soutez(soutez_slug):
-    """Vygeneruje zápasy pro soutěž podle jejího typu (1K = 1 kolo, 2K = 2 kola)."""
     try:
         soutez = Soutez.objects.get(slug=soutez_slug)
     except Soutez.DoesNotExist:
+        print(f"DEBUG: Soutěž se slugem '{soutez_slug}' nebyla nalezena.")
         return 0
 
     hraci = list(soutez.hraci.all())
@@ -55,9 +55,12 @@ def vygeneruj_zapas_pro_soutez(soutez_slug):
 
     vytvoreno = 0
 
-    # --- JEDNOKOLOVÁ SOUTĚŽ (1K) ---
-    if soutez.typ == '1K':
-        # Každý s každým právě jednou -> pro 13 hráčů přesně 78 zápasů
+    # Tady se podíváme do konzole, co přesně je v DB uloženo
+    print(f"*** DEBUG: Název soutěže: '{soutez.nazev}' | Typ v DB: {repr(soutez.typ)} ***")
+
+    # Pokud to NENÍ 2K, bereme to jako jednokolku (1K)
+    if soutez.typ != '2K':
+        print("*** DEBUG: Spouštím JEDNOKOLOVÝ generátor (combinations) ***")
         for idx, (hrac_domaci, hrac_hoste) in enumerate(combinations(hraci, 2)):
             mice_domaci = (idx % 2 == 0)
 
@@ -78,16 +81,13 @@ def vygeneruj_zapas_pro_soutez(soutez_slug):
             )
             if created:
                 vytvoreno += 1
-
-    # --- DVOUKOLOVÁ SOUTĚŽ (2K) ---
-    elif soutez.typ == '2K':
-        # Každý s každým dvakrát (doma i venku) -> pro 13 hráčů přesně 156 zápasů
+    else:
+        print("*** DEBUG: Spouštím DVOUKOLOVÝ generátor (dvojitý cyklus) ***")
         for i in range(n):
             for j in range(n):
                 if i != j:
                     hrac_domaci = hraci[i]
                     hrac_hoste = hraci[j]
-
                     mice_domaci = True if i < j else False
 
                     obj, created = Zapas.objects.get_or_create(
@@ -108,8 +108,7 @@ def vygeneruj_zapas_pro_soutez(soutez_slug):
                     if created:
                         vytvoreno += 1
 
-    return vytvoreno
-    
+    return vytvoreno 
     
 # =================================================================    
 # 1. UNIVERZÁLNÍ VÝPOČETNÍ JÁDRO
