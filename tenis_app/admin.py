@@ -19,6 +19,7 @@ class HracAdmin(admin.ModelAdmin):
     list_display = ('jmeno', 'klub', 'email', 'telefon', 'info')
     search_fields = ('jmeno', 'email', 'telefon')
     list_filter = ('klub',)
+    save_as = True
     
     # Přidá přehledný výběr pro ManyToMany pole 'souteze'
     filter_horizontal = ('souteze',)
