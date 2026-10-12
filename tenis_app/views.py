@@ -37,9 +37,10 @@ def secti_gemy(set_str):
     except ValueError:
         return 0, 0
 
+from itertools import combinations
 
 def vygeneruj_zapas_pro_soutez(soutez_slug):
-    """Vygeneruje dvoukolové zápasy každý s každým (celkem n * (n - 1) zápasů)."""
+    """Vygeneruje zápasy pro soutěž podle jejího typu (1K = 1 kolo, 2K = 2 kola)."""
     try:
         soutez = Soutez.objects.get(slug=soutez_slug)
     except Soutez.DoesNotExist:
@@ -52,36 +53,62 @@ def vygeneruj_zapas_pro_soutez(soutez_slug):
 
     vytvoreno = 0
 
-    # Procházíme všechny dvojice (i != j generuje oba směry: A vs B i B vs A)
-    for i in range(n):
-        for j in range(n):
-            if i != j:
-                hrac_domaci = hraci[i]
-                hrac_hoste = hraci[j]
+    # --- JEDNOKOLOVÁ SOUTĚŽ (1K) ---
+    if soutez.typ == '1K':
+        # Každý s každým jen jednou (kombinace bez ohledu na pořadí)
+        for idx, (hrac_domaci, hrac_hoste) in enumerate(combinations(hraci, 2)):
+            # Příklad střídání míčků podle indexu dvojice
+            mice_domaci = (idx % 2 == 0)
 
-                # Přiřazení míčků: v 1. kole (i < j) bere míče domácí, v odvetě (i > j) bere míče host
-                mice_domaci = True if i < j else False
+            obj, created = Zapas.objects.get_or_create(
+                soutez=soutez,
+                hrac_domaci=hrac_domaci,
+                hrac_hoste=hrac_hoste,
+                defaults={
+                    'odehrano': False,
+                    'vitez': None,
+                    'sety_domaci': 0,
+                    'sety_hoste': 0,
+                    'set1': '',
+                    'set2': '',
+                    'set3': '',
+                    'mice_bere_domaci': mice_domaci,
+                }
+            )
+            if created:
+                vytvoreno += 1
 
-                obj, created = Zapas.objects.get_or_create(
-                    soutez=soutez,
-                    hrac_domaci=hrac_domaci,
-                    hrac_hoste=hrac_hoste,
-                    defaults={
-                        'odehrano': False,
-                        'vitez': None,
-                        'sety_domaci': 0,
-                        'sety_hoste': 0,
-                        'set1': '',
-                        'set2': '',
-                        'set3': '',
-                        'mice_bere_domaci': mice_domaci,
-                    }
-                )
-                if created:
-                    vytvoreno += 1
+    # --- DVOUKOLOVÁ SOUTĚŽ (2K) ---
+    else:
+        # Procházíme všechny dvojice obousměrně (A vs B i B vs A)
+        for i in range(n):
+            for j in range(n):
+                if i != j:
+                    hrac_domaci = hraci[i]
+                    hrac_hoste = hraci[j]
+
+                    # V 1. kole (i < j) bere míče domácí, v odvetě (i > j) bere míče host
+                    mice_domaci = True if i < j else False
+
+                    obj, created = Zapas.objects.get_or_create(
+                        soutez=soutez,
+                        hrac_domaci=hrac_domaci,
+                        hrac_hoste=hrac_hoste,
+                        defaults={
+                            'odehrano': False,
+                            'vitez': None,
+                            'sety_domaci': 0,
+                            'sety_hoste': 0,
+                            'set1': '',
+                            'set2': '',
+                            'set3': '',
+                            'mice_bere_domaci': mice_domaci,
+                        }
+                    )
+                    if created:
+                        vytvoreno += 1
 
     return vytvoreno
-
 # =================================================================
 # 1. UNIVERZÁLNÍ VÝPOČETNÍ JÁDRO
 # =================================================================
