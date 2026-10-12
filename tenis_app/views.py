@@ -39,6 +39,8 @@ def secti_gemy(set_str):
 
 from itertools import combinations
 
+from itertools import combinations
+
 def vygeneruj_zapas_pro_soutez(soutez_slug):
     """Vygeneruje zápasy pro soutěž podle jejího typu (1K = 1 kolo, 2K = 2 kola)."""
     try:
@@ -55,9 +57,8 @@ def vygeneruj_zapas_pro_soutez(soutez_slug):
 
     # --- JEDNOKOLOVÁ SOUTĚŽ (1K) ---
     if soutez.typ == '1K':
-        # Každý s každým jen jednou (kombinace bez ohledu na pořadí)
+        # Každý s každým právě jednou -> pro 13 hráčů přesně 78 zápasů
         for idx, (hrac_domaci, hrac_hoste) in enumerate(combinations(hraci, 2)):
-            # Příklad střídání míčků podle indexu dvojice
             mice_domaci = (idx % 2 == 0)
 
             obj, created = Zapas.objects.get_or_create(
@@ -79,15 +80,14 @@ def vygeneruj_zapas_pro_soutez(soutez_slug):
                 vytvoreno += 1
 
     # --- DVOUKOLOVÁ SOUTĚŽ (2K) ---
-    else:
-        # Procházíme všechny dvojice obousměrně (A vs B i B vs A)
+    elif soutez.typ == '2K':
+        # Každý s každým dvakrát (doma i venku) -> pro 13 hráčů přesně 156 zápasů
         for i in range(n):
             for j in range(n):
                 if i != j:
                     hrac_domaci = hraci[i]
                     hrac_hoste = hraci[j]
 
-                    # V 1. kole (i < j) bere míče domácí, v odvetě (i > j) bere míče host
                     mice_domaci = True if i < j else False
 
                     obj, created = Zapas.objects.get_or_create(
@@ -109,7 +109,9 @@ def vygeneruj_zapas_pro_soutez(soutez_slug):
                         vytvoreno += 1
 
     return vytvoreno
-# =================================================================
+    
+    
+# =================================================================    
 # 1. UNIVERZÁLNÍ VÝPOČETNÍ JÁDRO
 # =================================================================
 
