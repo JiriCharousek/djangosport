@@ -239,11 +239,11 @@
             ⚙️ Administrace
         </a>
         
-        <a href="{% url 'tenis_app:pridat_hrace' %}?liga={{ pismeno }}" class="btn-action" style="background: var(--e-green); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+        <a href="{% url 'tenis_app:pridat_hrace' %}?liga={{ pismeno }}" class="btn-action" style="background: var(--e-green); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: bold;">
             + Přidat hráče
         </a>
 
-        <a href="{% url 'tenis_app:admin_tools' %}" class="btn-action" style="background: var(--clay); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+        <a href="{% url 'tenis_app:admin_tools' %}" class="btn-action" style="background: var(--clay); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: bold;">
             🚀 Admin Tools
         </a>
     </div>
@@ -256,7 +256,6 @@
                 <tr>
                     <th class="player-col" style="min-width: 120px; max-width: 140px; position: sticky; left: 0; background: var(--navy, #2c3e50); z-index: 3;">Hráč</th>
                     
-                    <!-- OPRAVA: Sloupce v hlavičce bereme ze seřazené matice, aby odpovídaly řádkům -->
                     {% for radek in matice %}
                         <th style="vertical-align: middle; padding: 8px 4px; border: 1px solid #444; position: relative; min-width: 55px; max-width: 70px; text-align: center;">
                             <a href="?filtr_hrac={{ radek.hrac.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == radek.hrac.id %}var(--clay){% else %}white{% endif %}; display: block;">
@@ -270,7 +269,6 @@
                         </th>
                     {% endfor %}
                     
-                    <!-- Koncové statistické sloupce v hlavičce -->
                     <th style="text-align: center; width: 65px; background: #1e293b; color: white;">Zápasy</th>
                     <th style="text-align: center; width: 55px; background: #1e293b; color: white;">Body</th>
                     <th style="text-align: center; width: 65px; background: #1e293b; color: white;">Sety</th>
@@ -280,14 +278,12 @@
             <tbody>
                 {% for radek in matice %}
                 <tr>
-                    <!-- 1. Sloupec: Jméno hráče (sticky) -->
                     <td class="player-col" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; position: sticky; left: 0; background: #f9f9f9; z-index: 2;">
                         <a href="?filtr_hrac={{ radek.hrac.id }}" style="text-decoration: none; color: {% if vybrany_hrac.id == radek.hrac.id %}var(--clay){% else %}inherit{% endif %}; display: block;">
                             {{ forloop.counter }}. {{ radek.hrac.jmeno }}
                         </a>
                     </td>
 
-                    <!-- 2. Všechny buňky zápasů proti soupeřům -->
                     {% for bunka in radek.bunky %}
                         {% if bunka.typ == 'self' %}
                             <td class="cell-self" style="padding: 4px 2px;"></td>
@@ -310,7 +306,6 @@
                         {% endif %}
                     {% endfor %}
                     
-                    <!-- 3. Koncové souhrnné sloupce na konci každého řádku -->
                     <td style="text-align: center; background-color: #f8fafc;">
                         <span style="background: #0284c7; color: white; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 0.8rem;">
                             {{ radek.pocet_zapasu|default:0 }}
@@ -331,7 +326,6 @@
         </table>
     </div>
 
-<!-- Spodní mřížka opravena na 100% šířku -->
 <div class="bottom-grid-container">
     
     <div>
@@ -341,7 +335,7 @@
                 <span style="font-size: 1rem; color: #64748b; font-weight: normal;">
                     pro: <strong style="color: var(--clay);">{{ vybrany_hrac.jmeno }}</strong>
                 </span>
-                {% if request.user == vybrany_hrac.user or request.user.is_staff or request.user.is_superuser %}
+                {% if request.user == vybrany_hrac.user or request.user == vybrany_hrac.druhy_user or request.user.is_staff or request.user.is_superuser %}
                     <a href="{% url 'tenis_app:editovat_hrace' vybrany_hrac.id %}" title="Upravit hráče" style="text-decoration: none; margin-left: 5px;">
                         ✏️
                     </a>
@@ -371,7 +365,7 @@
                 </div>
                     
                 <div style="width: 40px; text-align: right; flex-shrink: 0; margin-left: 10px;">
-                    {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff or request.user.is_superuser %}
+                    {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_domaci.druhy_user or request.user == zapas.hrac_hoste.user or request.user == zapas.hrac_hoste.druhy_user or request.user.is_staff or request.user.is_superuser %}
                         <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem; display: inline-block;">✏️</a>
                     {% endif %}
                 </div>
@@ -392,10 +386,8 @@
         </h3>
 
         {% for zapas in historie %}
-        <!-- Hlavní karta zápasu – nastaveno na column, aby poznámka mohla pod něj -->
         <div class="list-group-item mb-2 shadow-sm" style="border-left: 5px solid #27ae60; background: white; border-radius: 8px; padding: 12px 15px; display: flex; flex-direction: column; gap: 8px;">
             
-            <!-- Řádek se samotnými údaji o zápasu -->
             <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px; width: 100%;">
                 
                 <div style="display: flex; align-items: center; min-width: 140px; gap: 10px; flex-shrink: 0;">
@@ -439,13 +431,8 @@
                         white-space: nowrap;
                         text-align: center;
                     ">
-                        <!-- 1. set + tiebreak -->
                         ({{ zapas.set1 }}{% if zapas.tiebreak_set1 %}<sup>({{ zapas.tiebreak_set1 }})</sup>{% endif %} |
-                        
-                        <!-- 2. set + tiebreak -->
                         {{ zapas.set2 }}{% if zapas.tiebreak_set2 %}<sup>({{ zapas.tiebreak_set2 }})</sup>{% endif %}
-                        
-                        <!-- 3. set + tiebreak (pokud existuje) -->
                         {% if zapas.set3 and zapas.set3 != '0:0' %} | {{ zapas.set3 }}{% if zapas.tiebreak_set3 %}<sup>({{ zapas.tiebreak_set3 }})</sup>{% endif %}{% endif %})
                     </span>
                 </div>
@@ -458,14 +445,13 @@
                 </div>
 
                 <div style="width: 45px; text-align: right; flex-shrink: 0; margin-left: 10px;">
-                    {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff or request.user.is_superuser %}
-                        <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem; display: inline-block;">✏️️</a>
+                    {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_domaci.druhy_user or request.user == zapas.hrac_hoste.user or request.user == zapas.hrac_hoste.druhy_user or request.user.is_staff or request.user.is_superuser %}
+                        <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem; display: inline-block;">✏</a>
                     {% endif %}
                 </div>
 
             </div>
 
-            <!-- Samostatný řádek pro celou poznámku přes plnou šířku -->
             {% if zapas.poznamka %}
                 <div style="width: 100%; border-top: 1px dashed #e2e8f0; padding-top: 6px; margin-top: 2px; font-size: 0.85rem; color: #d35400; font-style: italic; word-break: break-word;">
                     💬 <strong>Poznámka:</strong> {{ zapas.poznamka }}
@@ -494,7 +480,5 @@
         </div>
     </div>
 </div>
-
-
 
 {% endblock %}

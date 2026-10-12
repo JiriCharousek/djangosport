@@ -4,7 +4,6 @@ from django.utils.safestring import mark_safe
 from django.conf import settings
 
 
-
 class Hrac(models.Model):
     jmeno = models.CharField(max_length=100, verbose_name="Jméno a příjmení")
     klub = models.CharField(max_length=100, blank=True, null=True, verbose_name="hraje ligu")
@@ -19,46 +18,61 @@ class Hrac(models.Model):
     telefon = models.CharField(max_length=20, blank=True, null=True, verbose_name="Telefon")
     email = models.EmailField(blank=True, null=True, verbose_name="Email")
     web = models.URLField(blank=True, null=True, verbose_name="Webové stránky")
-    user = models.OneToOneField(
+    
+    # Uživatelé s přístupem ke správě hráče / debl páru
+    user = models.ForeignKey(
         settings.AUTH_USER_MODEL, 
         on_delete=models.SET_NULL, 
         null=True, 
-        blank=True
+        blank=True,
+        related_name='hrac_profil',
+        verbose_name="Uživatel 1"
     )
+    druhy_user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, 
+        on_delete=models.SET_NULL, 
+        null=True, 
+        blank=True,
+        related_name='hrac_profil_druhy',
+        verbose_name="Uživatel 2 (pro debly)"
+    )
+    
     souteze = models.ManyToManyField(
         'Soutez', 
         blank=True, 
         related_name='hraci', 
         verbose_name="Přihlášen do soutěží"
     )
-    
-    
+
     @property
     def jmeno_split(self):
-            if not self.jmeno:
-                return ""
-            # Pokud je v názvu " a ", rozdělíme to podle něj
-            if " a " in self.jmeno:
-                parts = self.jmeno.split(" a ")
-                return mark_safe(f"{parts[0]}<br>& {parts[1]}")
-            
-            # Jinak klasické rozdělení podle první mezery
-            parts = self.jmeno.split()
-            if len(parts) > 1:
-                return mark_safe(f"{parts[0]}<br>{' '.join(parts[1:])}")
-            return self.jmeno
-  
-    class Meta:
-        verbose_name = "Hráč"
-        verbose_name_plural = "Hráči"
-    
-    def __str__(self):
+        if not self.jmeno:
+            return ""
+        # Pokud je v názvu " a ", rozdělíme to podle něj
+        if " a " in self.jmeno:
+            parts = self.jmeno.split(" a ")
+            return mark_safe(f"{parts[0]}<br>& {parts[1]}")
+        
+        # Jinak klasické rozdělení podle první mezery
+        parts = self.jmeno.split()
+        if len(parts) > 1:
+            return mark_safe(f"{parts[0]}<br>{' '.join(parts[1:])}")
         return self.jmeno
 
+    def ma_pristup(self, check_user):
+        """Metoda ověří, zda má přihlášený uživatel (nebo admin) právo spravovat tento profil / zápas."""
+        if not check_user or not check_user.is_authenticated:
+            return False
+        if check_user.is_staff or check_user.is_superuser:
+            return True
+        return self.user == check_user or self.druhy_user == check_user
+
     class Meta:
         verbose_name = "Hráč"
         verbose_name_plural = "Hráči"
 
+    def __str__(self):
+        return self.jmeno
 
 class Soutez(models.Model):
     slug = models.SlugField(unique=True, max_length=50)

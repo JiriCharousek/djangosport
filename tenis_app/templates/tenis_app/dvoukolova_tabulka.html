@@ -47,7 +47,6 @@
         min-width: 700px;
     }
 
-    /* Hlavička - sjednocení a vycentrování */
     .tennis-table th { 
         background: var(--navy); 
         color: white; 
@@ -78,12 +77,10 @@
         padding: 0;
     }
 
-    /* Šířka buněk pro skóre (dvoukolová potřebuje víc místa) */
     .tennis-table td:not(.player-col):not(.stat-col) {
         width: 100px;
     }
 
-    /* STATISTIKY - Zelené body a centrování */
     .stat-col {
         background: #f8f9fa;
         font-weight: 800;
@@ -92,7 +89,6 @@
         vertical-align: middle !important;
     }
 
-    /* Buňky s výsledky */
     .cell-double { display: flex; justify-content: center; align-items: center; gap: 3px; padding: 0 4px; }
     
     .z-box {
@@ -116,7 +112,6 @@
     .v-divider { width: 1px; height: 20px; background-color: #eee; }
     .diagonal-empty { background-color: #f2f2f2; height: 100%; }
 
-    /* Historie */
     .history-card { 
         background: white; 
         border-radius: 8px; 
@@ -139,47 +134,6 @@
         font-weight: 800; 
         font-family: monospace; 
         font-size: 1.1rem;
-    }
-
-    /* Statistiky ligy */
-    .custom-stats-container {
-        background: white; 
-        padding: 20px; 
-        border-radius: 8px; 
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
-        margin-top: 25px;
-        border: 1px solid #e2e8f0;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .custom-stats-table-wrapper {
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        margin-top: 15px;
-        border-radius: 6px;
-        border: 1px solid #e2e8f0;
-    }
-    .custom-stats-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-family: inherit;
-        min-width: 550px;
-        font-size: 0.85rem;
-    }
-    .custom-stats-table th {
-        background: #0f172a;
-        color: white;
-        padding: 10px;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 0.75rem;
-        letter-spacing: 0.05em;
-    }
-    .custom-stats-table td {
-        padding: 10px;
-        border-bottom: 1px solid #f1f5f9;
-        vertical-align: middle;
     }
 </style>
 
@@ -252,10 +206,8 @@
 												{% endif %}
 											</a>
 										{% elif bunka.z1 %}
-											{# Zápas v DB existuje, ale ještě není odehraný -> odkázat na zadání výsledku s ikonu rakety #}
 											<a href="{% url 'tenis_app:editovat_vysledek' bunka.z1.id %}" class="z-box empty-link" title="Zadat výsledek 1">🎾</a>
 										{% else %}
-											{# Zápas v DB ještě neexistuje -> vytvořit nový #}
 											<a href="{{ bunka.url1 }}" class="z-box empty-link" title="Zadat zápas 1">🎾</a>
 										{% endif %}
 
@@ -307,10 +259,8 @@
     </div>
 </div>
 
-<!-- Spodní mřížka rozdělená na 2 sloupce (Plánované / Historie) -->
 <div class="bottom-grid-container">
     
-    <!-- Sloupec 1: Plánované zápasy / Správa vybraného hráče -->
     <div>
         <h3 style="display: flex; align-items: center; gap: 15px; border-bottom: 2px solid #f1c40f; padding-bottom: 10px; margin-bottom: 20px; color: var(--navy); flex-wrap: wrap;">
             <span>Plánované zápasy 🎾</span>
@@ -319,9 +269,8 @@
                     pro: <strong style="color: var(--clay);">{{ vybrany_hrac.jmeno }}</strong>
                 </span>
                 <span style="display: flex; gap: 8px; margin-left: auto;">
-                    {% if request.user == vybrany_hrac.user or request.user.is_staff or request.user.is_superuser %}
+                    {% if request.user == vybrany_hrac.user or request.user == vybrany_hrac.druhy_user or request.user.is_staff or request.user.is_superuser %}
                         <a href="{% url 'tenis_app:editovat_hrace' vybrany_hrac.id %}" style="font-size: 0.75rem; background: #3498db; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-weight: bold;">✏️ Upravit</a>
-                        <!-- <a href="{% url 'tenis_app:smazat_hrace' vybrany_hrac.id %}" style="font-size: 0.75rem; background: #e74c3c; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-weight: bold;" onclick="return confirm('Smazat hráče {{ vybrany_hrac.jmeno }}?')">🗑️ Smazat</a> -->
                     {% endif %}
                     <a href="?" style="font-size: 0.75rem; color: #e74c3c; text-decoration: none; align-self: center; font-weight: bold;">✕ Zrušit filtr</a>
                 </span>
@@ -350,7 +299,7 @@
                 </div>
                     
                 <div style="width: 40px; text-align: right; flex-shrink: 0; margin-left: 10px;">
-                    {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff or request.user.is_superuser %}
+                    {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_domaci.druhy_user or request.user == zapas.hrac_hoste.user or request.user == zapas.hrac_hoste.druhy_user or request.user.is_staff or request.user.is_superuser %}
                         <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.2rem; display: inline-block;" title="Upravit výsledek">✏️</a>
                     {% endif %}
                 </div>
@@ -359,7 +308,6 @@
             <p style="color: #999; font-style: italic; text-align: center; padding: 20px;">Žádné další zápasy v plánu.</p>
         {% endfor %}
 
-        <!-- Přehled kdo bere míče v plánu -->
 		<div style="margin-top: 25px; padding: 15px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
 			<h4 style="margin: 0 0 10px 0; font-size: 0.9rem; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px;">
 				📊 Kdo bere kolikrát míče (zbývá v plánu)
@@ -379,10 +327,6 @@
 		</div>
     </div>
 	
-	
-	
-
-    <!-- Sloupec 2: Historie výsledků (s podporou pro poznámky přes celou šířku) -->
     <div>
         <h3 style="display: flex; align-items: center; gap: 15px; border-bottom: 2px solid var(--navy); padding-bottom: 10px; margin-bottom: 20px; color: var(--navy);">
             <span>📜 Historie výsledků</span>
@@ -438,14 +382,13 @@
                 </div>
 
                 <div style="width: 35px; text-align: right; flex-shrink: 0; margin-left: 5px;">
-                    {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user or request.user.is_staff or request.user.is_superuser %}
+                    {% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_domaci.druhy_user or request.user == zapas.hrac_hoste.user or request.user == zapas.hrac_hoste.druhy_user or request.user.is_staff or request.user.is_superuser %}
                         <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1rem; display: inline-block;" title="Upravit">✏️</a>
                     {% endif %}
                 </div>
 
             </div>
 
-            <!-- Poznámka přes plnou šířku -->
             {% if zapas.poznamka %}
                 <div style="width: 100%; border-top: 1px dashed #e2e8f0; padding-top: 6px; margin-top: 2px; font-size: 0.85rem; color: #d35400; font-style: italic; word-break: break-word;">
                     💬 <strong>Poznámka:</strong> {{ zapas.poznamka }}
@@ -459,7 +402,5 @@
     </div>
 
 </div>
-
-
 
 {% endblock %}

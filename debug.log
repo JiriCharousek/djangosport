@@ -6138,3 +6138,24 @@ INFO 2026-10-11 22:21:08,691 views Uživatel jchar si prohlíží soutìž: Léto 2026 
 INFO 2026-10-11 22:26:35,608 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
 INFO 2026-10-11 22:38:22,336 autoreload Watching for file changes with StatReloader
 INFO 2026-10-11 22:41:27,443 autoreload Watching for file changes with StatReloader
+INFO 2026-10-12 23:18:46,135 autoreload Watching for file changes with StatReloader
+INFO 2026-10-12 23:18:53,454 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-12 23:18:56,457 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
+INFO 2026-10-12 23:18:59,563 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-12 23:19:15,136 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
+INFO 2026-10-12 23:19:16,561 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+WARNING 2026-10-12 23:19:17,733 log Not Found: /kaminka/detail/27_kaminka_zima_E/
+INFO 2026-10-12 23:20:11,835 autoreload Watching for file changes with StatReloader
+INFO 2026-10-12 23:23:40,921 autoreload C:\Users\jchar\djangoSport\tenis_app\models.py changed, reloading.
+INFO 2026-10-12 23:23:42,728 autoreload Watching for file changes with StatReloader
+INFO 2026-10-12 23:24:11,685 autoreload Watching for file changes with StatReloader
+INFO 2026-10-12 23:24:41,773 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
+INFO 2026-10-12 23:24:43,780 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-12 23:24:46,232 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
+INFO 2026-10-12 23:28:59,752 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-12 23:30:09,912 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-12 23:30:22,422 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
+INFO 2026-10-12 23:33:16,690 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-12 23:33:19,313 autoreload Watching for file changes with StatReloader
+INFO 2026-10-12 23:35:18,378 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
+INFO 2026-10-12 23:35:48,416 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy

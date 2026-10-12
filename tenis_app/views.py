@@ -565,15 +565,21 @@ def prehled_vsech_zapasu(request):
 def editovat_vysledek(request, pk):
     zapas = get_object_or_404(Zapas, id=pk)
     
-    je_ucastnik = (request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_hoste.user)
-    if not je_ucastnik and not request.user.is_staff:
+    # Ověření přístupu pomocí metody ma_pristup (pokryje user i druhy_user pro debly)
+    ma_opravneni = (
+        zapas.hrac_domaci.ma_pristup(request.user) or 
+        zapas.hrac_hoste.ma_pristup(request.user)
+    )
+    
+    if not ma_opravneni and not request.user.is_staff:
         messages.error(request, "Nemůžeš editovat zápas, kterého jsi se neúčastnil.")
-        return redirect('zebricek_app:zebricek_index')
+        return redirect('tenis_app:detail_souteze', soutez_slug=zapas.soutez.slug)
    
     if request.method == 'POST':
         form = ZapasForm(request.POST, instance=zapas, user=request.user)
         if form.is_valid():
             form.save()
+            messages.success(request, "Výsledek byl úspěšně uložena.")
             return redirect('tenis_app:detail_souteze', soutez_slug=zapas.soutez.slug)
     else:
         default_data = {}
