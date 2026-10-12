@@ -740,59 +740,27 @@ def admin_tools_view(request):
                         soutez_obj = Soutez.objects.filter(slug=soutez_identifier).first()
 
                     if soutez_obj:
-                        call_command("dopln_jednu_ligu", soutez_obj.slug)
-                        messages.success(request, f"Soutěž '{soutez_obj.nazev}' ({soutez_obj.slug}) byla úspěšně vygenerována.")
+                        # TADY VOLÁME NAŠI JEDNOTNOU CENTRÁLNÍ FUNKCI MÍSTO call_command
+                        vytvoreno = vygeneruj_zapas_pro_soutez(soutez_obj.slug)
+                        messages.success(request, f"Soutěž '{soutez_obj.nazev}' byla úspěšně vygenerována (vytvořeno {vytvoreno} zápasů).")
                     else:
                         messages.error(request, "Vybraná soutěž neexistuje v databázi.")
                 else:
                     messages.warning(request, "Nebyla vybrána žádná soutěž.")
 
             elif akce == "generovat_ligy":
-                # Načte VŠECHNY soutěže dynamicky z databáze
+                # Hromadné generování pro VŠECHNY soutěže přes centrální funkci
                 vsechny_souteze = Soutez.objects.all()
                 celkovy_pocet = 0
 
                 for soutez_obj in vsechny_souteze:
-                    # Dynamické párování: např. ze soutěže "Léto 2026 - A" hledá hráče s klubem "Léto 2026 - A"
-                    # Případně podle přesného názvu soutěže:
-                    hraci = list(Hrac.objects.filter(klub=soutez_obj.nazev))
-                    
-                    if not hraci:
-                        # Pokud klub neodpovídá přesně názvu, zkusí najít hráče přímo přiřazené k danému klubu/soutěži
-                        continue
-
-                    # Smazání starých zápasů dane soutěže
-                    Zapas.objects.filter(soutez=soutez_obj).delete()
-                    
-                    vsechny_dvojice = []
-                    for i in range(len(hraci)):
-                        for j in range(i + 1, len(hraci)):
-                            vsechny_dvojice.append([hraci[i], hraci[j]])
-
-                    random.shuffle(vsechny_dvojice)
-                    pocitadlo = {hrac.id: 0 for hrac in hraci}
-
-                    for h1, h2 in vsechny_dvojice:
-                        if pocitadlo[h1.id] <= pocitadlo[h2.id]:
-                            domaci, host, bere_domaci = h1, h2, True
-                            pocitadlo[h1.id] += 1
-                        else:
-                            domaci, host, bere_domaci = h1, h2, False
-                            pocitadlo[h2.id] += 1
-                        
-                        Zapas.objects.create(
-                            soutez=soutez_obj,
-                            hrac_domaci=domaci,
-                            hrac_hoste=host,
-                            mice_bere_domaci=bere_domaci,
-                            odehrano=False,
-                            datum='2026-04-26'
-                        )
-                        celkovy_pocet += 1
+                    # Každou soutěž vygenerujeme pomocí naší centrální logiky, která respektuje 1K/2K
+                    pocet = vygeneruj_zapas_pro_soutez(soutez_obj.slug)
+                    celkovy_pocet += pocet
                 
-                messages.success(request, f"🚀 Všechny ligy restartovány! Vygenerováno {celkovy_pocet} zápasů.")
+                messages.success(request, f"🚀 Všechny ligy byly úspěšně přegenerovány! Celkem vytvořeno {celkovy_pocet} zápasů.")
 
-            # ... zbývající elif akce (vytvor_hrace, inicializovat_zebricek, atd.) ...
+            # ... zbývající elif akce ...
 
         except Exception as e:
             logger.error(f"Chyba při admin akci '{akce}': {e}")
