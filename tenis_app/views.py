@@ -38,78 +38,66 @@ def secti_gemy(set_str):
         return 0, 0
 
 from itertools import combinations
-
 from itertools import combinations
+from tenis_app.models import Soutez, Hrac, Zapas
 
 def vygeneruj_zapas_pro_soutez(soutez_slug):
+    """Centrální funkce pro generování zápasů podle typu soutěže (1K vs 2K)."""
     try:
         soutez = Soutez.objects.get(slug=soutez_slug)
     except Soutez.DoesNotExist:
-        print(f"DEBUG: Soutěž se slugem '{soutez_slug}' nebyla nalezena.")
         return 0
 
-    hraci = list(soutez.hraci.all())
+    # Načtení hráčů podle názvu klubu/soutěže (tak jako ve zbytku projektu)
+    hraci = list(Hrac.objects.filter(klub=soutez.nazev))
+    
+    # Pojistka: kdyby náhodou někdo používal i ManyToMany vazbu
+    if not hraci and hasattr(soutez, 'hraci'):
+        hraci = list(soutez.hraci.all())
+
     n = len(hraci)
     if n < 2:
         return 0
 
+    # Bezpečné promazání starých zápasů před novým generováním
+    Zapas.objects.filter(soutez=soutez).delete()
+
     vytvoreno = 0
 
-    # Tady se podíváme do konzole, co přesně je v DB uloženo
-    print(f"*** DEBUG: Název soutěže: '{soutez.nazev}' | Typ v DB: {repr(soutez.typ)} ***")
-
-    # Pokud to NENÍ 2K, bereme to jako jednokolku (1K)
-    if soutez.typ != '2K':
-        print("*** DEBUG: Spouštím JEDNOKOLOVÝ generátor (combinations) ***")
-        for idx, (hrac_domaci, hrac_hoste) in enumerate(combinations(hraci, 2)):
+    # --- JEDNOKOLOVÁ SOUTĚŽ (1K) ---
+    if soutez.typ == '1K':
+        for idx, (h1, h2) in enumerate(combinations(hraci, 2)):
             mice_domaci = (idx % 2 == 0)
 
-            obj, created = Zapas.objects.get_or_create(
+            Zapas.objects.create(
                 soutez=soutez,
-                hrac_domaci=hrac_domaci,
-                hrac_hoste=hrac_hoste,
-                defaults={
-                    'odehrano': False,
-                    'vitez': None,
-                    'sety_domaci': 0,
-                    'sety_hoste': 0,
-                    'set1': '',
-                    'set2': '',
-                    'set3': '',
-                    'mice_bere_domaci': mice_domaci,
-                }
+                hrac_domaci=h1,
+                hrac_hoste=h2,
+                mice_bere_domaci=mice_domaci,
+                odehrano=False,
+                datum=None
             )
-            if created:
-                vytvoreno += 1
+            vytvoreno += 1
+
+    # --- DVOUKOLOVÁ SOUTĚŽ (2K) ---
     else:
-        print("*** DEBUG: Spouštím DVOUKOLOVÝ generátor (dvojitý cyklus) ***")
         for i in range(n):
             for j in range(n):
                 if i != j:
-                    hrac_domaci = hraci[i]
-                    hrac_hoste = hraci[j]
+                    h1, h2 = hraci[i], hraci[j]
                     mice_domaci = True if i < j else False
 
-                    obj, created = Zapas.objects.get_or_create(
+                    Zapas.objects.create(
                         soutez=soutez,
-                        hrac_domaci=hrac_domaci,
-                        hrac_hoste=hrac_hoste,
-                        defaults={
-                            'odehrano': False,
-                            'vitez': None,
-                            'sety_domaci': 0,
-                            'sety_hoste': 0,
-                            'set1': '',
-                            'set2': '',
-                            'set3': '',
-                            'mice_bere_domaci': mice_domaci,
-                        }
+                        hrac_domaci=h1,
+                        hrac_hoste=h2,
+                        mice_bere_domaci=mice_bere_domaci,
+                        odehrano=False,
+                        datum=None
                     )
-                    if created:
-                        vytvoreno += 1
+                    vytvoreno += 1
 
-    return vytvoreno 
-    
+    return vytvoreno    
 # =================================================================    
 # 1. UNIVERZÁLNÍ VÝPOČETNÍ JÁDRO
 # =================================================================

@@ -6177,3 +6177,5 @@ ERROR 2026-10-13 00:42:13,706 views Chyba pøi admin akci 'generovat_jednu_ligu':
 INFO 2026-10-13 00:42:13,717 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
 INFO 2026-10-13 00:44:49,005 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
 INFO 2026-10-13 00:44:50,657 autoreload Watching for file changes with StatReloader
+INFO 2026-10-13 00:47:38,389 autoreload Watching for file changes with StatReloader
+INFO 2026-10-13 00:47:51,802 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
