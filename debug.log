@@ -6179,3 +6179,16 @@ INFO 2026-10-13 00:44:49,005 autoreload C:\Users\jchar\djangoSport\tenis_app\vie
 INFO 2026-10-13 00:44:50,657 autoreload Watching for file changes with StatReloader
 INFO 2026-10-13 00:47:38,389 autoreload Watching for file changes with StatReloader
 INFO 2026-10-13 00:47:51,802 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
+INFO 2026-10-13 09:59:52,522 autoreload Watching for file changes with StatReloader
+INFO 2026-10-13 10:01:03,624 autoreload C:\Users\jchar\djangoSport\tenis_app\admin.py changed, reloading.
+INFO 2026-10-13 10:01:05,385 autoreload Watching for file changes with StatReloader
+INFO 2026-10-13 10:02:10,276 autoreload C:\Users\jchar\djangoSport\tenis_app\admin.py changed, reloading.
+INFO 2026-10-13 10:02:11,985 autoreload Watching for file changes with StatReloader
+INFO 2026-10-13 10:02:44,651 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
+INFO 2026-10-13 10:02:56,148 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
+INFO 2026-10-13 10:07:13,572 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-13 10:07:15,221 autoreload Watching for file changes with StatReloader
+INFO 2026-10-13 10:08:35,139 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
+INFO 2026-10-13 10:12:06,070 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-13 10:12:07,695 autoreload Watching for file changes with StatReloader
+INFO 2026-10-13 10:12:16,803 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy

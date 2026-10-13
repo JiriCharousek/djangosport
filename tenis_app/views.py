@@ -748,7 +748,42 @@ def admin_tools_view(request):
                 
                 messages.success(request, f"🚀 Všechny ligy byly úspěšně přegenerovány! Celkem vytvořeno {celkovy_pocet} zápasů.")
 
-            # ... zbývající elif akce ...
+            elif akce == "parovat_hrace_uzivatele":
+                import random
+                import string
+                from django.contrib.auth.models import User
+                from django.utils.text import slugify
+
+                # Vybereme pouze hráče, kteří ještě nemají přiřazený uživatelský účet (pole 'user')
+                hraci_bez_uzivatele = Hrac.objects.filter(user__isnull=True)
+                upraveno = 0
+                
+                for hrac in hraci_bez_uzivatele:
+                    if not hrac.jmeno:
+                        continue
+
+                    # Základní username z jména hráče
+                    username = slugify(hrac.jmeno)
+                    base_username = username
+                    counter = 1
+                    # Ošetření, aby username v DB bylo unikátní
+                    while User.objects.filter(username=username).exists():
+                        username = f"{base_username}{counter}"
+                        counter += 1
+
+                    # Vygenerování 5místného hesla
+                    heslo = ''.join(random.choices(string.ascii_lowercase + string.digits, k=5))
+                    
+                    # Vytvoření nového uživatele v Django
+                    user = User.objects.create_user(username=username, password=heslo)
+                    
+                    # Propojení s hráčem přes pole 'user' a zápis údajů do info
+                    hrac.user = user
+                    hrac.info = f"Login: {username} | Heslo: {heslo}"
+                    hrac.save()
+                    upraveno += 1
+
+                messages.success(request, f"🔗 Úspěšně vytvořeny a přiřazeny účty pro {upraveno} nových hráčů (hráči s již přiřazeným účtem byli vynecháni).")
 
         except Exception as e:
             logger.error(f"Chyba při admin akci '{akce}': {e}")

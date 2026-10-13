@@ -16,7 +16,7 @@ class SoutezAdmin(admin.ModelAdmin):
 # 3. Registrace Hráče
 @admin.register(Hrac)
 class HracAdmin(admin.ModelAdmin):
-    list_display = ('jmeno', 'klub', 'email', 'telefon', 'info')
+    list_display = ('jmeno', 'user', 'druhy_user', 'klub', 'email', 'telefon', 'info')
     search_fields = ('jmeno', 'email', 'telefon')
     list_filter = ('klub',)
     save_as = True
