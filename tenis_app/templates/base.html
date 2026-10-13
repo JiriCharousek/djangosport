@@ -295,10 +295,10 @@
             </ul>
             <hr style="border: 0; border-top: 1px solid #334155; margin: 10px 0;">
         </div>
-
-        {% if user.is_superuser or user.username == 'josef-augusta' %}
-		{% endif %}
-		{% if user.is_superuser %}
+        {% if user.is_superuser %}
+        {% endif %}
+		{% if user.is_superuser or user.username == 'josef-augusta' %}
+		
         <div class="nav-section">
             <h3 class="nav-title">👥 Hráči</h3>
             <ul class="nav-list">

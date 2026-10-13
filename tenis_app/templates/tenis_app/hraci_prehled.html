@@ -7,7 +7,7 @@
             <h2>🎾 Přehled hráčů</h2>
             <p class="text-muted mb-0">
                 {% if vybrany_klub %}
-                    Klub: <strong class="text-primary">{{ vybrany_klub }}</strong>
+                    Liga: <strong class="text-primary">{{ vybrany_klub }}</strong>
                 {% endif %}
                 {% if vybrana_soutez %}
                     Soutěž: <strong class="text-success">{{ vybrana_soutez.nazev }}</strong>
@@ -26,10 +26,10 @@
             
             <!-- 1. Řádek: Kluby -->
             <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
-                <span style="font-weight: bold; font-size: 0.85rem; color: #64748b; min-width: 90px; text-transform: uppercase;">Filtr Klub:</span>
+                <span style="font-weight: bold; font-size: 0.85rem; color: #64748b; min-width: 90px; text-transform: uppercase;">Filtr liga:</span>
                 <a href="?{% if vybrana_soutez %}soutez={{ vybrana_soutez.id }}{% endif %}" 
                    style="padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; font-weight: 600; background: {% if not vybrany_klub %}#0f172a{% else %}#f1f5f9{% endif %}; color: {% if not vybrany_klub %}white{% else %}#475569{% endif %}; border: 1px solid {% if not vybrany_klub %}#0f172a{% else %}#cbd5e1{% endif %};">
-                    Všechny kluby
+                    Všechny ligy
                 </a>
                 {% for k in vsechny_kluby %}
                     <a href="?klub={{ k }}{% if vybrana_soutez %}&soutez={{ vybrana_soutez.id }}{% endif %}" 
