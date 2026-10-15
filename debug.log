@@ -6202,3 +6202,15 @@ INFO 2026-10-13 18:31:54,749 autoreload Watching for file changes with StatReloa
 INFO 2026-10-13 18:33:02,893 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
 INFO 2026-10-13 22:59:33,647 autoreload Watching for file changes with StatReloader
 INFO 2026-10-13 23:05:27,632 autoreload Watching for file changes with StatReloader
+INFO 2026-10-15 22:49:33,845 autoreload Watching for file changes with StatReloader
+INFO 2026-10-15 22:50:07,241 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-15 22:50:12,845 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
+INFO 2026-10-15 22:50:18,544 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-15 22:50:21,094 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-15 22:50:23,404 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-15 22:50:33,957 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-15 22:50:37,238 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+WARNING 2026-10-15 22:50:39,323 log Not Found: /kaminka/detail/27_kaminka_zima_E/
+WARNING 2026-10-15 22:50:48,579 log Not Found: /kaminka/detail/27_kaminka_zima_E/
+INFO 2026-10-15 22:50:51,799 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
+INFO 2026-10-15 22:51:35,867 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Ženy
