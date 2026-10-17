@@ -177,3 +177,37 @@ class Zapas(models.Model):
     def __str__(self):
         return f"{self.hrac_domaci} vs {self.hrac_hoste} ({self.sety_domaci}:{self.sety_hoste})"
     
+
+
+class SystemLog(models.Model):
+    timestamp = models.DateTimeField(default=timezone.now, verbose_name="Čas události")
+    source = models.CharField(max_length=255, verbose_name="Zdroj/Funkce")
+    user = models.CharField(max_length=100, blank=True, null=True, verbose_name="Uživatel")
+    message = models.TextField(verbose_name="Zpráva/Změna")
+    is_cron = models.BooleanField(default=False, verbose_name="Automat (Cron)")
+
+    class Meta:
+        verbose_name = "Systémový log"
+        verbose_name_plural = "Systémové logy"
+        ordering = ['-timestamp']
+
+    # Tato metoda nahradí celý složitý logging systém
+  
+    @staticmethod
+    def write(message, user=None, source=None):
+            from django.contrib.auth import get_user_model
+            
+            # Pokud user není objekt uživatele, ale jen None, zkusíme ho označit jako Systém
+            display_user = "Systém"
+            is_cron = True
+            
+            if user and not user.is_anonymous:
+                display_user = str(user)
+                is_cron = False
+
+            SystemLog.objects.create(
+                message=message,
+                user=display_user,
+                source=source or "Unknown",
+                is_cron=is_cron
+            )

@@ -18,7 +18,7 @@ from zebricek_app.models import ZebricekPozice
 from zebricek_app.views import aktualizuj_pozice_zebricku
 
 from .forms import HracForm, ZapasForm
-from .models import Hrac, Soutez, Zapas
+from .models import Hrac, Soutez, Zapas, SystemLog
 
 logger = logging.getLogger(__name__)
 
@@ -592,9 +592,36 @@ def editovat_vysledek(request, pk):
         return redirect('tenis_app:detail_souteze', soutez_slug=zapas.soutez.slug)
    
     if request.method == 'POST':
+        # 1. PŘED ULOMENÍM SI SCHOVÁME PŮVODNÍ STAV
+        stary_sety_d = zapas.sety_domaci
+        stary_sety_h = zapas.sety_hoste
+        stary_s1 = zapas.set1 or ''
+        stary_s2 = zapas.set2 or ''
+        stary_s3 = zapas.set3 or ''
+        
         form = ZapasForm(request.POST, instance=zapas, user=request.user)
         if form.is_valid():
-            form.save()
+            # 2.ULOŽENÍ NOVÝCH DAT
+            zapas = form.save()
+            
+            # Sestavení starého skóre pro porovnání
+            stary_text = f"{stary_sety_d}:{stary_sety_h} ({stary_s1}, {stary_s2}, {stary_s3})"
+            
+            # Sestavení nového skóre
+            novy_s1 = zapas.set1 or ''
+            novy_s2 = zapas.set2 or ''
+            novy_s3 = zapas.set3 or ''
+            novy_text = f"{zapas.sety_domaci}:{zapas.sety_hoste} ({novy_s1}, {novy_s2}, {novy_s3})"
+
+            # Zápis do logu s přehledným porovnáním
+            SystemLog.write(
+                message=f"Byl upraven výsledek zápasu: <strong>{zapas.hrac_domaci} vs {zapas.hrac_hoste}</strong><br>"
+                        f"<span class='text-muted'>Původní:</span> {stary_text}<br>"
+                        f"<span class='text-success'>Nový:</span> <strong>{novy_text}</strong>",
+                user=request.user,
+                source="Zápasy"
+            )
+            
             messages.success(request, "Výsledek byl úspěšně uložena.")
             return redirect('tenis_app:detail_souteze', soutez_slug=zapas.soutez.slug)
     else:
@@ -604,8 +631,8 @@ def editovat_vysledek(request, pk):
         form = ZapasForm(instance=zapas, user=request.user, initial=default_data)
         
     return render(request, 'tenis_app/editovat_vysledek.html', {'form': form, 'zapas': zapas})
-
-
+    
+    
 @login_required
 def smazat_vysledek(request, pk):
     zapas = get_object_or_404(Zapas, id=pk)

@@ -45,4 +45,23 @@ class ZapasAdmin(admin.ModelAdmin):
         # Hromadná aktualizace v databázi
         pocet = queryset.update(datum=None)
         
-      
+# admin.py
+from django.contrib import admin
+from tenis_app.models import SystemLog  # nebo název appky, kde model reálně žije
+
+@admin.register(SystemLog)
+class SystemLogAdmin(admin.ModelAdmin):
+    list_display = ('timestamp', 'user', 'source', 'is_cron', 'message_preview')
+    list_filter = ('is_cron', 'source', 'timestamp')
+    search_fields = ('message', 'user', 'source')
+    readonly_fields = ('timestamp', 'source', 'user', 'message', 'is_cron')
+    ordering = ('-timestamp',)
+
+    def message_preview(self, obj):
+        # Oříznutí HTML/dlouhých zpráv pro přehledný výpis v tabulce
+        return obj.message[:75] + ('...' if len(obj.message) > 75 else '')
+    message_preview.short_description = "Zpráva"
+
+    def has_add_permission(self, request):
+        # Logy by se měly vytvářet programově, ne ručně v adminu
+        return False
