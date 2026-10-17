@@ -6347,3 +6347,100 @@ INFO 2026-10-17 19:50:26,111 views Uživatel jchar si prohlíží soutìž: Léto 2026 
 INFO 2026-10-17 19:52:11,712 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
 INFO 2026-10-17 19:52:14,362 autoreload Watching for file changes with StatReloader
 INFO 2026-10-17 19:52:30,029 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-17 20:39:56,265 autoreload Watching for file changes with StatReloader
+ERROR 2026-10-17 20:40:08,747 log Internal Server Error: /kaminka/hraci/
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\engine.py", line 214, in select_template
+    raise TemplateDoesNotExist(", ".join(not_found))
+django.template.exceptions.TemplateDoesNotExist: tenis_app/components/logy_widget.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jchar\djangoSport\tenis_app\views.py", line 982, in hraci_prehled
+    return render(request, 'tenis_app/hraci_prehled.html', context)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jchar\venv\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: tenis_app/components/logy_widget.html
+INFO 2026-10-17 20:41:50,228 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-17 20:44:10,711 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-17 20:44:13,383 autoreload Watching for file changes with StatReloader
+INFO 2026-10-17 20:44:30,539 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-17 20:44:34,157 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-17 20:44:49,031 views VÝSLEDEK ZAPSÁN: Boris NESTRAŠIL vs Karel VLÈEK - 6:3
+INFO 2026-10-17 20:44:52,940 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-17 20:44:54,947 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-17 20:44:56,910 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-17 20:45:13,924 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-17 20:45:24,570 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-17 20:47:09,152 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-17 20:47:11,855 autoreload Watching for file changes with StatReloader
+INFO 2026-10-17 20:50:11,986 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-17 20:50:14,918 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-17 20:50:46,965 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-17 20:55:35,173 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-17 20:55:48,364 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-17 20:56:30,941 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-17 21:01:19,409 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-17 21:01:27,201 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-17 21:05:21,124 autoreload C:\Users\jchar\djangoSport\core\settings.py changed, reloading.
+INFO 2026-10-17 21:05:23,415 autoreload Watching for file changes with StatReloader
+INFO 2026-10-17 21:05:29,510 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-17 21:05:39,715 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-17 21:18:29,532 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-17 21:18:32,405 autoreload Watching for file changes with StatReloader
+INFO 2026-10-17 21:20:01,498 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-17 21:20:04,197 autoreload Watching for file changes with StatReloader
+INFO 2026-10-17 21:20:52,445 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-17 21:20:54,934 autoreload Watching for file changes with StatReloader
+INFO 2026-10-17 21:22:30,918 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-17 21:22:33,417 autoreload Watching for file changes with StatReloader

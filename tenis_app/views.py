@@ -14,6 +14,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
 
+
 from zebricek_app.models import ZebricekPozice
 from zebricek_app.views import aktualizuj_pozice_zebricku
 
@@ -972,12 +973,15 @@ def hraci_prehled(request):
         hraci = hraci.filter(souteze__id=soutez_id)
         vybrana_soutez = Soutez.objects.filter(id=soutez_id).first()
 
+    recent_logs = SystemLog.objects.all()[:15]  # posledních 15 záznamů
+
     context = {
         'hraci': hraci,
         'vybrany_klub': vybrany_klub,
         'vybrana_soutez': vybrana_soutez,
         'vsechny_souteze': vsechny_souteze,
         'vsechny_kluby': vsechny_kluby,
+        'recent_logs': recent_logs,
     }
     return render(request, 'tenis_app/hraci_prehled.html', context)
 
