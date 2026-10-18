@@ -38,9 +38,9 @@ def secti_gemy(set_str):
     except ValueError:
         return 0, 0
 
-from itertools import combinations
-from itertools import combinations
+
 from tenis_app.models import Soutez, Hrac, Zapas
+from itertools import combinations
 
 def vygeneruj_zapas_pro_soutez(soutez_slug):
     """Centrální funkce pro generování zápasů podle typu soutěže (1K vs 2K)."""
@@ -49,18 +49,22 @@ def vygeneruj_zapas_pro_soutez(soutez_slug):
     except Soutez.DoesNotExist:
         return 0
 
-    # Načtení hráčů podle názvu klubu/soutěže (tak jako ve zbytku projektu)
+    # 1. Primárně zkusíme načíst hráče podle textového pole 'klub' (shodného s názvem soutěže)
     hraci = list(Hrac.objects.filter(klub=soutez.nazev))
     
-    # Pojistka: kdyby náhodou někdo používal i ManyToMany vazbu
+    # 2. Pokud by v klubu nikdo nebyl, zkontrolujeme ManyToMany vazbu ('souteze')
+    if not hraci:
+        hraci = list(Hrac.objects.filter(souteze=soutez))
+        
+    # 3. Případná stará vazba přes .hraci
     if not hraci and hasattr(soutez, 'hraci'):
         hraci = list(soutez.hraci.all())
 
     n = len(hraci)
     if n < 2:
-        return 0
+        return 0  # Málo hráčů na vygenerování zápasů
 
-    # Bezpečné promazání starých zápasů před novým generováním
+    # Bezpečné smazání starých zápasů před novým generováním
     Zapas.objects.filter(soutez=soutez).delete()
 
     vytvoreno = 0
@@ -68,13 +72,13 @@ def vygeneruj_zapas_pro_soutez(soutez_slug):
     # --- JEDNOKOLOVÁ SOUTĚŽ (1K) ---
     if soutez.typ == '1K':
         for idx, (h1, h2) in enumerate(combinations(hraci, 2)):
-            mice_domaci = (idx % 2 == 0)
+            bere_domaci = (idx % 2 == 0)
 
             Zapas.objects.create(
                 soutez=soutez,
                 hrac_domaci=h1,
                 hrac_hoste=h2,
-                mice_bere_domaci=mice_domaci,
+                mice_bere_domaci=bere_domaci,
                 odehrano=False,
                 datum=None
             )
@@ -86,19 +90,19 @@ def vygeneruj_zapas_pro_soutez(soutez_slug):
             for j in range(n):
                 if i != j:
                     h1, h2 = hraci[i], hraci[j]
-                    mice_domaci = True if i < j else False
+                    bere_domaci = True if i < j else False
 
                     Zapas.objects.create(
                         soutez=soutez,
                         hrac_domaci=h1,
                         hrac_hoste=h2,
-                        mice_bere_domaci=mice_bere_domaci,
+                        mice_bere_domaci=bere_domaci,
                         odehrano=False,
                         datum=None
                     )
                     vytvoreno += 1
 
-    return vytvoreno    
+    return vytvoreno  
 # =================================================================    
 # 1. UNIVERZÁLNÍ VÝPOČETNÍ JÁDRO
 # =================================================================
@@ -593,7 +597,7 @@ def editovat_vysledek(request, pk):
         return redirect('tenis_app:detail_souteze', soutez_slug=zapas.soutez.slug)
    
     if request.method == 'POST':
-        # 1. PŘED ULOMENÍM SI SCHOVÁME PŮVODNÍ STAV
+        # 1. PŘED ULOŽENÍM SI SCHOVÁME PŮVODNÍ STAV
         stary_sety_d = zapas.sety_domaci
         stary_sety_h = zapas.sety_hoste
         stary_s1 = zapas.set1 or ''
@@ -602,8 +606,18 @@ def editovat_vysledek(request, pk):
         
         form = ZapasForm(request.POST, instance=zapas, user=request.user)
         if form.is_valid():
-            # 2.ULOŽENÍ NOVÝCH DAT
-            zapas = form.save()
+            # 2. ULOŽENÍ NOVÝCH DAT (použijeme commit=False, abychom mohli upravit atributy)
+            zapas = form.save(commit=False)
+            
+            # --- TADY PŘIDÁME KLÍČOVÉ ÚPRAVY ---
+            zapas.odehrano = True  # Zápas se oficiálně označí jako odehraný
+            
+            # Pokud zápas dosud neměl vyplněné datum, nastavíme dnešní
+            if not zapas.datum:
+                zapas.datum = timezone.now().date()
+                
+            zapas.save()  # Finální uložení do databáze
+            # -----------------------------------
             
             # Sestavení starého skóre pro porovnání
             stary_text = f"{stary_sety_d}:{stary_sety_h} ({stary_s1}, {stary_s2}, {stary_s3})"
@@ -623,7 +637,7 @@ def editovat_vysledek(request, pk):
                 source="Zápasy"
             )
             
-            messages.success(request, "Výsledek byl úspěšně uložena.")
+            messages.success(request, "Výsledek byl úspěšně uložen.")
             return redirect('tenis_app:detail_souteze', soutez_slug=zapas.soutez.slug)
     else:
         default_data = {}
@@ -632,7 +646,6 @@ def editovat_vysledek(request, pk):
         form = ZapasForm(instance=zapas, user=request.user, initial=default_data)
         
     return render(request, 'tenis_app/editovat_vysledek.html', {'form': form, 'zapas': zapas})
-    
     
 @login_required
 def smazat_vysledek(request, pk):

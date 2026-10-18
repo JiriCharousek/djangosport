@@ -6444,3 +6444,33 @@ INFO 2026-10-17 21:20:52,445 autoreload C:\Users\jchar\djangoSport\tenis_app\vie
 INFO 2026-10-17 21:20:54,934 autoreload Watching for file changes with StatReloader
 INFO 2026-10-17 21:22:30,918 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
 INFO 2026-10-17 21:22:33,417 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 10:59:15,933 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 10:59:20,456 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 10:59:28,543 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 10:59:57,225 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:00:45,826 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+ERROR 2026-10-18 11:01:24,853 views Chyba pøi admin akci 'generovat_jednu_ligu': name 'mice_bere_domaci' is not defined
+INFO 2026-10-18 11:03:43,935 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 11:03:46,593 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 11:04:09,121 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:04:21,517 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:04:57,872 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-18 11:05:03,687 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:10:59,149 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 11:11:00,016 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 11:11:13,102 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:11:19,979 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:11:50,593 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:11:57,945 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:12:16,574 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:13:12,229 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-18 11:13:19,705 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:13:54,280 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-18 11:17:35,379 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-18 11:17:39,172 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-18 11:17:52,486 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-18 11:17:55,053 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-18 11:18:04,742 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-18 11:18:24,565 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-18 11:18:28,129 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-18 11:18:42,616 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
