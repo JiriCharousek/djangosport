@@ -1041,32 +1041,32 @@ from collections import defaultdict
 
 @login_required
 def moje_zapasy_view(request):
-    """Osobní stránka přihlášeného hráče s rozdělením zápasů podle lig a řazením podle data."""
+    """Osobní stránka přihlášeného hráče s rozdělením zápasů podle lig (včetně podpory pro druhe_user)."""
     
-    # 1. Propojení přihlášeného uživatele s Hráčem
-    hrac = Hrac.objects.filter(
+    # 1. Najdeme všechny hráče, ke kterým má přihlášený uživatel přístup (jako primární nebo druhý uživatel)
+    pristupni_hraci = Hrac.objects.filter(
         Q(user=request.user) | Q(druhy_user=request.user)
-    ).first()
+    ).distinct()
 
-    if not hrac:
+    if not pristupni_hraci.exists():
         return render(request, 'tenis_app/moje_zapasy.html', {'hrac': None})
 
-    # 2. Načtení všech zápasů daného hráče
+    # Pro zobrazení jména v nadpisu vezmeme prvního nalezeného hráče (nebo můžete přizpůsobit)
+    hrac = pristupni_hraci.first()
+
+    # 2. Načteme všechny zápasy, kde DOMÁCÍ nebo HOST PATŘÍ do seznamu přístupných hráčů
     zapasy_hrace = Zapas.objects.filter(
-        Q(hrac_domaci=hrac) | Q(hrac_hoste=hrac)
+        Q(hrac_domaci__in=pristupni_hraci) | Q(hrac_hoste__in=pristupni_hraci)
     ).select_related('hrac_domaci', 'hrac_hoste', 'soutez')
 
-    # Plánované zápasy:
-    # Řadíme podle názvu soutěže, pak podle data vzestupně (nejbližší první).
-    # Zápasy bez data (None/NULL) dáme až NAKONEC.
+    # Plánované zápasy
     planovane_list = zapasy_hrace.filter(odehrano=False).order_by(
         'soutez__nazev', 
-        F('datum').desc(nulls_last=True), 
+        F('datum').asc(nulls_last=True), 
         'id'
     )
     
-    # Odehrané zápasy:
-    # Řadíme podle názvu soutěže, pak podle data sestupně (nejnovější odehrané nahoře).
+    # Odehrané zápasy
     historie_list = zapasy_hrace.filter(odehrano=True).order_by(
         'soutez__nazev', 
         F('datum').desc(nulls_last=True), 
