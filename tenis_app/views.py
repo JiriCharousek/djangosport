@@ -581,12 +581,10 @@ def prehled_vsech_zapasu(request):
 # =================================================================
 # 3. SPRÁVA ZÁPASŮ A HRÁČŮ
 # =================================================================
-
 @login_required
 def editovat_vysledek(request, pk):
     zapas = get_object_or_404(Zapas, id=pk)
     
-    # Ověření přístupu pomocí metody ma_pristup (pokryje user i druhy_user pro debly)
     ma_opravneni = (
         zapas.hrac_domaci.ma_pristup(request.user) or 
         zapas.hrac_hoste.ma_pristup(request.user)
@@ -597,7 +595,13 @@ def editovat_vysledek(request, pk):
         return redirect('tenis_app:detail_souteze', soutez_slug=zapas.soutez.slug)
    
     if request.method == 'POST':
-        # 1. PŘED ULOŽENÍM SI SCHOVÁME PŮVODNÍ STAV
+        # Získáme vrácenou URL ze skrytého pole formuláře
+        navratova_url = request.POST.get('next')
+        if not navratova_url:
+            navratova_url = reverse('tenis_app:detail_souteze', args=[zapas.soutez.slug])
+
+        # Schováme si původní datum a skóre
+        puvodni_datum = zapas.datum
         stary_sety_d = zapas.sety_domaci
         stary_sety_h = zapas.sety_hoste
         stary_s1 = zapas.set1 or ''
@@ -606,47 +610,70 @@ def editovat_vysledek(request, pk):
         
         form = ZapasForm(request.POST, instance=zapas, user=request.user)
         if form.is_valid():
-            # 2. ULOŽENÍ NOVÝCH DAT (použijeme commit=False, abychom mohli upravit atributy)
-            zapas = form.save(commit=False)
+            zapas_obj = form.save(commit=False)
             
-            # --- TADY PŘIDÁME KLÍČOVÉ ÚPRAVY ---
-            zapas.odehrano = True  # Zápas se oficiálně označí jako odehraný
-            
-            # Pokud zápas dosud neměl vyplněné datum, nastavíme dnešní
-            if not zapas.datum:
-                zapas.datum = timezone.now().date()
-                
-            zapas.save()  # Finální uložení do databáze
-            # -----------------------------------
-            
-            # Sestavení starého skóre pro porovnání
-            stary_text = f"{stary_sety_d}:{stary_sety_h} ({stary_s1}, {stary_s2}, {stary_s3})"
-            
-            # Sestavení nového skóre
-            novy_s1 = zapas.set1 or ''
-            novy_s2 = zapas.set2 or ''
-            novy_s3 = zapas.set3 or ''
-            novy_text = f"{zapas.sety_domaci}:{zapas.sety_hoste} ({novy_s1}, {novy_s2}, {novy_s3})"
+            # Zjistíme, zda uživatel výslovně vymazal datum ve formuláři
+            vymazal_datum = 'datum' in request.POST and not request.POST.get('datum')
 
-            # Zápis do logu s přehledným porovnáním
-            SystemLog.write(
-                message=f"Byl upraven výsledek zápasu: <strong>{zapas.hrac_domaci} vs {zapas.hrac_hoste}</strong><br>"
-                        f"<span class='text-muted'>Původní:</span> {stary_text}<br>"
-                        f"<span class='text-success'>Nový:</span> <strong>{novy_text}</strong>",
-                user=request.user,
-                source="Zápasy"
-            )
+            # Určení stavu odehráno
+            je_odehrano = (zapas_obj.sety_domaci is not None and zapas_obj.sety_hoste is not None)
             
-            messages.success(request, "Výsledek byl úspěšně uložen.")
-            return redirect('tenis_app:detail_souteze', soutez_slug=zapas.soutez.slug)
+            if je_odehrano:
+                zapas_obj.odehrano = True
+                if not zapas_obj.datum and not vymazal_datum:
+                    zapas_obj.datum = timezone.now().date()
+            else:
+                zapas_obj.odehrano = False
+            
+            if vymazal_datum:
+                zapas_obj.datum = None
+                
+            zapas_obj.save()
+            
+            if je_odehrano:
+                stary_text = f"{stary_sety_d}:{stary_sety_h} ({stary_s1}, {stary_s2}, {stary_s3})"
+                novy_text = f"{zapas_obj.sety_domaci}:{zapas_obj.sety_hoste} ({zapas_obj.set1 or ''}, {zapas_obj.set2 or ''}, {zapas_obj.set3 or ''})"
+                SystemLog.write(
+                    message=f"Byl upraven výsledek zápasu: <strong>{zapas_obj.hrac_domaci} vs {zapas_obj.hrac_hoste}</strong><br>"
+                            f"<span class='text-muted'>Původní:</span> {stary_text}<br>"
+                            f"<span class='text-success'>Nový:</span> <strong>{novy_text}</strong>",
+                    user=request.user,
+                    source="Zápasy"
+                )
+                messages.success(request, "Výsledek byl úspěšně uložen.")
+            else:
+                datum_str = zapas_obj.datum.strftime('%d.%m.%Y') if zapas_obj.datum else 'neurčeno'
+                SystemLog.write(
+                    message=f"Byl upraven termín zápasu: <strong>{zapas_obj.hrac_domaci} vs {zapas_obj.hrac_hoste}</strong> na <strong>{datum_str}</strong>",
+                    user=request.user,
+                    source="Zápasy"
+                )
+                messages.success(request, "Termín zápasu byl úspěšně uložen.")
+                
+            # Správný návrat tam, odkud uživatel přišel
+            return redirect(navratova_url)
+        else:
+            messages.error(request, f"Chyba při uložení: {form.errors}")
     else:
-        default_data = {}
-        if not zapas.datum:  
-            default_data['datum'] = timezone.now().date()
-        form = ZapasForm(instance=zapas, user=request.user, initial=default_data)
+        # PŘI ZOBRAZENÍ FORMULÁŘE zachytíme, odkud uživatel přišel
+        navratova_url = request.META.get('HTTP_REFERER')
+        if not navratova_url:
+            navratova_url = reverse('tenis_app:detail_souteze', args=[zapas.soutez.slug])
+
+        initial_data = {}
+        if zapas.datum:
+            initial_data['datum'] = zapas.datum.strftime('%Y-%m-%d')
+            
+        form = ZapasForm(instance=zapas, user=request.user, initial=initial_data)
         
-    return render(request, 'tenis_app/editovat_vysledek.html', {'form': form, 'zapas': zapas})
+    return render(request, 'tenis_app/editovat_vysledek.html', {
+        'form': form, 
+        'zapas': zapas,
+        'navratova_url': navratova_url
+    })
     
+    
+
 @login_required
 def smazat_vysledek(request, pk):
     zapas = get_object_or_404(Zapas, id=pk)
@@ -998,4 +1025,69 @@ def hraci_prehled(request):
     }
     return render(request, 'tenis_app/hraci_prehled.html', context)
 
+
+
+from collections import defaultdict
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from django.db.models import Q
+from .models import Hrac, Zapas
+
+
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from django.db.models import Q, F
+from collections import defaultdict
+
+@login_required
+def moje_zapasy_view(request):
+    """Osobní stránka přihlášeného hráče s rozdělením zápasů podle lig a řazením podle data."""
     
+    # 1. Propojení přihlášeného uživatele s Hráčem
+    hrac = Hrac.objects.filter(
+        Q(user=request.user) | Q(druhy_user=request.user)
+    ).first()
+
+    if not hrac:
+        return render(request, 'tenis_app/moje_zapasy.html', {'hrac': None})
+
+    # 2. Načtení všech zápasů daného hráče
+    zapasy_hrace = Zapas.objects.filter(
+        Q(hrac_domaci=hrac) | Q(hrac_hoste=hrac)
+    ).select_related('hrac_domaci', 'hrac_hoste', 'soutez')
+
+    # Plánované zápasy:
+    # Řadíme podle názvu soutěže, pak podle data vzestupně (nejbližší první).
+    # Zápasy bez data (None/NULL) dáme až NAKONEC.
+    planovane_list = zapasy_hrace.filter(odehrano=False).order_by(
+        'soutez__nazev', 
+        F('datum').desc(nulls_last=True), 
+        'id'
+    )
+    
+    # Odehrané zápasy:
+    # Řadíme podle názvu soutěže, pak podle data sestupně (nejnovější odehrané nahoře).
+    historie_list = zapasy_hrace.filter(odehrano=True).order_by(
+        'soutez__nazev', 
+        F('datum').desc(nulls_last=True), 
+        '-id'
+    )
+
+    # Seskupení plánovaných podle soutěže
+    planovane_by_soutez = defaultdict(list)
+    for z in planovane_list:
+        planovane_by_soutez[z.soutez].append(z)
+
+    # Seskupení historie podle soutěže
+    historie_by_soutez = defaultdict(list)
+    for z in historie_list:
+        historie_by_soutez[z.soutez].append(z)
+
+    context = {
+        'hrac': hrac,
+        'planovane_by_soutez': dict(planovane_by_soutez),
+        'historie_by_soutez': dict(historie_by_soutez),
+        'celkem_planovane': planovane_list.count(),
+        'celkem_historie': historie_list.count(),
+    }
+    return render(request, 'tenis_app/moje_zapasy.html', context)

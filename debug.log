@@ -6474,3 +6474,85 @@ INFO 2026-10-18 11:18:04,742 views Uživatel jchar si prohlíží soutìž: Zima 26/27
 INFO 2026-10-18 11:18:24,565 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
 INFO 2026-10-18 11:18:28,129 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
 INFO 2026-10-18 11:18:42,616 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-18 11:27:05,276 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 11:27:39,107 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - A
+WARNING 2026-10-18 11:27:42,182 log Not Found: /media/hraci/ja_8x9tIBh.jpg
+WARNING 2026-10-18 11:30:16,187 log Not Found: /media/hraci/ja_8x9tIBh.jpg
+INFO 2026-10-18 11:32:01,236 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 11:32:03,887 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 11:33:17,198 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 11:33:19,372 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 11:33:35,660 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 11:34:12,856 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 11:34:14,621 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 11:35:30,014 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 11:35:31,745 autoreload Watching for file changes with StatReloader
+WARNING 2026-10-18 11:35:37,317 log Not Found: /media/hraci/ja_8x9tIBh.jpg
+WARNING 2026-10-18 11:39:12,241 log Not Found: /media/hraci/ja_8x9tIBh.jpg
+INFO 2026-10-18 11:39:46,599 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:42:06,059 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-18 11:42:16,740 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-18 11:42:21,452 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:42:23,700 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:42:42,099 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:48:07,442 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 11:48:37,056 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 11:48:41,741 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:50:46,230 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:50:59,612 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 11:51:19,229 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - C
+INFO 2026-10-18 11:51:29,781 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 11:51:39,566 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 11:52:48,908 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 11:55:47,512 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 11:56:12,827 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 11:56:35,658 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 11:57:14,347 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:00:08,211 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 12:00:10,067 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 12:00:26,565 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:03:13,516 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 12:03:15,301 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 12:03:30,113 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:06:22,956 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 12:06:24,793 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 12:08:00,573 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:08:24,397 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:13:05,955 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 12:13:07,730 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 12:13:32,151 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 12:15:58,638 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 12:16:00,481 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 12:16:58,664 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:17:20,674 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 12:21:46,629 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:22:02,955 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:22:31,632 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:24:16,739 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 12:24:18,585 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 12:27:28,063 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 12:27:29,818 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 12:27:46,196 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:30:53,797 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 12:30:55,568 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 12:31:05,112 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:31:19,543 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:31:42,500 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:34:49,674 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 12:34:51,471 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 12:35:09,475 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:35:30,043 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:35:43,987 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:35:48,002 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:37:35,350 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 12:37:37,208 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 12:37:52,170 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 12:38:21,996 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:39:05,473 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-18 12:39:24,355 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:39:58,872 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - D
+INFO 2026-10-18 12:40:01,582 views Uživatel jiri-charousek si prohlíží soutìž: Zima 26/27 - D
+INFO 2026-10-18 12:40:04,041 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:40:46,957 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:43:56,406 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 12:44:08,733 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D

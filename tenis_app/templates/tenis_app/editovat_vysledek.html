@@ -118,8 +118,9 @@
     <h2 class="form-title">✏️ Výsledek zápasu</h2>
     
     <form method="post">
+	
         {% csrf_token %}
-        
+        <input type="hidden" name="next" value="{{ navratova_url }}">
         {% if form.errors %}
             <div style="background: #fdeaea; color: #e74c3c; padding: 10px; border-radius: 8px; margin-bottom: 15px; font-size: 0.9rem;">
                 ⚠️ Prosím opravte chyby ve formuláři.
