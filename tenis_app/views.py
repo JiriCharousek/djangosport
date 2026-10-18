@@ -586,13 +586,20 @@ def editovat_vysledek(request, pk):
     zapas = get_object_or_404(Zapas, id=pk)
     
     ma_opravneni = (
-        zapas.hrac_domaci.ma_pristup(request.user) or 
-        zapas.hrac_hoste.ma_pristup(request.user)
+        zapas.hrac_domaci.user == request.user or 
+        zapas.hrac_domaci.druhy_user == request.user or
+        zapas.hrac_hoste.user == request.user or 
+        zapas.hrac_hoste.druhy_user == request.user
     )
     
-    if not ma_opravneni and not request.user.is_staff:
-        messages.error(request, "Nemůžeš editovat zápas, kterého jsi se neúčastnil.")
-        return redirect('tenis_app:detail_souteze', soutez_slug=zapas.soutez.slug)
+    if not ma_opravneni and not request.user.is_staff and not request.user.is_superuser:
+        messages.error(request, "Nemůžeš editovat zápas, kterého se tvůj účet neúčastnil.")
+        
+        # Bezpečný návrat zpět
+        navratova_url = request.META.get('HTTP_REFERER')
+        if not navratova_url:
+            navratova_url = reverse('tenis_app:detail_souteze', args=[zapas.soutez.slug])
+        return redirect(navratova_url)
    
     if request.method == 'POST':
         # Získáme vrácenou URL ze skrytého pole formuláře

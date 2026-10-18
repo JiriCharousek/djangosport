@@ -100,10 +100,10 @@
                             </div>
                                 
                             <div style="width: 35px; text-align: right; flex-shrink: 0; margin-left: 10px;">
-                                {% if zapas.hrac_domaci == hrac or zapas.hrac_hoste == hrac or user.is_staff or user.is_superuser %}
-                                    <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.1rem; display: inline-block;" title="Zadat / upravit termín">✏️</a>
-                                {% endif %}
-                            </div>
+									{% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_domaci.druhy_user or request.user == zapas.hrac_hoste.user or request.user == zapas.hrac_hoste.druhy_user or user.is_staff or user.is_superuser %}
+										<a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.1rem; display: inline-block;" title="Zadat / upravit termín">✏️</a>
+									{% endif %}
+							</div>
                         </div>
                     {% endfor %}
                 </div>
@@ -183,10 +183,10 @@
 
                             <!-- Tlačítko editace -->
                             <div style="width: 35px; text-align: right; flex-shrink: 0; margin-left: 5px;">
-                                {% if zapas.hrac_domaci == hrac or zapas.hrac_hoste == hrac or user.is_staff or user.is_superuser %}
-                                    <a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.1rem; display: inline-block;" title="Upravit výsledek">✏️</a>
-                                {% endif %}
-                            </div>
+									{% if request.user == zapas.hrac_domaci.user or request.user == zapas.hrac_domaci.druhy_user or request.user == zapas.hrac_hoste.user or request.user == zapas.hrac_hoste.druhy_user or user.is_staff or user.is_superuser %}
+										<a href="{% url 'tenis_app:editovat_vysledek' zapas.id %}" style="text-decoration: none; font-size: 1.1rem; display: inline-block;" title="Upravit výsledek">✏️</a>
+									{% endif %}
+							</div>
 
                         </div>
 
