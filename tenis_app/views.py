@@ -633,22 +633,19 @@ def editovat_vysledek(request, pk):
             if je_odehrano:
                 stary_text = f"{stary_sety_d}:{stary_sety_h} ({stary_s1}, {stary_s2}, {stary_s3})"
                 novy_text = f"{zapas_obj.sety_domaci}:{zapas_obj.sety_hoste} ({zapas_obj.set1 or ''}, {zapas_obj.set2 or ''}, {zapas_obj.set3 or ''})"
+                
+                # Formátování původního a nového data pro log
+                puvodni_datum_str = puvodni_datum.strftime('%d.%m.%Y') if puvodni_datum else 'neurčeno'
+                nove_datum_str = zapas_obj.datum.strftime('%d.%m.%Y') if zapas_obj.datum else 'neurčeno'
+
                 SystemLog.write(
                     message=f"Byl upraven výsledek zápasu: <strong>{zapas_obj.hrac_domaci} vs {zapas_obj.hrac_hoste}</strong><br>"
-                            f"<span class='text-muted'>Původní:</span> {stary_text}<br>"
-                            f"<span class='text-success'>Nový:</span> <strong>{novy_text}</strong>",
+                            f"<span class='text-muted'>Původní:</span> {stary_text} <span class='text-muted'>(termín: {puvodni_datum_str})</span><br>"
+                            f"<span class='text-success'>Nový:</span> <strong>{novy_text}</strong> <span class='text-success'>(termín: {nove_datum_str})</span>",
                     user=request.user,
                     source="Zápasy"
                 )
                 messages.success(request, "Výsledek byl úspěšně uložen.")
-            else:
-                datum_str = zapas_obj.datum.strftime('%d.%m.%Y') if zapas_obj.datum else 'neurčeno'
-                SystemLog.write(
-                    message=f"Byl upraven termín zápasu: <strong>{zapas_obj.hrac_domaci} vs {zapas_obj.hrac_hoste}</strong> na <strong>{datum_str}</strong>",
-                    user=request.user,
-                    source="Zápasy"
-                )
-                messages.success(request, "Termín zápasu byl úspěšně uložen.")
                 
             # Správný návrat tam, odkud uživatel přišel
             return redirect(navratova_url)

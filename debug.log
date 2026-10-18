@@ -6556,3 +6556,6 @@ INFO 2026-10-18 12:40:04,041 views Uživatel jiri-charousek si prohlíží soutìž: L
 INFO 2026-10-18 12:40:46,957 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
 INFO 2026-10-18 12:43:56,406 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
 INFO 2026-10-18 12:44:08,733 views Uživatel jiri-charousek si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-18 13:06:22,182 autoreload Watching for file changes with StatReloader
+INFO 2026-10-18 13:07:01,573 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-18 13:07:03,298 autoreload Watching for file changes with StatReloader
