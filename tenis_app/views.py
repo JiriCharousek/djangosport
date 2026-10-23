@@ -194,23 +194,36 @@ def vypocitej_tabulku_dat(soutez, request=None):
     from functools import cmp_to_key
 
     def custom_sort(h1, h2):
-        # 1. Celkové body (sestupně -> ten s více body je dřív)
+        # 1. Celkové body (sestupně)
         if h1.pocet_bodu != h2.pocet_bodu:
             return h2.pocet_bodu - h1.pocet_bodu
         
-        # 2. Vzájemný zápas (pokud mají stejné body)
+        # 2. Vzájemný zápas
         vysledek_vzajemneho = vzajemny_zapas_porovnani(h1, h2)
         if vysledek_vzajemneho != 0:
-            return -vysledek_vzajemneho  # záporné znaménko, protože cmp_to_key řadí sestupně
+            return -vysledek_vzajemneho
             
         # 3. Rozdíl setů (sestupně)
-        rozdil_1 = h1.s_v - h1.s_p
-        rozdil_2 = h2.s_v - h2.s_p
-        if rozdil_1 != rozdil_2:
-            return rozdil_2 - rozdil_1
+        rozdil_setu_1 = h1.s_v - h1.s_p
+        rozdil_setu_2 = h2.s_v - h2.s_p
+        if rozdil_setu_1 != rozdil_setu_2:
+            return rozdil_setu_2 - rozdil_setu_1
             
         # 4. Vyhrané sety (sestupně)
-        return h2.s_v - h1.s_v
+        if h1.s_v != h2.s_v:
+            return h2.s_v - h1.s_v
+
+        # 5. Rozdíl gemů (sestupně) - TADY TCHYBA CHYBĚLA
+        rozdil_gemu_1 = h1.g_v - h1.g_p
+        rozdil_gemu_2 = h2.g_v - h2.g_p
+        if rozdil_gemu_1 != rozdil_gemu_2:
+            return rozdil_gemu_2 - rozdil_gemu_1
+
+        # 6. Vyhrané gemy (sestupně)
+        if h1.g_v != h2.g_v:
+            return h2.g_v - h1.g_v
+
+        return 0
 
     hraci_obj.sort(key=cmp_to_key(custom_sort))
 
