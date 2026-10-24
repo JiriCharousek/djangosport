@@ -1108,3 +1108,13 @@ def moje_zapasy_view(request):
         'celkem_historie': historie_list.count(),
     }
     return render(request, 'tenis_app/moje_zapasy.html', context)
+    
+
+from django.shortcuts import render
+from .models import NastenkaZprava
+
+def nastenka_view(request):
+    zpravy = NastenkaZprava.objects.all()
+    return render(request, 'tenis_app/nastenka.html', {'zpravy': zpravy})
+
+

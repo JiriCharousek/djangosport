@@ -55,4 +55,6 @@ urlpatterns = [
     
     path('hraci/', views.hraci_prehled, name='hraci_prehled'),
     path('moje-zapasy/', views.moje_zapasy_view, name='moje_zapasy'),
+    
+    path('nastenka/', views.nastenka_view, name='nastenka'),
 ]

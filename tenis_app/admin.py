@@ -65,3 +65,13 @@ class SystemLogAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         # Logy by se měly vytvářet programově, ne ručně v adminu
         return False
+
+
+from django.contrib import admin
+from .models import NastenkaZprava
+
+@admin.register(NastenkaZprava)
+class NastenkaAdmin(admin.ModelAdmin):
+    list_display = ('nadpis', 'autor', 'datum_vytvoreni')
+    search_fields = ('nadpis', 'text')
+

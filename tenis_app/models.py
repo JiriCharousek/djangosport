@@ -211,3 +211,24 @@ class SystemLog(models.Model):
                 source=source or "Unknown",
                 is_cron=is_cron
             )
+
+from django.db import models
+from django.contrib.auth.models import User
+
+class NastenkaZprava(models.Model):
+    nadpis = models.CharField(max_length=200, verbose_name="Nadpis")
+    text = models.TextField(verbose_name="Text zprávy")
+    autor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Autor")
+    datum_vytvoreni = models.DateTimeField(auto_now_add=True, verbose_name="Datum vytvoření")
+
+    class Meta:
+        verbose_name = "Zpráva na nástěnce"
+        verbose_name_plural = "Zprávy na nástěnce"
+        ordering = ['-datum_vytvoreni'] # Nejnovější zprávy první
+
+    def __str__(self):
+        return self.nadpis
+
+
+
+
