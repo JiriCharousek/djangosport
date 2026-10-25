@@ -615,12 +615,10 @@ def editovat_vysledek(request, pk):
         return redirect(navratova_url)
    
     if request.method == 'POST':
-        # Získáme vrácenou URL ze skrytého pole formuláře
         navratova_url = request.POST.get('next')
         if not navratova_url:
             navratova_url = reverse('tenis_app:detail_souteze', args=[zapas.soutez.slug])
 
-        # Schováme si původní datum a skóre
         puvodni_datum = zapas.datum
         stary_sety_d = zapas.sety_domaci
         stary_sety_h = zapas.sety_hoste
@@ -632,42 +630,81 @@ def editovat_vysledek(request, pk):
         if form.is_valid():
             zapas_obj = form.save(commit=False)
             
-            # Zjistíme, zda uživatel výslovně vymazal datum ve formuláři
-            vymazal_datum = 'datum' in request.POST and not request.POST.get('datum')
-
-            # Určení stavu odehráno
+            # Určení stavu odehráno na základě uložených setů
             je_odehrano = (zapas_obj.sety_domaci is not None and zapas_obj.sety_hoste is not None)
             
             if je_odehrano:
                 zapas_obj.odehrano = True
-                if not zapas_obj.datum and not vymazal_datum:
+                # Pokud je zápas odehraný a datum chybí, AUTOMATICKY doplňujeme dnešní datum
+                if not zapas_obj.datum:
                     zapas_obj.datum = timezone.now().date()
             else:
                 zapas_obj.odehrano = False
-            
-            if vymazal_datum:
-                zapas_obj.datum = None
+                zapas_obj.datum = None  # Pokud není odehráno, datum resetujeme
                 
+            # Uložíme zápas do databáze (včetně nového data)
             zapas_obj.save()
-            
+
             if je_odehrano:
-                stary_text = f"{stary_sety_d}:{stary_sety_h} ({stary_s1}, {stary_s2}, {stary_s3})"
-                novy_text = f"{zapas_obj.sety_domaci}:{zapas_obj.sety_hoste} ({zapas_obj.set1 or ''}, {zapas_obj.set2 or ''}, {zapas_obj.set3 or ''})"
-                
-                # Formátování původního a nového data pro log
-                puvodni_datum_str = puvodni_datum.strftime('%d.%m.%Y') if puvodni_datum else 'neurčeno'
+                # Pomocná funkce pro hezké formátování skóre (vynechá 3. set, pokud je prázdný nebo 0:0)
+                def formatuj_skore(d, h, s1, s2, s3):
+                    s3_str = str(s3).strip() if s3 else ''
+                    if s3_str and s3_str not in ['0:0', '0-0', '0']:
+                        return f"{d}:{h} ({s1}, {s2}, {s3})"
+                    else:
+                        return f"{d}:{h} ({s1}, {s2})"
+
+                novy_text = formatuj_skore(zapas_obj.sety_domaci, zapas_obj.sety_hoste, zapas_obj.set1 or '', zapas_obj.set2 or '', zapas_obj.set3 or '')
                 nove_datum_str = zapas_obj.datum.strftime('%d.%m.%Y') if zapas_obj.datum else 'neurčeno'
 
-                SystemLog.write(
-                    message=f"Byl upraven výsledek zápasu: <strong>{zapas_obj.hrac_domaci} vs {zapas_obj.hrac_hoste}</strong><br>"
-                            f"<span class='text-muted'>Původní:</span> {stary_text} <span class='text-muted'>(termín: {puvodni_datum_str})</span><br>"
-                            f"<span class='text-success'>Nový:</span> <strong>{novy_text}</strong> <span class='text-success'>(termín: {nove_datum_str})</span>",
-                    user=request.user,
-                    source="Zápasy"
-                )
-                messages.success(request, "Výsledek byl úspěšně uložen.")
+                # Původní text starých setů
+                stary_s1_str = str(stary_s1).strip() if stary_s1 else ''
+                stary_s2_str = str(stary_s2).strip() if stary_s2 else ''
                 
-            # Správný návrat tam, odkud uživatel přišel
+                ma_rekatelni_skore = (
+                    stary_sety_d is not None and stary_sety_h is not None and 
+                    (stary_sety_d > 0 or stary_sety_h > 0)
+                )
+                
+                je_nulove = (
+                    stary_s1_str in ['', '0', '0:0', '0-0'] and 
+                    stary_s2_str in ['', '0', '0:0', '0-0']
+                )
+
+                stary_byl_vyplnen = ma_rekatelni_skore and not je_nulove
+                
+                if stary_byl_vyplnen:
+                    stary_text = formatuj_skore(stary_sety_d, stary_sety_h, stary_s1, stary_s2, stary_s3)
+                    puvodni_datum_str = puvodni_datum.strftime('%d.%m.%Y') if puvodni_datum else 'neurčeno'
+                    
+                    zmena_textu = (stary_text != novy_text)
+                    zmena_data = (puvodni_datum_str != nove_datum_str)
+
+                    if zmena_textu or zmena_data:
+                        log_msg = (
+                            f"<span class='badge bg-secondary' style='font-size: 0.75em;'>{zapas_obj.soutez.nazev}</span> : "
+                            f"<strong>{zapas_obj.hrac_domaci} vs {zapas_obj.hrac_hoste}</strong>  "
+                            f"<span class='text-muted'>Původně:</span> {stary_text} {puvodni_datum_str} ➔ "
+                            f"<span class='text-success'>Změněno na:</span> <strong>{novy_text}</strong> {nove_datum_str}"
+                        )
+                    else:
+                        log_msg = None
+                else:
+                    log_msg = (
+                        f"<span class='badge bg-secondary' style='font-size: 0.75em;'>{zapas_obj.soutez.nazev}</span> : "
+                        f"<strong>{zapas_obj.hrac_domaci} vs {zapas_obj.hrac_hoste}</strong>  "
+                        f"<span class='text-success'></span> <strong>{novy_text}</strong> {nove_datum_str}"
+                    )
+
+                if log_msg:
+                    SystemLog.write(
+                        message=log_msg,
+                        user=request.user,
+                        source="Zápasy"
+                    )
+
+                messages.success(request, "Výsledek byl úspěšně uložen.")
+            
             return redirect(navratova_url)
         else:
             messages.error(request, f"Chyba při uložení: {form.errors}")

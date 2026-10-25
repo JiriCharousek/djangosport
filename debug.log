@@ -6687,3 +6687,139 @@ Traceback (most recent call last):
 django.db.utils.OperationalError: no such table: tenis_app_nastenkazprava
 INFO 2026-10-24 21:54:26,232 autoreload Watching for file changes with StatReloader
 INFO 2026-10-24 21:56:06,044 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:31:22,036 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 07:41:41,490 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 07:41:44,713 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 07:42:03,577 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-25 07:42:11,378 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-25 07:43:47,113 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 07:43:49,220 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 07:43:52,647 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:43:58,903 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:46:52,809 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 07:46:55,358 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 07:46:58,236 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-25 07:47:05,710 views Uživatel jchar si prohlíží soutìž: Léto 2026 - B
+INFO 2026-10-25 07:50:58,005 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 07:51:00,624 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 07:51:07,334 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:51:13,968 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:51:33,557 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:51:44,242 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:52:07,727 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:52:18,818 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:52:29,605 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:52:45,156 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:52:58,796 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:52:58,974 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:56:01,586 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:56:20,618 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:56:31,992 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:56:47,393 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:57:01,995 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 07:57:13,819 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 08:32:07,335 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:32:18,935 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:33:31,530 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 08:33:33,934 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 08:33:36,785 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:33:45,764 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:35:35,813 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 08:35:38,337 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 08:35:41,781 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:35:52,783 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:36:47,070 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 08:36:50,026 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 08:36:52,409 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:36:59,863 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:40:18,004 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 08:40:20,661 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 08:40:23,639 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:40:29,942 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:42:56,316 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 08:42:59,160 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 08:43:01,261 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:43:08,858 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:43:20,963 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:45:15,619 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 08:45:18,588 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 08:45:20,532 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:45:28,964 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:47:51,714 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 08:47:54,165 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 08:47:57,677 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:48:05,777 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:49:26,716 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:50:28,544 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:50:37,383 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:51:02,823 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:51:26,171 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:51:40,857 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:51:46,454 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:51:49,699 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:51:57,742 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:52:06,807 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:52:41,437 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:52:53,605 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:55:23,169 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 08:55:26,099 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 08:55:29,223 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 08:55:32,512 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-25 08:55:40,955 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-25 08:56:48,424 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 08:56:51,037 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 08:56:52,764 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 08:56:59,068 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 08:58:00,675 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 08:58:03,471 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 08:59:38,065 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 08:59:43,785 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:00:16,989 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:00:30,805 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:01:27,720 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 09:01:30,713 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 09:01:31,462 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:01:34,189 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 09:01:52,310 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 09:02:40,466 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 09:02:43,145 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 09:02:45,171 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:02:52,100 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:02:58,573 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:07:04,524 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 09:07:07,432 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 09:08:17,177 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 09:08:19,624 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 09:08:23,689 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:08:30,939 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:08:52,873 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:08:58,990 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:10:46,095 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 09:10:48,472 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 09:10:55,594 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:11:02,259 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:11:22,146 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-10-25 09:11:35,265 views Uživatel jchar si prohlíží soutìž: Léto 2026 - C
+INFO 2026-10-25 09:13:05,620 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 09:13:08,408 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 09:13:16,622 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:13:22,422 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:13:51,699 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 09:13:54,428 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 09:14:00,295 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-25 09:14:06,732 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-25 09:14:48,122 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 09:14:50,884 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 09:14:53,011 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:14:58,544 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:15:05,077 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 09:15:58,878 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 09:16:01,827 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 09:16:02,913 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - D
+INFO 2026-10-25 09:16:09,798 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-25 09:16:15,904 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-25 09:17:10,661 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 09:17:13,311 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 09:17:14,528 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-25 09:17:20,655 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-25 09:17:28,294 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
