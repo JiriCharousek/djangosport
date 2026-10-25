@@ -635,9 +635,6 @@ def editovat_vysledek(request, pk):
             
             if je_odehrano:
                 zapas_obj.odehrano = True
-                # Pokud je zápas odehraný a datum chybí, AUTOMATICKY doplňujeme dnešní datum
-                if not zapas_obj.datum:
-                    zapas_obj.datum = timezone.now().date()
             else:
                 zapas_obj.odehrano = False
                 zapas_obj.datum = None  # Pokud není odehráno, datum resetujeme

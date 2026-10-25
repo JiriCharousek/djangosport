@@ -6833,3 +6833,7 @@ INFO 2026-10-25 15:11:22,165 views Uživatel jchar si prohlíží soutìž: Léto 2026 
 INFO 2026-10-25 15:11:28,829 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
 INFO 2026-10-25 15:11:30,608 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
 INFO 2026-10-25 15:11:32,152 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-25 15:39:40,146 autoreload Watching for file changes with StatReloader
+WARNING 2026-10-25 15:39:40,899 base Session data corrupted
+INFO 2026-10-25 15:45:41,723 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
+INFO 2026-10-25 15:45:44,355 autoreload Watching for file changes with StatReloader
