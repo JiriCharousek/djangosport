@@ -6844,3 +6844,20 @@ INFO 2026-10-25 17:43:07,423 views Uživatel jchar si prohlíží soutìž: Zima 26/27
 INFO 2026-10-25 17:43:11,668 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
 INFO 2026-10-25 17:45:46,292 autoreload C:\Users\jchar\djangoSport\core\urls.py changed, reloading.
 INFO 2026-10-25 17:45:48,421 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 18:03:12,517 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 18:04:22,884 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 18:04:56,456 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - Mixy
+INFO 2026-10-25 18:04:59,738 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+WARNING 2026-10-25 18:46:02,650 log Not Found: /media/hraci/ja_8x9tIBh.jpg
+INFO 2026-10-25 18:49:35,155 autoreload C:\Users\jchar\djangoSport\tenis_app\models.py changed, reloading.
+INFO 2026-10-25 18:49:37,985 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 18:53:00,477 autoreload Watching for file changes with StatReloader
+WARNING 2026-10-25 18:53:34,183 log Not Found: /media/hraci/ja_8x9tIBh.jpg
+WARNING 2026-10-25 18:55:01,692 log Not Found: /media/hraci/ja_8x9tIBh.jpg
+WARNING 2026-10-25 18:55:04,707 log Not Found: /media/hraci/ja_8x9tIBh.jpg
+WARNING 2026-10-25 18:55:24,196 log Not Found: /media/hraci/ja_8x9tIBh.jpg
+WARNING 2026-10-25 18:56:11,746 log Not Found: /media/hraci/kapela.jpeg
+WARNING 2026-10-25 18:56:59,098 log Not Found: /media/hraci/kapela.jpeg
+WARNING 2026-10-25 18:57:31,826 log Not Found: /media/hraci/kapela.jpeg
+WARNING 2026-10-25 18:58:15,401 log Not Found: /media/hraci/kapela.jpeg
+WARNING 2026-10-25 18:58:26,030 log Not Found: /media/hraci/kapela.jpeg

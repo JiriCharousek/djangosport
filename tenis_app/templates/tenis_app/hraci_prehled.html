@@ -136,16 +136,22 @@
                             <tr>
                                 <th style="width: 1%; text-align: left; vertical-align: middle; color: white !important;">#</th>
                                 <th style="width: 15%; text-align: left; padding-left: 15px; vertical-align: middle; color: white !important;">Jméno a příjmení</th>
-                                <th style="width: 2%; text-align: left; vertical-align: middle; color: white !important;">Ed</th>
-                                
+                                <th style="width: 2%; text-align: left; vertical-align: middle; color: white !important;">Edit</th>
+								<th style="width: 10%; text-align: center; color: white !important;">Liga</th>
+								<th style="width: 6%; text-align: center; vertical-align: middle; color: white !important;">Tel</th>
+								<th style="width: 10%; text-align: center; vertical-align: middle; color: white !important;">Email</th>
+								<th style="width: 20%; text-align: center; vertical-align: middle; color: white !important;">Info</th>
+								<th style="width: 4%; text-align: center; vertical-align: middle; color: white !important;">ročník</th>
+								<th style="width: 8%; text-align: center; vertical-align: middle; color: white !important;">datum narození</th>
+								                                
                                 <!-- Svisle otočené hlavičky pro KLUBY -->
-                                {% for klub_nazev in vsechny_kluby %}
+                                <!-- {% for klub_nazev in vsechny_kluby %}
                                     <th class="rotated-header" title="Klub: {{ klub_nazev }}">
                                         <div class="rotated-header-inner">
                                             <span>{{ klub_nazev }}</span>
                                         </div>
                                     </th>
-                                {% endfor %}
+                                {% endfor %} -->
 
                                 <!-- Svisle otočené hlavičky pro SOUTĚŽE -->
                                 <!-- {% for soutez in vsechny_souteze %}
@@ -168,9 +174,29 @@
                                     <td class="text-center">
                                         <a href="{% url 'tenis_app:hrac_edit' hrac.id %}" class="btn btn-sm btn-outline-primary border-0 bg-light" title="Upravit hráče">✏️</a>
                                     </td>
+									
+									<td class="fw-bold" style="padding-left: 15px;">
+                                        {{ hrac.klub }}
+                                    </td>
+									<td class="fw-bold" style="padding-left: 15px;">
+                                        {{ hrac.telefon }}
+                                    </td>
+									<td class="fw-bold" style="padding-left: 15px;">
+                                        {{ hrac.email }}
+                                    </td>
+									<td class="fw-bold" style="padding-left: 15px;">
+                                        {{ hrac.info }}
+                                    </td>
 
+									<td class="fw-bold" style="padding-left: 15px;">
+                                        {{ hrac.rocnik }}
+                                    </td>
+									
+									<td class="fw-bold" style="padding-left: 15px;">
+                                        {{ hrac.datum_narozeni }}
+                                    </td>
                                     <!-- Dynamické přepínače (radio) pro kluby -->
-                                    {% for klub_nazev in vsechny_kluby %}
+                                    <!-- {% for klub_nazev in vsechny_kluby %}
                                         <td class="text-center align-middle" style="background-color: #f8fafc;">
                                             <input type="radio" 
                                                    name="hrac_{{ hrac.id }}_klub" 
@@ -178,10 +204,8 @@
                                                    {% if hrac.klub == klub_nazev %}checked{% endif %} 
                                                    class="form-check-input m-0">
                                         </td>
-                                    {% endfor %}
-                                    <td>
-									    {% if hrac.info %}<br><span class="text-muted" style="font-size: 0.75rem;">{{ hrac.info }}</span>{% endif %}
-                                    </td>
+                                    {% endfor %} -->
+
                                     <!-- Dynamické checkboxy pro soutěže -->
                                     <!-- {% for soutez in vsechny_souteze %}
                                         <td class="text-center align-middle">
@@ -203,10 +227,10 @@
                 </div>
             </div>
             <!-- Patička s tlačítkem pro uložení změn -->
-            <div class="card-footer bg-light d-flex justify-content-between align-items-center py-3 px-4">
+           <!--  <div class="card-footer bg-light d-flex justify-content-between align-items-center py-3 px-4">
                 <span class="text-muted small">💡 Změny v klubech a soutěžích uložíš kliknutím na tlačítko.</span>
                 <button type="submit" class="btn btn-success px-4 shadow-sm">💾 Uložit změny</button>
-            </div>
+            </div> -->
         </div>
     </form>
 </div>

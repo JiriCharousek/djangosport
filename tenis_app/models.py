@@ -43,6 +43,9 @@ class Hrac(models.Model):
         related_name='hraci', 
         verbose_name="Přihlášen do soutěží"
     )
+    
+    datum_narozeni = models.DateField(blank=True, null=True, verbose_name="Datum narození")
+    rocnik = models.PositiveSmallIntegerField(blank=True, null=True, verbose_name="Ročník")
 
     @property
     def jmeno_split(self):
