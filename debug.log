@@ -6837,3 +6837,10 @@ INFO 2026-10-25 15:39:40,146 autoreload Watching for file changes with StatReloa
 WARNING 2026-10-25 15:39:40,899 base Session data corrupted
 INFO 2026-10-25 15:45:41,723 autoreload C:\Users\jchar\djangoSport\tenis_app\views.py changed, reloading.
 INFO 2026-10-25 15:45:44,355 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 16:17:25,252 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 16:18:29,034 autoreload Watching for file changes with StatReloader
+WARNING 2026-10-25 17:43:07,386 base Session data corrupted
+INFO 2026-10-25 17:43:07,423 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 17:43:11,668 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
+INFO 2026-10-25 17:45:46,292 autoreload C:\Users\jchar\djangoSport\core\urls.py changed, reloading.
+INFO 2026-10-25 17:45:48,421 autoreload Watching for file changes with StatReloader

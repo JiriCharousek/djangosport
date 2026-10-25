@@ -13,9 +13,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# Převede textovou hodnotu z Coolify (FALSE / True / atd.) na reálný booleovský typ
-debug_val = os.environ.get('DEBUG', 'False')
-DEBUG = str(debug_val).lower() in ('true', '1', 't', 'yes')
+# Bez explicitního DEBUG=True je ladicí režim vypnutý (bezpečné i při chybějící proměnné).
+DEBUG = os.environ.get('DEBUG', 'False').strip().lower() in ('true', '1', 't', 'yes')
 
 #ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ['sportadmin.cz', 'www.sportadmin.cz', '89.167.35.225','127.0.0.1' ]
@@ -211,9 +210,6 @@ SECURE_HSTS_PRELOAD = True
 # Důležité, pokud běžíš za proxy (např. Nginx v Dockeru)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-
-# Zajištění, že DEBUG je opravdu booleovská hodnota (pokud se tahá z os.environ)
-DEBUG = str(os.environ.get('DEBUG', 'True')).lower() in ('true', '1', 't', 'yes')
 
 if DEBUG:
     # LOKÁLNÍ PROSTŘEDÍ: Žádný prefix, aplikace běží v kořenu http://localhost:8000/
