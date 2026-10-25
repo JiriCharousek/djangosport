@@ -6824,3 +6824,12 @@ INFO 2026-10-25 09:17:14,528 views Uživatel jchar si prohlíží soutìž: Zima 26/27
 INFO 2026-10-25 09:17:20,655 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
 INFO 2026-10-25 09:17:28,294 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
 INFO 2026-10-25 10:21:51,832 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 10:23:19,305 autoreload Watching for file changes with StatReloader
+WARNING 2026-10-25 13:32:59,664 log Not Found: /agenda/
+INFO 2026-10-25 15:10:35,616 autoreload Watching for file changes with StatReloader
+INFO 2026-10-25 15:11:13,256 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 15:11:17,646 views Uživatel jchar si prohlíží soutìž: Léto 2026 - A
+INFO 2026-10-25 15:11:22,165 views Uživatel jchar si prohlíží soutìž: Léto 2026 - D
+INFO 2026-10-25 15:11:28,829 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - A
+INFO 2026-10-25 15:11:30,608 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - B
+INFO 2026-10-25 15:11:32,152 views Uživatel jchar si prohlíží soutìž: Zima 26/27 - C
